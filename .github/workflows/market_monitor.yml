@@ -1,0 +1,54 @@
+name: TSLA Market Monitor
+
+on:
+  schedule:
+    # Every 5 minutes Mon-Fri 13:30-19:55 UTC (9:30 AM - 3:55 PM ET)
+    - cron: "*/5 13 * * 1-5"
+    - cron: "*/5 14 * * 1-5"
+    - cron: "*/5 15 * * 1-5"
+    - cron: "*/5 16 * * 1-5"
+    - cron: "*/5 17 * * 1-5"
+    - cron: "*/5 18 * * 1-5"
+    - cron: "*/5 19 * * 1-5"
+  workflow_dispatch: # allow manual trigger from GitHub UI
+
+jobs:
+  monitor:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write  # needed to commit state back to repo
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          ref: claude/charming-edison-b7imkj
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+
+      - name: Install dependencies
+        run: pip install requests python-dotenv tzdata
+
+      - name: Write .env from secrets
+        run: |
+          cat > .env <<EOF
+          ALPACA_API_KEY=${{ secrets.ALPACA_API_KEY }}
+          ALPACA_SECRET_KEY=${{ secrets.ALPACA_SECRET_KEY }}
+          ALPACA_BASE_URL=https://paper-api.alpaca.markets/v2
+          EOF
+
+      - name: Run market monitor
+        run: python market_monitor.py
+
+      - name: Commit updated strategy state
+        run: |
+          git config user.name  "Claud-Trade Bot"
+          git config user.email "bot@claud-trade"
+          git add strategy_state.json
+          # only commit if something changed
+          git diff --cached --quiet || git commit -m "chore: update strategy state [skip ci]"
+          git push origin claude/charming-edison-b7imkj
