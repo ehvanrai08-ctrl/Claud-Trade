@@ -2,14 +2,9 @@ name: Wheel Strategy (TSLA)
 
 on:
   schedule:
-    # Every 15 minutes Mon-Fri during market hours (13:30-19:45 UTC = 9:30-3:45 PM ET)
-    - cron: "0,15,30,45 13 * * 1-5"
-    - cron: "0,15,30,45 14 * * 1-5"
-    - cron: "0,15,30,45 15 * * 1-5"
-    - cron: "0,15,30,45 16 * * 1-5"
-    - cron: "0,15,30,45 17 * * 1-5"
-    - cron: "0,15,30,45 18 * * 1-5"
-    - cron: "0,15,30,45 19 * * 1-5"
+    # Every 15 minutes Mon-Fri strictly within market hours (13:30-19:45 UTC = 9:30 AM-3:45 PM ET)
+    - cron: "30,45 13 * * 1-5"
+    - cron: "0,15,30,45 14-19 * * 1-5"
   workflow_dispatch:
 
 jobs:

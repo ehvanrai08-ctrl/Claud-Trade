@@ -2,8 +2,8 @@ name: Copy Trader (Congress)
 
 on:
   schedule:
-    # Every hour Mon-Fri during market hours (13:00-20:00 UTC)
-    - cron: "0 13,14,15,16,17,18,19,20 * * 1-5"
+    # Every hour Mon-Fri strictly within market hours (14:00-19:00 UTC = 10 AM-3 PM ET)
+    - cron: "0 14-19 * * 1-5"
   workflow_dispatch:
 
 jobs:

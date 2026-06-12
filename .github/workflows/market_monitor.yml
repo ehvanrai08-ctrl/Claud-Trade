@@ -2,15 +2,10 @@ name: TSLA Market Monitor
 
 on:
   schedule:
-    # Every 5 minutes Mon-Fri 13:30-19:55 UTC (9:30 AM - 3:55 PM ET)
-    - cron: "*/5 13 * * 1-5"
-    - cron: "*/5 14 * * 1-5"
-    - cron: "*/5 15 * * 1-5"
-    - cron: "*/5 16 * * 1-5"
-    - cron: "*/5 17 * * 1-5"
-    - cron: "*/5 18 * * 1-5"
-    - cron: "*/5 19 * * 1-5"
-  workflow_dispatch: # allow manual trigger from GitHub UI
+    # Every 5 minutes Mon-Fri strictly within market hours (13:30-19:55 UTC = 9:30 AM-3:55 PM ET)
+    - cron: "30,35,40,45,50,55 13 * * 1-5"
+    - cron: "*/5 14-19 * * 1-5"
+  workflow_dispatch:
 
 jobs:
   monitor:
