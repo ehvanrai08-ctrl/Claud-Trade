@@ -25,9 +25,11 @@ HEADERS = {
     "Content-Type": "application/json",
 }
 
-TRAIL_TRIGGER_PCT = 0.10   # activate trailing once up 10% from entry
-TRAIL_OFFSET_PCT  = 0.05   # trail stop sits 5% below running high
-REENTRY_PCT       = 0.02   # re-enter if price recovers 2% above stop after a fill
+TRAIL_TRIGGER_PCT  = 0.10   # activate trailing once up 10% from entry
+TRAIL_OFFSET_PCT   = 0.05   # trail stop sits 5% below running high (fallback if ATR unavailable)
+REENTRY_PCT        = 0.02   # re-enter if price recovers 2% above stop after a fill
+ATR_MULTIPLIER     = 2.0    # trail stop = HWM - (ATR * multiplier)
+DAILY_LOSS_LIMIT   = 0.02   # halt all trading if portfolio drops 2% in a single day
 
 logging.basicConfig(
     filename=f"{BASE_DIR}/monitor.log",
@@ -94,14 +96,61 @@ def get_position(symbol):
 
 
 def place_stop(symbol, qty, stop_price):
+    # Use stop_limit to avoid wash-trade rejection when ladder buy orders are open.
+    # Limit is set 1% below stop to ensure fill in fast-moving markets.
+    limit_price = round(stop_price * 0.99, 2)
     return api_post("/orders", {
-        "symbol": symbol,
-        "qty": str(qty),
-        "side": "sell",
-        "type": "stop",
-        "stop_price": str(round(stop_price, 2)),
+        "symbol":        symbol,
+        "qty":           str(qty),
+        "side":          "sell",
+        "type":          "stop_limit",
+        "stop_price":    str(round(stop_price, 2)),
+        "limit_price":   str(limit_price),
         "time_in_force": "gtc",
     })
+
+
+def get_atr(symbol, period=14):
+    """Calculate ATR from daily bars. Returns None if data unavailable."""
+    try:
+        r = requests.get(
+            f"https://data.alpaca.markets/v2/stocks/{symbol}/bars",
+            headers=HEADERS,
+            params={"timeframe": "1Day", "limit": period + 1, "adjustment": "raw"},
+        )
+        if not r.ok:
+            return None
+        bars = r.json().get("bars", [])
+        if len(bars) < 2:
+            return None
+        true_ranges = []
+        for i in range(1, len(bars)):
+            high  = bars[i]["h"]
+            low   = bars[i]["l"]
+            prev_close = bars[i-1]["c"]
+            tr = max(high - low, abs(high - prev_close), abs(low - prev_close))
+            true_ranges.append(tr)
+        return sum(true_ranges) / len(true_ranges)
+    except Exception:
+        return None
+
+
+def portfolio_daily_loss_exceeded():
+    """Returns True if portfolio has dropped more than DAILY_LOSS_LIMIT today."""
+    try:
+        r = requests.get(f"{BASE_URL}/account", headers=HEADERS)
+        acct = r.json()
+        equity      = float(acct["equity"])
+        last_equity = float(acct.get("last_equity") or equity)
+        if last_equity == 0:
+            return False
+        daily_return = (equity - last_equity) / last_equity
+        if daily_return <= -DAILY_LOSS_LIMIT:
+            log.warning(f"DAILY LOSS LIMIT HIT: {daily_return*100:.2f}% — halting all trading")
+            return True
+        return False
+    except Exception:
+        return False
 
 
 def place_bracket_buy(symbol, qty, stop_price):
@@ -122,6 +171,9 @@ def place_bracket_buy(symbol, qty, stop_price):
 def run():
     if not market_is_open():
         return  # silent exit outside market hours
+
+    if portfolio_daily_loss_exceeded():
+        return  # halt for the day
 
     state = load_state()
     symbol        = state["symbol"]
@@ -173,7 +225,12 @@ def run():
 
     # ── Raise the floor if trailing is active ────────────────────────────────
     if trailing:
-        new_stop = round(hwm * (1 - TRAIL_OFFSET_PCT), 2)
+        # ATR-based trailing: stop = HWM - (ATR * multiplier), fallback to fixed %
+        atr = get_atr(symbol)
+        if atr:
+            new_stop = round(hwm - (atr * ATR_MULTIPLIER), 2)
+        else:
+            new_stop = round(hwm * (1 - TRAIL_OFFSET_PCT), 2)
         if new_stop > current_stop:
             api_delete(f"/orders/{stop_order_id}")
             new_order = place_stop(symbol, entry_qty, new_stop)

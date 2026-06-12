@@ -24,10 +24,11 @@ HEADERS  = {
     "Content-Type":        "application/json",
 }
 
-QUIVER_URL   = "https://api.quiverquant.com/beta/live/congresstrading"
-STATE_FILE   = f"{BASE_DIR}/copy_trader_state.json"
+QUIVER_URL      = "https://api.quiverquant.com/beta/live/congresstrading"
+STATE_FILE      = f"{BASE_DIR}/copy_trader_state.json"
 MAX_TRADE_VALUE = 5000   # max $ per copied trade
 LOOKBACK_DAYS   = 14     # only copy trades filed in last 14 days
+MIN_CONVICTION  = 2      # require at least 2 politicians buying same ticker to copy
 
 logging.basicConfig(
     filename=f"{BASE_DIR}/copy_trader.log",
@@ -168,6 +169,15 @@ def run():
         save_state(state)
         return
 
+    # Build conviction map: tickers bought by 2+ politicians recently
+    all_recent_buys = {}
+    for t in trades:
+        if t.get("ReportDate","") >= cutoff and t.get("Transaction") == "Purchase" and t.get("Ticker"):
+            ticker = t["Ticker"].strip().upper()
+            buyers = all_recent_buys.setdefault(ticker, set())
+            buyers.add(t["Representative"])
+    high_conviction = {t for t, buyers in all_recent_buys.items() if len(buyers) >= MIN_CONVICTION}
+
     copied = state.get("copied_trades", [])
     new_copies = 0
 
@@ -199,13 +209,14 @@ def run():
             copied.append(trade_id)
             continue
 
-        # Size the trade
+        # Size by conviction: full size if 2+ politicians agree, half if solo
         price = get_price(ticker)
         if not price:
             log.warning(f"SKIP {ticker} — couldn't get price")
             continue
 
-        notional = min(MAX_TRADE_VALUE, price * 1)  # at least 1 share equivalent
+        conviction_mult = 1.0 if ticker in high_conviction else 0.5
+        notional = min(MAX_TRADE_VALUE * conviction_mult, price * 1)
 
         order = place_order(ticker, side, notional)
         if order:
