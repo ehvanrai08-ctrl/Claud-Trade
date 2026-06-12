@@ -1,0 +1,50 @@
+name: Wheel Strategy (TSLA)
+
+on:
+  schedule:
+    # Every 15 minutes Mon-Fri during market hours (13:30-19:45 UTC = 9:30-3:45 PM ET)
+    - cron: "0,15,30,45 13 * * 1-5"
+    - cron: "0,15,30,45 14 * * 1-5"
+    - cron: "0,15,30,45 15 * * 1-5"
+    - cron: "0,15,30,45 16 * * 1-5"
+    - cron: "0,15,30,45 17 * * 1-5"
+    - cron: "0,15,30,45 18 * * 1-5"
+    - cron: "0,15,30,45 19 * * 1-5"
+  workflow_dispatch:
+
+jobs:
+  wheel:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: claude/charming-edison-b7imkj
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - run: pip install requests python-dotenv tzdata
+
+      - name: Write .env
+        run: |
+          cat > .env <<EOF
+          ALPACA_API_KEY=${{ secrets.ALPACA_API_KEY }}
+          ALPACA_SECRET_KEY=${{ secrets.ALPACA_SECRET_KEY }}
+          ALPACA_BASE_URL=https://paper-api.alpaca.markets/v2
+          EOF
+
+      - name: Run wheel strategy
+        run: python wheel_strategy.py
+
+      - name: Commit state
+        run: |
+          git config user.name  "Claud-Trade Bot"
+          git config user.email "bot@claud-trade"
+          git add wheel_state.json 2>/dev/null || true
+          git diff --cached --quiet || git commit -m "chore: update wheel state [skip ci]"
+          git push origin claude/charming-edison-b7imkj
