@@ -1,0 +1,46 @@
+name: Post-Market Analysis & Improvements
+
+on:
+  schedule:
+    # 4:15 PM ET Mon-Fri (20:15 UTC) — 15 min after market close
+    - cron: "15 20 * * 1-5"
+  workflow_dispatch:
+
+jobs:
+  analyze:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: claude/charming-edison-b7imkj
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - run: pip install requests python-dotenv
+
+      - name: Write .env
+        run: |
+          cat > .env <<EOF
+          ALPACA_API_KEY=${{ secrets.ALPACA_API_KEY }}
+          ALPACA_SECRET_KEY=${{ secrets.ALPACA_SECRET_KEY }}
+          ALPACA_BASE_URL=https://paper-api.alpaca.markets/v2
+          EOF
+
+      - name: Run post-market analysis
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: python post_market_analysis.py
+
+      - name: Commit report and any code improvements
+        run: |
+          git config user.name  "Claud-Trade Bot"
+          git config user.email "bot@claud-trade"
+          git add reports/ market_monitor.py wheel_strategy.py copy_trader.py
+          git diff --cached --quiet || git commit -m "chore: post-market report + improvements $(date +%Y-%m-%d) [skip ci]"
+          git push origin claude/charming-edison-b7imkj
