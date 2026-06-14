@@ -21,6 +21,7 @@ import os
 import requests
 from datetime import datetime, timezone, timedelta
 from dotenv import dotenv_values
+from perf import record_trade
 
 BASE_DIR = "/home/user/Claud-Trade"
 config   = dotenv_values(f"{BASE_DIR}/.env")
@@ -190,6 +191,7 @@ def run():
             pnl = float(pos["unrealized_pl"]) if pos else 0.0
             if sell_all(symbol):
                 state["closed_pnl"] = state.get("closed_pnl", 0.0) + pnl
+                record_trade("mean_reversion", symbol, pnl, exit_reason)
                 log.info(f"EXIT {symbol}: {exit_reason} | P&L ${pnl:+.2f}")
                 print(f"[MR] EXIT {symbol}: {exit_reason} | P&L ${pnl:+.2f}")
                 del entries[symbol]

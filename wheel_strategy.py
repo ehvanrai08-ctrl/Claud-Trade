@@ -15,6 +15,7 @@ import os
 import requests
 from datetime import datetime, timedelta
 from dotenv import dotenv_values
+from perf import record_trade
 
 BASE_DIR = "/home/user/Claud-Trade"
 config = dotenv_values(f"{BASE_DIR}/.env")
@@ -249,6 +250,7 @@ def check_early_close(state):
     if profit_pct >= EARLY_CLOSE_PCT:
         order = close_contract(contract["symbol"])
         locked = (sell_price - current_price) * 100
+        record_trade("wheel", contract["symbol"], locked, "early close 50% profit")
         log.info(f"EARLY CLOSE ({profit_pct*100:.0f}% profit): {contract['symbol']} buy_back=${current_price:.2f} | locked ${locked:.2f} | order {order['id']}")
         print(f"[WHEEL] Early close at {profit_pct*100:.0f}% profit: {contract['symbol']} | locked in ${locked:.2f}")
         state["active_contract"] = None
@@ -282,6 +284,8 @@ def check_assignment_or_expiry(state):
                 print(f"[WHEEL] Put assigned — own {stock_pos['qty']} shares @ ${cost_basis:.2f}. Moving to Stage 2.")
             else:
                 # Expired worthless — back to Stage 1
+                kept = contract.get("sell_price", 0) * 100
+                record_trade("wheel", contract["symbol"], kept, "put expired worthless")
                 state["stage"]           = 1
                 state["active_contract"] = None
                 state["cycles"]         += 1
@@ -300,6 +304,8 @@ def check_assignment_or_expiry(state):
                 print(f"[WHEEL] Shares called away at ${contract['strike']}. Back to Stage 1.")
             else:
                 # Call expired worthless
+                kept = contract.get("sell_price", 0) * 100
+                record_trade("wheel", contract["symbol"], kept, "call expired worthless")
                 state["stage"]           = 2
                 state["active_contract"] = None
                 state["cycles"]         += 1

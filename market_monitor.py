@@ -11,7 +11,8 @@ import json
 import logging
 import os
 import requests
-from datetime import datetime, timezone
+from perf import record_trade
+from datetime import datetime, timezone, timedelta
 from dotenv import dotenv_values
 from zoneinfo import ZoneInfo
 
@@ -113,16 +114,19 @@ def place_stop(symbol, qty, stop_price):
 def get_atr(symbol, period=14):
     """Calculate ATR from daily bars. Returns None if data unavailable."""
     try:
+        start = (datetime.now(timezone.utc) - timedelta(days=period * 4)).strftime("%Y-%m-%dT%H:%M:%SZ")
         r = requests.get(
             f"https://data.alpaca.markets/v2/stocks/{symbol}/bars",
             headers=HEADERS,
-            params={"timeframe": "1Day", "limit": period + 1, "adjustment": "raw"},
+            params={"timeframe": "1Day", "start": start, "limit": period + 1,
+                    "adjustment": "raw", "sort": "desc"},
         )
         if not r.ok:
             return None
         bars = r.json().get("bars", [])
         if len(bars) < 2:
             return None
+        bars = list(reversed(bars))  # desc → chronological for TR calc
         true_ranges = []
         for i in range(1, len(bars)):
             high  = bars[i]["h"]
@@ -199,6 +203,8 @@ def run():
         stop_order = get_order(stop_order_id)
         if stop_order and stop_order["status"] == "filled":
             fill = float(stop_order.get("filled_avg_price") or current_stop)
+            realized = (fill - entry_price) * entry_qty
+            record_trade("tsla_trailing", symbol, realized, "stop hit")
             log.info(f"STOP HIT: sold {entry_qty} {symbol} @ ${fill:.2f}")
             print(f"[STOP HIT] Sold {entry_qty} {symbol} @ ${fill:.2f}")
 

@@ -62,6 +62,12 @@ def build_context():
     positions = get_positions()
     orders    = get_orders_today()
 
+    try:
+        from performance_tracker import summary_text
+        perf_summary = summary_text()
+    except Exception as e:
+        perf_summary = f"PERFORMANCE: tracker error — {e}"
+
     equity      = float(acct.get("equity", 0))
     last_equity = float(acct.get("last_equity", equity))
     daily_pnl   = equity - last_equity
@@ -81,6 +87,8 @@ def build_context():
 
     return f"""
 DATE: {TODAY}
+
+{perf_summary}
 
 ACCOUNT
   Equity:       ${equity:,.2f}

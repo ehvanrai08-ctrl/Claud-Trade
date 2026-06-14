@@ -24,6 +24,7 @@ import requests
 from datetime import datetime, timedelta, timezone
 from zoneinfo import ZoneInfo
 from dotenv import dotenv_values
+from perf import record_trade
 
 BASE_DIR = "/home/user/Claud-Trade"
 config   = dotenv_values(f"{BASE_DIR}/.env")
@@ -115,19 +116,25 @@ def get_session_levels(bars_5m):
     }
 
 
-def detect_liquidity_sweep(bars_5m, levels):
+def detect_liquidity_sweep(bars_5m, levels=None):
     """
-    Check if most recent candle swept a key level.
-    Returns 'short' if swept above a high, 'long' if swept below a low, else None.
+    Check if the most recent candle swept a key level.
+    Levels are computed from PRIOR bars (excluding the current candle) so the
+    current candle can actually breach them — comparing against a level that
+    includes itself would never trigger.
+    Returns 'short' if swept above a prior high, 'long' if swept below a prior low.
     """
-    if not bars_5m or len(bars_5m) < 2 or not levels:
+    if not bars_5m or len(bars_5m) < 3:
         return None
-    last = bars_5m[-1]
-    prev_levels_high = max(levels["session_high"], levels["hourly_high"])
-    prev_levels_low  = min(levels["session_low"],  levels["hourly_low"])
-    if last["h"] > prev_levels_high:
+    last  = bars_5m[-1]
+    prior = bars_5m[:-1]
+    # Hourly window = last 12 prior bars (1 hour of 5-min bars)
+    recent = prior[-12:] if len(prior) >= 12 else prior
+    prior_high = max(max(b["h"] for b in prior), max(b["h"] for b in recent))
+    prior_low  = min(min(b["l"] for b in prior), min(b["l"] for b in recent))
+    if last["h"] > prior_high:
         return "short"
-    if last["l"] < prev_levels_low:
+    if last["l"] < prior_low:
         return "long"
     return None
 
@@ -462,6 +469,7 @@ def run():
         if hit_stop or hit_target:
             reason = "TARGET" if hit_target else "STOP"
             close_position(sym)
+            record_trade("tjr", sym, pl, reason)
             state["phase"]  = "done"
             state["result"] = f"{reason} @ ${price:.2f} | P&L=${pl:+.2f}"
             log.info(f"{reason} HIT: closed {sym} @ ${price:.2f} | P&L={pl:+.2f}")

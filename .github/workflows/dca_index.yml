@@ -1,0 +1,44 @@
+name: DCA Index Base (VOO)
+
+on:
+  schedule:
+    # Every Monday 10:00 AM ET (14:00 UTC)
+    - cron: "0 14 * * 1"
+  workflow_dispatch:
+
+jobs:
+  dca:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: claude/charming-edison-b7imkj
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - run: pip install requests python-dotenv
+
+      - name: Write .env
+        run: |
+          cat > .env <<EOF
+          ALPACA_API_KEY=${{ secrets.ALPACA_API_KEY }}
+          ALPACA_SECRET_KEY=${{ secrets.ALPACA_SECRET_KEY }}
+          ALPACA_BASE_URL=https://paper-api.alpaca.markets/v2
+          EOF
+
+      - name: Run DCA
+        run: python dca_index.py
+
+      - name: Commit state
+        run: |
+          git config user.name  "Claud-Trade Bot"
+          git config user.email "bot@claud-trade"
+          git add dca_state.json 2>/dev/null || true
+          git diff --cached --quiet || git commit -m "chore: update DCA state [skip ci]"
+          git push origin claude/charming-edison-b7imkj
