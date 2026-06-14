@@ -43,6 +43,11 @@ ET         = ZoneInfo("America/New_York")
 STATE_FILE = f"{BASE_DIR}/tjr_state.json"
 TRADE_SIZE = 2000   # $ per trade
 
+# Time Theory — only trade inside the New York killzone.
+# TJR: "No Time, No Trade." Volatility outside killzones is retail noise.
+NY_KILLZONE_START = (9, 30)   # 9:30 AM ET
+NY_KILLZONE_END   = (11, 0)   # 11:00 AM ET
+
 logging.basicConfig(
     filename=f"{BASE_DIR}/tjr.log",
     level=logging.INFO,
@@ -76,12 +81,20 @@ def now_et():
 
 def session_open_et():
     n = now_et()
-    return n.replace(hour=9, minute=30, second=0, microsecond=0)
+    return n.replace(hour=NY_KILLZONE_START[0], minute=NY_KILLZONE_START[1],
+                     second=0, microsecond=0)
 
 
 def cutoff_et():
     n = now_et()
-    return n.replace(hour=10, minute=30, second=0, microsecond=0)
+    return n.replace(hour=NY_KILLZONE_END[0], minute=NY_KILLZONE_END[1],
+                     second=0, microsecond=0)
+
+
+def in_killzone():
+    """Time Theory filter: only trade inside the NY killzone window."""
+    n = now_et()
+    return session_open_et() <= n <= cutoff_et()
 
 
 # ── Technical analysis ────────────────────────────────────────────────────────
@@ -117,6 +130,40 @@ def detect_liquidity_sweep(bars_5m, levels):
     if last["l"] < prev_levels_low:
         return "long"
     return None
+
+
+def detect_smt_divergence(spy_bars, qqq_bars, direction, lookback=12):
+    """
+    SMT Divergence — the institutional footprint / 'crack in correlation'.
+    SPY and QQQ normally move together. A divergence means one swept a key
+    level while the other FAILED to confirm, signaling smart-money reversal.
+
+    direction='short' (bearish SMT): one index makes a HIGHER high (sweeps
+        liquidity) while the other makes a LOWER high (fails to confirm).
+    direction='long' (bullish SMT): one index makes a LOWER low (sweeps)
+        while the other makes a HIGHER low (holds = institutional strength).
+
+    Returns True if a confirming divergence exists for the given direction.
+    """
+    if len(spy_bars) < lookback + 2 or len(qqq_bars) < lookback + 2:
+        return False
+
+    # Split each into a prior window and the most recent window to compare swings
+    spy_prev, spy_now = spy_bars[-(lookback*2):-lookback], spy_bars[-lookback:]
+    qqq_prev, qqq_now = qqq_bars[-(lookback*2):-lookback], qqq_bars[-lookback:]
+    if not (spy_prev and spy_now and qqq_prev and qqq_now):
+        return False
+
+    if direction == "short":
+        spy_higher_high = max(b["h"] for b in spy_now) > max(b["h"] for b in spy_prev)
+        qqq_higher_high = max(b["h"] for b in qqq_now) > max(b["h"] for b in qqq_prev)
+        # One makes a higher high, the other fails (lower high) = bearish SMT
+        return spy_higher_high != qqq_higher_high
+    else:
+        spy_lower_low = min(b["l"] for b in spy_now) < min(b["l"] for b in spy_prev)
+        qqq_lower_low = min(b["l"] for b in qqq_now) < min(b["l"] for b in qqq_prev)
+        # One makes a lower low, the other holds (higher low) = bullish SMT
+        return spy_lower_low != qqq_lower_low
 
 
 def detect_bos_5m(bars_5m, direction):
@@ -261,21 +308,21 @@ def run():
 
     et = now_et()
 
-    # Only trade 9:30–10:30 AM ET
+    # Time Theory: only trade inside the NY killzone (9:30–11:00 AM ET)
     open_time   = session_open_et()
     cutoff_time = cutoff_et()
 
     if et < open_time:
         return
     if et > cutoff_time:
-        # Past cutoff — close any open position and mark done
+        # Past killzone — close any open position and mark done
         state = load_state()
         if state["phase"] == "in_trade" and state.get("symbol"):
             sym = state["symbol"]
             pos = get_position(sym)
             if pos:
                 close_position(sym)
-                log.info(f"CUTOFF: closed {sym} at 10:30 ET")
+                log.info(f"KILLZONE END: closed {sym} at 11:00 ET")
             state["phase"] = "done"
             save_state(state)
         return
@@ -321,17 +368,22 @@ def run():
             log.info(f"STEP 1 COMPLETE: liquidity sweep detected — direction={sweep}")
             print(f"[TJR] Step 1: Liquidity sweep ({sweep})")
 
-    # ── Phase: swept — look for 5-min reversal ────────────────────────────────
+    # ── Phase: swept — look for 5-min reversal + SMT divergence ───────────────
     elif phase == "swept":
         d = direction
         spy_rev = detect_bos_5m(spy_5m, d) or detect_inverse_fvg_5m(spy_5m, d)
-        qqq_rev = detect_bos_5m(qqq_5m, d) or detect_inverse_fvg_5m(qqq_5m, d)
 
-        # Both must confirm OR at least SPY (larger/more reliable)
-        if spy_rev:
+        # SMT divergence is a required confluence: proves the reversal is
+        # institutionally backed (one index sweeps, the other refuses to confirm).
+        smt = detect_smt_divergence(spy_5m, qqq_5m, d)
+
+        if spy_rev and smt:
             state["phase"] = "reversed"
-            log.info(f"STEP 2 COMPLETE: 5-min reversal confirmed ({d})")
-            print(f"[TJR] Step 2: 5-min reversal confirmed ({d})")
+            log.info(f"STEP 2 COMPLETE: 5-min reversal + SMT divergence confirmed ({d})")
+            print(f"[TJR] Step 2: 5-min reversal + SMT divergence confirmed ({d})")
+        elif spy_rev and not smt:
+            log.info(f"Reversal seen but NO SMT divergence — waiting for institutional confirmation")
+            print(f"[TJR] Reversal seen but no SMT divergence — skipping")
 
     # ── Phase: reversed — look for 1-min retrace ─────────────────────────────
     elif phase == "reversed":

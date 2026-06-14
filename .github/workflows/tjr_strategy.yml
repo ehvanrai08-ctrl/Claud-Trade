@@ -2,10 +2,11 @@ name: TJR Strategy (SPY/QQQ Day Trade)
 
 on:
   schedule:
-    # Every 2 minutes Mon-Fri 9:30–10:30 AM ET (13:30–14:30 UTC)
-    # TJR only trades the first hour — no point running after 10:30
+    # Every 2 minutes Mon-Fri inside the NY killzone 9:30–11:00 AM ET (13:30–15:00 UTC)
+    # Time Theory: only the killzone window is tradeable
     - cron: "30,32,34,36,38,40,42,44,46,48,50,52,54,56,58 13 * * 1-5"
-    - cron: "0,2,4,6,8,10,12,14,16,18,20,22,24,26,28,30 14 * * 1-5"
+    - cron: "*/2 14 * * 1-5"
+    - cron: "0 15 * * 1-5"
   workflow_dispatch:
 
 jobs:
