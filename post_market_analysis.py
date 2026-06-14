@@ -105,6 +105,9 @@ COPY TRADER STATE
 TJR STRATEGY STATE
 {read_file(f"{BASE_DIR}/tjr_state.json")}
 
+MEAN REVERSION STATE
+{read_file(f"{BASE_DIR}/mean_reversion_state.json")}
+
 MONITOR LOG (last 80 lines)
 {tail_log(f"{BASE_DIR}/monitor.log")}
 
@@ -116,6 +119,9 @@ COPY TRADER LOG (last 80 lines)
 
 TJR LOG (last 80 lines)
 {tail_log(f"{BASE_DIR}/tjr.log")}
+
+MEAN REVERSION LOG (last 80 lines)
+{tail_log(f"{BASE_DIR}/mean_reversion.log")}
 """.strip()
 
 
