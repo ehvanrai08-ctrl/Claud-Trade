@@ -102,6 +102,9 @@ WHEEL STATE
 COPY TRADER STATE
 {read_file(f"{BASE_DIR}/copy_trader_state.json")}
 
+TJR STRATEGY STATE
+{read_file(f"{BASE_DIR}/tjr_state.json")}
+
 MONITOR LOG (last 80 lines)
 {tail_log(f"{BASE_DIR}/monitor.log")}
 
@@ -110,6 +113,9 @@ WHEEL LOG (last 80 lines)
 
 COPY TRADER LOG (last 80 lines)
 {tail_log(f"{BASE_DIR}/copy_trader.log")}
+
+TJR LOG (last 80 lines)
+{tail_log(f"{BASE_DIR}/tjr.log")}
 """.strip()
 
 
