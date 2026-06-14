@@ -41,3 +41,6 @@ This project is indexed by GitNexus as **Claud-Trade** (280 symbols, 542 relatio
 | Index, status, clean, wiki CLI commands | `.claude/skills/gitnexus/gitnexus-cli/SKILL.md` |
 
 <!-- gitnexus:end -->
+
+<!-- Opening the GitNexus web UI / local FTS setup: see GITNEXUS.md -->
+
