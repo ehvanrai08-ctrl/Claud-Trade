@@ -1,0 +1,14 @@
+{
+  "stage": 1,
+  "active_contract": {
+    "symbol": "TSLA260702P00365000",
+    "type": "put",
+    "strike": 365.0,
+    "expiration": "2026-07-02",
+    "sell_price": 2.5,
+    "order_id": "28cbc268-69cc-44f2-8afb-6d5bb16afe37"
+  },
+  "cost_basis": null,
+  "total_premium": 250.0,
+  "cycles": 0
+}
