@@ -14,7 +14,7 @@ import requests
 from datetime import datetime, timedelta
 from dotenv import dotenv_values
 
-BASE_DIR = "/home/user/Claud-Trade"
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 config = dotenv_values(f"{BASE_DIR}/.env")
 
 BASE_URL = config["ALPACA_BASE_URL"]
