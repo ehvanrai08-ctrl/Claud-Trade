@@ -1,18 +1,4 @@
 {
-  "by_strategy": {
-    "test_strategy": {
-      "trades": 1,
-      "wins": 1,
-      "losses": 0,
-      "breakeven": 0,
-      "total_pnl": 100.0,
-      "gross_win": 100.0,
-      "gross_loss": 0.0,
-      "win_rate": 100.0,
-      "avg_win": 100.0,
-      "avg_loss": 0.0,
-      "profit_factor": null
-    }
-  },
-  "total_trades": 1
+  "by_strategy": {},
+  "total_trades": 0
 }
