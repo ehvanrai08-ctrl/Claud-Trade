@@ -80,7 +80,7 @@ def build_context():
     ) or "  (none)"
 
     order_summary = "\n".join(
-        f"  {o['submitted_at'][:16]}  {o['symbol']:6} {o['side']:4} {o['qty']:>4}"
+        f"  {o['submitted_at'][:16]}  {o['symbol']:6} {o['side']:4} {str(o['qty'] or o.get('notional','?')):>8}"
         f"  {o['type']:12} status={o['status']}"
         for o in orders
     ) or "  (none)"
