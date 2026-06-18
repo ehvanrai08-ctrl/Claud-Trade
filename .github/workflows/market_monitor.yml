@@ -2,14 +2,24 @@ name: TSLA Market Monitor
 
 on:
   schedule:
-    # Every 5 minutes Mon-Fri strictly within market hours (13:30-19:55 UTC = 9:30 AM-3:55 PM ET)
-    - cron: "30,35,40,45,50,55 13 * * 1-5"
-    - cron: "*/5 14-19 * * 1-5"
+    # Start a self-looping job at market open (13:30 UTC = 9:30 AM ET)
+    - cron: "30 13 * * 1-5"
+    # Handoff/relaunch at 2 PM ET (18:00 UTC) to cover the close past the
+    # runtime cap, and to self-heal if the morning job died.
+    - cron: "0 18 * * 1-5"
   workflow_dispatch:
+
+# Only one monitor loop at a time. A new trigger cancels the running loop and
+# takes over cleanly (state is pushed on every meaningful change, so nothing
+# critical is lost on handoff).
+concurrency:
+  group: market-monitor
+  cancel-in-progress: true
 
 jobs:
   monitor:
     runs-on: ubuntu-latest
+    timeout-minutes: 350   # below GitHub's 6-hour hard limit; loop self-caps at 330
     permissions:
       contents: write  # needed to commit state back to repo
 
@@ -36,14 +46,17 @@ jobs:
           ALPACA_BASE_URL=https://paper-api.alpaca.markets/v2
           EOF
 
-      - name: Run market monitor
-        run: python market_monitor.py
-
-      - name: Commit updated strategy state
+      - name: Configure git (for in-loop state pushes)
         run: |
           git config user.name  "Claud-Trade Bot"
           git config user.email "bot@claud-trade"
+
+      - name: Run market monitor (self-looping)
+        run: python market_monitor.py
+
+      - name: Commit final strategy state
+        if: always()   # also runs if the loop exits at the runtime cap
+        run: |
           git add strategy_state.json
-          # only commit if something changed
           git diff --cached --quiet || git commit -m "chore: update strategy state [skip ci]"
-          git push origin claude/charming-edison-b7imkj
+          git push origin claude/charming-edison-b7imkj || true
