@@ -137,7 +137,17 @@ MEAN REVERSION LOG (last 80 lines)
 
 def call_claude(context):
     if not ANTHROPIC_KEY:
-        return "ANTHROPIC_API_KEY not set — skipping AI analysis."
+        # Distinguish "GitHub never injected the var" from "injected but empty"
+        # so a manual run makes the cause obvious instead of guessing.
+        present = "ANTHROPIC_API_KEY" in os.environ
+        if present:
+            return ("ANTHROPIC_API_KEY was injected by GitHub but is EMPTY — "
+                    "the repository secret exists with no value. Re-save it under "
+                    "Settings → Secrets and variables → Actions.")
+        return ("ANTHROPIC_API_KEY not present in the environment — the workflow "
+                "did not inject it. Check the secret name is exactly ANTHROPIC_API_KEY "
+                "and that it is a repository secret (not an environment secret), "
+                "then re-run.")
 
     market_monitor  = read_file(f"{BASE_DIR}/market_monitor.py")
     wheel_strategy  = read_file(f"{BASE_DIR}/wheel_strategy.py")
