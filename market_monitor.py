@@ -267,6 +267,7 @@ def tick():
         if atr:
             new_stop = round(hwm - (atr * ATR_MULTIPLIER), 2)
         else:
+            log.warning(f"ATR unavailable for {symbol} — falling back to fixed {TRAIL_OFFSET_PCT*100:.0f}% offset")
             new_stop = round(hwm * (1 - TRAIL_OFFSET_PCT), 2)
         if new_stop > current_stop:
             api_delete(f"/orders/{stop_order_id}")

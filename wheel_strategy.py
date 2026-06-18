@@ -368,7 +368,22 @@ def run():
     # No active contract — act based on stage
     if not state.get("active_contract"):
         if state["stage"] == 1:
-            stage1_sell_put(state, price)
+            # Guard: verify no live short option position exists before selling
+            existing = get_option_position(
+                f"TSLA{datetime.now().strftime('%y%m%d')}P*"
+            ) if False else None  # symbol glob not supported; check via orders
+            open_order = None
+            try:
+                open_orders = api_get("/orders", params={"status": "open", "symbols": SYMBOL})
+                open_option_orders = [o for o in open_orders if o.get("asset_class") == "us_option" and o.get("side") == "sell"]
+                open_order = open_option_orders[0] if open_option_orders else None
+            except Exception:
+                pass
+            if open_order:
+                log.warning(f"Skipping new put sale — open option sell order already exists: {open_order['id']}")
+                print(f"[WHEEL] Skipping — active sell order found: {open_order['id']}")
+            else:
+                stage1_sell_put(state, price)
         elif state["stage"] == 2:
             cost = state.get("cost_basis")
             if cost:

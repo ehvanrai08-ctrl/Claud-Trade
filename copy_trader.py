@@ -143,8 +143,14 @@ def run():
     state = load_state()
     trades = get_congress_trades()
 
-    # Pick or stick with tracked politician
-    politician = state.get("tracked_politician") or pick_best_politician(trades)
+    # Re-evaluate best politician weekly to avoid locking onto a stale pick
+    last_eval = state.get("last_politician_eval", "")
+    week_ago  = (datetime.now() - timedelta(days=7)).strftime("%Y-%m-%d")
+    if not state.get("tracked_politician") or last_eval < week_ago:
+        politician = pick_best_politician(trades)
+        state["last_politician_eval"] = datetime.now().strftime("%Y-%m-%d")
+    else:
+        politician = state.get("tracked_politician")
     if not politician:
         log.warning("No politician found to track")
         return
