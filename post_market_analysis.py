@@ -201,23 +201,114 @@ Keep the report under 400 words."""
 # ── Apply code patches ────────────────────────────────────────────────────────
 
 def apply_patches(analysis_text):
-    """Parse FILE/OLD/NEW blocks from Claude's response and apply them."""
+    """Parse FILE/OLD/NEW blocks from Claude's response and apply them.
+
+    Every patch is syntax-checked with py_compile before being kept. If a
+    patch makes the file fail to compile, it is rolled back immediately so a
+    bad AI suggestion can never crash a live trading bot. Returns
+    (applied, rejected) where rejected is a list of (filename, reason).
+    """
     import re
+    import py_compile
     pattern = r"FILE:\s*(\S+)\nOLD:\n```[^\n]*\n(.*?)```\nNEW:\n```[^\n]*\n(.*?)```"
     patches = re.findall(pattern, analysis_text, re.DOTALL)
-    applied = []
+    applied, rejected = [], []
     for filename, old_code, new_code in patches:
-        filepath = f"{BASE_DIR}/{filename.strip()}"
+        fname    = filename.strip()
+        filepath = f"{BASE_DIR}/{fname}"
         if not os.path.exists(filepath):
+            rejected.append((fname, "file not found"))
             continue
         with open(filepath) as f:
-            content = f.read()
-        if old_code.strip() in content:
-            content = content.replace(old_code.strip(), new_code.strip(), 1)
+            original = f.read()
+        if old_code.strip() not in original:
+            rejected.append((fname, "OLD snippet did not match current code"))
+            continue
+        patched = original.replace(old_code.strip(), new_code.strip(), 1)
+        with open(filepath, "w") as f:
+            f.write(patched)
+        # Validate: the patched file must still compile, or we revert it.
+        try:
+            py_compile.compile(filepath, doraise=True)
+            applied.append(fname)
+        except py_compile.PyCompileError as e:
             with open(filepath, "w") as f:
-                f.write(content)
-            applied.append(filename.strip())
-    return applied
+                f.write(original)  # roll back — never commit broken code
+            rejected.append((fname, f"syntax error, reverted: {str(e)[:120]}"))
+    return applied, rejected
+
+
+# ── Local rule-based analysis (no API, always runs) ───────────────────────────
+
+def local_analysis():
+    """Deterministic checks computed purely from live account data.
+
+    Runs with zero external dependencies so the report is always useful even
+    when the Claude API is unavailable (no key / no credits). Every line is
+    derived from real numbers — nothing is inferred or predicted.
+    """
+    acct      = get_account()
+    positions = get_positions()
+    lines = []
+
+    equity      = float(acct.get("equity", 0) or 0)
+    last_equity = float(acct.get("last_equity", equity) or equity)
+    cash        = float(acct.get("cash", 0) or 0)
+    daily_pnl   = equity - last_equity
+
+    lines.append(f"- Equity ${equity:,.2f} | day {daily_pnl:+,.2f} "
+                 f"({(daily_pnl/last_equity*100) if last_equity else 0:+.2f}%) "
+                 f"| cash {(cash/equity*100) if equity else 0:.0f}% of book")
+
+    if not positions:
+        lines.append("- No open positions.")
+        return "\n".join(lines)
+
+    total_unreal = sum(float(p.get("unrealized_pl", 0) or 0) for p in positions)
+    lines.append(f"- {len(positions)} open positions | total unrealized ${total_unreal:+,.2f}")
+
+    # Winners / losers, sorted by P&L
+    ranked = sorted(positions, key=lambda p: float(p.get("unrealized_pl", 0) or 0), reverse=True)
+    for p in ranked:
+        pl   = float(p.get("unrealized_pl", 0) or 0)
+        plpc = float(p.get("unrealized_plpc", 0) or 0) * 100
+        flag = ""
+        if plpc <= -20:
+            flag = "  ⚠ down >20%"
+        lines.append(f"    {p['symbol']:22} P&L ${pl:+,.2f} ({plpc:+.1f}%){flag}")
+
+    # Option expiry warnings (parse OCC symbols: ROOT + YYMMDD + C/P + 8-digit strike)
+    for p in positions:
+        sym = p["symbol"]
+        if len(sym) >= 16 and sym[-9] in ("C", "P") and sym[-8:].isdigit():
+            try:
+                exp_date = datetime.strptime(sym[-15:-9], "%y%m%d").date()
+                days = (exp_date - datetime.utcnow().date()).days
+                if days <= 10:
+                    kind = "call" if sym[-9] == "C" else "put"
+                    lines.append(f"- ⚠ Option {sym} ({kind}) expires in {days} day(s) on {exp_date}.")
+            except Exception:
+                pass
+
+    # TSLA trailing-stop proximity, straight from strategy_state.json
+    try:
+        st = json.loads(read_file(f"{BASE_DIR}/strategy_state.json"))
+        tsla = next((p for p in positions if p["symbol"] == st.get("symbol")), None)
+        if tsla:
+            price   = float(tsla["current_price"])
+            entry   = float(st.get("entry_price", 0) or 0)
+            stop    = float(st.get("current_stop", 0) or 0)
+            trigger = entry * 1.10
+            if st.get("trailing_active"):
+                lines.append(f"- {st['symbol']} trailing active | ${price:.2f}, stop ${stop:.2f} "
+                             f"({(price-stop)/price*100:.1f}% above stop).")
+            elif entry:
+                lines.append(f"- {st['symbol']} ${price:.2f} | trailing arms at ${trigger:.2f} "
+                             f"({(trigger-price)/price*100:+.1f}% away).")
+    except Exception:
+        pass
+
+    return "\n".join(lines)
 
 
 # ── Save report ───────────────────────────────────────────────────────────────
@@ -235,16 +326,27 @@ def save_report(context, analysis):
 
 def run():
     print(f"Post-market analysis — {TODAY}")
-    context  = build_context()
-    analysis = call_claude(context)
-    patches  = apply_patches(analysis)
-    path     = save_report(context, analysis)
+    context = build_context()
+
+    # Deterministic analysis always runs (free, no API).
+    local = local_analysis()
+
+    # AI analysis layers on top when the API is available.
+    ai = call_claude(context)
+    applied, rejected = apply_patches(ai)
+
+    analysis = f"### Automated checks (no API required)\n{local}\n\n### AI analysis\n{ai}"
+    if applied:
+        analysis += f"\n\n### Code improvements applied (syntax-verified)\n" + \
+                    "\n".join(f"- {f}" for f in applied)
+    if rejected:
+        analysis += f"\n\n### Patches rejected (not applied)\n" + \
+                    "\n".join(f"- {f}: {reason}" for f, reason in rejected)
+
+    path = save_report(context, analysis)
 
     print(f"Report saved: {path}")
-    if patches:
-        print(f"Code improvements applied to: {', '.join(patches)}")
-    else:
-        print("No code patches applied today.")
+    print(f"Patches applied: {applied or 'none'} | rejected: {len(rejected)}")
     print("\n--- ANALYSIS ---")
     print(analysis)
 
