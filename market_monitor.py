@@ -245,7 +245,10 @@ def tick():
                 log.info(f"RE-ENTRY: bought {entry_qty} {symbol} @ market, new stop ${new_stop:.2f} | order {order['id']}")
                 print(f"[RE-ENTRY] Bought {entry_qty} {symbol} @ market | stop ${new_stop:.2f}")
                 state["entry_price"]   = price
-                state["stop_order_id"] = order["legs"][1]["id"]  # stop leg
+                legs = order.get("legs", [])
+                stop_leg = next((l for l in legs if l.get("type") == "stop_loss"), None)
+                stop_leg_id = stop_leg["id"] if stop_leg else (legs[1]["id"] if len(legs) > 1 else order["id"])
+                state["stop_order_id"] = stop_leg_id
                 state["current_stop"]  = new_stop
                 state["high_water_mark"] = price
                 state["trailing_active"] = True

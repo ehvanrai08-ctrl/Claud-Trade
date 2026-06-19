@@ -180,7 +180,14 @@ def stage1_sell_put(state, price):
         return
 
     order = sell_contract(contract["symbol"])
-    premium = get_options_quote(contract["symbol"]) or 0
+    # Prefer the actual fill price over a post-order snapshot quote
+    fill_price = None
+    try:
+        filled_order = api_get(f"/orders/{order['id']}")
+        fill_price = float(filled_order.get("filled_avg_price") or 0) or None
+    except Exception:
+        pass
+    premium = fill_price or get_options_quote(contract["symbol"]) or 0
     collected = premium * 100
 
     state["stage"]           = 1
