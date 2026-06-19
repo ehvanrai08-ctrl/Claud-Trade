@@ -368,10 +368,7 @@ def run():
     # No active contract — act based on stage
     if not state.get("active_contract"):
         if state["stage"] == 1:
-            # Guard: verify no live short option position exists before selling
-            existing = get_option_position(
-                f"TSLA{datetime.now().strftime('%y%m%d')}P*"
-            ) if False else None  # symbol glob not supported; check via orders
+            # Guard: verify no open short-option sell order already exists before selling
             open_order = None
             try:
                 open_orders = api_get("/orders", params={"status": "open", "symbols": SYMBOL})

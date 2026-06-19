@@ -22,7 +22,7 @@ jobs:
           python-version: "3.11"
           cache: pip
 
-      - run: pip install requests python-dotenv
+      - run: pip install requests python-dotenv pyflakes
 
       - name: Write .env
         run: |

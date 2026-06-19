@@ -186,6 +186,7 @@ NEW:
 <exact new code>
 ```
 
+Output ONLY your FINAL version of each change — never include a draft snippet you then revise, and never emit two patches for the same location. Each FILE should appear at most once.
 Only suggest changes that are safe, tested improvements — not speculative rewrites.
 If today had no activity (market was closed or bots didn't fire), just note that and skip improvements.
 Keep the report under 400 words."""
@@ -213,15 +214,23 @@ Keep the report under 400 words."""
 def apply_patches(analysis_text):
     """Parse FILE/OLD/NEW blocks from Claude's response and apply them.
 
-    Every patch is syntax-checked with py_compile before being kept. If a
-    patch makes the file fail to compile, it is rolled back immediately so a
-    bad AI suggestion can never crash a live trading bot. Returns
-    (applied, rejected) where rejected is a list of (filename, reason).
+    Two validation gates protect the live bots before any change is kept:
+      1. py_compile — rejects syntax errors.
+      2. pyflakes   — rejects undefined names / missing imports that compile
+                      fine but crash at runtime (py_compile cannot see these).
+    A failing patch is rolled back immediately, so a bad AI suggestion can
+    never crash a live trading bot. When the AI emits both a draft and a
+    revised fix for the same spot, the more specific (longer OLD) patch is
+    applied first so the clean revision wins and the stale draft is rejected.
+    Returns (applied, rejected) where rejected is a list of (filename, reason).
     """
     import re
     import py_compile
+    import subprocess
     pattern = r"FILE:\s*(\S+)\nOLD:\n```[^\n]*\n(.*?)```\nNEW:\n```[^\n]*\n(.*?)```"
     patches = re.findall(pattern, analysis_text, re.DOTALL)
+    # Most-specific (longest OLD) first: a complete revision beats a partial draft.
+    patches.sort(key=lambda p: len(p[1]), reverse=True)
     applied, rejected = [], []
     for filename, old_code, new_code in patches:
         fname    = filename.strip()
@@ -237,14 +246,27 @@ def apply_patches(analysis_text):
         patched = original.replace(old_code.strip(), new_code.strip(), 1)
         with open(filepath, "w") as f:
             f.write(patched)
-        # Validate: the patched file must still compile, or we revert it.
+        # Gate 1: must still compile.
         try:
             py_compile.compile(filepath, doraise=True)
-            applied.append(fname)
         except py_compile.PyCompileError as e:
             with open(filepath, "w") as f:
                 f.write(original)  # roll back — never commit broken code
             rejected.append((fname, f"syntax error, reverted: {str(e)[:120]}"))
+            continue
+        # Gate 2: reject undefined names / missing imports — these compile but
+        # crash at runtime. pyflakes' other warnings (unused var, f-string) are
+        # ignored; only genuine "undefined name" errors trigger a rollback.
+        flakes = subprocess.run(["python", "-m", "pyflakes", filepath],
+                                capture_output=True, text=True)
+        if "undefined name" in (flakes.stdout + flakes.stderr):
+            with open(filepath, "w") as f:
+                f.write(original)  # roll back — would crash a live bot at runtime
+            reason = next((ln for ln in flakes.stdout.splitlines()
+                           if "undefined name" in ln), "undefined name")
+            rejected.append((fname, f"undefined name, reverted: {reason[-100:]}"))
+            continue
+        applied.append(fname)
     return applied, rejected
 
 
