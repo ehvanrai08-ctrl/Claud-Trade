@@ -48,6 +48,6 @@ jobs:
         run: |
           git config user.name  "Claud-Trade Bot"
           git config user.email "bot@claud-trade"
-          git add tjr_state.json tjr.log 2>/dev/null || true
+          git add tjr_state.json && git add -f tjr.log 2>/dev/null || true
           git diff --cached --quiet || git commit -m "chore: update TJR state + log [skip ci]"
           git push origin claude/charming-edison-b7imkj || true
