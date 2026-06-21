@@ -45,6 +45,19 @@ ET         = ZoneInfo("America/New_York")
 STATE_FILE = f"{BASE_DIR}/tjr_state.json"
 TRADE_SIZE = 2000   # $ per trade
 
+# Fibonacci golden-pocket confluence: only enter when price has retraced into
+# the 50–79% band (centered on the 61.8% golden ratio) of the recent impulse
+# leg. Best entries come on a deep retrace into the pocket, not chasing far
+# from it. Window of 1-min bars used to bracket the impulse swing.
+GOLDEN_LOW      = 0.5
+GOLDEN_HIGH     = 0.79
+FIB_LOOKBACK_1M = 20
+
+# Reward:risk gate — the transcript's core math: never take a trade whose
+# target is less than MIN_RR times the risk. A setup with worse geometry is a
+# losing strategy long-run no matter the win rate, so skip it.
+MIN_RR = 1.5
+
 # Self-looping job: one run covers the whole killzone instead of relying on a
 # flaky every-2-min cron that GitHub throttles and drops (same fix as the TSLA
 # monitor). Poll fast enough to catch the sweep→displacement sequence on 1-min
@@ -206,7 +219,7 @@ def detect_inverse_fvg_5m(bars_5m, direction):
     """
     if len(bars_5m) < 4:
         return False
-    c1, c2, c3 = bars_5m[-4], bars_5m[-3], bars_5m[-2]
+    c1, c3 = bars_5m[-4], bars_5m[-2]
     last = bars_5m[-1]
     if direction == "short":
         # Bullish FVG: c3.low > c1.high (gap between c1 and c3)
@@ -238,6 +251,20 @@ def detect_bos_1m(bars_1m, direction):
         # Retrace: 1m BOS to the downside
         swing_low = min(b["l"] for b in recent[:-1])
         return recent[-1]["c"] < swing_low
+
+
+def in_golden_zone(price, hi, lo, direction):
+    """Fib confluence: True if `price` sits in the 50–79% retracement band
+    (golden ratio 0.618 centered) of the impulse leg bounded by [lo, hi].
+    `frac` is measured from the impulse extreme back toward its origin:
+      short → impulse is down, origin = high, so deep retrace = high price
+      long  → impulse is up,   origin = low,  so deep retrace = low price
+    """
+    rng = hi - lo
+    if rng <= 0:
+        return False
+    frac = (price - lo) / rng if direction == "short" else (hi - price) / rng
+    return GOLDEN_LOW <= frac <= GOLDEN_HIGH
 
 
 def get_5m_trend(bars_5m):
@@ -404,8 +431,8 @@ def run_once():
             log.info(f"STEP 2 COMPLETE: 5-min reversal + SMT divergence confirmed ({d})")
             print(f"[TJR] Step 2: 5-min reversal + SMT divergence confirmed ({d})")
         elif spy_rev and not smt:
-            log.info(f"Reversal seen but NO SMT divergence — waiting for institutional confirmation")
-            print(f"[TJR] Reversal seen but no SMT divergence — skipping")
+            log.info("Reversal seen but NO SMT divergence — waiting for institutional confirmation")
+            print("[TJR] Reversal seen but no SMT divergence — skipping")
 
     # ── Phase: reversed — look for 1-min retrace ─────────────────────────────
     elif phase == "reversed":
@@ -437,8 +464,18 @@ def run_once():
         entry_bos = detect_bos_1m(spy_1m, d) and detect_bos_1m(qqq_1m, d)
 
         if entry_bos:
-            last_spy = spy_5m[-1]
-            recent_1m = spy_1m[-10:]
+            recent_1m  = spy_1m[-10:]
+            fib_window = spy_1m[-FIB_LOOKBACK_1M:] if len(spy_1m) >= FIB_LOOKBACK_1M else spy_1m
+            hi = max(b["h"] for b in fib_window)
+            lo = min(b["l"] for b in fib_window)
+            entry_px = spy_1m[-1]["c"]
+
+            # Fib golden-pocket confluence — wait for a deeper retrace rather
+            # than chasing an entry far from the 0.618 level.
+            if not in_golden_zone(entry_px, hi, lo, d):
+                log.info("Entry BOS but price outside golden pocket — waiting for deeper retrace")
+                print("[TJR] Entry signal but outside golden pocket — skipping")
+                return "active"
 
             if d == "short":
                 stop   = max(b["h"] for b in recent_1m[-4:])   # above second recent high
@@ -449,7 +486,15 @@ def run_once():
                 target = max(b["h"] for b in spy_5m[-20:])      # nearest session high
                 side   = "buy"
 
-            # Check alignment one more time
+            # Reward:risk gate — skip structurally bad geometry (transcript math).
+            risk   = abs(entry_px - stop)
+            reward = abs(target - entry_px)
+            rr     = reward / risk if risk > 0 else 0
+            if rr < MIN_RR:
+                log.info(f"Skipping entry — reward:risk {rr:.2f} below {MIN_RR} minimum")
+                print(f"[TJR] R:R only {rr:.2f} (< {MIN_RR}) — skipping bad-geometry trade")
+                return "active"
+
             order = place_order("SPY", side, TRADE_SIZE, stop, target)
             if order:
                 state["phase"]       = "in_trade"
@@ -457,8 +502,8 @@ def run_once():
                 state["stop_price"]  = stop
                 state["target_price"]= target
                 state["order_id"]    = order["id"]
-                log.info(f"STEP 4 COMPLETE: entered {side} SPY | stop={stop:.2f} target={target:.2f}")
-                print(f"[TJR] Step 4: ENTERED {side.upper()} SPY | stop=${stop:.2f} target=${target:.2f}")
+                log.info(f"STEP 4 COMPLETE: entered {side} SPY | stop={stop:.2f} target={target:.2f} | R:R={rr:.1f}")
+                print(f"[TJR] Step 4: ENTERED {side.upper()} SPY | stop=${stop:.2f} target=${target:.2f} | R:R={rr:.1f}")
 
     # ── Phase: in_trade — manage stop and target ──────────────────────────────
     elif phase == "in_trade":
