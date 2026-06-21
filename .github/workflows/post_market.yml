@@ -43,4 +43,5 @@ jobs:
           git config user.email "bot@claud-trade"
           git add reports/ market_monitor.py wheel_strategy.py copy_trader.py
           git diff --cached --quiet || git commit -m "chore: post-market report + improvements $(date +%Y-%m-%d) [skip ci]"
-          git push origin claude/charming-edison-b7imkj
+          git pull --rebase origin claude/charming-edison-b7imkj || true
+          git push origin claude/charming-edison-b7imkj || true

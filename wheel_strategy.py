@@ -14,6 +14,7 @@ import logging
 import os
 import requests
 from datetime import datetime, timedelta
+from zoneinfo import ZoneInfo
 from dotenv import dotenv_values
 from perf import record_trade
 
@@ -321,8 +322,10 @@ def check_assignment_or_expiry(state):
 
 
 def daily_summary(state):
-    now_et = datetime.utcnow() - timedelta(hours=4)
-    if now_et.hour == 16 and now_et.minute < 15:
+    # Fire on the last in-hours run of the day (~3:45 PM ET). run() returns
+    # early when the market is closed, so the old 4 PM trigger could never fire.
+    now_et = datetime.now(ZoneInfo("America/New_York"))
+    if now_et.hour == 15 and now_et.minute >= 45:
         price = get_price(SYMBOL)
         position = get_position(SYMBOL)
         shares = int(float(position["qty"])) if position else 0
@@ -336,10 +339,12 @@ def daily_summary(state):
             f"  Stage           : {state['stage']} ({'Selling puts' if state['stage']==1 else 'Selling calls'})\n"
             f"  TSLA price      : ${price:.2f}\n"
             f"  Shares held     : {shares}\n"
-            f"  Cost basis      : ${state['cost_basis']:.2f}" if state['cost_basis'] else f"  Cost basis      : —\n"
         )
+        # Conditional on its own line so a None cost basis can't swallow the header.
+        summary += (f"  Cost basis      : ${state['cost_basis']:.2f}\n"
+                    if state.get("cost_basis") else "  Cost basis      : —\n")
         summary += (
-            f"\n  Unrealized P&L  : ${unrealized:+.2f}\n"
+            f"  Unrealized P&L  : ${unrealized:+.2f}\n"
             f"  Total premiums  : ${state['total_premium']:,.2f}\n"
             f"  Cycles completed: {state['cycles']}\n"
         )

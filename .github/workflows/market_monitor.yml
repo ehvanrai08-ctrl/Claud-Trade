@@ -58,5 +58,7 @@ jobs:
         if: always()   # also runs if the loop exits at the runtime cap
         run: |
           git add strategy_state.json
+          git add -f monitor.log 2>/dev/null || true
           git diff --cached --quiet || git commit -m "chore: update strategy state [skip ci]"
+          git pull --rebase origin claude/charming-edison-b7imkj || true
           git push origin claude/charming-edison-b7imkj || true

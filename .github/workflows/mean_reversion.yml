@@ -40,5 +40,7 @@ jobs:
           git config user.name  "Claud-Trade Bot"
           git config user.email "bot@claud-trade"
           git add mean_reversion_state.json 2>/dev/null || true
+          git add -f mean_reversion.log 2>/dev/null || true
           git diff --cached --quiet || git commit -m "chore: update mean reversion state [skip ci]"
-          git push origin claude/charming-edison-b7imkj
+          git pull --rebase origin claude/charming-edison-b7imkj || true
+          git push origin claude/charming-edison-b7imkj || true

@@ -222,7 +222,7 @@ def run():
             continue
 
         conviction_mult = 1.0 if ticker in high_conviction else 0.5
-        notional = min(MAX_TRADE_VALUE * conviction_mult, price * 1)
+        notional = MAX_TRADE_VALUE * conviction_mult
 
         order = place_order(ticker, side, notional)
         if order:

@@ -41,5 +41,7 @@ jobs:
           git config user.name  "Claud-Trade Bot"
           git config user.email "bot@claud-trade"
           git add wheel_state.json 2>/dev/null || true
+          git add -f wheel.log 2>/dev/null || true
           git diff --cached --quiet || git commit -m "chore: update wheel state [skip ci]"
-          git push origin claude/charming-edison-b7imkj
+          git pull --rebase origin claude/charming-edison-b7imkj || true
+          git push origin claude/charming-edison-b7imkj || true
