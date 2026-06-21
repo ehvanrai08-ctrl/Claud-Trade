@@ -84,6 +84,31 @@ def positions_section():
                 pass
 
 
+def mean_reversion_section():
+    raw = _read(f"{BASE_DIR}/mean_reversion_state.json")
+    if not raw:
+        return
+    try:
+        st = json.loads(raw)
+        entries = st.get("entries", {})
+        if not entries:
+            return
+        print("\nMEAN REVERSION POSITIONS")
+        for sym, info in entries.items():
+            sid = info.get("stop_order_id")
+            stop_status = "no stop"
+            if sid:
+                try:
+                    o = _get(f"/orders/{sid}")
+                    stop_status = f"stop order {o.get('status','?')} @ ${info.get('stop_price','?')}"
+                except Exception:
+                    stop_status = f"stop order {sid[:8]}… (check failed)"
+            print(f"  {sym:8} qty {info.get('qty','?')}  entry ${info.get('entry_price','?')}  "
+                  f"RSI={info.get('entry_rsi','?')}  {stop_status}")
+    except Exception:
+        pass
+
+
 def trailing_section():
     raw = _read(f"{BASE_DIR}/strategy_state.json")
     if not raw:
@@ -144,6 +169,7 @@ def main():
         try:
             account_section()
             positions_section()
+            mean_reversion_section()
             trailing_section()
         except Exception as e:
             print(f"⚠ Could not reach Alpaca: {e}")
