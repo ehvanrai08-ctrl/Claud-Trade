@@ -410,14 +410,18 @@ def run_once():
     # ── Phase: reversed — look for 1-min retrace ─────────────────────────────
     elif phase == "reversed":
         d = direction
-        # Retrace means 1-min BOS in OPPOSITE direction
+        # Retrace means 1-min BOS in OPPOSITE direction. Require BOTH indices to
+        # confirm — a retrace on only one index is unreliable noise.
         retrace_dir = "long" if d == "short" else "short"
         spy_retrace = detect_bos_1m(spy_1m, retrace_dir)
+        qqq_retrace = detect_bos_1m(qqq_1m, retrace_dir)
 
-        if spy_retrace:
+        if spy_retrace and qqq_retrace:
             state["phase"] = "retraced"
-            log.info(f"STEP 3 COMPLETE: 1-min retrace confirmed")
-            print(f"[TJR] Step 3: 1-min retrace confirmed")
+            log.info("STEP 3 COMPLETE: 1-min retrace confirmed on SPY + QQQ")
+            print("[TJR] Step 3: 1-min retrace confirmed (SPY + QQQ)")
+        elif spy_retrace or qqq_retrace:
+            log.info("Partial retrace (one index only) — waiting for both to confirm")
 
     # ── Phase: retraced — check index alignment then look for entry ───────────
     elif phase == "retraced":
@@ -429,8 +433,8 @@ def run_once():
             print("[TJR] Indexes not aligned — waiting")
             return "active"
 
-        # Entry: 1-min BOS back in trade direction
-        entry_bos = detect_bos_1m(spy_1m, d)
+        # Entry: 1-min BOS back in trade direction — required on BOTH indices.
+        entry_bos = detect_bos_1m(spy_1m, d) and detect_bos_1m(qqq_1m, d)
 
         if entry_bos:
             last_spy = spy_5m[-1]

@@ -120,20 +120,64 @@ def bollinger(closes, period=BB_PERIOD, num_std=BB_STD):
 
 # ── Order helpers ─────────────────────────────────────────────────────────────
 
-def buy(symbol, notional):
+def get_price(symbol):
+    """Latest trade price (live), so exits don't wait for the daily close."""
+    r = requests.get(
+        f"https://data.alpaca.markets/v2/stocks/{symbol}/trades/latest",
+        headers=DATA_HEADERS,
+    )
+    return float(r.json()["trade"]["p"]) if r.ok else None
+
+
+def buy(symbol, qty):
     r = requests.post(f"{BASE_URL}/orders", headers=HEADERS, json={
         "symbol":        symbol,
-        "notional":      str(round(notional, 2)),
+        "qty":           str(qty),
         "side":          "buy",
         "type":          "market",
         "time_in_force": "day",
     })
     if r.ok:
         o = r.json()
-        log.info(f"BUY {symbol} ~${notional} | order {o['id']}")
+        log.info(f"BUY {symbol} x{qty} | order {o['id']}")
         return o
     log.error(f"Buy failed {symbol}: {r.text[:200]}")
     return None
+
+
+def place_protective_stop(symbol, qty, stop_price):
+    """Resting stop_limit sell so a -8% drop triggers intraday even when the bot
+    isn't running. Limit sits 1% below the stop to ensure a fill in a fast move."""
+    r = requests.post(f"{BASE_URL}/orders", headers=HEADERS, json={
+        "symbol":        symbol,
+        "qty":           str(qty),
+        "side":          "sell",
+        "type":          "stop_limit",
+        "stop_price":    str(round(stop_price, 2)),
+        "limit_price":   str(round(stop_price * 0.99, 2)),
+        "time_in_force": "gtc",
+    })
+    if r.ok:
+        return r.json()
+    log.error(f"Stop placement failed {symbol}: {r.text[:200]}")
+    return None
+
+
+def get_order(order_id):
+    try:
+        r = requests.get(f"{BASE_URL}/orders/{order_id}", headers=HEADERS)
+        return r.json() if r.ok else None
+    except Exception:
+        return None
+
+
+def cancel_order(order_id):
+    if not order_id:
+        return
+    try:
+        requests.delete(f"{BASE_URL}/orders/{order_id}", headers=HEADERS)
+    except Exception:
+        pass
 
 
 def sell_all(symbol):
@@ -170,13 +214,32 @@ def run():
     # ── Manage existing mean-reversion positions (exits) ─────────────────────
     mr_symbols = list(entries.keys())
     for symbol in mr_symbols:
-        closes = get_daily_closes(symbol)
-        if not closes:
+        info  = entries[symbol]
+        entry = info["entry_price"]
+        qty   = info.get("qty", 0)
+        pos   = get_position(symbol)
+
+        # The resting -8% stop may have already closed the position intraday.
+        if not pos:
+            sid = info.get("stop_order_id")
+            order = get_order(sid) if sid else None
+            if order and order.get("status") == "filled":
+                fill = float(order.get("filled_avg_price") or 0) or entry
+                pnl  = (fill - entry) * qty
+                state["closed_pnl"] = state.get("closed_pnl", 0.0) + pnl
+                record_trade("mean_reversion", symbol, pnl, "stop-loss filled intraday")
+                log.info(f"STOP FILLED {symbol} @ ${fill:.2f} | P&L ${pnl:+.2f}")
+                print(f"[MR] STOP FILLED {symbol} @ ${fill:.2f} | P&L ${pnl:+.2f}")
+            else:
+                cancel_order(sid)  # position gone for another reason — tidy up
+                log.info(f"EXIT {symbol}: position no longer held — cleaned up")
+            del entries[symbol]
             continue
-        price  = closes[-1]
-        r_val  = rsi(closes)
-        bb     = bollinger(closes)
-        entry  = entries[symbol]["entry_price"]
+
+        closes = get_daily_closes(symbol)
+        price  = get_price(symbol) or float(pos["current_price"])
+        r_val  = rsi(closes) if closes else None
+        bb     = bollinger(closes) if closes else None
 
         exit_reason = None
         if r_val is not None and r_val > RSI_OVERBOUGHT:
@@ -184,11 +247,12 @@ def run():
         elif bb and price > bb["middle"]:
             exit_reason = "reverted to mean (above middle BB)"
         elif price <= entry * (1 - STOP_LOSS_PCT):
+            # Backstop in case the resting stop order is missing/rejected.
             exit_reason = f"stop-loss hit (-{STOP_LOSS_PCT*100:.0f}%)"
 
         if exit_reason:
-            pos = get_position(symbol)
-            pnl = float(pos["unrealized_pl"]) if pos else 0.0
+            pnl = float(pos["unrealized_pl"])
+            cancel_order(info.get("stop_order_id"))  # avoid an orphaned resting stop
             if sell_all(symbol):
                 state["closed_pnl"] = state.get("closed_pnl", 0.0) + pnl
                 record_trade("mean_reversion", symbol, pnl, exit_reason)
@@ -223,17 +287,27 @@ def run():
         confirming_day = price > prev
 
         if oversold and below_band and confirming_day:
-            order = buy(symbol, TRADE_SIZE)
+            # Whole shares (not notional) so a resting stop order can be attached.
+            qty = int(TRADE_SIZE // price)
+            if qty < 1:
+                continue
+            order = buy(symbol, qty)
             if order:
+                stop_price = round(price * (1 - STOP_LOSS_PCT), 2)
+                stop = place_protective_stop(symbol, qty, stop_price)
                 entries[symbol] = {
-                    "entry_price": price,
-                    "entry_date":  datetime.now(timezone.utc).strftime("%Y-%m-%d"),
-                    "entry_rsi":   round(r_val, 1),
+                    "entry_price":   price,
+                    "qty":           qty,
+                    "stop_order_id": stop["id"] if stop else None,
+                    "stop_price":    stop_price,
+                    "entry_date":    datetime.now(timezone.utc).strftime("%Y-%m-%d"),
+                    "entry_rsi":     round(r_val, 1),
                 }
                 state["total_trades"] = state.get("total_trades", 0) + 1
                 open_mr += 1
-                log.info(f"ENTRY {symbol} @ ${price:.2f} | RSI={r_val:.1f} below_lower_BB confirmed")
-                print(f"[MR] ENTRY {symbol} @ ${price:.2f} | RSI {r_val:.1f}")
+                stop_note = f"stop ${stop_price:.2f}" if stop else "STOP FAILED"
+                log.info(f"ENTRY {symbol} x{qty} @ ${price:.2f} | RSI={r_val:.1f} | {stop_note}")
+                print(f"[MR] ENTRY {symbol} x{qty} @ ${price:.2f} | RSI {r_val:.1f} | {stop_note}")
 
     if not entries:
         print("[MR] No mean-reversion positions; no entry signals today")
