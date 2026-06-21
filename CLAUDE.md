@@ -56,6 +56,8 @@ These bugs were each hit more than once. Don't reintroduce them:
 | Copy Trader | `copy_trader.py` | hourly, market hours | Mirrors the most profitable active US congressperson via Quiver Quant |
 | TJR | `tjr_strategy.py` | 9:30–11 AM, high-frequency | ICT/SMC day trade on SPY/QQQ: liquidity sweep → BOS → FVG → entry |
 | Mean Reversion | `mean_reversion.py` | 10 AM daily | Buy RSI<30 + below lower Bollinger with up-day confirmation; sell on revert |
+| ORB | `orb_strategy.py` | self-loops from 9:35 AM, 2 PM handoff | Opening Range Breakout on QQQ (Zarattini/Aziz): trade the break of the first 5-min bar's direction, resting stop at the opposite OR edge, no profit target, flat at 3:55 PM ET |
+| Dual Momentum | `dual_momentum.py` | 10:30 AM, first trading day of month | GEM (Antonacci): hold the stronger of SPY/EFA while equities beat cash (absolute gate), else 100% AGG bonds; ensembled 6–12mo lookbacks; ~1.5 trades/yr |
 | DCA Index | `dca_index.py` | 10 AM Mondays | Buys $500 of VOO weekly, never sells — the "boring base" |
 | Post-Market Analysis | `post_market_analysis.py` | 4:15 PM daily | The self-improvement bot (below) |
 
@@ -102,6 +104,8 @@ do not.
 | `dca_state.json` | Total invested, buy count, last buy date |
 | `copy_trader_state.json` | Tracked politician, copied trades |
 | `mean_reversion_state.json` | Open entries, closed P&L |
+| `orb_state.json` | Day's ORB phase, direction, entry, qty, resting stop order id |
+| `dual_momentum_state.json` | Current held asset, last rebalance month, rotation history |
 | `trades_ledger.jsonl` | Append-only realized-trade log (via `perf.record_trade()`) |
 | `performance.json` | Per-strategy win rate / P&L (via `performance_tracker.py`) |
 | `reports/YYYY-MM-DD.md` | Daily post-market reports |

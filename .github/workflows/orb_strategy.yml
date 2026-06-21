@@ -1,0 +1,63 @@
+name: ORB Strategy (Opening Range Breakout)
+
+on:
+  schedule:
+    # Start the self-looping job just after the 5-min opening range prints
+    # (13:35 UTC = 9:35 AM ET in summer).
+    - cron: "35 13 * * 1-5"
+    # 2 PM ET (18:00 UTC) handoff/relaunch to cover the close past the runtime
+    # cap and self-heal if the morning job died. The resting stop on Alpaca
+    # protects the position regardless, so a handoff loses nothing critical.
+    - cron: "0 18 * * 1-5"
+  workflow_dispatch:
+
+concurrency:
+  group: orb-strategy
+  cancel-in-progress: true
+
+jobs:
+  orb:
+    runs-on: ubuntu-latest
+    timeout-minutes: 350   # loop self-caps at 330
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          ref: claude/charming-edison-b7imkj
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+
+      - name: Install dependencies
+        run: pip install requests python-dotenv tzdata
+
+      - name: Write .env from secrets
+        run: |
+          cat > .env <<EOF
+          ALPACA_API_KEY=${{ secrets.ALPACA_API_KEY }}
+          ALPACA_SECRET_KEY=${{ secrets.ALPACA_SECRET_KEY }}
+          ALPACA_BASE_URL=https://paper-api.alpaca.markets/v2
+          EOF
+
+      - name: Configure git (for in-loop state pushes)
+        run: |
+          git config user.name  "Claud-Trade Bot"
+          git config user.email "bot@claud-trade"
+
+      - name: Run ORB strategy (self-looping)
+        run: python orb_strategy.py
+
+      - name: Commit final state
+        if: always()
+        run: |
+          git add orb_state.json
+          git add -f orb.log 2>/dev/null || true
+          git diff --cached --quiet || git commit -m "chore: update ORB state [skip ci]"
+          git pull --rebase origin claude/charming-edison-b7imkj || true
+          git push origin claude/charming-edison-b7imkj || true

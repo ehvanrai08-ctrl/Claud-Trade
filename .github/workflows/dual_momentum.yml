@@ -1,0 +1,48 @@
+name: Dual Momentum (GEM)
+
+on:
+  schedule:
+    # First five days of each month at 10:30 AM ET (14:30 UTC in summer). The
+    # bot's own once-per-month state guard means only the first trading day that
+    # succeeds actually rebalances; the rest are no-ops.
+    - cron: "30 14 1-5 * *"
+  workflow_dispatch:
+
+jobs:
+  rebalance:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: claude/charming-edison-b7imkj
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - run: pip install requests python-dotenv
+
+      - name: Write .env
+        run: |
+          cat > .env <<EOF
+          ALPACA_API_KEY=${{ secrets.ALPACA_API_KEY }}
+          ALPACA_SECRET_KEY=${{ secrets.ALPACA_SECRET_KEY }}
+          ALPACA_BASE_URL=https://paper-api.alpaca.markets/v2
+          EOF
+
+      - name: Run dual momentum
+        run: python dual_momentum.py
+
+      - name: Commit state
+        run: |
+          git config user.name  "Claud-Trade Bot"
+          git config user.email "bot@claud-trade"
+          git add dual_momentum_state.json
+          git add -f dual_momentum.log 2>/dev/null || true
+          git diff --cached --quiet || git commit -m "chore: dual-momentum rebalance $(date +%Y-%m) [skip ci]"
+          git pull --rebase origin claude/charming-edison-b7imkj || true
+          git push origin claude/charming-edison-b7imkj || true
