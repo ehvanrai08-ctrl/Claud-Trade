@@ -20,6 +20,7 @@ Rules:
 import json
 import logging
 import os
+import time
 import requests
 from datetime import datetime, timedelta, timezone
 from zoneinfo import ZoneInfo
@@ -43,6 +44,13 @@ DATA_HEADERS = {
 ET         = ZoneInfo("America/New_York")
 STATE_FILE = f"{BASE_DIR}/tjr_state.json"
 TRADE_SIZE = 2000   # $ per trade
+
+# Self-looping job: one run covers the whole killzone instead of relying on a
+# flaky every-2-min cron that GitHub throttles and drops (same fix as the TSLA
+# monitor). Poll fast enough to catch the sweep→displacement sequence on 1-min
+# bars; cap runtime safely past the 90-min killzone.
+POLL_INTERVAL_SEC = 45
+MAX_RUNTIME_MIN   = 110
 
 # Time Theory — only trade inside the New York killzone.
 # TJR: "No Time, No Trade." Volatility outside killzones is retail noise.
@@ -309,9 +317,13 @@ def save_state(state):
 
 # ── Main ──────────────────────────────────────────────────────────────────────
 
-def run():
+def run_once():
+    """One evaluation of the phase machine. Returns a status the loop uses to
+    decide whether to keep polling ('active') or stop ('closed'/'after'/'done').
+    Every exit logs a breadcrumb so the log always shows the bot is alive."""
     if not market_is_open():
-        return
+        log.info("Market closed — no action.")
+        return "closed"
 
     et = now_et()
 
@@ -320,7 +332,8 @@ def run():
     cutoff_time = cutoff_et()
 
     if et < open_time:
-        return
+        log.info(f"Before killzone ({et:%H:%M} ET) — waiting for 9:30.")
+        return "before"
     if et > cutoff_time:
         # Past killzone — close any open position and mark done
         state = load_state()
@@ -332,12 +345,14 @@ def run():
                 log.info(f"KILLZONE END: closed {sym} at 11:00 ET")
             state["phase"] = "done"
             save_state(state)
-        return
+        log.info("Past killzone — done for the day.")
+        return "after"
 
     state = load_state()
 
     if state["phase"] == "done":
-        return  # already traded today
+        log.info("Already traded today — standing down.")
+        return "done"
 
     # ── Get data ─────────────────────────────────────────────────────────────
     spy_5m = get_bars("SPY", "5Min", limit=60)
@@ -347,7 +362,7 @@ def run():
 
     if not spy_5m or not qqq_5m:
         log.warning("No bar data available")
-        return
+        return "active"
 
     phase     = state["phase"]
     direction = state["direction"]
@@ -412,7 +427,7 @@ def run():
         if not aligned:
             log.info("Indexes not aligned — skipping entry")
             print("[TJR] Indexes not aligned — waiting")
-            return
+            return "active"
 
         # Entry: 1-min BOS back in trade direction
         entry_bos = detect_bos_1m(spy_1m, d)
@@ -454,7 +469,7 @@ def run():
             log.info("Position closed (filled stop or target)")
             print("[TJR] Position closed — done for the day")
             save_state(state)
-            return
+            return "done"
 
         price = float(pos["current_price"])
         pl    = float(pos["unrealized_pl"])
@@ -476,6 +491,30 @@ def run():
             print(f"[TJR] {reason} HIT — closed {sym} @ ${price:.2f} | P&L ${pl:+.2f}")
 
     save_state(state)
+    # Heartbeat so the log always shows the bot is alive and where it is in the
+    # 4-step sequence, even on a quiet day with no setup.
+    log.info(f"TICK: phase={state['phase']} dir={state.get('direction')}")
+    return "done" if state["phase"] == "done" else "active"
+
+
+def run():
+    """Self-looping killzone job: poll the phase machine every POLL_INTERVAL_SEC
+    until a trade completes, the killzone ends, or the market closes."""
+    start = time.monotonic()
+    log.info("TJR killzone loop started")
+    print("TJR killzone loop started")
+    while (time.monotonic() - start) / 60 < MAX_RUNTIME_MIN:
+        try:
+            status = run_once()
+        except Exception as e:
+            # One bad poll (transient API blip) must never kill the loop.
+            log.exception(f"tick error (continuing): {e}")
+            status = "active"
+        if status in ("closed", "after", "done"):
+            log.info(f"TJR loop exiting — {status}")
+            break
+        time.sleep(POLL_INTERVAL_SEC)
+    log.info("TJR killzone loop ended")
 
 
 if __name__ == "__main__":

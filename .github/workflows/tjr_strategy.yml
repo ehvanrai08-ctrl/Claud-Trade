@@ -2,16 +2,21 @@ name: TJR Strategy (SPY/QQQ Day Trade)
 
 on:
   schedule:
-    # Every 2 minutes Mon-Fri inside the NY killzone 9:30–11:00 AM ET (13:30–15:00 UTC)
-    # Time Theory: only the killzone window is tradeable
-    - cron: "30,32,34,36,38,40,42,44,46,48,50,52,54,56,58 13 * * 1-5"
-    - cron: "*/2 14 * * 1-5"
-    - cron: "0 15 * * 1-5"
+    # One self-looping job starting at 9:30 AM ET (13:30 UTC) — it polls through
+    # the whole NY killzone (9:30–11:00 AM ET) internally. Replaces the old
+    # every-2-min cron that GitHub throttled and dropped under load.
+    - cron: "30 13 * * 1-5"
   workflow_dispatch:
+
+# Only one killzone loop at a time; a new trigger takes over cleanly.
+concurrency:
+  group: tjr-strategy
+  cancel-in-progress: true
 
 jobs:
   tjr:
     runs-on: ubuntu-latest
+    timeout-minutes: 120   # killzone is 90 min; loop self-caps at 110
     permissions:
       contents: write
 
@@ -35,13 +40,14 @@ jobs:
           ALPACA_BASE_URL=https://paper-api.alpaca.markets/v2
           EOF
 
-      - name: Run TJR strategy
+      - name: Run TJR strategy (self-looping)
         run: python tjr_strategy.py
 
-      - name: Commit state
+      - name: Commit state and log
+        if: always()   # commit even if the loop hit its runtime cap
         run: |
           git config user.name  "Claud-Trade Bot"
           git config user.email "bot@claud-trade"
-          git add tjr_state.json 2>/dev/null || true
-          git diff --cached --quiet || git commit -m "chore: update TJR state [skip ci]"
-          git push origin claude/charming-edison-b7imkj
+          git add tjr_state.json tjr.log 2>/dev/null || true
+          git diff --cached --quiet || git commit -m "chore: update TJR state + log [skip ci]"
+          git push origin claude/charming-edison-b7imkj || true
