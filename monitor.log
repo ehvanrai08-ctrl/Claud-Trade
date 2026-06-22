@@ -121,3 +121,6 @@
 2026-06-22 19:59:27,724 INFO TICK: TSLA $405.05 | HWM $408.42 | Stop $343.09 | Trailing: False
 2026-06-22 20:00:27,763 INFO Market closed — exiting loop.
 2026-06-22 20:00:27,763 INFO Monitor loop ended
+2026-06-22 20:52:22,233 INFO Monitor loop started
+2026-06-22 20:52:22,408 INFO Market closed — exiting loop.
+2026-06-22 20:52:22,408 INFO Monitor loop ended
