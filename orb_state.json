@@ -1,0 +1,10 @@
+{
+  "date": "2026-06-22",
+  "phase": "done",
+  "direction": "short",
+  "entry_price": 737.06,
+  "qty": 2,
+  "stop_order_id": "75e9a07f-2682-4ca9-8907-4f6bd37e8ae6",
+  "stop_price": 744.02,
+  "result": "eod"
+}
