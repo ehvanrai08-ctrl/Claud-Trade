@@ -256,9 +256,13 @@ def tick():
         return
 
     # ── Activate trailing once up 10% ────────────────────────────────────────
-    if not trailing and price >= entry_price * (1 + TRAIL_TRIGGER_PCT):
-        log.info(f"TRAILING ACTIVATED: {symbol} ${price:.2f} (+{((price/entry_price)-1)*100:.1f}%)")
-        print(f"[TRAILING ON] {symbol} ${price:.2f}")
+    # Use HWM (not entry_price) so a restart with trailing_active=False but
+    # price already above the trigger arms immediately rather than waiting for
+    # the next new high.
+    trigger_price = entry_price * (1 + TRAIL_TRIGGER_PCT)
+    if not trailing and hwm >= trigger_price:
+        log.info(f"TRAILING ACTIVATED: {symbol} HWM ${hwm:.2f} (trigger ${trigger_price:.2f}, entry ${entry_price:.2f})")
+        print(f"[TRAILING ON] {symbol} HWM ${hwm:.2f}")
         state["trailing_active"] = True
         trailing = True
         persist_state(state, "chore: trailing activated")
