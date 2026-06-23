@@ -1,0 +1,59 @@
+name: Stocks-in-Play ORB
+
+on:
+  schedule:
+    # Start just after the 5-min opening range prints (13:35 UTC = 9:35 AM ET).
+    - cron: "35 13 * * 1-5"
+    # 2 PM ET handoff/relaunch (18:00 UTC) — same reliability pattern as the
+    # TSLA monitor. Resting stop-limit orders on Alpaca protect positions even
+    # during the gap between jobs.
+    - cron: "0 18 * * 1-5"
+  workflow_dispatch:
+
+concurrency:
+  group: sip-orb
+  cancel-in-progress: true
+
+jobs:
+  sip_orb:
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: claude/charming-edison-b7imkj
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - run: pip install requests python-dotenv tzdata
+
+      - name: Write .env from secrets
+        run: |
+          cat > .env <<EOF
+          ALPACA_API_KEY=${{ secrets.ALPACA_API_KEY }}
+          ALPACA_SECRET_KEY=${{ secrets.ALPACA_SECRET_KEY }}
+          ALPACA_BASE_URL=https://paper-api.alpaca.markets/v2
+          EOF
+
+      - name: Configure git
+        run: |
+          git config user.name  "Claud-Trade Bot"
+          git config user.email "bot@claud-trade"
+
+      - name: Run SIP-ORB (self-looping)
+        run: python sip_orb.py
+
+      - name: Commit state
+        if: always()
+        run: |
+          git add sip_orb_state.json
+          git add -f sip_orb.log 2>/dev/null || true
+          git diff --cached --quiet || git commit -m "chore: update SIP-ORB state [skip ci]"
+          git pull --rebase origin claude/charming-edison-b7imkj || true
+          git push origin claude/charming-edison-b7imkj || true

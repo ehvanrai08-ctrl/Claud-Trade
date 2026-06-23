@@ -57,6 +57,7 @@ These bugs were each hit more than once. Don't reintroduce them:
 | TJR | `tjr_strategy.py` | 9:30–11 AM, high-frequency | ICT/SMC day trade on SPY/QQQ: liquidity sweep → BOS → FVG → entry |
 | Mean Reversion | `mean_reversion.py` | 10 AM daily | Buy RSI<30 + below lower Bollinger with up-day confirmation; sell on revert |
 | ORB | `orb_strategy.py` | self-loops from 9:35 AM, 2 PM handoff | Opening Range Breakout on QQQ (Zarattini/Aziz): trade the break of the first 5-min bar's direction, resting stop at the opposite OR edge, no profit target, flat at 3:55 PM ET |
+| SIP-ORB | `sip_orb.py` | self-loops from 9:35 AM, 2 PM handoff | Multi-stock Stocks-in-Play ORB (Zarattini/Barbon/Aziz SSRN 4729284, Sharpe 2.81): top-10 relative-volume stocks each morning, resting stop-limit entry at OR boundary, 0.10×ATR stop, EOD close |
 | Dual Momentum | `dual_momentum.py` | 10:30 AM, first trading day of month | GEM (Antonacci): hold the stronger of SPY/EFA while equities beat cash (absolute gate), else 100% AGG bonds; ensembled 6–12mo lookbacks; ~1.5 trades/yr |
 | DCA Index | `dca_index.py` | 10 AM Mondays | Buys $500 of VOO weekly, never sells — the "boring base" |
 | Post-Market Analysis | `post_market_analysis.py` | 4:15 PM daily | The self-improvement bot (below) |
