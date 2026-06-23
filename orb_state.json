@@ -1,10 +1,13 @@
 {
-  "date": "2026-06-22",
+  "date": "2026-06-23",
   "phase": "done",
-  "direction": "short",
-  "entry_price": 737.06,
+  "direction": "long",
+  "entry_price": 719.16,
   "qty": 2,
-  "stop_order_id": "75e9a07f-2682-4ca9-8907-4f6bd37e8ae6",
-  "stop_price": 744.02,
-  "result": "eod"
+  "stop_order_id": null,
+  "stop_price": 713.28,
+  "result": "eod",
+  "entry_order_id": "8a26cc24-ad2b-4a76-850b-071102bf9b83",
+  "or_high": 717.01,
+  "or_low": 713.28
 }
