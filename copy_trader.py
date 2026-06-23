@@ -150,9 +150,10 @@ def run():
     week_ago  = (datetime.now() - timedelta(days=7)).strftime("%Y-%m-%d")
     if not state.get("tracked_politician") or last_eval < week_ago:
         politician = pick_best_politician(trades)
-        state["last_politician_eval"] = datetime.now().strftime("%Y-%m-%d")
+        state["last_politician_eval"] = today_str
     else:
         politician = state.get("tracked_politician")
+        state["last_politician_eval"] = state.get("last_politician_eval") or today_str
     if not politician:
         log.warning("No politician found to track")
         return

@@ -260,7 +260,7 @@ def tick():
     # price already above the trigger arms immediately rather than waiting for
     # the next new high.
     trigger_price = entry_price * (1 + TRAIL_TRIGGER_PCT)
-    if not trailing and hwm >= trigger_price:
+    if not trailing and (hwm >= trigger_price or price >= trigger_price):
         log.info(f"TRAILING ACTIVATED: {symbol} HWM ${hwm:.2f} (trigger ${trigger_price:.2f}, entry ${entry_price:.2f})")
         print(f"[TRAILING ON] {symbol} HWM ${hwm:.2f}")
         state["trailing_active"] = True

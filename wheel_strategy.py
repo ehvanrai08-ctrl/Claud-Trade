@@ -255,7 +255,7 @@ def check_early_close(state):
         return False
 
     profit_pct = (sell_price - current_price) / sell_price
-    log.info(f"EARLY CLOSE CHECK: {contract['symbol']} sell=${sell_price:.2f} now=${current_price:.2f} profit={profit_pct*100:.1f}% (target {EARLY_CLOSE_PCT*100:.0f}%)")
+    log.info(f"EARLY CLOSE CHECK: {contract['symbol']} sell=${sell_price:.2f} now=${current_price:.2f} pnl={profit_pct*100:.1f}% (close_target=+{EARLY_CLOSE_PCT*100:.0f}%)")
     if profit_pct >= EARLY_CLOSE_PCT:
         order = close_contract(contract["symbol"])
         locked = (sell_price - current_price) * 100
