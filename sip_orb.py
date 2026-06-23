@@ -399,7 +399,10 @@ def manage_positions(state):
                 continue
             status = order.get("status", "")
             if status == "filled":
-                fill = float(order.get("filled_avg_price") or 0) or info.get("atr", 0)
+                fill = float(order.get("filled_avg_price") or 0)
+                if not fill:
+                    log.warning(f"{sym}: filled order has no filled_avg_price — skipping")
+                    continue
                 info["entry_price"] = fill
                 info["phase"] = "in_trade"
 

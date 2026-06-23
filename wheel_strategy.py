@@ -278,8 +278,6 @@ def check_assignment_or_expiry(state):
 
     # Contract is gone — either expired or assigned
     if position is None:
-        exp = contract["expiration"]
-        today = datetime.now().strftime("%Y-%m-%d")
 
         if contract["type"] == "put":
             # Check if we now own TSLA shares (assignment)

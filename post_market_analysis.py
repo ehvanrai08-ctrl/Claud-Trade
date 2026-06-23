@@ -7,6 +7,7 @@ Commits the report and any code changes back to the repo.
 
 import json
 import os
+import sys
 import requests
 from datetime import datetime, timedelta
 from dotenv import dotenv_values
@@ -296,7 +297,7 @@ def apply_patches(analysis_text):
         # Gate 2: reject undefined names / missing imports — these compile but
         # crash at runtime. pyflakes' other warnings (unused var, f-string) are
         # ignored; only genuine "undefined name" errors trigger a rollback.
-        flakes = subprocess.run(["python", "-m", "pyflakes", filepath],
+        flakes = subprocess.run([sys.executable, "-m", "pyflakes", filepath],
                                 capture_output=True, text=True)
         if "undefined name" in (flakes.stdout + flakes.stderr):
             with open(filepath, "w") as f:
