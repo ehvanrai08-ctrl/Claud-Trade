@@ -88,7 +88,7 @@ MIN_RVOL         = 1.5      # minimum relative volume to qualify
 MIN_PRICE        = 5.0      # $ price floor
 MIN_ATR          = 0.50     # $ 14-day ATR floor
 MIN_AVG_VOL      = 500_000  # avg daily volume floor
-ATR_STOP_MULT    = 0.10     # stop at 10% of ATR(14) from fill
+ATR_STOP_MULT    = 0.10     # kept for reference; live stop now uses OR-boundary (see below)
 ENTRY_SLIP       = 0.003    # 0.3% above OR high (below OR low) on entry limit
 STOP_SLIP        = 0.010    # 1% give on protective stop limit
 
@@ -335,23 +335,28 @@ def score_universe():
 
         direction = "long" if or_bar["c"] > or_bar["o"] else "short"
         entry_trigger = or_bar["h"] if direction == "long" else or_bar["l"]
-        stop_distance = round(ATR_STOP_MULT * atr, 4)
+        # Stop at OPPOSITE OR boundary — backtest showed 0.10×ATR ($0.70 on QQQ)
+        # was 23% of the OR range, causing 91% stop-outs on normal noise.
+        # OR-boundary stop drops stop-out rate to ~43% and win rate to ~33%.
+        or_stop = or_bar["l"] if direction == "long" else or_bar["h"]
+        stop_distance = round(abs(entry_trigger - or_stop), 4)
 
         qty = int(NOTIONAL_PER_POS // price)
         if qty < 1:
             continue
 
         candidates.append({
-            "symbol":    sym,
-            "direction": direction,
+            "symbol":        sym,
+            "direction":     direction,
             "entry_trigger": entry_trigger,
             "stop_distance": stop_distance,
-            "atr":       round(atr, 4),
-            "rvol":      round(rvol, 2),
-            "price":     price,
-            "qty":       qty,
-            "or_high":   or_bar["h"],
-            "or_low":    or_bar["l"],
+            "or_stop":       or_stop,
+            "atr":           round(atr, 4),
+            "rvol":          round(rvol, 2),
+            "price":         price,
+            "qty":           qty,
+            "or_high":       or_bar["h"],
+            "or_low":        or_bar["l"],
         })
 
     candidates.sort(key=lambda x: x["rvol"], reverse=True)
@@ -373,6 +378,7 @@ def enter_all(candidates, state):
                 "stop_order_id":  None,
                 "stop_price":     None,
                 "stop_distance":  c["stop_distance"],
+                "or_stop":        c["or_stop"],   # OR-boundary stop price
                 "atr":            c["atr"],
                 "rvol":           c["rvol"],
                 "phase":          "pending",  # pending | in_trade | closed
@@ -406,10 +412,12 @@ def manage_positions(state):
                 info["entry_price"] = fill
                 info["phase"] = "in_trade"
 
-                # Place protective stop now that we know the fill price
+                # Protective stop at the opposite OR boundary.
+                # or_stop is pre-computed as or_low (for longs) or or_high (for shorts).
                 d = info["direction"]
-                raw_stop = (fill - info["stop_distance"] if d == "long"
-                            else fill + info["stop_distance"])
+                raw_stop  = info.get("or_stop") or (
+                    fill - info["stop_distance"] if d == "long"
+                    else fill + info["stop_distance"])
                 exit_side = "sell" if d == "long" else "buy"
                 stop_order = place_protective_stop(sym, exit_side, info["qty"],
                                                    round(raw_stop, 2))

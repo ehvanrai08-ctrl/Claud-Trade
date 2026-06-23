@@ -57,7 +57,8 @@ NOTIONAL = 2000       # $ per trade (whole shares, so a resting stop can attach)
 
 # A dead-flat open has no edge — skip if the opening range is a smaller fraction
 # of price than this (range / price).
-MIN_RANGE_FRAC = 0.0008   # 0.08%
+MIN_RANGE_FRAC = 0.003    # 0.3% — filters dead-flat days; backtest confirmed 0.08% too loose
+MIN_RVOL       = 1.5      # only trade when first-5min volume is 1.5× normal (catalyst days)
 
 # Self-looping job timing (mirrors market_monitor.py).
 POLL_INTERVAL_SEC = 30
@@ -212,8 +213,19 @@ def save_state(state):
 
 # ── Main ──────────────────────────────────────────────────────────────────────
 
+def get_daily_bars(symbol, days=25):
+    """Recent daily bars for RVol calculation."""
+    start = (datetime.now(timezone.utc) - timedelta(days=days+5)).strftime("%Y-%m-%dT%H:%M:%SZ")
+    r = requests.get(
+        f"https://data.alpaca.markets/v2/stocks/{symbol}/bars",
+        headers=DATA_HEADERS,
+        params={"timeframe": "1Day", "start": start, "limit": 30, "sort": "asc"},
+    )
+    return r.json().get("bars") or [] if r.ok else []
+
+
 def try_enter(state):
-    """Read the opening range and, if it's printed and valid, take the trade."""
+    """Read the opening range; only enter on high-RVol catalyst days via breakout."""
     bars = get_5m_bars(SYMBOL)
     orb  = opening_range_bar(bars)
     if not orb:
@@ -227,10 +239,26 @@ def try_enter(state):
         state["phase"] = "done"
         return
 
+    # RVol filter: only trade on days with genuine order flow (catalysts).
+    # Backtest showed unconditional entry = 23% win rate regardless of other filters.
+    daily = get_daily_bars(SYMBOL, days=25)
+    if len(daily) >= 10:
+        avg_vol = sum(b["v"] for b in daily[-20:]) / min(len(daily), 20)
+        exp_5m  = avg_vol * (5 / 390)
+        rvol    = orb["v"] / exp_5m if exp_5m > 0 else 0
+        if rvol < MIN_RVOL:
+            log.info(f"Low RVol {rvol:.1f}x (need {MIN_RVOL}x) — skipping today")
+            state["phase"] = "done"
+            return
+        log.info(f"RVol {rvol:.1f}x — qualifying")
+
     direction  = "long" if c > o else "short"
     entry_side = "buy"  if direction == "long" else "sell"
     exit_side  = "sell" if direction == "long" else "buy"
     stop_price = lo if direction == "long" else hi
+    # Breakout trigger: enter only if price actually clears the OR boundary.
+    # Stop-limit entry replaces the old unconditional market order.
+    trigger    = hi if direction == "long" else lo
 
     price = get_price(SYMBOL) or c
     qty   = int(NOTIONAL // price)
@@ -239,22 +267,39 @@ def try_enter(state):
         state["phase"] = "done"
         return
 
-    order = submit_market(SYMBOL, entry_side, qty)
-    if not order:
-        return  # transient failure — retry next poll
+    # Place a resting stop-limit entry — only fills if price breaks the OR boundary.
+    # The live bot now behaves identically to SIP-ORB: no fill on quiet days.
+    limit_entry = round(trigger * (1.003 if direction == "long" else 0.997), 2)
+    r = requests.post(f"{BASE_URL}/orders", headers=HEADERS, json={
+        "symbol":        SYMBOL,
+        "qty":           str(qty),
+        "side":          entry_side,
+        "type":          "stop_limit",
+        "stop_price":    str(round(trigger, 2)),
+        "limit_price":   str(limit_entry),
+        "time_in_force": "day",
+    })
+    if not r.ok:
+        log.error(f"Entry order failed: {r.text[:200]}")
+        return
 
+    entry_order = r.json()
     stop = place_protective_stop(SYMBOL, exit_side, qty, stop_price)
     state.update({
-        "phase":         "in_trade",
-        "direction":     direction,
-        "entry_price":   price,
-        "qty":           qty,
-        "stop_order_id": stop["id"] if stop else None,
-        "stop_price":    round(stop_price, 2),
+        "phase":           "pending_entry",   # new phase: waiting for breakout fill
+        "direction":       direction,
+        "entry_order_id":  entry_order["id"],
+        "entry_price":     None,
+        "qty":             qty,
+        "stop_order_id":   stop["id"] if stop else None,
+        "stop_price":      round(stop_price, 2),
+        "or_high":         round(hi, 2),
+        "or_low":          round(lo, 2),
     })
     note = f"stop ${stop_price:.2f}" if stop else "STOP FAILED"
-    log.info(f"ENTRY {direction} {SYMBOL} x{qty} @ ${price:.2f} | OR[{lo:.2f}-{hi:.2f}] | {note}")
-    print(f"[ORB] ENTRY {direction} {SYMBOL} x{qty} @ ${price:.2f} | {note}")
+    log.info(f"BREAKOUT ORDER {direction} {SYMBOL} x{qty} trigger=${trigger:.2f} | "
+             f"OR[{lo:.2f}-{hi:.2f}] | {note}")
+    print(f"[ORB] BREAKOUT ORDER {direction} {SYMBOL} x{qty} trigger=${trigger:.2f} | {note}")
 
 
 def manage(state):
@@ -314,6 +359,26 @@ def run_once():
             try_enter(state)
         else:
             log.info(f"Before entry time ({now_et():%H:%M} ET) — waiting for 9:35.")
+    elif state["phase"] == "pending_entry":
+        # Check if breakout entry order filled; if EOD arrives, cancel it.
+        if at_or_after(EOD_CLOSE):
+            cancel_order(state.get("entry_order_id"))
+            cancel_order(state.get("stop_order_id"))
+            log.info("EOD reached with no breakout fill — cancelled entry, done.")
+            state["phase"] = "done"
+        else:
+            order = get_order(state.get("entry_order_id"))
+            if order and order.get("status") == "filled":
+                fill = float(order.get("filled_avg_price") or 0)
+                state["entry_price"] = fill
+                state["phase"]       = "in_trade"
+                log.info(f"BREAKOUT FILLED {SYMBOL} @ ${fill:.2f} | "
+                         f"stop ${state['stop_price']:.2f}")
+                print(f"[ORB] BREAKOUT FILLED @ ${fill:.2f}")
+            elif order and order.get("status") in ("cancelled", "expired", "rejected"):
+                cancel_order(state.get("stop_order_id"))
+                state["phase"] = "done"
+                log.info(f"Entry order {order.get('status')} — done.")
     elif state["phase"] == "in_trade":
         manage(state)
 
