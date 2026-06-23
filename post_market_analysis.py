@@ -57,6 +57,41 @@ def tail_log(path, lines=80):
 
 # ── Build report ──────────────────────────────────────────────────────────────
 
+def trade_autopsy():
+    """Per-strategy win rate, profit factor, and P&L from the realized-trade ledger.
+    Surfaces the 'high win-rate trap': a strategy with 70% wins but 3:1 loss size
+    is a loser. Returns a formatted string for Claude's context."""
+    from perf import read_ledger
+    trades = read_ledger()
+    if not trades:
+        return "TRADE AUTOPSY\n  No realized trades in ledger yet.\n"
+
+    from collections import defaultdict
+    by_strat = defaultdict(list)
+    for t in trades:
+        by_strat[t["strategy"]].append(t["pnl"])
+
+    lines = ["TRADE AUTOPSY (realized trades, all-time)"]
+    for strat, pnls in sorted(by_strat.items()):
+        wins   = [p for p in pnls if p > 0]
+        losses = [p for p in pnls if p <= 0]
+        total  = sum(pnls)
+        wr     = len(wins) / len(pnls) * 100 if pnls else 0
+        avg_w  = sum(wins) / len(wins) if wins else 0
+        avg_l  = sum(losses) / len(losses) if losses else 0
+        pf     = abs(sum(wins) / sum(losses)) if losses and sum(losses) != 0 else float("inf")
+        lines.append(
+            f"  {strat:22}  n={len(pnls):3}  wr={wr:.0f}%  "
+            f"avg_win=${avg_w:+.2f}  avg_loss=${avg_l:+.2f}  "
+            f"PF={pf:.2f}  total=${total:+.2f}"
+        )
+        if wr > 65 and pf < 1.0:
+            lines.append(f"    ⚠ HIGH WIN-RATE TRAP: winning often but losing more per loss")
+        elif wr < 35 and pf > 2.0:
+            lines.append(f"    ✓ low win-rate but positive expectancy (pf>{pf:.1f})")
+    return "\n".join(lines)
+
+
 def build_context():
     acct      = get_account()
     positions = get_positions()
@@ -85,10 +120,14 @@ def build_context():
         for o in orders
     ) or "  (none)"
 
+    autopsy = trade_autopsy()
+
     return f"""
 DATE: {TODAY}
 
 {perf_summary}
+
+{autopsy}
 
 ACCOUNT
   Equity:       ${equity:,.2f}
@@ -288,6 +327,7 @@ def local_analysis():
     cash        = float(acct.get("cash", 0) or 0)
     daily_pnl   = equity - last_equity
 
+    lines.append(trade_autopsy())
     lines.append(f"- Equity ${equity:,.2f} | day {daily_pnl:+,.2f} "
                  f"({(daily_pnl/last_equity*100) if last_equity else 0:+.2f}%) "
                  f"| cash {(cash/equity*100) if equity else 0:.0f}% of book")
