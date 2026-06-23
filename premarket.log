@@ -1,0 +1,5 @@
+2026-06-23 15:50:55,957 INFO Pre-market scan starting — 2026-06-23
+2026-06-23 15:50:56,197 INFO Market already open — pre-market scan running late, proceeding anyway.
+2026-06-23 15:50:56,679 INFO Fetched bars for 2 symbols
+2026-06-23 15:50:56,680 INFO Scored 2 candidates; top: ['AMAT', 'AAPL']
+2026-06-23 15:50:56,680 INFO Plan written to /home/runner/work/Claud-Trade/Claud-Trade/premarket_plan.md
