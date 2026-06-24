@@ -1,4 +1,4 @@
-# Pre-Market Game Plan — 2026-06-23
+# Pre-Market Game Plan — 2026-06-24
 
 ## Market Context (yesterday's close)
 (no market data)
@@ -16,4 +16,4 @@
 - Direction shown is yesterday's bias — opening gap may reverse it.
 - ORB strategy trades QQQ only; watch QQQ day return for regime context.
 
-Generated at 15:50 UTC
+Generated at 15:33 UTC
