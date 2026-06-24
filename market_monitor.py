@@ -220,11 +220,6 @@ def tick():
 
     price = get_price(symbol)
 
-    # Update high water mark
-    if price > hwm:
-        state["high_water_mark"] = price
-        hwm = price
-
     # Check if we still have a position
     position = get_position(symbol)
 

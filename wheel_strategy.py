@@ -94,6 +94,21 @@ def get_position(symbol):
         return None
 
 def get_options_quote(contract_symbol):
+    """Return the ask price for a short option (cost to buy back), falling back to last trade."""
+    try:
+        r = requests.get(
+            f"https://data.alpaca.markets/v1beta1/options/snapshots?symbols={contract_symbol}",
+            headers=HEADERS,
+        )
+        if r.ok:
+            snapshots = r.json().get("snapshots", {})
+            snap = snapshots.get(contract_symbol, {})
+            ask = snap.get("latestQuote", {}).get("ap")  # ask price
+            if ask and float(ask) > 0:
+                return float(ask)
+    except Exception:
+        pass
+    # Fallback: last trade price
     try:
         r = requests.get(
             f"https://data.alpaca.markets/v1beta1/options/trades/latest?symbols={contract_symbol}",
@@ -254,8 +269,11 @@ def check_early_close(state):
     if not current_price or not sell_price:
         return False
 
+    STOP_LOSS_PCT = 2.0   # close if contract costs 200% of premium received (lost 2x)
+
     profit_pct = (sell_price - current_price) / sell_price
     log.info(f"EARLY CLOSE CHECK: {contract['symbol']} sell=${sell_price:.2f} now=${current_price:.2f} pnl={profit_pct*100:.1f}% (close_target=+{EARLY_CLOSE_PCT*100:.0f}%)")
+
     if profit_pct >= EARLY_CLOSE_PCT:
         order = close_contract(contract["symbol"])
         locked = (sell_price - current_price) * 100
@@ -265,6 +283,18 @@ def check_early_close(state):
         state["active_contract"] = None
         state["cycles"] += 1
         return True
+
+    loss_pct = (current_price - sell_price) / sell_price
+    if loss_pct >= STOP_LOSS_PCT:
+        order = close_contract(contract["symbol"])
+        loss_amt = (current_price - sell_price) * 100
+        record_trade("wheel", contract["symbol"], -loss_amt, "stop loss 200% of premium")
+        log.warning(f"STOP LOSS ({loss_pct*100:.0f}% loss): {contract['symbol']} buy_back=${current_price:.2f} | loss -${loss_amt:.2f} | order {order['id']}")
+        print(f"[WHEEL] Stop loss triggered at {loss_pct*100:.0f}% loss: {contract['symbol']} | -${loss_amt:.2f}")
+        state["active_contract"] = None
+        state["cycles"] += 1
+        return True
+
     return False
 
 
