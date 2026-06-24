@@ -1,13 +1,13 @@
 name: Stocks-in-Play ORB
 
 on:
-  schedule:
-    # Start just after the 5-min opening range prints (13:35 UTC = 9:35 AM ET).
-    - cron: "35 13 * * 1-5"
-    # 2 PM ET handoff/relaunch (18:00 UTC) — same reliability pattern as the
-    # TSLA monitor. Resting stop-limit orders on Alpaca protect positions even
-    # during the gap between jobs.
-    - cron: "0 18 * * 1-5"
+  # PAUSED 2026-06-24: tuning sweep showed no config reaches PF>1 unleveraged
+  # (top-10 PF 0.52; most-selective top-1 only PF 0.70). The paper's Sharpe 2.81
+  # needs 4x leverage + a 1000+ stock universe to isolate true catalysts.
+  # Cron disabled — re-enable by uncommenting below. Manual runs still allowed.
+  # schedule:
+  #   - cron: "35 13 * * 1-5"
+  #   - cron: "0 18 * * 1-5"
   workflow_dispatch:
 
 concurrency:

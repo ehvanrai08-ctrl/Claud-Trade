@@ -1,14 +1,13 @@
 name: ORB Strategy (Opening Range Breakout)
 
 on:
-  schedule:
-    # Start the self-looping job just after the 5-min opening range prints
-    # (13:35 UTC = 9:35 AM ET in summer).
-    - cron: "35 13 * * 1-5"
-    # 2 PM ET (18:00 UTC) handoff/relaunch to cover the close past the runtime
-    # cap and self-heal if the morning job died. The resting stop on Alpaca
-    # protects the position regardless, so a handoff loses nothing critical.
-    - cron: "0 18 * * 1-5"
+  # PAUSED 2026-06-24: backtests showed no edge unleveraged on single-QQQ ORB
+  # (every variant PF<1; baseline hold-to-close PF 0.72 was the best). The
+  # documented edge needs leverage + a large catalyst universe we can't run.
+  # Cron disabled — re-enable by uncommenting below. Manual runs still allowed.
+  # schedule:
+  #   - cron: "35 13 * * 1-5"
+  #   - cron: "0 18 * * 1-5"
   workflow_dispatch:
 
 concurrency:

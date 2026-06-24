@@ -57,8 +57,8 @@ These bugs were each hit more than once. Don't reintroduce them:
 | Copy Trader | `copy_trader.py` | hourly, market hours | Mirrors the most profitable active US congressperson via Quiver Quant |
 | TJR | `tjr_strategy.py` | 9:30–11 AM, high-frequency | ICT/SMC day trade on SPY/QQQ: liquidity sweep → BOS → FVG → entry |
 | Mean Reversion | `mean_reversion.py` | 10 AM daily | Buy RSI<30 + below lower Bollinger with up-day confirmation; sell on revert |
-| ORB | `orb_strategy.py` | self-loops from 9:35 AM, 2 PM handoff | Opening Range Breakout on QQQ (Zarattini/Aziz): trade the break of the first 5-min bar's direction, resting stop at the opposite OR edge, no profit target, flat at 3:55 PM ET |
-| SIP-ORB | `sip_orb.py` | self-loops from 9:35 AM, 2 PM handoff | Multi-stock Stocks-in-Play ORB (Zarattini/Barbon/Aziz SSRN 4729284, Sharpe 2.81): top-10 relative-volume stocks each morning, resting stop-limit entry at OR boundary, 0.10×ATR stop, EOD close |
+| ~~ORB~~ **PAUSED** | `orb_strategy.py` | cron disabled (manual only) | Opening Range Breakout on QQQ. **Paused 2026-06-24**: backtests showed no edge unleveraged (every variant PF<1). Code kept; re-enable cron in the workflow to revive. |
+| ~~SIP-ORB~~ **PAUSED** | `sip_orb.py` | cron disabled (manual only) | Multi-stock Stocks-in-Play ORB (Zarattini/Barbon/Aziz SSRN 4729284). **Paused 2026-06-24**: tuning sweep showed no config reaches PF>1 unleveraged (paper's edge needs 4× leverage + 1000+ stock universe). Code kept; re-enable cron to revive. |
 | Dual Momentum | `dual_momentum.py` | 10:30 AM, first trading day of month | GEM (Antonacci): hold the stronger of SPY/EFA while equities beat cash (absolute gate), else 100% AGG bonds; ensembled 6–12mo lookbacks; ~1.5 trades/yr |
 | IBS | `ibs_strategy.py` | 3:50 PM daily | Internal Bar Strength mean reversion on QQQ: buy when IBS=(C−L)/(H−L) < 0.20 (closed near low), sell when IBS > 0.80; holds multi-day. Backtest: 69% win rate, PF 2.10 |
 | Connors RSI(2) | `rsi2_strategy.py` | 3:50 PM daily | RSI(2) mean reversion on SPY: buy when RSI(2)<10 AND close>200d SMA, sell when close>5d SMA; holds multi-day. Backtest: 72% win rate, PF 1.38 |
