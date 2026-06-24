@@ -52,6 +52,7 @@ These bugs were each hit more than once. Don't reintroduce them:
 | Strategy | File | Schedule (ET) | What it does |
 |---|---|---|---|
 | TSLA Trailing Stop | `market_monitor.py` | self-loops from 9:30 AM, 2 PM handoff | Holds TSLA, trails an ATR-based stop up (never down); re-enters after a stop-out |
+| Trend Basket | `trend_basket.py` | self-loops from 9:30 AM, 2 PM handoff | Same ATR-trailing-stop logic across a basket of high-beta names (NVDA/AMD/AVGO/META/AMZN/GOOGL, TSLA excluded — its own bot owns it). Buys only above the 50-day SMA; collision-safe (defers on held symbols, sells only its own qty) |
 | Wheel | `wheel_strategy.py` | every 15 min, market hours | Sell cash-secured puts → covered calls if assigned; close at 50% profit |
 | Copy Trader | `copy_trader.py` | hourly, market hours | Mirrors the most profitable active US congressperson via Quiver Quant |
 | TJR | `tjr_strategy.py` | 9:30–11 AM, high-frequency | ICT/SMC day trade on SPY/QQQ: liquidity sweep → BOS → FVG → entry |
@@ -117,6 +118,7 @@ do not.
 | `mean_reversion_state.json` | Open entries, closed P&L |
 | `orb_state.json` | Day's ORB phase, direction, entry, qty, resting stop order id |
 | `dual_momentum_state.json` | Current held asset, last rebalance month, rotation history |
+| `trend_basket_state.json` | Trend basket: per-symbol entry/qty/stop/HWM/trailing flag |
 | `ibs_state.json` | IBS bot: holding flag, entry price/qty/date for QQQ |
 | `rsi2_state.json` | RSI(2) bot: holding flag, entry price/qty/date for SPY |
 | `trades_ledger.jsonl` | Append-only realized-trade log (via `perf.record_trade()`) |
