@@ -226,6 +226,14 @@ def get_daily_bars(symbol, days=25):
 
 def try_enter(state):
     """Read the opening range; only enter on high-RVol catalyst days via breakout."""
+    # Hands-off: if QQQ is already held (e.g., by the IBS swing bot), stand down.
+    # ORB closes its position with close_position(), which would otherwise wipe
+    # out another strategy's shares in the merged broker position.
+    if get_position(SYMBOL):
+        log.info(f"{SYMBOL} already held by another strategy — ORB standing down today.")
+        state["phase"] = "done"
+        return
+
     bars = get_5m_bars(SYMBOL)
     orb  = opening_range_bar(bars)
     if not orb:

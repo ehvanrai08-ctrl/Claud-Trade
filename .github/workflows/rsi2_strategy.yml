@@ -1,0 +1,54 @@
+name: Connors RSI(2) Strategy (SPY)
+
+on:
+  schedule:
+    # 3:50 PM ET (19:50 UTC in summer) — one decision per day near the close.
+    - cron: "50 19 * * 1-5"
+  workflow_dispatch:
+
+concurrency:
+  group: rsi2-strategy
+  cancel-in-progress: true
+
+jobs:
+  rsi2:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: claude/charming-edison-b7imkj
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - run: pip install requests python-dotenv tzdata
+
+      - name: Write .env from secrets
+        run: |
+          cat > .env <<EOF
+          ALPACA_API_KEY=${{ secrets.ALPACA_API_KEY }}
+          ALPACA_SECRET_KEY=${{ secrets.ALPACA_SECRET_KEY }}
+          ALPACA_BASE_URL=https://paper-api.alpaca.markets/v2
+          EOF
+
+      - name: Configure git
+        run: |
+          git config user.name  "Claud-Trade Bot"
+          git config user.email "bot@claud-trade"
+
+      - name: Run RSI(2) strategy
+        run: python rsi2_strategy.py
+
+      - name: Commit state
+        if: always()
+        run: |
+          git add rsi2_state.json
+          git add -f rsi2.log 2>/dev/null || true
+          git diff --cached --quiet || git commit -m "chore: update RSI2 state [skip ci]"
+          git pull --rebase origin claude/charming-edison-b7imkj || true
+          git push origin claude/charming-edison-b7imkj || true

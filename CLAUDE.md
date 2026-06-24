@@ -59,8 +59,18 @@ These bugs were each hit more than once. Don't reintroduce them:
 | ORB | `orb_strategy.py` | self-loops from 9:35 AM, 2 PM handoff | Opening Range Breakout on QQQ (Zarattini/Aziz): trade the break of the first 5-min bar's direction, resting stop at the opposite OR edge, no profit target, flat at 3:55 PM ET |
 | SIP-ORB | `sip_orb.py` | self-loops from 9:35 AM, 2 PM handoff | Multi-stock Stocks-in-Play ORB (Zarattini/Barbon/Aziz SSRN 4729284, Sharpe 2.81): top-10 relative-volume stocks each morning, resting stop-limit entry at OR boundary, 0.10×ATR stop, EOD close |
 | Dual Momentum | `dual_momentum.py` | 10:30 AM, first trading day of month | GEM (Antonacci): hold the stronger of SPY/EFA while equities beat cash (absolute gate), else 100% AGG bonds; ensembled 6–12mo lookbacks; ~1.5 trades/yr |
+| IBS | `ibs_strategy.py` | 3:50 PM daily | Internal Bar Strength mean reversion on QQQ: buy when IBS=(C−L)/(H−L) < 0.20 (closed near low), sell when IBS > 0.80; holds multi-day. Backtest: 69% win rate, PF 2.10 |
+| Connors RSI(2) | `rsi2_strategy.py` | 3:50 PM daily | RSI(2) mean reversion on SPY: buy when RSI(2)<10 AND close>200d SMA, sell when close>5d SMA; holds multi-day. Backtest: 72% win rate, PF 1.38 |
 | DCA Index | `dca_index.py` | 10 AM Mondays | Buys $500 of VOO weekly, never sells — the "boring base" |
 | Post-Market Analysis | `post_market_analysis.py` | 4:15 PM daily | The self-improvement bot (below) |
+
+**Position-collision safety (IBS, RSI(2)).** These two daily swing bots share
+symbols with intraday bots (ORB on QQQ; Dual Momentum / SIP-ORB on SPY). To avoid
+one bot's `close_position()` wiping out another's shares in the merged broker
+position, they: (1) **defer entry** if a position in their symbol already exists,
+(2) on exit **sell exactly their own `entry_qty`** (never `close_position`), and
+(3) **reconcile** — if their position vanishes, mark flat and record the trade at
+the last price. ORB also stands down on any day QQQ is already held.
 
 Schedules are defined in UTC in `.github/workflows/*.yml` (ET = UTC−4 in summer).
 
@@ -107,6 +117,8 @@ do not.
 | `mean_reversion_state.json` | Open entries, closed P&L |
 | `orb_state.json` | Day's ORB phase, direction, entry, qty, resting stop order id |
 | `dual_momentum_state.json` | Current held asset, last rebalance month, rotation history |
+| `ibs_state.json` | IBS bot: holding flag, entry price/qty/date for QQQ |
+| `rsi2_state.json` | RSI(2) bot: holding flag, entry price/qty/date for SPY |
 | `trades_ledger.jsonl` | Append-only realized-trade log (via `perf.record_trade()`) |
 | `performance.json` | Per-strategy win rate / P&L (via `performance_tracker.py`) |
 | `reports/YYYY-MM-DD.md` | Daily post-market reports |
