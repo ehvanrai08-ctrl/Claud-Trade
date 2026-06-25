@@ -27,6 +27,8 @@ from datetime import datetime, timedelta, timezone
 from zoneinfo import ZoneInfo
 from dotenv import dotenv_values
 from perf import record_trade
+from capital_allocator import get_weight
+from premarket import read_signals
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 config   = dotenv_values(f"{BASE_DIR}/.env")
@@ -247,17 +249,29 @@ def run():
         return
 
     if r2 < RSI_BUY and price > s200:
-        qty = int(NOTIONAL // price)
+        # Scale notional by market regime (pre-market screener) and capital weight.
+        # RSI2 already has a hard 200d SMA bear-market block; regime adds size scaling.
+        # bull 1.25×: SPY oversold in a strong uptrend — highest-conviction setup.
+        # neutral 1.0×: standard size.
+        # bear 0.5×: oversold but trend broken; size down, the 200d gate may still pass.
+        signals = read_signals()
+        regime  = signals.get("market_regime", "neutral")
+        regime_mult = {"bull": 1.25, "neutral": 1.0, "bear": 0.5}.get(regime, 1.0)
+        alloc_mult  = get_weight("rsi2")
+        notional = NOTIONAL * regime_mult * alloc_mult
+        qty = int(notional // price)
         if qty < 1:
-            log.warning(f"Notional ${NOTIONAL} too small at ${price:.2f}")
+            log.warning(f"Notional ${notional:.0f} too small at ${price:.2f} (regime={regime})")
             return
         order = submit_market("buy", qty)
         if order:
             entry_p = fill_price(order["id"], price)
             save_state({"holding": True, "entry_price": entry_p, "entry_qty": qty,
                         "entry_date": datetime.now(ET).strftime("%Y-%m-%d")})
-            log.info(f"BUY {qty} {SYMBOL} @ ~${entry_p:.2f} | RSI2 {r2:.1f} > SMA200")
-            print(f"[RSI2] BUY {qty} {SYMBOL} @ ~${entry_p:.2f} | RSI2 {r2:.1f}")
+            log.info(f"BUY {qty} {SYMBOL} @ ~${entry_p:.2f} | RSI2 {r2:.1f} > SMA200 "
+                     f"regime={regime} ({regime_mult}×) alloc={alloc_mult}×")
+            print(f"[RSI2] BUY {qty} {SYMBOL} @ ~${entry_p:.2f} | RSI2 {r2:.1f} | "
+                  f"regime={regime} notional=${notional:.0f}")
     else:
         reason = (f"RSI2 {r2:.1f} not < {RSI_BUY}" if r2 >= RSI_BUY
                   else f"price ${price:.2f} below SMA200 ${s200:.2f} (bear regime)")

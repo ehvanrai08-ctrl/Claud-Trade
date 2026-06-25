@@ -5,12 +5,19 @@ Scores the SIP-ORB universe by yesterday's absolute return (the best
 available pre-market proxy for opening relative volume) and writes a
 brief watchlist plan to premarket_plan.md before the open.
 
+Also writes premarket_signals.json — a machine-readable market regime
+snapshot consumed by IBS and RSI(2) to scale position size:
+  market_regime: "bull" | "neutral" | "bear"
+  spy_5d_mom, qqq_5d_mom: 5-day return %
+  spy_above_200d, qqq_above_200d: bool
+
 Why |yesterday return|: stocks that moved hard yesterday are the most
 likely candidates for today's Stocks-in-Play universe. RVol can't be
 computed until the opening bar prints, so this is the best pre-open
 filter available without a news/catalyst API.
 """
 
+import json
 import logging
 import os
 import requests
@@ -55,8 +62,11 @@ TOP_N = 15
 
 
 def fetch_daily_bars(symbols, days=5):
-    """Fetch last `days` daily bars for each symbol in batches of 50."""
+    """Fetch last `days` daily bars for each symbol in batches of 50.
+    limit is set to days+15 so ascending-sort returns enough history
+    for 5d momentum AND 200d SMA when days=210."""
     start = (datetime.now(timezone.utc) - timedelta(days=days + 10)).strftime("%Y-%m-%dT%H:%M:%SZ")
+    limit = min(days + 15, 1000)
     result = {}
     for i in range(0, len(symbols), 50):
         chunk = symbols[i:i+50]
@@ -67,7 +77,7 @@ def fetch_daily_bars(symbols, days=5):
                 "symbols":   ",".join(chunk),
                 "timeframe": "1Day",
                 "start":     start,
-                "limit":     10,
+                "limit":     limit,
                 "sort":      "asc",
                 "adjustment":"all",
             },
@@ -124,6 +134,107 @@ def market_context(bars_by_sym):
     return "\n".join(lines) if lines else "(no market data)"
 
 
+SIGNALS_FILE = f"{BASE_DIR}/premarket_signals.json"
+
+
+def fetch_regime_bars(symbol, days=220):
+    """Fetch daily bars for a single symbol with pagination — needed for 200d SMA.
+    The batch endpoint doesn't paginate per-symbol, so we use the single endpoint."""
+    start = (datetime.now(timezone.utc) - timedelta(days=days)).strftime("%Y-%m-%dT%H:%M:%SZ")
+    bars, token = [], None
+    while True:
+        params = {"timeframe": "1Day", "start": start, "limit": 1000,
+                  "sort": "asc", "adjustment": "all"}
+        if token:
+            params["page_token"] = token
+        r = requests.get(
+            f"https://data.alpaca.markets/v2/stocks/{symbol}/bars",
+            headers=DATA_HEADERS, params=params, timeout=30,
+        )
+        if not r.ok:
+            break
+        j = r.json()
+        bars.extend(j.get("bars") or [])
+        token = j.get("next_page_token")
+        if not token:
+            break
+    return bars
+
+
+def compute_regime(bars_by_sym=None):
+    """
+    Derive a market regime from SPY and QQQ bars.
+    Fetches its own 220-day history for SPY/QQQ via the paginated
+    single-symbol endpoint (the batch endpoint can't return 200+ bars
+    per symbol reliably). bars_by_sym is accepted but not used for regime.
+
+    Regime rules (both must agree for non-neutral):
+      bull  — both SPY and QQQ: 5d mom > +1%  AND  close > 200d SMA
+      bear  — either SPY or QQQ: 5d mom < -1%  OR  close < 200d SMA
+      neutral — mixed signals
+
+    Notional scaling in IBS/RSI2:
+      bull    → 1.25×  (lean in when everything lines up)
+      neutral → 1.0×   (base size)
+      bear    → 0.5×   (size down; RSI2 also has a 200d hard block)
+    """
+    def sym_stats(symbol):
+        bars = fetch_regime_bars(symbol, days=220)
+        if len(bars) < 10:
+            return None
+        close    = bars[-1]["c"]
+        close_5d = bars[-6]["c"] if len(bars) >= 6 else bars[0]["c"]
+        mom_5d   = (close / close_5d - 1) * 100 if close_5d else 0
+        sma_200  = sum(b["c"] for b in bars[-200:]) / min(len(bars), 200)
+        return {"close": close, "mom_5d": mom_5d, "above_200d": close > sma_200}
+
+    spy = sym_stats("SPY")
+    qqq = sym_stats("QQQ")
+
+    if spy is None or qqq is None:
+        regime = "neutral"
+    elif (spy["mom_5d"] > 1.0 and qqq["mom_5d"] > 1.0
+          and spy["above_200d"] and qqq["above_200d"]):
+        regime = "bull"
+    elif (spy["mom_5d"] < -1.0 or qqq["mom_5d"] < -1.0
+          or not spy["above_200d"] or not qqq["above_200d"]):
+        regime = "bear"
+    else:
+        regime = "neutral"
+
+    signals = {
+        "date":           datetime.now(timezone.utc).strftime("%Y-%m-%d"),
+        "market_regime":  regime,
+        "spy_5d_mom":     round(spy["mom_5d"], 2) if spy else 0,
+        "qqq_5d_mom":     round(qqq["mom_5d"], 2) if qqq else 0,
+        "spy_above_200d": spy["above_200d"] if spy else True,
+        "qqq_above_200d": qqq["above_200d"] if qqq else True,
+        "top_movers":     [],   # filled by caller
+    }
+    return signals
+
+
+def write_signals(signals):
+    with open(SIGNALS_FILE, "w") as f:
+        json.dump(signals, f, indent=2)
+    return SIGNALS_FILE
+
+
+def read_signals():
+    """Read today's premarket_signals.json. Returns default neutral if missing/stale."""
+    default = {"market_regime": "neutral", "spy_5d_mom": 0, "qqq_5d_mom": 0,
+               "spy_above_200d": True, "qqq_above_200d": True}
+    try:
+        with open(SIGNALS_FILE) as f:
+            data = json.load(f)
+        today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+        if data.get("date") != today:
+            return default          # stale file — treat as neutral, don't block trades
+        return data
+    except Exception:
+        return default
+
+
 def write_plan(candidates, mkt_ctx):
     top = candidates[:TOP_N]
     today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
@@ -172,8 +283,9 @@ def run():
     if clock.get("is_open"):
         log.info("Market already open — pre-market scan running late, proceeding anyway.")
 
-    # Fetch yesterday's bars for the full universe
-    all_syms   = list(dict.fromkeys(UNIVERSE + ["SPY", "QQQ", "IWM"]))
+    # Fetch recent bars for the screener (7 days is enough for score_universe).
+    # compute_regime fetches its own deep history (220d) for SPY/QQQ separately.
+    all_syms    = list(dict.fromkeys(UNIVERSE + ["SPY", "QQQ", "IWM"]))
     bars_by_sym = fetch_daily_bars(all_syms, days=7)
     log.info(f"Fetched bars for {len(bars_by_sym)} symbols")
 
@@ -181,9 +293,18 @@ def run():
     candidates = score_universe(bars_by_sym)
     log.info(f"Scored {len(candidates)} candidates; top: {[c['symbol'] for c in candidates[:5]]}")
 
+    # Compute and persist machine-readable market regime for IBS/RSI2.
+    signals = compute_regime(bars_by_sym)
+    signals["top_movers"] = [c["symbol"] for c in candidates[:10]]
+    sig_path = write_signals(signals)
+    log.info(f"Regime: {signals['market_regime']} | SPY 5d {signals['spy_5d_mom']:+.1f}% "
+             f"| QQQ 5d {signals['qqq_5d_mom']:+.1f}% | written {sig_path}")
+
     path = write_plan(candidates, mkt_ctx)
     log.info(f"Plan written to {path}")
     print(f"[PREMARKET] Plan written: {path}")
+    print(f"[PREMARKET] Regime: {signals['market_regime']} | "
+          f"SPY 5d {signals['spy_5d_mom']:+.1f}% | QQQ 5d {signals['qqq_5d_mom']:+.1f}%")
     print(mkt_ctx)
     print(f"Top 5 candidates: {[c['symbol'] for c in candidates[:5]]}")
 

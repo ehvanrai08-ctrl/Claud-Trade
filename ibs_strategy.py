@@ -31,6 +31,8 @@ from datetime import datetime, timedelta, timezone
 from zoneinfo import ZoneInfo
 from dotenv import dotenv_values
 from perf import record_trade
+from capital_allocator import get_weight
+from premarket import read_signals
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 config   = dotenv_values(f"{BASE_DIR}/.env")
@@ -232,17 +234,28 @@ def run():
         return
 
     if ibs < IBS_BUY:
-        qty = int(NOTIONAL // price)
+        # Scale notional by market regime (pre-market screener) and capital weight.
+        # Regime multipliers: bull 1.25×, neutral 1.0×, bear 0.5×
+        # The "no trend filter" backtest result is preserved — we still enter in
+        # bear regimes; we just size down to protect capital.
+        signals = read_signals()
+        regime  = signals.get("market_regime", "neutral")
+        regime_mult = {"bull": 1.25, "neutral": 1.0, "bear": 0.5}.get(regime, 1.0)
+        alloc_mult  = get_weight("ibs")
+        notional = NOTIONAL * regime_mult * alloc_mult
+        qty = int(notional // price)
         if qty < 1:
-            log.warning(f"Notional ${NOTIONAL} too small at ${price:.2f}")
+            log.warning(f"Notional ${notional:.0f} too small at ${price:.2f} (regime={regime})")
             return
         order = submit_market("buy", qty)
         if order:
             entry_p = fill_price(order["id"], price)
             save_state({"holding": True, "entry_price": entry_p, "entry_qty": qty,
                         "entry_date": datetime.now(ET).strftime("%Y-%m-%d")})
-            log.info(f"BUY {qty} {SYMBOL} @ ~${entry_p:.2f} | IBS {ibs:.2f}")
-            print(f"[IBS] BUY {qty} {SYMBOL} @ ~${entry_p:.2f} | IBS {ibs:.2f}")
+            log.info(f"BUY {qty} {SYMBOL} @ ~${entry_p:.2f} | IBS {ibs:.2f} "
+                     f"regime={regime} ({regime_mult}×) alloc={alloc_mult}×")
+            print(f"[IBS] BUY {qty} {SYMBOL} @ ~${entry_p:.2f} | IBS {ibs:.2f} | "
+                  f"regime={regime} notional=${notional:.0f}")
     else:
         log.info(f"No entry — IBS {ibs:.2f} not < {IBS_BUY}")
         print(f"[IBS] No entry — IBS {ibs:.2f}")
