@@ -1,4 +1,4 @@
-# Pre-Market Game Plan — 2026-06-24
+# Pre-Market Game Plan — 2026-06-25
 
 ## Market Context (yesterday's close)
 (no market data)
@@ -7,8 +7,10 @@
 
 | Rank | Symbol | Close | Day Ret% | Est RVol | 5d Mom% | Avg Vol |
 |------|--------|-------|----------|----------|---------|---------|
-|  1 | AMAT   | $ 640.18 |  +3.74% ↑ LONG | 0.9x | +30.1% | 11,456,695 |
-|  2 | AAPL   | $ 297.01 |  -0.34% ↓ SHORT | 0.8x |  -1.5% | 54,357,241 |
+|  1 | AMAT   | $ 632.71 |  +7.43% ↑ LONG | 0.5x | +26.7% | 11,054,166 |
+|  2 | AAPL   | $ 278.59 |  -4.94% ↓ SHORT | 0.7x |  -4.1% | 50,442,016 |
+|  3 | ABBV   | $ 234.76 |  +2.07% ↑ LONG | 1.2x |  +4.1% | 6,085,353 |
+|  4 | AMT    | $ 179.38 |  +1.67% ↑ LONG | 1.1x |  -5.1% | 3,076,885 |
 
 ## Notes
 - SIP-ORB enters at 9:35 AM ET on the opening 5-min bar breakout.
@@ -16,4 +18,4 @@
 - Direction shown is yesterday's bias — opening gap may reverse it.
 - ORB strategy trades QQQ only; watch QQQ day return for regime context.
 
-Generated at 15:33 UTC
+Generated at 15:40 UTC

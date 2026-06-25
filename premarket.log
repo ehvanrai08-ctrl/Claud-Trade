@@ -8,3 +8,9 @@
 2026-06-24 15:33:57,213 INFO Fetched bars for 2 symbols
 2026-06-24 15:33:57,214 INFO Scored 2 candidates; top: ['AMAT', 'AAPL']
 2026-06-24 15:33:57,214 INFO Plan written to /home/runner/work/Claud-Trade/Claud-Trade/premarket_plan.md
+2026-06-25 15:40:55,759 INFO Pre-market scan starting — 2026-06-25
+2026-06-25 15:40:55,891 INFO Market already open — pre-market scan running late, proceeding anyway.
+2026-06-25 15:40:56,220 INFO Fetched bars for 4 symbols
+2026-06-25 15:40:56,221 INFO Scored 4 candidates; top: ['AMAT', 'AAPL', 'ABBV', 'AMT']
+2026-06-25 15:40:56,566 INFO Regime: bear | SPY 5d -0.7% | QQQ 5d -1.1% | written /home/runner/work/Claud-Trade/Claud-Trade/premarket_signals.json
+2026-06-25 15:40:56,567 INFO Plan written to /home/runner/work/Claud-Trade/Claud-Trade/premarket_plan.md
