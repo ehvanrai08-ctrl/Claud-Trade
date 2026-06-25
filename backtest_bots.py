@@ -17,7 +17,7 @@ import sys
 import math
 import statistics
 from collections import defaultdict
-from datetime import datetime, timedelta, timezone
+from datetime import datetime, timedelta
 from zoneinfo import ZoneInfo
 import requests
 from dotenv import dotenv_values
@@ -220,7 +220,7 @@ def backtest_dual_momentum():
     print(f"  Final equity: ${equity:,.0f}  (total {total_ret:+.1f}%)")
     print(f"  CAGR: {cagr:+.1f}%   Max drawdown: {mdd:.1f}%   Sharpe: {sharpe:.2f}")
     print(f"  SPY buy-and-hold same window: {spy_bh:+.1f}%")
-    print(f"  Recent rotations:")
+    print("  Recent rotations:")
     for d, frm, to, sp, ef, bl in rotations[-6:]:
         print(f"    {d}: {frm}→{to}  (SPY {sp:+.1%} EFA {ef:+.1%} BIL {bl:+.1%})")
     return {"cagr": cagr, "mdd": mdd, "sharpe": sharpe, "total": total_ret,

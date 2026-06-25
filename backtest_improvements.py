@@ -17,7 +17,7 @@ import os
 import math
 import statistics
 from collections import defaultdict
-from datetime import datetime, timedelta, timezone
+from datetime import datetime, timedelta
 from zoneinfo import ZoneInfo
 import time
 import requests
@@ -302,14 +302,14 @@ def sip_orb_improved(start, use_or_stop, label):
     use_or_stop=True  → stop at opposite OR boundary (the fix)
     use_or_stop=False → stop at 0.10×ATR (the bug)
     """
-    print(f"  Fetching daily bars…")
+    print("  Fetching daily bars…")
     daily = {}
     ds = (datetime.strptime(start, "%Y-%m-%d") - timedelta(days=60)).strftime("%Y-%m-%d")
     for s in SIP_UNIVERSE_SMALL:
         daily[s] = fetch_daily(s, ds, adjustment="raw")
         time.sleep(0.1)
 
-    print(f"  Fetching 5-min bars (with rate-limit backoff)…")
+    print("  Fetching 5-min bars (with rate-limit backoff)…")
     intraday = fetch_multi_5m(SIP_UNIVERSE_SMALL, start)
     print(f"  Got intraday for {len(intraday)}/{len(SIP_UNIVERSE_SMALL)} symbols")
 

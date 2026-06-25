@@ -23,7 +23,6 @@ Run: python backtest.py            (defaults: SPY,QQQ, ~10y)
 """
 
 import os
-import sys
 import math
 import statistics
 from datetime import datetime, timezone

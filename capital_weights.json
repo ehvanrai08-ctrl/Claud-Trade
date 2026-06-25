@@ -1,0 +1,26 @@
+{
+  "weights": {
+    "tsla_trailing": 1.0,
+    "trend_basket": 1.0,
+    "wheel": 1.0,
+    "copy_trader": 1.0,
+    "tjr": 1.0,
+    "mean_reversion": 1.0,
+    "dual_momentum": 1.0,
+    "ibs": 1.0,
+    "rsi2": 1.0,
+    "dca": 1.0
+  },
+  "notes": {
+    "tsla_trailing": "insufficient data (0/5 trades) \u2014 default 1.0",
+    "trend_basket": "insufficient data (0/5 trades) \u2014 default 1.0",
+    "wheel": "insufficient data (0/5 trades) \u2014 default 1.0",
+    "copy_trader": "insufficient data (0/5 trades) \u2014 default 1.0",
+    "tjr": "insufficient data (0/5 trades) \u2014 default 1.0",
+    "mean_reversion": "insufficient data (0/5 trades) \u2014 default 1.0",
+    "dual_momentum": "insufficient data (0/5 trades) \u2014 default 1.0",
+    "ibs": "insufficient data (0/5 trades) \u2014 default 1.0",
+    "rsi2": "insufficient data (0/5 trades) \u2014 default 1.0",
+    "dca": "insufficient data (0/5 trades) \u2014 default 1.0"
+  }
+}

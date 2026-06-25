@@ -157,16 +157,16 @@ def run_sweep(daily, intraday, max_pos, min_rvol, min_range_frac, use_tight_stop
                 continue
             stop = (entry - 0.10*c["atr"] if c["dir"] == "long" else entry + 0.10*c["atr"]) \
                 if use_tight_stop else c["or_stop"]
-            exit_p, reason = None, None
+            exit_p = None
             for b in after[eidx:]:
                 if b["_et"].hour > 15 or (b["_et"].hour == 15 and b["_et"].minute >= 55):
-                    exit_p = b["o"]; reason = "eod"; break
+                    exit_p = b["o"]; break
                 if c["dir"] == "long" and b["l"] <= stop:
-                    exit_p = stop*0.9995; reason = "stop"; break
+                    exit_p = stop*0.9995; break
                 if c["dir"] == "short" and b["h"] >= stop:
-                    exit_p = stop*1.0005; reason = "stop"; break
+                    exit_p = stop*1.0005; break
             if exit_p is None:
-                exit_p = after[-1]["c"]; reason = "eod"
+                exit_p = after[-1]["c"]
             pnl = ((exit_p-entry) if c["dir"] == "long" else (entry-exit_p))*qty
             trades.append({"pnl": pnl, "ret": pnl/(entry*qty)*100})
     return trades

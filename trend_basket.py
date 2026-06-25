@@ -33,6 +33,7 @@ from datetime import datetime, timezone, timedelta
 from zoneinfo import ZoneInfo
 from dotenv import dotenv_values
 from perf import record_trade
+from capital_allocator import get_weight
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 config   = dotenv_values(f"{BASE_DIR}/.env")
@@ -101,6 +102,23 @@ def atr14(bars):
     trs = [max(b[i]["h"]-b[i]["l"], abs(b[i]["h"]-b[i-1]["c"]), abs(b[i]["l"]-b[i-1]["c"]))
            for i in range(1, len(b))]
     return sum(trs[-14:]) / 14
+
+
+def swing_low_stop(bars, current_price, lookback=10):
+    """
+    Highest swing low below current_price in last lookback bars.
+    A swing low = bar whose low is lower than both neighbors.
+    Returns None if none found.
+    """
+    recent = bars[-(lookback + 2):]
+    if len(recent) < 3:
+        return None
+    swing_lows = []
+    for i in range(1, len(recent) - 1):
+        if recent[i]["l"] < recent[i-1]["l"] and recent[i]["l"] < recent[i+1]["l"]:
+            swing_lows.append(recent[i]["l"])
+    candidates = [sl for sl in swing_lows if sl < current_price]
+    return max(candidates) if candidates else None
 
 
 def sma(bars, n):
@@ -244,8 +262,11 @@ def manage_symbol(symbol, state):
 
         # Raise the stop if trailing is active (only ever upward)
         if info["trailing_active"]:
-            new_stop = (round(info["hwm"] - atr * ATR_MULTIPLIER, 2) if atr
+            atr_stop = (round(info["hwm"] - atr * ATR_MULTIPLIER, 2) if atr
                         else round(info["hwm"] * (1 - STOP_FALLBACK_PCT), 2))
+            # Swing-level enhancement: nearest swing low below price, if tighter.
+            swing = swing_low_stop(bars, price)
+            new_stop = swing if (swing and swing > atr_stop) else atr_stop
             if new_stop > info["current_stop"]:
                 cancel_order(info.get("stop_order_id"))
                 new_order = place_stop(symbol, info["qty"], new_stop)
@@ -267,7 +288,9 @@ def manage_symbol(symbol, state):
         log.info(f"{symbol} ${price:.2f} below SMA{SMA_TREND} ${trend:.2f} — no entry.")
         return
 
-    qty = int(NOTIONAL_PER // price)
+    # Scale position size by the strategy's dynamic capital weight (0.25×–2×).
+    notional = NOTIONAL_PER * get_weight("trend_basket")
+    qty = int(notional // price)
     if qty < 1:
         return
     init_stop = (round(price - atr * ATR_MULTIPLIER, 2) if atr

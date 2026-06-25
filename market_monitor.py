@@ -24,7 +24,6 @@ import requests
 from perf import record_trade
 from datetime import datetime, timezone, timedelta
 from dotenv import dotenv_values
-from zoneinfo import ZoneInfo
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 config = dotenv_values(f"{BASE_DIR}/.env")
@@ -146,32 +145,50 @@ def place_stop(symbol, qty, stop_price):
     })
 
 
-def get_atr(symbol, period=14):
-    """Calculate ATR from daily bars. Returns None if data unavailable."""
+def get_daily_bars(symbol, n=30):
+    """Return last n daily bars in chronological order."""
     try:
-        start = (datetime.now(timezone.utc) - timedelta(days=period * 4)).strftime("%Y-%m-%dT%H:%M:%SZ")
+        start = (datetime.now(timezone.utc) - timedelta(days=n + 10)).strftime("%Y-%m-%dT%H:%M:%SZ")
         r = requests.get(
             f"https://data.alpaca.markets/v2/stocks/{symbol}/bars",
             headers=HEADERS,
-            params={"timeframe": "1Day", "start": start, "limit": period + 1,
-                    "adjustment": "raw", "sort": "desc"},
+            params={"timeframe": "1Day", "start": start, "limit": n + 5,
+                    "adjustment": "raw", "sort": "asc"},
         )
-        if not r.ok:
-            return None
-        bars = r.json().get("bars", [])
-        if len(bars) < 2:
-            return None
-        bars = list(reversed(bars))  # desc → chronological for TR calc
-        true_ranges = []
-        for i in range(1, len(bars)):
-            high  = bars[i]["h"]
-            low   = bars[i]["l"]
-            prev_close = bars[i-1]["c"]
-            tr = max(high - low, abs(high - prev_close), abs(low - prev_close))
-            true_ranges.append(tr)
-        return sum(true_ranges) / len(true_ranges)
+        return r.json().get("bars", []) if r.ok else []
     except Exception:
+        return []
+
+
+def get_atr(symbol, period=14):
+    """Calculate ATR(14) from daily bars. Returns None if data unavailable."""
+    bars = get_daily_bars(symbol, period + 2)
+    if len(bars) < 2:
         return None
+    true_ranges = []
+    for i in range(1, len(bars)):
+        h, l, pc = bars[i]["h"], bars[i]["l"], bars[i-1]["c"]
+        true_ranges.append(max(h - l, abs(h - pc), abs(l - pc)))
+    return sum(true_ranges[-period:]) / min(len(true_ranges), period)
+
+
+def swing_low_stop(symbol, current_price, lookback=10):
+    """
+    Find the highest swing low below current_price in the last `lookback` bars.
+    A swing low = a bar whose low is lower than both its neighbors.
+    Returns None if no swing low found below price.
+    """
+    bars = get_daily_bars(symbol, lookback + 5)
+    if len(bars) < 3:
+        return None
+    recent = bars[-(lookback + 2):]
+    swing_lows = []
+    for i in range(1, len(recent) - 1):
+        if recent[i]["l"] < recent[i-1]["l"] and recent[i]["l"] < recent[i+1]["l"]:
+            swing_lows.append(recent[i]["l"])
+    # Take the highest swing low that's below current price (closest meaningful support)
+    candidates = [sl for sl in swing_lows if sl < current_price]
+    return max(candidates) if candidates else None
 
 
 def portfolio_daily_loss_exceeded():
@@ -264,13 +281,21 @@ def tick():
 
     # ── Raise the floor if trailing is active ────────────────────────────────
     if trailing:
-        # ATR-based trailing: stop = HWM - (ATR * multiplier), fallback to fixed %
+        # Primary: ATR-based trailing; fallback to fixed %
         atr = get_atr(symbol)
         if atr:
-            new_stop = round(hwm - (atr * ATR_MULTIPLIER), 2)
+            atr_stop = round(hwm - (atr * ATR_MULTIPLIER), 2)
         else:
             log.warning(f"ATR unavailable for {symbol} — falling back to fixed {TRAIL_OFFSET_PCT*100:.0f}% offset")
-            new_stop = round(hwm * (1 - TRAIL_OFFSET_PCT), 2)
+            atr_stop = round(hwm * (1 - TRAIL_OFFSET_PCT), 2)
+        # Swing-level enhancement: if the nearest swing low is tighter (higher)
+        # than the ATR stop, use it instead — real structure beats arbitrary math.
+        swing = swing_low_stop(symbol, price)
+        if swing and swing > atr_stop:
+            new_stop = swing
+            log.info(f"SWING STOP used: ${swing:.2f} (ATR stop was ${atr_stop:.2f})")
+        else:
+            new_stop = atr_stop
         if new_stop > current_stop:
             api_delete(f"/orders/{stop_order_id}")
             new_order = place_stop(symbol, entry_qty, new_stop)

@@ -123,6 +123,7 @@ do not.
 | `rsi2_state.json` | RSI(2) bot: holding flag, entry price/qty/date for SPY |
 | `trades_ledger.jsonl` | Append-only realized-trade log (via `perf.record_trade()`) |
 | `performance.json` | Per-strategy win rate / P&L (via `performance_tracker.py`) |
+| `capital_weights.json` | Dynamic per-strategy notional multipliers (0.25×–2×), updated nightly by `capital_allocator.py` |
 | `reports/YYYY-MM-DD.md` | Daily post-market reports |
 | `*.log` | Per-bot run logs (committed back to the repo) |
 

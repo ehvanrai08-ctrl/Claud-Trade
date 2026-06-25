@@ -327,7 +327,7 @@ def check_assignment_or_expiry(state):
                 state["active_contract"] = None
                 state["cycles"]         += 1
                 log.info(f"PUT EXPIRED WORTHLESS: {contract['symbol']} — premium kept, cycling back to Stage 1")
-                print(f"[WHEEL] Put expired worthless. Premium kept. Back to Stage 1.")
+                print("[WHEEL] Put expired worthless. Premium kept. Back to Stage 1.")
 
         elif contract["type"] == "call":
             stock_pos = get_position(SYMBOL)
@@ -347,7 +347,7 @@ def check_assignment_or_expiry(state):
                 state["active_contract"] = None
                 state["cycles"]         += 1
                 log.info(f"CALL EXPIRED WORTHLESS: {contract['symbol']} — premium kept, selling another call")
-                print(f"[WHEEL] Call expired worthless. Selling another covered call.")
+                print("[WHEEL] Call expired worthless. Selling another covered call.")
 
 
 def daily_summary(state):

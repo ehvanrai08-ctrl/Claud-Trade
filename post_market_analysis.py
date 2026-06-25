@@ -9,8 +9,9 @@ import json
 import os
 import sys
 import requests
-from datetime import datetime, timedelta
+from datetime import datetime
 from dotenv import dotenv_values
+from capital_allocator import compute_weights, summary_text as weights_summary
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 config   = dotenv_values(f"{BASE_DIR}/.env")
@@ -87,7 +88,7 @@ def trade_autopsy():
             f"PF={pf:.2f}  total=${total:+.2f}"
         )
         if wr > 65 and pf < 1.0:
-            lines.append(f"    ⚠ HIGH WIN-RATE TRAP: winning often but losing more per loss")
+            lines.append("    ⚠ HIGH WIN-RATE TRAP: winning often but losing more per loss")
         elif wr < 35 and pf > 2.0:
             lines.append(f"    ✓ low win-rate but positive expectancy (pf>{pf:.1f})")
     return "\n".join(lines)
@@ -410,11 +411,19 @@ def run():
 
     analysis = f"### Automated checks (no API required)\n{local}\n\n### AI analysis\n{ai}"
     if applied:
-        analysis += f"\n\n### Code improvements applied (syntax-verified)\n" + \
+        analysis += "\n\n### Code improvements applied (syntax-verified)\n" + \
                     "\n".join(f"- {f}" for f in applied)
     if rejected:
-        analysis += f"\n\n### Patches rejected (not applied)\n" + \
+        analysis += "\n\n### Patches rejected (not applied)\n" + \
                     "\n".join(f"- {f}: {reason}" for f, reason in rejected)
+
+    # Update dynamic capital weights from today's realized trades.
+    try:
+        weights_result = compute_weights()
+        analysis += f"\n\n### Capital Allocation Update\n```\n{weights_summary(weights_result)}\n```"
+        print("Capital weights updated.")
+    except Exception as e:
+        print(f"Capital weight update failed (non-fatal): {e}")
 
     path = save_report(context, analysis)
 
