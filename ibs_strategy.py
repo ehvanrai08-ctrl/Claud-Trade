@@ -33,6 +33,7 @@ from dotenv import dotenv_values
 from perf import record_trade
 from capital_allocator import get_weight
 from premarket import read_signals
+from risk_guard import can_enter
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 config   = dotenv_values(f"{BASE_DIR}/.env")
@@ -246,6 +247,11 @@ def run():
         qty = int(notional // price)
         if qty < 1:
             log.warning(f"Notional ${notional:.0f} too small at ${price:.2f} (regime={regime})")
+            return
+        ok, reason = can_enter("ibs", SYMBOL, qty * price)
+        if not ok:
+            log.warning(f"Risk guard blocked entry: {reason}")
+            print(f"[IBS] Risk guard blocked — {reason}")
             return
         order = submit_market("buy", qty)
         if order:

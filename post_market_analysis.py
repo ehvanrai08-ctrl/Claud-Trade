@@ -24,6 +24,9 @@ HEADERS  = {
 ANTHROPIC_KEY = os.environ.get("ANTHROPIC_API_KEY", "")
 TODAY = datetime.utcnow().strftime("%Y-%m-%d")
 
+LESSONS_FILE   = f"{BASE_DIR}/lessons_learned.md"
+MAX_LESSONS    = 60   # keep the file small (context is expensive) — trim oldest
+
 
 # ── Gather data ───────────────────────────────────────────────────────────────
 
@@ -55,6 +58,62 @@ def tail_log(path, lines=80):
         return "".join(all_lines[-lines:])
     except Exception:
         return "(no log)"
+
+
+# ── Persistent lessons memory (stateless runs build their own brain) ───────────
+
+def read_lessons():
+    """Existing lessons as bullet lines (the '- ...' entries only)."""
+    if not os.path.exists(LESSONS_FILE):
+        return []
+    out = []
+    for ln in read_file(LESSONS_FILE).splitlines():
+        s = ln.strip()
+        if s.startswith("- "):
+            out.append(s[2:].strip())
+    return out
+
+
+def append_lessons(new_lessons):
+    """Append genuinely-new lessons (case-insensitive dedup vs existing), trim to
+    MAX_LESSONS so the file — which is fed back into every future run — stays
+    small. Returns the list of lessons actually written."""
+    existing = read_lessons()
+    seen = {l.lower() for l in existing}
+    fresh = []
+    for l in new_lessons:
+        l = l.strip().lstrip("-").strip()
+        if l and l.lower() not in seen:
+            fresh.append(l); seen.add(l.lower())
+    if not fresh:
+        return []
+    block = "".join(f"- {l}\n" for l in fresh)
+    with open(LESSONS_FILE, "a") as f:
+        f.write(f"\n### {TODAY}\n{block}")
+    # Trim: if the bullet count exceeds the cap, drop the oldest bullets.
+    all_lessons = read_lessons()
+    if len(all_lessons) > MAX_LESSONS:
+        kept = all_lessons[-MAX_LESSONS:]
+        header = ("# Lessons Learned\n\nDurable, distilled lessons the nightly bot "
+                  "accumulates across runs (trimmed to the most recent "
+                  f"{MAX_LESSONS}).\n\n---\n\n")
+        with open(LESSONS_FILE, "w") as f:
+            f.write(header + "".join(f"- {l}\n" for l in kept))
+    return fresh
+
+
+def parse_lessons(analysis_text):
+    """Pull bullet lines out of a LESSONS: section in Claude's response."""
+    import re
+    m = re.search(r"LESSONS:\s*\n(.*?)(?:\n\s*\n|\Z)", analysis_text, re.DOTALL)
+    if not m:
+        return []
+    lessons = []
+    for ln in m.group(1).splitlines():
+        s = ln.strip()
+        if s.startswith("- ") or s.startswith("* "):
+            lessons.append(s[2:].strip())
+    return lessons
 
 
 # ── Build report ──────────────────────────────────────────────────────────────
@@ -194,12 +253,22 @@ def call_claude(context):
     wheel_strategy  = read_file(f"{BASE_DIR}/wheel_strategy.py")
     copy_trader     = read_file(f"{BASE_DIR}/copy_trader.py")
 
+    prior_lessons = read_lessons()
+    lessons_block = ("\n".join(f"- {l}" for l in prior_lessons)
+                     if prior_lessons else "(none yet)")
+
     prompt = f"""You are reviewing a paper trading bot after today's market session.
 
 Here is today's performance data:
 <data>
 {context}
 </data>
+
+Lessons you have ALREADY learned on prior days (do NOT repeat these — only add
+genuinely new ones):
+<lessons>
+{lessons_block}
+</lessons>
 
 Here is the current code for each bot:
 <market_monitor>
@@ -230,7 +299,16 @@ NEW:
 Output ONLY your FINAL version of each change — never include a draft snippet you then revise, and never emit two patches for the same location. Each FILE should appear at most once.
 Only suggest changes that are safe, tested improvements — not speculative rewrites.
 If today had no activity (market was closed or bots didn't fire), just note that and skip improvements.
-Keep the report under 400 words."""
+Keep the report under 400 words.
+
+4. Finally, if today taught a DURABLE lesson worth remembering on future days
+   (a recurring error pattern, a strategy behaviour, a risk observation), add a
+   section in EXACTLY this format (omit it entirely if there is nothing genuinely
+   new beyond the lessons already listed above):
+
+LESSONS:
+- <one concise, durable lesson>
+- <another, if any>"""
 
     r = requests.post(
         "https://api.anthropic.com/v1/messages",
@@ -416,6 +494,27 @@ def run():
     if rejected:
         analysis += "\n\n### Patches rejected (not applied)\n" + \
                     "\n".join(f"- {f}: {reason}" for f, reason in rejected)
+
+    # Distil and persist durable lessons (memory the next stateless run reads).
+    try:
+        new_lessons = append_lessons(parse_lessons(ai))
+        if new_lessons:
+            analysis += "\n\n### New lessons recorded\n" + \
+                        "\n".join(f"- {l}" for l in new_lessons)
+            print(f"Recorded {len(new_lessons)} new lesson(s).")
+    except Exception as e:
+        print(f"Lesson update failed (non-fatal): {e}")
+
+    # Rotate oversized logs into logs/archive/ so committed logs don't grow unbounded.
+    try:
+        from archive_logs import rotate
+        archived = rotate()
+        if archived:
+            analysis += "\n\n### Logs archived\n" + \
+                        "\n".join(f"- {a}" for a in archived)
+            print(f"Archived {len(archived)} log(s).")
+    except Exception as e:
+        print(f"Log archive failed (non-fatal): {e}")
 
     # Update dynamic capital weights from today's realized trades.
     try:

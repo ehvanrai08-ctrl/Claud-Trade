@@ -22,6 +22,7 @@ import requests
 from datetime import datetime, timezone, timedelta
 from dotenv import dotenv_values
 from perf import record_trade
+from risk_guard import can_enter
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 config   = dotenv_values(f"{BASE_DIR}/.env")
@@ -290,6 +291,10 @@ def run():
             # Whole shares (not notional) so a resting stop order can be attached.
             qty = int(TRADE_SIZE // price)
             if qty < 1:
+                continue
+            ok, reason = can_enter("mean_reversion", symbol, qty * price)
+            if not ok:
+                log.warning(f"Risk guard blocked entry {symbol}: {reason}")
                 continue
             order = buy(symbol, qty)
             if order:

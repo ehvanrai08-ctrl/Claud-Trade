@@ -34,6 +34,7 @@ from zoneinfo import ZoneInfo
 from dotenv import dotenv_values
 from perf import record_trade
 from capital_allocator import get_weight
+from risk_guard import can_enter
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 config   = dotenv_values(f"{BASE_DIR}/.env")
@@ -292,6 +293,11 @@ def manage_symbol(symbol, state):
     notional = NOTIONAL_PER * get_weight("trend_basket")
     qty = int(notional // price)
     if qty < 1:
+        return
+    ok, reason = can_enter("trend_basket", symbol, qty * price)
+    if not ok:
+        log.warning(f"Risk guard blocked entry {symbol}: {reason}")
+        print(f"[BASKET] Risk guard blocked {symbol} — {reason}")
         return
     init_stop = (round(price - atr * ATR_MULTIPLIER, 2) if atr
                  else round(price * (1 - STOP_FALLBACK_PCT), 2))
