@@ -30,7 +30,11 @@ jobs:
           python-version: "3.11"
           cache: pip
 
-      - run: pip install requests python-dotenv tzdata
+      - run: |
+          n=0; until pip install requests python-dotenv tzdata; do
+            n=$((n+1)); [ "$n" -ge 3 ] && echo "pip install failed after $n attempts" && exit 1
+            echo "pip install failed (attempt $n) — retrying in $((n*5))s..."; sleep $((n*5))
+          done
 
       - name: Write .env
         run: |

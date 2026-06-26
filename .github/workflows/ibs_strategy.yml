@@ -26,7 +26,11 @@ jobs:
           python-version: "3.11"
           cache: pip
 
-      - run: pip install requests python-dotenv tzdata
+      - run: |
+          n=0; until pip install requests python-dotenv tzdata; do
+            n=$((n+1)); [ "$n" -ge 3 ] && echo "pip install failed after $n attempts" && exit 1
+            echo "pip install failed (attempt $n) — retrying in $((n*5))s..."; sleep $((n*5))
+          done
 
       - name: Write .env from secrets
         run: |
@@ -50,5 +54,7 @@ jobs:
           git add ibs_state.json
           git add -f ibs.log 2>/dev/null || true
           git diff --cached --quiet || git commit -m "chore: update IBS state [skip ci]"
-          git pull --rebase origin claude/charming-edison-b7imkj || true
-          git push origin claude/charming-edison-b7imkj || true
+          n=0; until git pull --rebase origin claude/charming-edison-b7imkj && git push origin claude/charming-edison-b7imkj; do
+            n=$((n+1)); [ "$n" -ge 4 ] && echo "git sync failed after $n attempts (non-fatal)" && break
+            echo "git sync failed (attempt $n) — retrying in $((n*2))s..."; sleep $((n*2))
+          done || true
