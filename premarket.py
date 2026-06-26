@@ -27,14 +27,18 @@ from dotenv import dotenv_values
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 config   = dotenv_values(f"{BASE_DIR}/.env")
 
-BASE_URL = config["ALPACA_BASE_URL"]
+# Use .get() at module level so importing this file (e.g. IBS/RSI2 calling
+# read_signals()) can never KeyError on a missing/late .env. The functions that
+# actually hit the API degrade gracefully on a bad key (r.ok is False); a hard
+# subscript here would crash any bot that merely imports us. (CLAUDE.md gotcha #1)
+BASE_URL = config.get("ALPACA_BASE_URL", "https://paper-api.alpaca.markets/v2")
 HEADERS  = {
-    "APCA-API-KEY-ID":     config["ALPACA_API_KEY"],
-    "APCA-API-SECRET-KEY": config["ALPACA_SECRET_KEY"],
+    "APCA-API-KEY-ID":     config.get("ALPACA_API_KEY", ""),
+    "APCA-API-SECRET-KEY": config.get("ALPACA_SECRET_KEY", ""),
 }
 DATA_HEADERS = {
-    "APCA-API-KEY-ID":     config["ALPACA_API_KEY"],
-    "APCA-API-SECRET-KEY": config["ALPACA_SECRET_KEY"],
+    "APCA-API-KEY-ID":     config.get("ALPACA_API_KEY", ""),
+    "APCA-API-SECRET-KEY": config.get("ALPACA_SECRET_KEY", ""),
 }
 
 logging.basicConfig(
