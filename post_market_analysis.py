@@ -501,6 +501,18 @@ def save_report(context, analysis):
 
 def run():
     print(f"Post-market analysis — {TODAY}")
+
+    # Idempotency guard. The workflow has TWO scheduled triggers: the primary
+    # (4:15 PM ET) and a later catch-up that backstops GitHub dropping/delaying
+    # the primary (scheduled cron is best-effort and routinely fires 1–2h late or
+    # not at all). If today's report already exists, the primary succeeded — the
+    # catch-up must NOT run again: a second pass would re-call Claude (cost) and
+    # re-apply patches. Set FORCE_RUN=1 to override (e.g. a manual re-run).
+    report_path = f"{BASE_DIR}/reports/{TODAY}.md"
+    if os.path.exists(report_path) and os.environ.get("FORCE_RUN") != "1":
+        print(f"Report {report_path} already exists — skipping (catch-up no-op).")
+        return
+
     context = build_context()
 
     # Deterministic analysis always runs (free, no API).

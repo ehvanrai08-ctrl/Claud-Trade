@@ -2,9 +2,22 @@ name: Post-Market Analysis & Improvements
 
 on:
   schedule:
-    # 4:15 PM ET Mon-Fri (20:15 UTC) — 15 min after market close
+    # Primary: 4:15 PM ET Mon-Fri (20:15 UTC) — 15 min after market close.
     - cron: "15 20 * * 1-5"
+    # Catch-up: 7:40 PM ET (23:40 UTC). GitHub's scheduled crons are best-effort
+    # and routinely fire 1–2h late or get dropped entirely, so the primary often
+    # doesn't land (or fails on runner allocation). This backstop re-attempts the
+    # run. It's a no-op when the primary already produced today's report — the
+    # script skips if reports/<date>.md exists (idempotency guard in run()).
+    - cron: "40 23 * * 1-5"
   workflow_dispatch:
+
+# Never run the primary and catch-up at once; if the primary is still finishing
+# (late), the catch-up QUEUES behind it rather than cancelling it — then sees the
+# report already exists and no-ops. cancel-in-progress: false is deliberate.
+concurrency:
+  group: post-market
+  cancel-in-progress: false
 
 jobs:
   analyze:
