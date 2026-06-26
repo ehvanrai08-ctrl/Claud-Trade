@@ -128,11 +128,22 @@ def trade_autopsy():
         return "TRADE AUTOPSY\n  No realized trades in ledger yet.\n"
 
     from collections import defaultdict
+    import statistics
+    # Preserve ledger (time) order so the drawdown curve is chronological.
     by_strat = defaultdict(list)
     for t in trades:
         by_strat[t["strategy"]].append(t["pnl"])
 
-    lines = ["TRADE AUTOPSY (realized trades, all-time)"]
+    def max_drawdown(pnls):
+        """Largest peak-to-trough dip of the cumulative P&L curve ($)."""
+        cum, peak, mdd = 0.0, 0.0, 0.0
+        for p in pnls:
+            cum += p
+            peak = max(peak, cum)
+            mdd  = max(mdd, peak - cum)
+        return mdd
+
+    lines = ["TRADE AUTOPSY (realized trades, all-time) — risk-adjusted"]
     for strat, pnls in sorted(by_strat.items()):
         wins   = [p for p in pnls if p > 0]
         losses = [p for p in pnls if p <= 0]
@@ -141,15 +152,27 @@ def trade_autopsy():
         avg_w  = sum(wins) / len(wins) if wins else 0
         avg_l  = sum(losses) / len(losses) if losses else 0
         pf     = abs(sum(wins) / sum(losses)) if losses and sum(losses) != 0 else float("inf")
+        # Risk-adjusted (video lesson #3): judge return per unit of risk, not raw P&L.
+        expectancy = total / len(pnls) if pnls else 0          # avg $ per trade
+        mdd        = max_drawdown(pnls)
+        ret_dd     = (total / mdd) if mdd > 0 else float("inf")  # return-over-maxDD
+        sd         = statistics.stdev(pnls) if len(pnls) > 1 else 0
+        sharpe     = (expectancy / sd) if sd > 0 else 0          # per-trade Sharpe
         lines.append(
             f"  {strat:22}  n={len(pnls):3}  wr={wr:.0f}%  "
             f"avg_win=${avg_w:+.2f}  avg_loss=${avg_l:+.2f}  "
             f"PF={pf:.2f}  total=${total:+.2f}"
         )
+        lines.append(
+            f"      expectancy=${expectancy:+.2f}/trade  maxDD=${mdd:.2f}  "
+            f"ret/DD={ret_dd:.2f}  Sharpe={sharpe:.2f}"
+        )
         if wr > 65 and pf < 1.0:
             lines.append("    ⚠ HIGH WIN-RATE TRAP: winning often but losing more per loss")
         elif wr < 35 and pf > 2.0:
             lines.append(f"    ✓ low win-rate but positive expectancy (pf>{pf:.1f})")
+        if mdd > 0 and ret_dd < 1.0 and total > 0:
+            lines.append("    ⚠ POOR RISK-ADJUSTED RETURN: profit smaller than worst drawdown (ret/DD<1)")
     return "\n".join(lines)
 
 

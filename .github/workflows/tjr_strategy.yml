@@ -1,11 +1,16 @@
 name: TJR Strategy (SPY/QQQ Day Trade)
 
 on:
-  schedule:
-    # One self-looping job starting at 9:30 AM ET (13:30 UTC) — it polls through
-    # the whole NY killzone (9:30–11:00 AM ET) internally. Replaces the old
-    # every-2-min cron that GitHub throttled and dropped under load.
-    - cron: "30 13 * * 1-5"
+  # PAUSED 2026-06-26. backtest_tjr.py (622 days SPY/QQQ, in/out-of-sample split)
+  # shows no edge in any of 8 variants — simple vs full stack, long-only vs
+  # long+short, fixed vs trail+BE all post PF<1.1 with negative risk-adjusted
+  # returns. Same verdict that paused ORB/SIP-ORB. The live bot had taken ZERO
+  # trades anyway (8 stacked confluence gates strangle it). Code kept; to revive,
+  # uncomment the cron below. Manual runs still work via workflow_dispatch.
+  # schedule:
+  #   # One self-looping job starting at 9:30 AM ET (13:30 UTC) — polls the whole
+  #   # NY killzone (9:30–11:00 AM ET) internally.
+  #   - cron: "30 13 * * 1-5"
   workflow_dispatch:
 
 # Only one killzone loop at a time; a new trigger takes over cleanly.
