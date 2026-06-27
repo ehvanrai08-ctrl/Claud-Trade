@@ -26,6 +26,8 @@ TODAY = datetime.utcnow().strftime("%Y-%m-%d")
 
 LESSONS_FILE   = f"{BASE_DIR}/lessons_learned.md"
 MAX_LESSONS    = 60   # keep the file small (context is expensive) — trim oldest
+BENCHMARK_FILE = f"{BASE_DIR}/benchmark_state.json"
+BENCHMARK_SYM  = "VOO"   # the index the whole system is implicitly betting it can beat
 
 
 # ── Gather data ───────────────────────────────────────────────────────────────
@@ -486,6 +488,65 @@ def local_analysis():
     return "\n".join(lines)
 
 
+# ── Benchmark vs buying the index (the SPIVA question) ────────────────────────
+
+def _latest_price(symbol):
+    try:
+        r = requests.get(f"https://data.alpaca.markets/v2/stocks/{symbol}/trades/latest",
+                         headers=HEADERS, timeout=15)
+        return float(r.json()["trade"]["p"]) if r.ok else None
+    except Exception:
+        return None
+
+
+def benchmark_vs_index():
+    """Answer the one question that matters: is the whole system beating what you'd
+    have made by just buying-and-holding the index with the same money?
+
+    SPIVA: ~89% of professional managers fail to beat the S&P 500 over 15 years.
+    An automated bot fleet has to clear that same bar. We track it honestly:
+    on first run we record a baseline (system equity + index price); every run
+    after compares system return since that baseline to the index's return over
+    the identical window. The delta is alpha — positive means the bots are
+    earning their complexity; negative means a VOO DCA would have done better.
+
+    Self-bootstrapping (measures from first run forward), so it never fabricates
+    a backdated number it can't actually verify.
+    """
+    acct   = get_account()
+    equity = float(acct.get("equity", 0) or 0)
+    idx_px = _latest_price(BENCHMARK_SYM)
+    if equity <= 0 or not idx_px:
+        return "BENCHMARK vs {}: data unavailable (equity or index price missing).".format(BENCHMARK_SYM)
+
+    base = None
+    if os.path.exists(BENCHMARK_FILE):
+        try:
+            base = json.loads(read_file(BENCHMARK_FILE))
+        except Exception:
+            base = None
+
+    if not base or not base.get("equity") or not base.get("index_price"):
+        with open(BENCHMARK_FILE, "w") as f:
+            json.dump({"date": TODAY, "equity": equity,
+                       "index": BENCHMARK_SYM, "index_price": idx_px}, f, indent=2)
+        return (f"BENCHMARK vs {BENCHMARK_SYM}: baseline established today "
+                f"(equity ${equity:,.2f}, {BENCHMARK_SYM} ${idx_px:.2f}). "
+                f"Out/under-performance will be tracked from here forward.")
+
+    sys_ret = (equity / base["equity"] - 1) * 100
+    idx_ret = (idx_px / base["index_price"] - 1) * 100
+    alpha   = sys_ret - idx_ret
+    verdict = ("✓ system is BEATING a buy-and-hold of the index"
+               if alpha >= 0 else
+               "⚠ a buy-and-hold of the index would have done BETTER (negative alpha)")
+    return (f"BENCHMARK vs {BENCHMARK_SYM} (since {base['date']})\n"
+            f"  System return:   {sys_ret:+.2f}%  (equity ${base['equity']:,.0f} → ${equity:,.0f})\n"
+            f"  {BENCHMARK_SYM} buy-and-hold: {idx_ret:+.2f}%  "
+            f"(${base['index_price']:.2f} → ${idx_px:.2f})\n"
+            f"  Alpha:           {alpha:+.2f}%  — {verdict}")
+
+
 # ── Save report ───────────────────────────────────────────────────────────────
 
 def save_report(context, analysis):
@@ -518,11 +579,19 @@ def run():
     # Deterministic analysis always runs (free, no API).
     local = local_analysis()
 
+    # Benchmark the whole system against just buying the index (the SPIVA question).
+    try:
+        benchmark = benchmark_vs_index()
+    except Exception as e:
+        benchmark = f"BENCHMARK: error (non-fatal) — {e}"
+
     # AI analysis layers on top when the API is available.
     ai = call_claude(context)
     applied, rejected = apply_patches(ai)
 
-    analysis = f"### Automated checks (no API required)\n{local}\n\n### AI analysis\n{ai}"
+    analysis = (f"### Automated checks (no API required)\n{local}\n\n"
+                f"### Benchmark vs index (are the bots beating buy-and-hold?)\n{benchmark}\n\n"
+                f"### AI analysis\n{ai}")
     if applied:
         analysis += "\n\n### Code improvements applied (syntax-verified)\n" + \
                     "\n".join(f"- {f}" for f in applied)
