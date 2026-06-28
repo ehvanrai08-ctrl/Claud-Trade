@@ -60,6 +60,7 @@ These bugs were each hit more than once. Don't reintroduce them:
 | ~~ORB~~ **PAUSED** | `orb_strategy.py` | cron disabled (manual only) | Opening Range Breakout on QQQ. **Paused 2026-06-24**: backtests showed no edge unleveraged (every variant PF<1). Code kept; re-enable cron in the workflow to revive. |
 | ~~SIP-ORB~~ **PAUSED** | `sip_orb.py` | cron disabled (manual only) | Multi-stock Stocks-in-Play ORB (Zarattini/Barbon/Aziz SSRN 4729284). **Paused 2026-06-24**: tuning sweep showed no config reaches PF>1 unleveraged (paper's edge needs 4× leverage + 1000+ stock universe). Code kept; re-enable cron to revive. |
 | Dual Momentum | `dual_momentum.py` | 10:30 AM, first trading day of month | GEM (Antonacci): hold the stronger of SPY/EFA while equities beat cash (absolute gate), else 100% AGG bonds; ensembled 6–12mo lookbacks; ~1.5 trades/yr |
+| Sector Momentum | `sector_momentum.py` | 10:35 AM, first trading day of month | Cross-sectional rotation: hold the top 3 of 11 sector SPDRs by ensembled 9–12mo momentum, equal-weight, monthly. Only strategy to survive `backtest_research.py` vs SPY buy-and-hold (Sharpe 1.03 vs 0.88, maxDD 18% vs 34%, robust across the lookback×top_n grid). Risk-adjusted/diversification leg, not a guaranteed index-beater. |
 | IBS | `ibs_strategy.py` | 3:50 PM daily | Internal Bar Strength mean reversion on QQQ: buy when IBS=(C−L)/(H−L) < 0.20 (closed near low), sell when IBS > 0.80; holds multi-day. Backtest: 69% win rate, PF 2.10 |
 | Connors RSI(2) | `rsi2_strategy.py` | 3:50 PM daily | RSI(2) mean reversion on SPY: buy when RSI(2)<10 AND close>200d SMA, sell when close>5d SMA; holds multi-day. Backtest: 72% win rate, PF 1.38 |
 | DCA Index | `dca_index.py` | 10 AM Mondays | Buys $500 of VOO weekly, never sells — the "boring base" |
@@ -118,6 +119,7 @@ do not.
 | `mean_reversion_state.json` | Open entries, closed P&L |
 | `orb_state.json` | Day's ORB phase, direction, entry, qty, resting stop order id |
 | `dual_momentum_state.json` | Current held asset, last rebalance month, rotation history |
+| `sector_momentum_state.json` | Sector rotation: per-symbol qty/entry, last rebalance month, history |
 | `trend_basket_state.json` | Trend basket: per-symbol entry/qty/stop/HWM/trailing flag |
 | `ibs_state.json` | IBS bot: holding flag, entry price/qty/date for QQQ |
 | `rsi2_state.json` | RSI(2) bot: holding flag, entry price/qty/date for SPY |

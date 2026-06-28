@@ -1,0 +1,55 @@
+name: Sector Momentum Rotation
+
+on:
+  schedule:
+    # First five days of each month at 10:35 AM ET (14:35 UTC in summer). The
+    # bot's once-per-month state guard means only the first run that succeeds
+    # actually rebalances; the rest are no-ops. Offset 5 min from dual_momentum
+    # so the two monthly rotations don't contend for a runner at the same minute.
+    - cron: "35 14 1-5 * *"
+  workflow_dispatch:
+
+jobs:
+  rebalance:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: claude/charming-edison-b7imkj
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - run: |
+          n=0; until pip install requests python-dotenv; do
+            n=$((n+1)); [ "$n" -ge 3 ] && echo "pip install failed after $n attempts" && exit 1
+            echo "pip install failed (attempt $n) — retrying in $((n*5))s..."; sleep $((n*5))
+          done
+
+      - name: Write .env
+        run: |
+          cat > .env <<EOF
+          ALPACA_API_KEY=${{ secrets.ALPACA_API_KEY }}
+          ALPACA_SECRET_KEY=${{ secrets.ALPACA_SECRET_KEY }}
+          ALPACA_BASE_URL=https://paper-api.alpaca.markets/v2
+          EOF
+
+      - name: Run sector momentum
+        run: python sector_momentum.py
+
+      - name: Commit state
+        run: |
+          git config user.name  "Claud-Trade Bot"
+          git config user.email "bot@claud-trade"
+          git add sector_momentum_state.json
+          git add -f sector_momentum.log 2>/dev/null || true
+          git diff --cached --quiet || git commit -m "chore: sector-momentum rebalance $(date +%Y-%m) [skip ci]"
+          n=0; until git pull --rebase origin claude/charming-edison-b7imkj && git push origin claude/charming-edison-b7imkj; do
+            n=$((n+1)); [ "$n" -ge 4 ] && echo "git sync failed after $n attempts (non-fatal)" && break
+            echo "git sync failed (attempt $n) — retrying in $((n*2))s..."; sleep $((n*2))
+          done || true
