@@ -108,6 +108,38 @@ do not.
 
 ---
 
+## The agent loop — discovery → backtest → optimize
+
+Continuous automation for finding and validating new strategies. Runs weekly
+(Mondays 3 AM UTC) via `.github/workflows/agent_loop.yml`.
+
+**Three-agent pipeline:**
+
+1. **`strategy_discovery.py`** — Scans SSRN, Quantpedia, Twitter, Reddit for
+   8–12 novel ideas. Filters by liquidity (SPY/QQQ/sector SPDRs/bonds) and
+   frequency (daily/monthly). Excludes duplicates of the 10 live strategies.
+   Output: natural-language descriptions ready for backtesting.
+
+2. **`backtest_generator.py`** — Takes a strategy description, calls Claude to
+   generate working backtest code, validates it (py_compile), runs on Alpaca
+   data (2016-2026), extracts metrics (Sharpe, PF, maxDD, CAGR). Verdict:
+   PASS (PF>1.0, Sharpe>0.5) | MAYBE (profitable, low robustness) | FAIL.
+
+3. **`parameter_optimizer.py`** — Tunes a live strategy's parameters by sweeping
+   ranges, backtesting each combo, recommending the best. Detects when retuning
+   would improve Sharpe >5%, suggests "RETUNE" vs "HOLD_CURRENT". Useful when
+   a bot's performance drifts or market regime shifts.
+
+**Orchestration: `agent_loop.py`** — Runs all three sequentially, caches
+results (skips re-testing), produces weekly markdown report to `reports/`.
+
+**Why this matters:** Research→deploy gap is now closed. Instead of manual
+sweeps every month, candidates surface automatically, backtest on real data,
+and best performers get continuously tuned. The three agents form a closed
+feedback loop.
+
+---
+
 ## State & data files
 
 | File | Purpose |
