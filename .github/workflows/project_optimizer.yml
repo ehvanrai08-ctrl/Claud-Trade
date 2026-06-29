@@ -1,0 +1,72 @@
+name: Project Optimizer — Continuous Improvement
+
+on:
+  # Three times a week: Tue / Thu / Sat at 6 AM UTC (off-market, low contention)
+  schedule:
+    - cron: "0 6 * * 2,4,6"
+  # Manual trigger
+  workflow_dispatch:
+
+# Never cancel an in-flight run; queue behind it instead.
+concurrency:
+  group: project-optimizer
+  cancel-in-progress: false
+
+jobs:
+  optimize:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: claude/charming-edison-b7imkj
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Install dependencies
+        run: pip install -q -r requirements.txt
+
+      - name: Configure environment
+        env:
+          ALPACA_BASE_URL: ${{ secrets.ALPACA_BASE_URL }}
+          ALPACA_API_KEY: ${{ secrets.ALPACA_API_KEY }}
+          ALPACA_SECRET_KEY: ${{ secrets.ALPACA_SECRET_KEY }}
+        run: |
+          cat > .env <<EOF
+          ALPACA_BASE_URL=$ALPACA_BASE_URL
+          ALPACA_API_KEY=$ALPACA_API_KEY
+          ALPACA_SECRET_KEY=$ALPACA_SECRET_KEY
+          EOF
+
+      - name: Run project optimizer
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: python project_optimizer.py
+
+      - name: Verify all bots still compile (safety net)
+        run: |
+          for f in *.py; do
+            python -m py_compile "$f" || { echo "COMPILE FAILED: $f"; exit 1; }
+          done
+          echo "✓ all Python files compile"
+
+      - name: Commit & push improvements
+        run: |
+          git config user.name "Claude Optimizer"
+          git config user.email "claude@anthropic.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "Project optimizer: improvements + backlog [skip ci]"
+            for i in 1 2 3 4; do
+              git push -u origin claude/charming-edison-b7imkj && break
+              echo "push failed, retry $i"; sleep $((2**i))
+            done
+          fi

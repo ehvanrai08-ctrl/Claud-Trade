@@ -140,6 +140,36 @@ feedback loop.
 
 ---
 
+## The project optimizer — continuous code/project improvement
+
+`project_optimizer.py` is the always-on "make the whole project better" agent
+(where post_market works on *trades* and the agent loop works on *strategies*,
+this works on the *codebase itself*). Runs 3×/week (Tue/Thu/Sat 6 AM UTC) via
+`.github/workflows/project_optimizer.yml`.
+
+Each run:
+1. **`survey_codebase()`** — deterministic, no API: line counts, all pyflakes
+   warnings, TODO/FIXME markers. Always useful even with no credits.
+2. **`brainstorm()`** — sends the survey + editable source to Claude Opus, which
+   returns (a) safe mechanical code patches and (b) a prioritized idea backlog.
+3. **`apply_patches()`** — applies only the safe patches behind the **same two
+   gates** as the post-market bot (py_compile + pyflakes "undefined name"),
+   rolling back any failure. Anything touching trading *logic* goes to the
+   backlog, never an auto-edit.
+4. **`update_backlog()`** — merges new ideas into `IMPROVEMENT_BACKLOG.md`
+   (deduped, priority-sorted P1/P2/P3, capped at 40), with a per-run log.
+
+**Self-protection:** it NEVER patches itself or `post_market_analysis.py`
+(`PROTECTED` set), and never auto-edits `.yml`/`requirements.txt`
+(`NEVER_AUTOPATCH`) — so it can't break its own recoverability or the fleet's
+infra. The workflow also has a "verify all bots compile" gate before pushing.
+Every change is a git commit → one `git revert` away.
+
+`IMPROVEMENT_BACKLOG.md` is the human-readable queue — skim it for P1 ideas
+worth doing by hand.
+
+---
+
 ## State & data files
 
 | File | Purpose |
