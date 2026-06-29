@@ -73,7 +73,9 @@ def is_tradeable(symbol):
     try:
         r = requests.get(f"{BASE_URL}/assets/{symbol}", headers=HEADERS)
         asset = r.json()
-        return asset.get("tradable") and asset.get("status") == "active" and asset.get("asset_class") == "us_equity"
+        # Alpaca's asset object uses the field "class" (not "asset_class").
+        asset_cls = asset.get("class") or asset.get("asset_class")
+        return asset.get("tradable") and asset.get("status") == "active" and asset_cls == "us_equity"
     except Exception:
         return False
 

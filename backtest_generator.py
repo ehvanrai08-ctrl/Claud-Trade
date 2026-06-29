@@ -129,12 +129,14 @@ def validate_and_run(code):
         except py_compile.PyCompileError as e:
             return False, None, f"Syntax error: {str(e)[:200]}"
 
-        # Run it.
+        # Run it FROM the repo dir so `from backtest_research import ...` resolves
+        # (the temp file lives in /tmp, which isn't on the import path).
         result = subprocess.run(
             ["python", temp_path],
             capture_output=True,
             text=True,
             timeout=60,
+            cwd=BASE_DIR,
         )
         if result.returncode != 0:
             return False, None, f"Runtime error: {result.stderr[:500]}"

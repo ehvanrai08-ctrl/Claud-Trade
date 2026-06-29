@@ -147,6 +147,7 @@ def validate_and_run(code):
             capture_output=True,
             text=True,
             timeout=120,  # sweep can take a while
+            cwd=BASE_DIR,  # so `from backtest_research import ...` resolves
         )
         if result.returncode != 0:
             return False, None, f"Runtime error: {result.stderr[:500]}"
