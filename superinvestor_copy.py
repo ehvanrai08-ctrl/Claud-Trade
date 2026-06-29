@@ -61,7 +61,9 @@ DATA_HEADERS = {
 STATE_FILE = f"{BASE_DIR}/superinvestor_state.json"
 
 # SEC EDGAR requires a descriptive User-Agent with a contact (fair-access policy).
-SEC_HEADERS = {"User-Agent": "Claud-Trade research bot ehvanrai08@gmail.com",
+# SEC fair-access policy wants a descriptive UA with a contact. Kept generic so
+# no personal email is published in a public repo; edit to your own if you prefer.
+SEC_HEADERS = {"User-Agent": "Claud-Trade research bot (contact via GitHub repo)",
                "Accept-Encoding": "gzip, deflate"}
 
 # The managers to mirror — chosen for LOW TURNOVER so the 13F lag is harmless.
