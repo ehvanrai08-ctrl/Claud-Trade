@@ -44,6 +44,7 @@ STRATEGIES = [
     "dca",
     "sector_momentum",
     "superinvestor",
+    "emerging_growth",
 ]
 
 

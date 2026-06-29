@@ -56,6 +56,7 @@ These bugs were each hit more than once. Don't reintroduce them:
 | Wheel | `wheel_strategy.py` | every 15 min, market hours | Sell cash-secured puts → covered calls if assigned; close at 50% profit |
 | Copy Trader | `copy_trader.py` | hourly, market hours | Mirrors the most profitable active US congressperson via Quiver Quant |
 | Superinvestor Copy | `superinvestor_copy.py` | 10:45 AM, first 5 days of month | Mirrors a basket of **low-turnover** 13F managers (Buffett/Ackman/Akre/Gates/Markel) via SEC EDGAR + OpenFIGI (CUSIP→ticker). Holds the top-8 consensus names, equal-weight, monthly. Deliberately copies *slow* compounders — the 45-day 13F lag is harmless on multi-year holds — and never fast traders like Burry (stale + option-heavy filings). Collision-safe; every buy passes the risk guard. |
+| Emerging Growth ⚠ | `emerging_growth.py` | 10:55 AM, first 5 days of month | **EXPERIMENTAL / high-variance.** The tradeable leg of "find early companies that become huge": a diversified basket (never a single bet) of emerging high-growth names from the scout's watchlist, ranked by 6–12mo momentum with a 200d trend gate, top-6 equal-weight, monthly. `backtest_emerging.py` was honest: momentum *selection* added ~0 risk-adjusted value over equal-weight-holding the same universe (the SPY-beating return is survivorship bias); the only real benefit is the trend gate cutting maxDD ~68%→57%. So it's sized SMALL ($4k sleeve) and labeled experimental — drawdown-controlled growth exposure, NOT proven alpha. Collision-safe; risk-guarded. |
 | ~~TJR~~ **PAUSED** | `tjr_strategy.py` | cron disabled (manual only) | ICT/SMC day trade on SPY/QQQ: liquidity sweep → BOS → FVG → entry. **Paused 2026-06-26**: `backtest_tjr.py` (622d, in/out-of-sample split) found no edge in any of 8 variants (simple vs full stack, long-only vs long+short, fixed vs trail+BE — all PF<1.1, negative risk-adjusted return). Live bot had taken zero trades (8 stacked confluence gates strangle it). Code kept; re-enable cron to revive. |
 | Mean Reversion | `mean_reversion.py` | 10 AM daily | Buy RSI<30 + below lower Bollinger with up-day confirmation; sell on revert |
 | ~~ORB~~ **PAUSED** | `orb_strategy.py` | cron disabled (manual only) | Opening Range Breakout on QQQ. **Paused 2026-06-24**: backtests showed no edge unleveraged (every variant PF<1). Code kept; re-enable cron in the workflow to revive. |
@@ -171,6 +172,27 @@ worth doing by hand.
 
 ---
 
+## The emerging-company scout (`emerging_scout.py`)
+
+The "find companies early that become huge" research agent. Runs weekly
+(Mondays 3 AM UTC) via `.github/workflows/emerging_scout.yml`. Surfaces a ranked
+watchlist in two tiers and writes `reports/emerging_watchlist_YYYY-MM-DD.md`:
+
+- **Public & tradeable** — recent IPOs / small-mid-cap growth, verified tradeable
+  on Alpaca and written to `emerging_watchlist.json`, which becomes the live
+  `emerging_growth.py` bot's candidate universe.
+- **Private / pre-IPO** — notable startups you can't trade yet, surfaced to track
+  for when they list.
+
+Discovery only — no trading. The honest framing baked into the prompt and the
+report: single-name multibagger picking is mostly luck, so the live bot only ever
+trades a diversified, risk-controlled basket of the tradeable tier. The live leg
+(`emerging_growth.py`) is **experimental and sized small** — see its strategy-table
+row and `backtest_emerging.py` for why (momentum selection showed ~0 edge over
+the universe; only the trend gate's drawdown control survived).
+
+---
+
 ## State & data files
 
 | File | Purpose |
@@ -187,6 +209,8 @@ worth doing by hand.
 | `ibs_state.json` | IBS bot: holding flag, entry price/qty/date for QQQ |
 | `rsi2_state.json` | RSI(2) bot: holding flag, entry price/qty/date for SPY |
 | `superinvestor_state.json` | Superinvestor copy: per-symbol qty/entry, last rebalance month, last 13F accession per manager, history |
+| `emerging_growth_state.json` | Emerging-growth basket: per-symbol qty/entry, last rebalance month, history |
+| `emerging_watchlist.json` | Emerging-company scout output: tradeable tickers (live-bot universe) + public/private candidate details, updated weekly |
 | `trades_ledger.jsonl` | Append-only realized-trade log (via `perf.record_trade()`) |
 | `performance.json` | Per-strategy win rate / P&L (via `performance_tracker.py`) |
 | `capital_weights.json` | Dynamic per-strategy notional multipliers (0.25×–2×), updated nightly by `capital_allocator.py` |
