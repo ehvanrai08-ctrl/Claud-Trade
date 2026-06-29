@@ -55,6 +55,7 @@ These bugs were each hit more than once. Don't reintroduce them:
 | Trend Basket | `trend_basket.py` | self-loops from 9:30 AM, 2 PM handoff | Same ATR-trailing-stop logic across a basket of high-beta names (NVDA/AMD/AVGO/META/AMZN/GOOGL, TSLA excluded — its own bot owns it). Buys only above the 50-day SMA; collision-safe (defers on held symbols, sells only its own qty) |
 | Wheel | `wheel_strategy.py` | every 15 min, market hours | Sell cash-secured puts → covered calls if assigned; close at 50% profit |
 | Copy Trader | `copy_trader.py` | hourly, market hours | Mirrors the most profitable active US congressperson via Quiver Quant |
+| Superinvestor Copy | `superinvestor_copy.py` | 10:45 AM, first 5 days of month | Mirrors a basket of **low-turnover** 13F managers (Buffett/Ackman/Akre/Gates/Markel) via SEC EDGAR + OpenFIGI (CUSIP→ticker). Holds the top-8 consensus names, equal-weight, monthly. Deliberately copies *slow* compounders — the 45-day 13F lag is harmless on multi-year holds — and never fast traders like Burry (stale + option-heavy filings). Collision-safe; every buy passes the risk guard. |
 | ~~TJR~~ **PAUSED** | `tjr_strategy.py` | cron disabled (manual only) | ICT/SMC day trade on SPY/QQQ: liquidity sweep → BOS → FVG → entry. **Paused 2026-06-26**: `backtest_tjr.py` (622d, in/out-of-sample split) found no edge in any of 8 variants (simple vs full stack, long-only vs long+short, fixed vs trail+BE — all PF<1.1, negative risk-adjusted return). Live bot had taken zero trades (8 stacked confluence gates strangle it). Code kept; re-enable cron to revive. |
 | Mean Reversion | `mean_reversion.py` | 10 AM daily | Buy RSI<30 + below lower Bollinger with up-day confirmation; sell on revert |
 | ~~ORB~~ **PAUSED** | `orb_strategy.py` | cron disabled (manual only) | Opening Range Breakout on QQQ. **Paused 2026-06-24**: backtests showed no edge unleveraged (every variant PF<1). Code kept; re-enable cron in the workflow to revive. |
@@ -185,6 +186,7 @@ worth doing by hand.
 | `trend_basket_state.json` | Trend basket: per-symbol entry/qty/stop/HWM/trailing flag |
 | `ibs_state.json` | IBS bot: holding flag, entry price/qty/date for QQQ |
 | `rsi2_state.json` | RSI(2) bot: holding flag, entry price/qty/date for SPY |
+| `superinvestor_state.json` | Superinvestor copy: per-symbol qty/entry, last rebalance month, last 13F accession per manager, history |
 | `trades_ledger.jsonl` | Append-only realized-trade log (via `perf.record_trade()`) |
 | `performance.json` | Per-strategy win rate / P&L (via `performance_tracker.py`) |
 | `capital_weights.json` | Dynamic per-strategy notional multipliers (0.25×–2×), updated nightly by `capital_allocator.py` |

@@ -42,6 +42,8 @@ STRATEGIES = [
     "ibs",
     "rsi2",
     "dca",
+    "sector_momentum",
+    "superinvestor",
 ]
 
 
