@@ -2316,3 +2316,6 @@
 2026-06-25 19:59:26,087 INFO GOOGL $343.37 below SMA50 $369.28 — no entry.
 2026-06-25 20:00:26,357 INFO Market closed — exiting loop.
 2026-06-25 20:00:26,358 INFO Trend basket loop ended
+2026-06-29 20:01:41,655 INFO Trend basket loop started
+2026-06-29 20:01:41,963 INFO Market closed — exiting loop.
+2026-06-29 20:01:41,963 INFO Trend basket loop ended
