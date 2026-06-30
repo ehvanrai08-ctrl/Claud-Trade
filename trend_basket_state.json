@@ -3,10 +3,10 @@
     "AMD": {
       "entry_price": 518.875,
       "qty": 4,
-      "stop_order_id": "37d854ba-8a5f-4843-aece-f66d616db910",
-      "current_stop": 443.61,
-      "hwm": 531.58,
-      "trailing_active": false,
+      "stop_order_id": "66397692-19d4-4a07-876d-f48312272368",
+      "current_stop": 513.07,
+      "hwm": 584.62,
+      "trailing_active": true,
       "entry_date": "2026-06-24"
     }
   }
