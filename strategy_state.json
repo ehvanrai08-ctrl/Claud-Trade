@@ -4,6 +4,6 @@
   "entry_qty": 10,
   "stop_order_id": "905521ad-7a7e-4ab4-a9e5-9b3493fd619e",
   "current_stop": 343.09,
-  "trailing_active": false,
+  "trailing_active": true,
   "high_water_mark": 408.42
 }
