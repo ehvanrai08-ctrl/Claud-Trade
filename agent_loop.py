@@ -33,7 +33,7 @@ def read_cache():
         try:
             with open(CACHE_FILE) as f:
                 return json.load(f)
-        except:
+        except (json.JSONDecodeError, OSError):
             pass
     return {"tested_candidates": {}, "optimized_strategies": {}}
 
@@ -59,7 +59,7 @@ def run_discovery():
 
     try:
         return json.loads(result.stdout)
-    except:
+    except json.JSONDecodeError:
         print("[AGENT LOOP] Discovery output was not valid JSON", flush=True)
         return None
 
@@ -79,7 +79,7 @@ def run_backtest(strategy_description, limit=5):
 
     try:
         return json.loads(result.stdout)
-    except:
+    except json.JSONDecodeError:
         print("[AGENT LOOP] Backtest output was not valid JSON", flush=True)
         return None
 
@@ -99,7 +99,7 @@ def run_optimizer(strategy_name, param_description):
 
     try:
         return json.loads(result.stdout)
-    except:
+    except json.JSONDecodeError:
         print("[AGENT LOOP] Optimizer output was not valid JSON", flush=True)
         return None
 
