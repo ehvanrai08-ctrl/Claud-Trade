@@ -121,10 +121,10 @@ def get_position(symbol):
 
 
 def sell_qty(symbol, qty):
-    """Sell exactly `qty` shares — never close_position (protects shared positions
-    and keeps us selling only what this bot bought)."""
+    """Sell exactly `qty` shares — fractional OK; never close_position (protects
+    shared positions and keeps us selling only what this bot bought)."""
     r = requests.post(f"{BASE_URL}/orders", headers=HEADERS, json={
-        "symbol": symbol, "qty": str(qty), "side": "sell",
+        "symbol": symbol, "qty": str(round(float(qty), 6)), "side": "sell",
         "type": "market", "time_in_force": "day",
     })
     if r.ok:
@@ -142,6 +142,21 @@ def buy_notional(symbol, notional):
         return r.json()
     log.error(f"Buy failed {symbol}: {r.text[:200]}")
     return None
+
+
+def confirm_fill(symbol, notional, est_price):
+    """Actual (qty, avg_entry_price) from the broker after a buy — a notional
+    order fills a slightly different qty than notional/quote-price, so state
+    must reflect the real position, not the estimate. Estimate is the fallback
+    if the fill isn't visible yet."""
+    time.sleep(2)
+    pos = get_position(symbol)
+    if pos:
+        try:
+            return float(pos["qty"]), float(pos["avg_entry_price"])
+        except (KeyError, TypeError, ValueError):
+            pass
+    return notional / est_price, est_price
 
 
 # ── SEC EDGAR: latest 13F holdings per manager ─────────────────────────────────
@@ -366,18 +381,29 @@ def run():
     log.info(f"Target basket: {sorted(target)} | currently held: {sorted(held)}")
     print(f"[SUPER] target {sorted(target)} | held {sorted(held)}")
 
+    # A failed/blocked leg leaves the month unmarked so the next cron run in the
+    # 1st-5th window retries just the missing pieces (sells/buys are idempotent).
+    complete = True
+
     # ── Sell names that dropped out of the basket (our own qty only) ───────────
     for sym in list(held):
         if sym in target:
             continue
         pos = get_position(sym)
         if not pos:
-            log.warning(f"{sym} in state but no live position — reconciling out.")
+            # Record the exit at the last price so the P&L isn't silently lost.
+            qty   = float(held[sym].get("qty", 0))
+            entry = held[sym].get("entry_price", 0)
+            px    = latest_price(sym) or entry
+            if qty > 0 and entry:
+                record_trade("superinvestor", sym, (px - entry) * qty,
+                             "reconciled out (position vanished)")
+            log.warning(f"{sym} in state but no live position — reconciled out.")
             held.pop(sym, None)
             continue
-        owned = int(float(pos["qty"]))
-        qty   = min(int(held[sym].get("qty", 0)), owned)
-        if qty < 1:
+        owned = float(pos["qty"])
+        qty   = round(min(float(held[sym].get("qty", 0)), owned), 6)
+        if qty <= 0:
             held.pop(sym, None)
             continue
         order = sell_qty(sym, qty)
@@ -385,9 +411,11 @@ def run():
             px  = latest_price(sym) or float(pos["current_price"])
             pnl = (px - held[sym].get("entry_price", px)) * qty
             record_trade("superinvestor", sym, pnl, "rotate out")
-            log.info(f"SELL {qty} {sym} @ ~${px:.2f} | P&L ${pnl:+.2f}")
-            print(f"[SUPER] SELL {qty} {sym} | P&L ${pnl:+.2f}")
+            log.info(f"SELL {qty:.4f} {sym} @ ~${px:.2f} | P&L ${pnl:+.2f}")
+            print(f"[SUPER] SELL {qty:.4f} {sym} | P&L ${pnl:+.2f}")
             held.pop(sym, None)
+        else:
+            complete = False   # retry the sell on the next run this month
 
     # ── Buy new entrants up to the basket ──────────────────────────────────────
     weight   = get_weight("superinvestor")
@@ -398,21 +426,30 @@ def run():
         px = latest_price(sym)
         if not px:
             log.warning(f"No price for {sym} — skipping buy.")
+            complete = False
             continue
         ok, reason = can_enter("superinvestor", sym, per_name)
         if not ok:
             log.warning(f"Risk guard blocked {sym}: {reason}")
             print(f"[SUPER] Risk guard blocked {sym} — {reason}")
+            complete = False
             continue
         order = buy_notional(sym, per_name)
         if order:
-            qty = per_name / px
-            held[sym] = {"qty": qty, "entry_price": px}
-            log.info(f"BUY {sym} ~${per_name:.0f} (~{qty:.2f} sh @ ${px:.2f})")
+            qty, entry = confirm_fill(sym, per_name, px)
+            held[sym] = {"qty": qty, "entry_price": entry}
+            log.info(f"BUY {sym} ~${per_name:.0f} ({qty:.4f} sh @ ${entry:.2f})")
             print(f"[SUPER] BUY {sym} ~${per_name:.0f}")
+        else:
+            complete = False
 
     state["holdings"] = held
-    state["last_rebalance_month"] = this_month
+    if complete:
+        state["last_rebalance_month"] = this_month
+    else:
+        log.warning("Rebalance incomplete — leaving month unmarked to retry "
+                    "on the next scheduled run this month.")
+        print("[SUPER] Rebalance incomplete — will retry next run")
     state["last_filings"] = filings
     state.setdefault("history", []).append({
         "month": this_month,

@@ -217,6 +217,9 @@ def main(limit_candidates=5):
         desc = c.get("description", "")
         result = run_backtest(desc)
         if result:
+            # backtest_generator stores the description in "strategy"; rekey to
+            # the candidate NAME so the report's tested-check and the cache agree.
+            result["strategy"] = name
             backtest_results.append(result)
             cache["tested_candidates"][name] = result
             write_cache(cache)

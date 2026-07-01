@@ -210,7 +210,8 @@ def run():
             continue
 
         # Skip if selling something we don't own
-        if side == "sell" and not get_position(ticker):
+        pos = get_position(ticker) if side == "sell" else None
+        if side == "sell" and not pos:
             log.info(f"SKIP sell {ticker} — no position")
             continue
 
@@ -228,6 +229,17 @@ def run():
 
         conviction_mult = 1.0 if ticker in high_conviction else 0.5
         notional = MAX_TRADE_VALUE * conviction_mult
+
+        # Never sell more than we actually hold — and mirror a partial sale as
+        # selling half the position, not a fixed $ amount that may exceed it.
+        if side == "sell":
+            held_value = abs(float(pos.get("market_value", 0) or 0))
+            frac = 0.5 if transaction == "Sale (Partial)" else 1.0
+            notional = min(notional, round(held_value * frac, 2))
+            if notional < 1:
+                log.info(f"SKIP sell {ticker} — position too small (${held_value:.2f})")
+                copied.append(trade_id)
+                continue
 
         order = place_order(ticker, side, notional)
         if order:
