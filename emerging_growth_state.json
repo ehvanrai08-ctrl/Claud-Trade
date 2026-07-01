@@ -1,0 +1,50 @@
+{
+  "holdings": {
+    "CRWD": {
+      "qty": 0.859161887578667,
+      "entry_price": 775.95
+    },
+    "DDOG": {
+      "qty": 2.487098178200584,
+      "entry_price": 268.05
+    },
+    "MDB": {
+      "qty": 1.8538086498711601,
+      "entry_price": 359.62
+    },
+    "OKTA": {
+      "qty": 4.723777132194903,
+      "entry_price": 141.13
+    },
+    "ROKU": {
+      "qty": 4.737540269092287,
+      "entry_price": 140.72
+    },
+    "TWLO": {
+      "qty": 3.188267176789415,
+      "entry_price": 209.1
+    }
+  },
+  "last_rebalance_month": "2026-07",
+  "history": [
+    {
+      "month": "2026-07",
+      "target": [
+        "CRWD",
+        "DDOG",
+        "MDB",
+        "OKTA",
+        "ROKU",
+        "TWLO"
+      ],
+      "scores": {
+        "DDOG": 0.9293,
+        "TWLO": 0.7205,
+        "CRWD": 0.5804,
+        "OKTA": 0.508,
+        "ROKU": 0.4238,
+        "MDB": 0.2275
+      }
+    }
+  ]
+}
