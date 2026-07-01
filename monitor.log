@@ -1666,3 +1666,6 @@
 2026-07-01 19:58:54,881 INFO TICK: TSLA $425.50 | HWM $408.42 | Stop $384.70 | Trailing: True
 2026-07-01 19:59:55,844 INFO SWING STOP used: $384.70 (ATR stop was $373.78)
 2026-07-01 19:59:55,844 INFO TICK: TSLA $425.45 | HWM $408.42 | Stop $384.70 | Trailing: True
+2026-07-01 20:00:32,880 INFO Monitor loop started
+2026-07-01 20:00:33,490 INFO Market closed — exiting loop.
+2026-07-01 20:00:33,490 INFO Monitor loop ended
