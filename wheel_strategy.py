@@ -162,18 +162,52 @@ def close_contract(contract_symbol, qty=1):
         "time_in_force": "day",
     })
 
-def get_open_option_order(contract_symbol):
-    try:
-        orders = api_get("/orders", params={"status": "open", "symbols": contract_symbol})
-        return orders[0] if orders else None
-    except Exception:
-        return None
-
 def get_option_position(contract_symbol):
+    """Return (status, position): 'open', 'gone' (confirmed 404), or 'error'
+    (transient API failure). Callers must NOT treat 'error' as 'gone' — declaring
+    a live short contract expired on a network blip would record phantom P&L and
+    sell a second contract on top of the first."""
     try:
-        return api_get(f"/positions/{contract_symbol}")
+        r = requests.get(f"{BASE_URL}/positions/{contract_symbol}",
+                         headers=HEADERS, timeout=15)
+        if r.ok:
+            return "open", r.json()
+        if r.status_code == 404:
+            return "gone", None
+        return "error", None
     except Exception:
-        return None
+        return "error", None
+
+
+def get_options_bid(contract_symbol):
+    """Bid price — what a SELLER receives. (get_options_quote's ask is the
+    buy-back cost and overstates the credit on a sale.)"""
+    try:
+        r = requests.get(
+            f"https://data.alpaca.markets/v1beta1/options/snapshots?symbols={contract_symbol}",
+            headers=HEADERS,
+        )
+        if r.ok:
+            snap = r.json().get("snapshots", {}).get(contract_symbol, {})
+            bid = snap.get("latestQuote", {}).get("bp")
+            if bid and float(bid) > 0:
+                return float(bid)
+    except Exception:
+        pass
+    return None
+
+
+def sell_fill_price(order_id, contract_symbol):
+    """Premium actually received on a sale: the order's real fill price, else
+    the bid as the estimate."""
+    try:
+        filled = api_get(f"/orders/{order_id}")
+        p = float(filled.get("filled_avg_price") or 0)
+        if p > 0:
+            return p
+    except Exception:
+        pass
+    return get_options_bid(contract_symbol)
 
 
 # ── Stage logic ───────────────────────────────────────────────────────────────
@@ -196,14 +230,7 @@ def stage1_sell_put(state, price):
         return
 
     order = sell_contract(contract["symbol"])
-    # Prefer the actual fill price over a post-order snapshot quote
-    fill_price = None
-    try:
-        filled_order = api_get(f"/orders/{order['id']}")
-        fill_price = float(filled_order.get("filled_avg_price") or 0) or None
-    except Exception:
-        pass
-    premium = fill_price or get_options_quote(contract["symbol"]) or 0
+    premium = sell_fill_price(order["id"], contract["symbol"]) or 0
     collected = premium * 100
 
     state["stage"]           = 1
@@ -239,7 +266,7 @@ def stage2_sell_call(state, cost_basis):
         return
 
     order = sell_contract(contract["symbol"])
-    premium = get_options_quote(contract["symbol"]) or 0
+    premium = sell_fill_price(order["id"], contract["symbol"]) or 0
     collected = premium * 100
 
     state["stage"]           = 2
@@ -304,50 +331,57 @@ def check_assignment_or_expiry(state):
     if not contract:
         return
 
-    position = get_option_position(contract["symbol"])
+    status, _position = get_option_position(contract["symbol"])
 
-    # Contract is gone — either expired or assigned
-    if position is None:
+    # Only act on a CONFIRMED 404 — 'open' means nothing to do, and 'error'
+    # (transient API failure) must not be read as "contract gone": that would
+    # record phantom P&L and sell a second contract on top of a live one.
+    # The next 15-minute run retries for free.
+    if status != "gone":
+        return
 
-        if contract["type"] == "put":
-            # Check if we now own TSLA shares (assignment)
-            stock_pos = get_position(SYMBOL)
-            if stock_pos and int(float(stock_pos["qty"])) >= 100:
-                cost_basis = float(stock_pos["avg_entry_price"])
-                state["stage"]           = 2
-                state["active_contract"] = None
-                state["cost_basis"]      = cost_basis
-                log.info(f"PUT ASSIGNED: now own {stock_pos['qty']} {SYMBOL} @ avg ${cost_basis:.2f}")
-                print(f"[WHEEL] Put assigned — own {stock_pos['qty']} shares @ ${cost_basis:.2f}. Moving to Stage 2.")
-            else:
-                # Expired worthless — back to Stage 1
-                kept = contract.get("sell_price", 0) * 100
-                record_trade("wheel", contract["symbol"], kept, "put expired worthless")
-                state["stage"]           = 1
-                state["active_contract"] = None
-                state["cycles"]         += 1
-                log.info(f"PUT EXPIRED WORTHLESS: {contract['symbol']} — premium kept, cycling back to Stage 1")
-                print("[WHEEL] Put expired worthless. Premium kept. Back to Stage 1.")
+    if contract["type"] == "put":
+        # Check if we now own TSLA shares (assignment)
+        stock_pos = get_position(SYMBOL)
+        if stock_pos and int(float(stock_pos["qty"])) >= 100:
+            # Cost basis = the strike we were assigned at. The broker's
+            # avg_entry_price is blended with the TSLA monitor bot's own
+            # shares, which would skew the covered-call strike.
+            cost_basis = float(contract["strike"])
+            state["stage"]           = 2
+            state["active_contract"] = None
+            state["cost_basis"]      = cost_basis
+            log.info(f"PUT ASSIGNED: now own {stock_pos['qty']} {SYMBOL} @ strike ${cost_basis:.2f}")
+            print(f"[WHEEL] Put assigned — own {stock_pos['qty']} shares @ ${cost_basis:.2f}. Moving to Stage 2.")
+        else:
+            # Expired worthless — back to Stage 1
+            kept = contract.get("sell_price", 0) * 100
+            record_trade("wheel", contract["symbol"], kept, "put expired worthless")
+            state["stage"]           = 1
+            state["active_contract"] = None
+            state["cycles"]         += 1
+            log.info(f"PUT EXPIRED WORTHLESS: {contract['symbol']} — premium kept, cycling back to Stage 1")
+            print("[WHEEL] Put expired worthless. Premium kept. Back to Stage 1.")
 
-        elif contract["type"] == "call":
-            stock_pos = get_position(SYMBOL)
-            if not stock_pos or int(float(stock_pos["qty"])) < 100:
-                # Shares called away
-                state["stage"]           = 1
-                state["active_contract"] = None
-                state["cost_basis"]      = None
-                state["cycles"]         += 1
-                log.info(f"CALL ASSIGNED: shares sold at ${contract['strike']} — back to Stage 1")
-                print(f"[WHEEL] Shares called away at ${contract['strike']}. Back to Stage 1.")
-            else:
-                # Call expired worthless
-                kept = contract.get("sell_price", 0) * 100
-                record_trade("wheel", contract["symbol"], kept, "call expired worthless")
-                state["stage"]           = 2
-                state["active_contract"] = None
-                state["cycles"]         += 1
-                log.info(f"CALL EXPIRED WORTHLESS: {contract['symbol']} — premium kept, selling another call")
-                print("[WHEEL] Call expired worthless. Selling another covered call.")
+    elif contract["type"] == "call":
+        stock_pos = get_position(SYMBOL)
+        if not stock_pos or int(float(stock_pos["qty"])) < 100:
+            # Shares called away
+            state["stage"]           = 1
+            state["active_contract"] = None
+            state["cost_basis"]      = None
+            state["cycles"]         += 1
+            log.info(f"CALL ASSIGNED: shares sold at ${contract['strike']} — back to Stage 1")
+            print(f"[WHEEL] Shares called away at ${contract['strike']}. Back to Stage 1.")
+        else:
+            # Call expired worthless
+            kept = contract.get("sell_price", 0) * 100
+            record_trade("wheel", contract["symbol"], kept, "call expired worthless")
+            state["stage"]           = 2
+            state["active_contract"] = None
+            state["cycles"]         += 1
+            log.info(f"CALL EXPIRED WORTHLESS: {contract['symbol']} — premium kept, selling another call")
+            print("[WHEEL] Call expired worthless. Selling another covered call.")
 
 
 def daily_summary(state):
@@ -409,17 +443,26 @@ def run():
     # No active contract — act based on stage
     if not state.get("active_contract"):
         if state["stage"] == 1:
-            # Guard: verify no open short-option sell order already exists before selling
-            open_order = None
+            # Guard: verify no open short-option sell order already exists before
+            # selling. Note: a symbols=TSLA filter would NOT match option orders
+            # (their symbol is the OCC contract, e.g. TSLA260715P00375000), so we
+            # fetch all open orders and match on the contract-root prefix. Fails
+            # CLOSED — if we can't see the order book we must not sell into it.
             try:
-                open_orders = api_get("/orders", params={"status": "open", "symbols": SYMBOL})
-                open_option_orders = [o for o in open_orders if o.get("asset_class") == "us_option" and o.get("side") == "sell"]
-                open_order = open_option_orders[0] if open_option_orders else None
-            except Exception:
+                open_orders = api_get("/orders", params={"status": "open", "limit": 100})
+                dupes = [o for o in open_orders
+                         if o.get("asset_class") == "us_option"
+                         and o.get("side") == "sell"
+                         and str(o.get("symbol", "")).startswith(SYMBOL)]
+            except Exception as e:
+                log.warning(f"Order-book check failed ({e}) — skipping put sale this run.")
+                print("[WHEEL] Skipping — could not verify open orders")
+                dupes = None
+            if dupes is None:
                 pass
-            if open_order:
-                log.warning(f"Skipping new put sale — open option sell order already exists: {open_order['id']}")
-                print(f"[WHEEL] Skipping — active sell order found: {open_order['id']}")
+            elif dupes:
+                log.warning(f"Skipping new put sale — open option sell order already exists: {dupes[0]['id']}")
+                print(f"[WHEEL] Skipping — active sell order found: {dupes[0]['id']}")
             else:
                 stage1_sell_put(state, price)
         elif state["stage"] == 2:
