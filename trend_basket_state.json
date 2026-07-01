@@ -8,6 +8,15 @@
       "hwm": 584.62,
       "trailing_active": true,
       "entry_date": "2026-06-24"
+    },
+    "META": {
+      "entry_price": 618.56,
+      "qty": 4,
+      "stop_order_id": "e4653327-7b06-4c30-a0a4-7f37f16edd8f",
+      "current_stop": 574.94,
+      "hwm": 622.66,
+      "trailing_active": false,
+      "entry_date": "2026-07-01"
     }
   }
 }
