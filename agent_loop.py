@@ -20,7 +20,7 @@ import json
 import os
 import sys
 import subprocess
-from datetime import datetime
+from datetime import datetime, timezone
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 REPORTS_DIR = f"{BASE_DIR}/reports"

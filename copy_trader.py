@@ -41,8 +41,11 @@ log = logging.getLogger()
 # ── Helpers ───────────────────────────────────────────────────────────────────
 
 def market_is_open():
-    r = requests.get(f"{BASE_URL}/clock", headers=HEADERS)
-    return r.json()["is_open"]
+    try:
+        r = requests.get(f"{BASE_URL}/clock", headers=HEADERS, timeout=15)
+        return r.json().get("is_open", False) if r.ok else False
+    except Exception:
+        return False
 
 def load_state():
     if not os.path.exists(STATE_FILE):
@@ -63,9 +66,12 @@ def get_price(symbol):
     r = requests.get(
         f"https://data.alpaca.markets/v2/stocks/{symbol}/trades/latest",
         headers=HEADERS,
+        timeout=15,
     )
     if r.ok:
-        return float(r.json()["trade"]["p"])
+        trade = r.json().get("trade") or {}
+        p = trade.get("p")
+        return float(p) if p else None
     return None
 
 def is_tradeable(symbol):

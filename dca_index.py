@@ -41,8 +41,11 @@ log = logging.getLogger()
 
 
 def market_is_open():
-    r = requests.get(f"{BASE_URL}/clock", headers=HEADERS)
-    return r.json()["is_open"]
+    try:
+        r = requests.get(f"{BASE_URL}/clock", headers=HEADERS, timeout=15)
+        return r.json().get("is_open", False) if r.ok else False
+    except Exception:
+        return False
 
 
 def load_state():

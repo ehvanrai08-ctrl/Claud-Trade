@@ -25,8 +25,10 @@ def record_trade(strategy, symbol, pnl, note=""):
     try:
         with open(LEDGER_FILE, "a") as f:
             f.write(json.dumps(record) + "\n")
-    except Exception:
-        pass  # never let logging break a trade
+    except Exception as e:
+        # never let logging break a trade, but surface the failure once
+        import sys
+        print(f"[perf] failed to record trade to {LEDGER_FILE}: {e}", file=sys.stderr)
     return record
 
 
