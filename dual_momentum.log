@@ -2,3 +2,4 @@
 2026-07-01 16:43:58,621 INFO Target=EFA (risk-on, ex-US leads (EFA +14.94% > SPY +14.62%)) | currently holding None
 2026-07-01 16:43:58,711 INFO BUY EFA ~$10000 | order 435c818c-2c63-42fe-9250-c781615a6159
 2026-07-01 16:43:58,712 INFO REBALANCED into EFA
+2026-07-02 16:18:39,867 INFO Already rebalanced for 2026-07 — standing down.
