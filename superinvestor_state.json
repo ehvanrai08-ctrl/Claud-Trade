@@ -1,0 +1,93 @@
+{
+  "holdings": {
+    "AAPL": {
+      "qty": 3.246615369,
+      "entry_price": 308.01
+    },
+    "AMZN": {
+      "qty": 4.062687901,
+      "entry_price": 246.14
+    },
+    "BN": {
+      "qty": 17.0,
+      "entry_price": 43.19
+    },
+    "CAT": {
+      "qty": 1.036486772,
+      "entry_price": 964.788
+    },
+    "DE": {
+      "qty": 1.600695989,
+      "entry_price": 624.722
+    },
+    "GOOG": {
+      "qty": 2.838622686,
+      "entry_price": 352.28
+    },
+    "GOOGL": {
+      "qty": 2.811883136,
+      "entry_price": 355.63
+    },
+    "V": {
+      "qty": 2.782232485,
+      "entry_price": 359.42
+    }
+  },
+  "last_rebalance_month": "2026-07",
+  "last_filings": {
+    "1067983": "0001193125-26-226661",
+    "1336528": "0001172661-26-002336",
+    "1112520": "0001112520-26-000009",
+    "1166559": "0001104659-26-062592",
+    "1096343": "0001096343-26-000044"
+  },
+  "history": [
+    {
+      "month": "2026-07",
+      "target": [
+        "AAPL",
+        "AMZN",
+        "BN",
+        "CAT",
+        "DE",
+        "GOOG",
+        "GOOGL",
+        "V"
+      ],
+      "scores": {
+        "AAPL": {
+          "holders": 2,
+          "weight": 0.297
+        },
+        "AMZN": {
+          "holders": 2,
+          "weight": 0.258
+        },
+        "BN": {
+          "holders": 3,
+          "weight": 0.367
+        },
+        "CAT": {
+          "holders": 2,
+          "weight": 0.194
+        },
+        "DE": {
+          "holders": 2,
+          "weight": 0.171
+        },
+        "GOOG": {
+          "holders": 2,
+          "weight": 0.157
+        },
+        "GOOGL": {
+          "holders": 2,
+          "weight": 0.062
+        },
+        "V": {
+          "holders": 2,
+          "weight": 0.145
+        }
+      }
+    }
+  ]
+}

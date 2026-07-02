@@ -1,0 +1,16 @@
+2026-07-02 16:29:09,710 INFO Berkshire Hathaway (Buffett): 13F 0001193125-26-226661, 90 holdings, top 12 taken.
+2026-07-02 16:29:10,098 INFO Pershing Square (Ackman): 13F 0001172661-26-002336, 11 holdings, top 11 taken.
+2026-07-02 16:29:10,500 INFO Akre Capital Management: 13F 0001112520-26-000009, 20 holdings, top 12 taken.
+2026-07-02 16:29:10,946 INFO Gates Foundation Trust: 13F 0001104659-26-062592, 22 holdings, top 12 taken.
+2026-07-02 16:29:11,342 INFO Markel Group (Gayner): 13F 0001096343-26-000044, 205 holdings, top 12 taken.
+2026-07-02 16:29:13,695 INFO Skip BRK/B — not tradeable on Alpaca.
+2026-07-02 16:29:13,990 INFO Target basket: ['AAPL', 'AMZN', 'BN', 'CAT', 'DE', 'GOOG', 'GOOGL', 'V'] | currently held: []
+2026-07-02 16:29:16,246 INFO BUY AAPL ~$1000 (3.2466 sh @ $308.01)
+2026-07-02 16:29:18,490 INFO BUY AMZN ~$1000 (4.0627 sh @ $246.14)
+2026-07-02 16:29:20,809 INFO BUY BN ~$1000 (17.0000 sh @ $43.19)
+2026-07-02 16:29:23,141 INFO BUY CAT ~$1000 (1.0365 sh @ $964.79)
+2026-07-02 16:29:25,472 INFO BUY DE ~$1000 (1.6007 sh @ $624.72)
+2026-07-02 16:29:27,894 INFO BUY GOOG ~$1000 (2.8386 sh @ $352.28)
+2026-07-02 16:29:30,492 INFO BUY GOOGL ~$1000 (2.8119 sh @ $355.63)
+2026-07-02 16:29:32,832 INFO BUY V ~$1000 (2.7822 sh @ $359.42)
+2026-07-02 16:29:32,833 INFO Rebalanced for 2026-07 — now holding ['AAPL', 'AMZN', 'BN', 'CAT', 'DE', 'GOOG', 'GOOGL', 'V']
