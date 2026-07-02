@@ -28,7 +28,15 @@ These bugs were each hit more than once. Don't reintroduce them:
    wash-trade rejected when ladder buy orders are open. Limit sits ~1% below stop.
 5. **Orders can have `qty = None`** (fractional/notional buys like the VOO DCA use
    `notional`). Always fall back to `o.get('notional')` when formatting.
-6. **Secrets live in GitHub, never in chat.** `ALPACA_API_KEY`,
+6. **Workflow commit steps must stage the shared artifacts** —
+   `trades_ledger.jsonl`, `performance.json`, `capital_weights.json`. Any bot
+   that realizes a trade writes the ledger; if a workflow leaves it unstaged,
+   `git pull --rebase` refuses ("unstaged changes"), all retries fail, and the
+   push dies silently behind `|| true` — the run shows GREEN but the report/
+   state never reaches the repo (this ate a week of post-market reports).
+7. **SEC EDGAR requires a real contact email in the User-Agent** — a generic
+   UA gets 403 and `superinvestor_copy.py` silently builds an empty basket.
+8. **Secrets live in GitHub, never in chat.** `ALPACA_API_KEY`,
    `ALPACA_SECRET_KEY`, `ANTHROPIC_API_KEY` are set under
    Settings → Secrets and variables → Actions. **Never paste an API key into the
    chat.** If one is ever pasted, tell the user to revoke and regenerate it.

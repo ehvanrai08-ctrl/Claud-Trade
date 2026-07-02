@@ -47,8 +47,9 @@ jobs:
         run: |
           git config user.name  "Claud-Trade Bot"
           git config user.email "bot@claud-trade"
-          git add superinvestor_state.json
+          git add superinvestor_state.json 2>/dev/null || true
           git add -f superinvestor.log 2>/dev/null || true
+          git add trades_ledger.jsonl performance.json capital_weights.json 2>/dev/null || true
           git diff --cached --quiet || git commit -m "chore: superinvestor rebalance $(date +%Y-%m) [skip ci]"
           n=0; until git pull --rebase origin claude/charming-edison-b7imkj && git push origin claude/charming-edison-b7imkj; do
             n=$((n+1)); [ "$n" -ge 4 ] && echo "git sync failed after $n attempts (non-fatal)" && break
