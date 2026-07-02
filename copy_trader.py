@@ -27,7 +27,7 @@ HEADERS  = {
 QUIVER_URL      = "https://api.quiverquant.com/beta/live/congresstrading"
 STATE_FILE      = f"{BASE_DIR}/copy_trader_state.json"
 MAX_TRADE_VALUE = 5000   # max $ per copied trade
-LOOKBACK_DAYS   = 14     # only copy trades filed in last 14 days
+LOOKBACK_DAYS   = 30     # only copy trades filed in last 30 days
 MIN_CONVICTION  = 2      # require at least 2 politicians buying same ticker to copy
 
 logging.basicConfig(

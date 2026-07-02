@@ -305,6 +305,12 @@ def tick():
             state["current_stop"]  = new_stop
             persist_state(state, "chore: stop raised")
 
+    # Update HWM if price has made a new high
+    if price > hwm:
+        state["high_water_mark"] = price
+        hwm = price
+        log.info(f"HWM UPDATED: ${hwm:.2f}")
+
     log.info(f"TICK: {symbol} ${price:.2f} | HWM ${hwm:.2f} | Stop ${state['current_stop']:.2f} | Trailing: {trailing}")
     save_state(state)  # disk only — routine HWM drift isn't worth a commit
 

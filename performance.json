@@ -1,4 +1,18 @@
 {
-  "by_strategy": {},
-  "total_trades": 0
+  "by_strategy": {
+    "trend_basket": {
+      "trades": 1,
+      "wins": 0,
+      "losses": 1,
+      "breakeven": 0,
+      "total_pnl": -23.7,
+      "gross_win": 0.0,
+      "gross_loss": -23.7,
+      "win_rate": 0.0,
+      "avg_win": 0.0,
+      "avg_loss": -23.7,
+      "profit_factor": 0.0
+    }
+  },
+  "total_trades": 1
 }

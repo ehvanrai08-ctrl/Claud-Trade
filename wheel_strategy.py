@@ -296,7 +296,7 @@ def check_early_close(state):
     if not current_price or not sell_price:
         return False
 
-    STOP_LOSS_PCT = 2.0   # close if contract costs 200% of premium received (lost 2x)
+    STOP_LOSS_PCT = 1.0   # close if contract costs 100% of premium received (lost 1x)
 
     profit_pct = (sell_price - current_price) / sell_price
     log.info(f"EARLY CLOSE CHECK: {contract['symbol']} sell=${sell_price:.2f} now=${current_price:.2f} pnl={profit_pct*100:.1f}% (close_target=+{EARLY_CLOSE_PCT*100:.0f}%)")
