@@ -4501,3 +4501,898 @@
 2026-07-01 20:00:37,834 INFO Trend basket loop started
 2026-07-01 20:00:37,897 INFO Market closed — exiting loop.
 2026-07-01 20:00:37,897 INFO Trend basket loop ended
+2026-07-02 15:37:50,305 INFO Trend basket loop started
+2026-07-02 15:37:50,878 INFO NVDA $195.55 below SMA50 $209.81 — no entry.
+2026-07-02 15:37:51,912 INFO AVGO $366.27 below SMA50 $409.55 — no entry.
+2026-07-02 15:37:52,896 INFO AMZN $245.81 below SMA50 $255.48 — no entry.
+2026-07-02 15:37:53,153 INFO GOOGL $357.53 below SMA50 $370.93 — no entry.
+2026-07-02 15:38:53,583 INFO NVDA $195.73 below SMA50 $209.81 — no entry.
+2026-07-02 15:38:54,161 INFO AVGO $366.52 below SMA50 $409.55 — no entry.
+2026-07-02 15:38:54,748 INFO AMZN $245.62 below SMA50 $255.48 — no entry.
+2026-07-02 15:38:55,030 INFO GOOGL $357.61 below SMA50 $370.92 — no entry.
+2026-07-02 15:39:55,552 INFO NVDA $195.57 below SMA50 $209.81 — no entry.
+2026-07-02 15:39:56,175 INFO AVGO $366.24 below SMA50 $409.55 — no entry.
+2026-07-02 15:39:56,712 INFO AMZN $245.79 below SMA50 $255.48 — no entry.
+2026-07-02 15:39:56,967 INFO GOOGL $357.29 below SMA50 $370.92 — no entry.
+2026-07-02 15:40:58,106 INFO NVDA $195.90 below SMA50 $209.81 — no entry.
+2026-07-02 15:40:58,761 INFO AVGO $366.27 below SMA50 $409.54 — no entry.
+2026-07-02 15:40:59,311 INFO AMZN $245.71 below SMA50 $255.48 — no entry.
+2026-07-02 15:40:59,596 INFO GOOGL $357.23 below SMA50 $370.92 — no entry.
+2026-07-02 15:41:59,971 INFO NVDA $195.51 below SMA50 $209.82 — no entry.
+2026-07-02 15:42:01,107 INFO AVGO $365.71 below SMA50 $409.55 — no entry.
+2026-07-02 15:42:01,775 INFO AMZN $245.52 below SMA50 $255.47 — no entry.
+2026-07-02 15:42:02,027 INFO GOOGL $356.69 below SMA50 $370.91 — no entry.
+2026-07-02 15:43:02,715 INFO NVDA $195.41 below SMA50 $209.81 — no entry.
+2026-07-02 15:43:03,542 INFO AVGO $365.18 below SMA50 $409.52 — no entry.
+2026-07-02 15:43:04,111 INFO AMZN $245.37 below SMA50 $255.47 — no entry.
+2026-07-02 15:43:04,389 INFO GOOGL $356.52 below SMA50 $370.91 — no entry.
+2026-07-02 15:44:04,829 INFO NVDA $195.16 below SMA50 $209.80 — no entry.
+2026-07-02 15:44:05,445 INFO AVGO $364.73 below SMA50 $409.51 — no entry.
+2026-07-02 15:44:05,991 INFO AMZN $245.54 below SMA50 $255.47 — no entry.
+2026-07-02 15:44:06,283 INFO GOOGL $356.37 below SMA50 $370.90 — no entry.
+2026-07-02 15:45:06,933 INFO NVDA $195.16 below SMA50 $209.80 — no entry.
+2026-07-02 15:45:07,695 INFO AVGO $364.84 below SMA50 $409.51 — no entry.
+2026-07-02 15:45:08,487 INFO AMZN $245.44 below SMA50 $255.47 — no entry.
+2026-07-02 15:45:08,762 INFO GOOGL $355.74 below SMA50 $370.89 — no entry.
+2026-07-02 15:46:09,551 INFO NVDA $195.25 below SMA50 $209.81 — no entry.
+2026-07-02 15:46:10,575 INFO AVGO $365.20 below SMA50 $409.52 — no entry.
+2026-07-02 15:46:11,405 INFO AMZN $245.46 below SMA50 $255.47 — no entry.
+2026-07-02 15:46:11,685 INFO GOOGL $355.86 below SMA50 $370.89 — no entry.
+2026-07-02 15:47:12,312 INFO NVDA $195.09 below SMA50 $209.80 — no entry.
+2026-07-02 15:47:12,910 INFO AVGO $365.30 below SMA50 $409.52 — no entry.
+2026-07-02 15:47:14,533 INFO AMZN $245.34 below SMA50 $255.47 — no entry.
+2026-07-02 15:47:14,814 INFO GOOGL $356.49 below SMA50 $370.90 — no entry.
+2026-07-02 15:48:15,224 INFO NVDA $194.96 below SMA50 $209.80 — no entry.
+2026-07-02 15:48:15,792 INFO AVGO $365.26 below SMA50 $409.53 — no entry.
+2026-07-02 15:48:16,599 INFO AMZN $245.11 below SMA50 $255.46 — no entry.
+2026-07-02 15:48:16,885 INFO GOOGL $356.36 below SMA50 $370.90 — no entry.
+2026-07-02 15:49:17,249 INFO NVDA $194.82 below SMA50 $209.80 — no entry.
+2026-07-02 15:49:17,808 INFO AVGO $364.73 below SMA50 $409.52 — no entry.
+2026-07-02 15:49:18,394 INFO AMZN $245.22 below SMA50 $255.47 — no entry.
+2026-07-02 15:49:18,700 INFO GOOGL $356.57 below SMA50 $370.90 — no entry.
+2026-07-02 15:50:19,219 INFO NVDA $194.66 below SMA50 $209.79 — no entry.
+2026-07-02 15:50:20,032 INFO AVGO $364.81 below SMA50 $409.52 — no entry.
+2026-07-02 15:50:20,604 INFO AMZN $245.00 below SMA50 $255.47 — no entry.
+2026-07-02 15:50:20,876 INFO GOOGL $355.90 below SMA50 $370.90 — no entry.
+2026-07-02 15:51:21,326 INFO NVDA $194.42 below SMA50 $209.79 — no entry.
+2026-07-02 15:51:21,904 INFO AVGO $364.31 below SMA50 $409.51 — no entry.
+2026-07-02 15:51:22,487 INFO AMZN $244.66 below SMA50 $255.46 — no entry.
+2026-07-02 15:51:22,731 INFO GOOGL $355.90 below SMA50 $370.89 — no entry.
+2026-07-02 15:52:23,101 INFO NVDA $194.59 below SMA50 $209.79 — no entry.
+2026-07-02 15:52:23,697 INFO AVGO $364.51 below SMA50 $409.51 — no entry.
+2026-07-02 15:52:24,306 INFO AMZN $244.84 below SMA50 $255.45 — no entry.
+2026-07-02 15:52:24,554 INFO GOOGL $355.88 below SMA50 $370.89 — no entry.
+2026-07-02 15:53:24,907 INFO NVDA $194.13 below SMA50 $209.79 — no entry.
+2026-07-02 15:53:25,452 INFO AVGO $363.65 below SMA50 $409.50 — no entry.
+2026-07-02 15:53:26,013 INFO AMZN $244.92 below SMA50 $255.46 — no entry.
+2026-07-02 15:53:26,271 INFO GOOGL $355.66 below SMA50 $370.89 — no entry.
+2026-07-02 15:54:26,620 INFO NVDA $194.39 below SMA50 $209.78 — no entry.
+2026-07-02 15:54:27,169 INFO AVGO $363.86 below SMA50 $409.49 — no entry.
+2026-07-02 15:54:27,774 INFO AMZN $244.97 below SMA50 $255.46 — no entry.
+2026-07-02 15:54:28,052 INFO GOOGL $355.81 below SMA50 $370.89 — no entry.
+2026-07-02 15:55:28,404 INFO NVDA $194.47 below SMA50 $209.79 — no entry.
+2026-07-02 15:55:28,976 INFO AVGO $364.57 below SMA50 $409.51 — no entry.
+2026-07-02 15:55:29,632 INFO AMZN $245.04 below SMA50 $255.46 — no entry.
+2026-07-02 15:55:29,867 INFO GOOGL $355.98 below SMA50 $370.89 — no entry.
+2026-07-02 15:56:30,222 INFO NVDA $194.31 below SMA50 $209.79 — no entry.
+2026-07-02 15:56:30,833 INFO AVGO $364.61 below SMA50 $409.51 — no entry.
+2026-07-02 15:56:31,454 INFO AMZN $244.97 below SMA50 $255.46 — no entry.
+2026-07-02 15:56:31,726 INFO GOOGL $355.95 below SMA50 $370.89 — no entry.
+2026-07-02 15:57:32,069 INFO NVDA $194.06 below SMA50 $209.78 — no entry.
+2026-07-02 15:57:32,660 INFO AVGO $363.95 below SMA50 $409.51 — no entry.
+2026-07-02 15:57:33,233 INFO AMZN $245.32 below SMA50 $255.47 — no entry.
+2026-07-02 15:57:33,506 INFO GOOGL $355.56 below SMA50 $370.89 — no entry.
+2026-07-02 15:58:33,957 INFO NVDA $194.42 below SMA50 $209.78 — no entry.
+2026-07-02 15:58:34,630 INFO AVGO $364.36 below SMA50 $409.50 — no entry.
+2026-07-02 15:58:35,487 INFO AMZN $245.71 below SMA50 $255.47 — no entry.
+2026-07-02 15:58:35,751 INFO GOOGL $355.81 below SMA50 $370.88 — no entry.
+2026-07-02 15:59:36,118 INFO NVDA $194.55 below SMA50 $209.79 — no entry.
+2026-07-02 15:59:36,682 INFO AVGO $364.63 below SMA50 $409.50 — no entry.
+2026-07-02 15:59:37,253 INFO AMZN $245.74 below SMA50 $255.48 — no entry.
+2026-07-02 15:59:37,505 INFO GOOGL $355.96 below SMA50 $370.89 — no entry.
+2026-07-02 16:00:38,291 INFO NVDA $194.37 below SMA50 $209.79 — no entry.
+2026-07-02 16:00:38,918 INFO AVGO $364.54 below SMA50 $409.51 — no entry.
+2026-07-02 16:00:39,678 INFO AMZN $245.74 below SMA50 $255.48 — no entry.
+2026-07-02 16:00:39,917 INFO GOOGL $355.88 below SMA50 $370.89 — no entry.
+2026-07-02 16:01:40,286 INFO NVDA $194.21 below SMA50 $209.78 — no entry.
+2026-07-02 16:01:40,852 INFO AVGO $363.58 below SMA50 $409.49 — no entry.
+2026-07-02 16:01:41,571 INFO AMZN $245.63 below SMA50 $255.48 — no entry.
+2026-07-02 16:01:41,876 INFO GOOGL $355.92 below SMA50 $370.89 — no entry.
+2026-07-02 16:02:42,304 INFO NVDA $194.20 below SMA50 $209.79 — no entry.
+2026-07-02 16:02:43,232 INFO AVGO $363.42 below SMA50 $409.49 — no entry.
+2026-07-02 16:02:43,936 INFO AMZN $245.53 below SMA50 $255.48 — no entry.
+2026-07-02 16:02:44,184 INFO GOOGL $355.77 below SMA50 $370.89 — no entry.
+2026-07-02 16:03:44,617 INFO NVDA $194.19 below SMA50 $209.78 — no entry.
+2026-07-02 16:03:45,199 INFO AVGO $363.42 below SMA50 $409.48 — no entry.
+2026-07-02 16:03:45,904 INFO AMZN $245.53 below SMA50 $255.47 — no entry.
+2026-07-02 16:03:46,282 INFO GOOGL $355.31 below SMA50 $370.88 — no entry.
+2026-07-02 16:04:46,629 INFO NVDA $194.25 below SMA50 $209.78 — no entry.
+2026-07-02 16:04:47,220 INFO AVGO $363.24 below SMA50 $409.48 — no entry.
+2026-07-02 16:04:47,929 INFO AMZN $245.64 below SMA50 $255.47 — no entry.
+2026-07-02 16:04:48,175 INFO GOOGL $355.31 below SMA50 $370.87 — no entry.
+2026-07-02 16:05:48,540 INFO NVDA $194.32 below SMA50 $209.79 — no entry.
+2026-07-02 16:05:49,202 INFO AVGO $363.27 below SMA50 $409.48 — no entry.
+2026-07-02 16:05:49,908 INFO AMZN $245.85 below SMA50 $255.48 — no entry.
+2026-07-02 16:05:50,344 INFO GOOGL $355.23 below SMA50 $370.88 — no entry.
+2026-07-02 16:06:51,216 INFO NVDA $194.08 below SMA50 $209.78 — no entry.
+2026-07-02 16:06:51,791 INFO AVGO $362.67 below SMA50 $409.48 — no entry.
+2026-07-02 16:06:52,802 INFO AMZN $245.70 below SMA50 $255.48 — no entry.
+2026-07-02 16:06:53,096 INFO GOOGL $354.55 below SMA50 $370.88 — no entry.
+2026-07-02 16:07:53,451 INFO NVDA $194.16 below SMA50 $209.78 — no entry.
+2026-07-02 16:07:53,972 INFO AVGO $363.06 below SMA50 $409.47 — no entry.
+2026-07-02 16:07:56,018 INFO AMZN $245.63 below SMA50 $255.48 — no entry.
+2026-07-02 16:07:56,305 INFO GOOGL $354.61 below SMA50 $370.87 — no entry.
+2026-07-02 16:08:56,717 INFO NVDA $194.07 below SMA50 $209.78 — no entry.
+2026-07-02 16:08:57,464 INFO AVGO $362.85 below SMA50 $409.48 — no entry.
+2026-07-02 16:08:58,268 INFO AMZN $245.48 below SMA50 $255.47 — no entry.
+2026-07-02 16:08:58,516 INFO GOOGL $354.70 below SMA50 $370.86 — no entry.
+2026-07-02 16:09:58,865 INFO NVDA $193.94 below SMA50 $209.78 — no entry.
+2026-07-02 16:09:59,485 INFO AVGO $362.53 below SMA50 $409.48 — no entry.
+2026-07-02 16:10:00,956 INFO AMZN $245.60 below SMA50 $255.47 — no entry.
+2026-07-02 16:10:01,420 INFO GOOGL $354.51 below SMA50 $370.87 — no entry.
+2026-07-02 16:11:02,702 INFO NVDA $194.32 below SMA50 $209.79 — no entry.
+2026-07-02 16:11:03,518 INFO AVGO $362.92 below SMA50 $409.47 — no entry.
+2026-07-02 16:11:04,791 INFO AMZN $245.45 below SMA50 $255.47 — no entry.
+2026-07-02 16:11:05,052 INFO GOOGL $354.51 below SMA50 $370.86 — no entry.
+2026-07-02 16:12:05,642 INFO NVDA $194.32 below SMA50 $209.79 — no entry.
+2026-07-02 16:12:06,276 INFO AVGO $362.97 below SMA50 $409.48 — no entry.
+2026-07-02 16:12:07,332 INFO AMZN $245.41 below SMA50 $255.47 — no entry.
+2026-07-02 16:12:07,576 INFO GOOGL $354.52 below SMA50 $370.86 — no entry.
+2026-07-02 16:13:08,177 INFO NVDA $194.50 below SMA50 $209.79 — no entry.
+2026-07-02 16:13:08,738 INFO AVGO $363.31 below SMA50 $409.49 — no entry.
+2026-07-02 16:13:09,594 INFO AMZN $245.72 below SMA50 $255.48 — no entry.
+2026-07-02 16:13:09,915 INFO GOOGL $354.90 below SMA50 $370.87 — no entry.
+2026-07-02 16:14:10,277 INFO NVDA $194.54 below SMA50 $209.79 — no entry.
+2026-07-02 16:14:10,862 INFO AVGO $363.40 below SMA50 $409.49 — no entry.
+2026-07-02 16:14:11,670 INFO AMZN $245.64 below SMA50 $255.48 — no entry.
+2026-07-02 16:14:11,954 INFO GOOGL $354.81 below SMA50 $370.87 — no entry.
+2026-07-02 16:15:12,596 INFO NVDA $194.28 below SMA50 $209.79 — no entry.
+2026-07-02 16:15:13,547 INFO AVGO $362.80 below SMA50 $409.49 — no entry.
+2026-07-02 16:15:14,518 INFO AMZN $246.16 below SMA50 $255.49 — no entry.
+2026-07-02 16:15:14,883 INFO GOOGL $355.00 below SMA50 $370.87 — no entry.
+2026-07-02 16:16:15,284 INFO NVDA $194.31 below SMA50 $209.78 — no entry.
+2026-07-02 16:16:15,870 INFO AVGO $362.86 below SMA50 $409.47 — no entry.
+2026-07-02 16:16:16,786 INFO AMZN $246.47 below SMA50 $255.49 — no entry.
+2026-07-02 16:16:17,066 INFO GOOGL $355.83 below SMA50 $370.88 — no entry.
+2026-07-02 16:17:17,425 INFO NVDA $194.47 below SMA50 $209.79 — no entry.
+2026-07-02 16:17:18,042 INFO AVGO $362.79 below SMA50 $409.47 — no entry.
+2026-07-02 16:17:18,900 INFO AMZN $246.57 below SMA50 $255.50 — no entry.
+2026-07-02 16:17:19,199 INFO GOOGL $355.84 below SMA50 $370.89 — no entry.
+2026-07-02 16:18:19,520 INFO NVDA $194.23 below SMA50 $209.78 — no entry.
+2026-07-02 16:18:20,060 INFO AVGO $362.53 below SMA50 $409.47 — no entry.
+2026-07-02 16:18:20,978 INFO AMZN $246.26 below SMA50 $255.49 — no entry.
+2026-07-02 16:18:21,237 INFO GOOGL $355.98 below SMA50 $370.89 — no entry.
+2026-07-02 16:19:21,616 INFO NVDA $194.40 below SMA50 $209.79 — no entry.
+2026-07-02 16:19:22,179 INFO AVGO $362.68 below SMA50 $409.47 — no entry.
+2026-07-02 16:19:23,095 INFO AMZN $246.16 below SMA50 $255.49 — no entry.
+2026-07-02 16:19:23,347 INFO GOOGL $355.93 below SMA50 $370.89 — no entry.
+2026-07-02 16:20:23,699 INFO NVDA $194.01 below SMA50 $209.78 — no entry.
+2026-07-02 16:20:24,297 INFO AVGO $361.94 below SMA50 $409.46 — no entry.
+2026-07-02 16:20:24,954 INFO AMZN $246.16 below SMA50 $255.49 — no entry.
+2026-07-02 16:20:25,195 INFO GOOGL $356.03 below SMA50 $370.89 — no entry.
+2026-07-02 16:21:25,594 INFO NVDA $194.01 below SMA50 $209.78 — no entry.
+2026-07-02 16:21:26,192 INFO AVGO $361.84 below SMA50 $409.46 — no entry.
+2026-07-02 16:21:26,751 INFO AMZN $246.12 below SMA50 $255.49 — no entry.
+2026-07-02 16:21:27,027 INFO GOOGL $356.24 below SMA50 $370.89 — no entry.
+2026-07-02 16:22:27,383 INFO NVDA $193.74 below SMA50 $209.78 — no entry.
+2026-07-02 16:22:27,893 INFO AVGO $361.31 below SMA50 $409.45 — no entry.
+2026-07-02 16:22:28,481 INFO AMZN $246.08 below SMA50 $255.49 — no entry.
+2026-07-02 16:22:28,714 INFO GOOGL $356.20 below SMA50 $370.90 — no entry.
+2026-07-02 16:23:29,095 INFO NVDA $193.84 below SMA50 $209.78 — no entry.
+2026-07-02 16:23:29,666 INFO AVGO $361.54 below SMA50 $409.45 — no entry.
+2026-07-02 16:23:30,241 INFO AMZN $246.01 below SMA50 $255.49 — no entry.
+2026-07-02 16:23:30,486 INFO GOOGL $356.08 below SMA50 $370.90 — no entry.
+2026-07-02 16:24:31,036 INFO NVDA $193.80 below SMA50 $209.77 — no entry.
+2026-07-02 16:24:31,676 INFO AVGO $361.01 below SMA50 $409.44 — no entry.
+2026-07-02 16:24:32,282 INFO AMZN $245.94 below SMA50 $255.48 — no entry.
+2026-07-02 16:24:32,571 INFO GOOGL $355.90 below SMA50 $370.89 — no entry.
+2026-07-02 16:25:32,926 INFO NVDA $194.11 below SMA50 $209.78 — no entry.
+2026-07-02 16:25:33,532 INFO AVGO $360.81 below SMA50 $409.43 — no entry.
+2026-07-02 16:25:34,100 INFO AMZN $246.03 below SMA50 $255.48 — no entry.
+2026-07-02 16:25:34,347 INFO GOOGL $356.12 below SMA50 $370.89 — no entry.
+2026-07-02 16:26:34,907 INFO NVDA $193.75 below SMA50 $209.78 — no entry.
+2026-07-02 16:26:35,590 INFO AVGO $360.13 below SMA50 $409.43 — no entry.
+2026-07-02 16:26:36,160 INFO AMZN $246.00 below SMA50 $255.48 — no entry.
+2026-07-02 16:26:36,461 INFO GOOGL $355.87 below SMA50 $370.89 — no entry.
+2026-07-02 16:27:36,868 INFO NVDA $193.96 below SMA50 $209.78 — no entry.
+2026-07-02 16:27:37,424 INFO AVGO $360.63 below SMA50 $409.43 — no entry.
+2026-07-02 16:27:38,095 INFO AMZN $246.01 below SMA50 $255.49 — no entry.
+2026-07-02 16:27:38,463 INFO GOOGL $355.84 below SMA50 $370.89 — no entry.
+2026-07-02 16:28:38,831 INFO NVDA $193.91 below SMA50 $209.78 — no entry.
+2026-07-02 16:28:39,384 INFO AVGO $360.60 below SMA50 $409.43 — no entry.
+2026-07-02 16:28:39,944 INFO AMZN $246.07 below SMA50 $255.48 — no entry.
+2026-07-02 16:28:40,281 INFO GOOGL $355.79 below SMA50 $370.89 — no entry.
+2026-07-02 16:29:40,660 INFO NVDA $193.69 below SMA50 $209.78 — no entry.
+2026-07-02 16:29:41,246 INFO AVGO $359.79 below SMA50 $409.43 — no entry.
+2026-07-02 16:29:41,780 INFO AMZN held by another strategy — deferring.
+2026-07-02 16:29:42,111 INFO GOOGL held by another strategy — deferring.
+2026-07-02 16:30:42,545 INFO NVDA $193.69 below SMA50 $209.78 — no entry.
+2026-07-02 16:30:43,162 INFO AVGO $359.94 below SMA50 $409.42 — no entry.
+2026-07-02 16:30:43,945 INFO AMZN held by another strategy — deferring.
+2026-07-02 16:30:44,248 INFO GOOGL held by another strategy — deferring.
+2026-07-02 16:31:45,347 INFO NVDA $193.70 below SMA50 $209.77 — no entry.
+2026-07-02 16:31:46,249 INFO AVGO $359.73 below SMA50 $409.42 — no entry.
+2026-07-02 16:31:47,071 INFO AMZN held by another strategy — deferring.
+2026-07-02 16:31:47,326 INFO GOOGL held by another strategy — deferring.
+2026-07-02 16:32:47,904 INFO NVDA $193.66 below SMA50 $209.77 — no entry.
+2026-07-02 16:32:48,563 INFO AVGO $359.70 below SMA50 $409.41 — no entry.
+2026-07-02 16:32:49,375 INFO AMZN held by another strategy — deferring.
+2026-07-02 16:32:49,665 INFO GOOGL held by another strategy — deferring.
+2026-07-02 16:33:50,067 INFO NVDA $193.80 below SMA50 $209.77 — no entry.
+2026-07-02 16:33:50,617 INFO AVGO $359.87 below SMA50 $409.41 — no entry.
+2026-07-02 16:33:51,241 INFO AMZN held by another strategy — deferring.
+2026-07-02 16:33:51,601 INFO GOOGL held by another strategy — deferring.
+2026-07-02 16:34:51,965 INFO NVDA $193.52 below SMA50 $209.77 — no entry.
+2026-07-02 16:34:52,482 INFO AVGO $359.64 below SMA50 $409.41 — no entry.
+2026-07-02 16:34:53,102 INFO AMZN held by another strategy — deferring.
+2026-07-02 16:34:53,363 INFO GOOGL held by another strategy — deferring.
+2026-07-02 16:35:53,728 INFO NVDA $193.57 below SMA50 $209.77 — no entry.
+2026-07-02 16:35:54,340 INFO AVGO $359.46 below SMA50 $409.41 — no entry.
+2026-07-02 16:35:55,020 INFO AMZN held by another strategy — deferring.
+2026-07-02 16:35:55,296 INFO GOOGL held by another strategy — deferring.
+2026-07-02 16:36:55,655 INFO NVDA $193.40 below SMA50 $209.77 — no entry.
+2026-07-02 16:36:56,343 INFO STOP HIT AMD @ $512.95 | P&L $-23.70
+2026-07-02 16:36:56,593 INFO AVGO $359.16 below SMA50 $409.41 — no entry.
+2026-07-02 16:36:57,296 INFO AMZN held by another strategy — deferring.
+2026-07-02 16:36:57,651 INFO GOOGL held by another strategy — deferring.
+2026-07-02 16:37:58,033 INFO NVDA $193.20 below SMA50 $209.77 — no entry.
+2026-07-02 16:37:59,148 INFO ENTRY AMD x4 @ $511.81 | stop $438.87
+2026-07-02 16:37:59,470 INFO AVGO $359.00 below SMA50 $409.40 — no entry.
+2026-07-02 16:38:00,130 INFO AMZN held by another strategy — deferring.
+2026-07-02 16:38:00,733 INFO GOOGL held by another strategy — deferring.
+2026-07-02 16:39:01,162 INFO NVDA $193.32 below SMA50 $209.76 — no entry.
+2026-07-02 16:39:01,703 INFO AVGO $358.99 below SMA50 $409.39 — no entry.
+2026-07-02 16:39:02,352 INFO AMZN held by another strategy — deferring.
+2026-07-02 16:39:02,643 INFO GOOGL held by another strategy — deferring.
+2026-07-02 16:40:03,330 INFO NVDA $193.48 below SMA50 $209.77 — no entry.
+2026-07-02 16:40:04,175 INFO AVGO $359.02 below SMA50 $409.40 — no entry.
+2026-07-02 16:40:05,280 INFO AMZN held by another strategy — deferring.
+2026-07-02 16:40:05,591 INFO GOOGL held by another strategy — deferring.
+2026-07-02 16:41:05,996 INFO NVDA $193.66 below SMA50 $209.77 — no entry.
+2026-07-02 16:41:06,559 INFO AVGO $359.68 below SMA50 $409.42 — no entry.
+2026-07-02 16:41:07,161 INFO AMZN held by another strategy — deferring.
+2026-07-02 16:41:07,449 INFO GOOGL held by another strategy — deferring.
+2026-07-02 16:42:07,907 INFO NVDA $193.67 below SMA50 $209.77 — no entry.
+2026-07-02 16:42:08,532 INFO AVGO $359.44 below SMA50 $409.41 — no entry.
+2026-07-02 16:42:09,095 INFO AMZN held by another strategy — deferring.
+2026-07-02 16:42:09,373 INFO GOOGL held by another strategy — deferring.
+2026-07-02 16:43:09,706 INFO NVDA $193.88 below SMA50 $209.77 — no entry.
+2026-07-02 16:43:10,232 INFO AVGO $359.76 below SMA50 $409.41 — no entry.
+2026-07-02 16:43:11,010 INFO AMZN held by another strategy — deferring.
+2026-07-02 16:43:11,338 INFO GOOGL held by another strategy — deferring.
+2026-07-02 16:44:11,748 INFO NVDA $194.10 below SMA50 $209.78 — no entry.
+2026-07-02 16:44:12,288 INFO AVGO $359.89 below SMA50 $409.42 — no entry.
+2026-07-02 16:44:12,856 INFO AMZN held by another strategy — deferring.
+2026-07-02 16:44:13,425 INFO GOOGL held by another strategy — deferring.
+2026-07-02 16:45:14,196 INFO NVDA $194.03 below SMA50 $209.78 — no entry.
+2026-07-02 16:45:14,853 INFO AVGO $360.19 below SMA50 $409.42 — no entry.
+2026-07-02 16:45:15,464 INFO AMZN held by another strategy — deferring.
+2026-07-02 16:45:15,868 INFO GOOGL held by another strategy — deferring.
+2026-07-02 16:46:16,222 INFO NVDA $194.03 below SMA50 $209.78 — no entry.
+2026-07-02 16:46:16,818 INFO AVGO $360.10 below SMA50 $409.42 — no entry.
+2026-07-02 16:46:17,391 INFO AMZN held by another strategy — deferring.
+2026-07-02 16:46:17,773 INFO GOOGL held by another strategy — deferring.
+2026-07-02 16:47:18,168 INFO NVDA $194.04 below SMA50 $209.78 — no entry.
+2026-07-02 16:47:18,735 INFO AVGO $360.31 below SMA50 $409.42 — no entry.
+2026-07-02 16:47:19,284 INFO AMZN held by another strategy — deferring.
+2026-07-02 16:47:19,571 INFO GOOGL held by another strategy — deferring.
+2026-07-02 16:48:20,111 INFO NVDA $194.00 below SMA50 $209.78 — no entry.
+2026-07-02 16:48:20,627 INFO AVGO $360.46 below SMA50 $409.43 — no entry.
+2026-07-02 16:48:21,180 INFO AMZN held by another strategy — deferring.
+2026-07-02 16:48:21,454 INFO GOOGL held by another strategy — deferring.
+2026-07-02 16:49:21,821 INFO NVDA $194.07 below SMA50 $209.78 — no entry.
+2026-07-02 16:49:22,391 INFO AVGO $360.42 below SMA50 $409.43 — no entry.
+2026-07-02 16:49:22,937 INFO AMZN held by another strategy — deferring.
+2026-07-02 16:49:23,231 INFO GOOGL held by another strategy — deferring.
+2026-07-02 16:50:23,619 INFO NVDA $193.68 below SMA50 $209.78 — no entry.
+2026-07-02 16:50:24,185 INFO AVGO $359.32 below SMA50 $409.42 — no entry.
+2026-07-02 16:50:24,788 INFO AMZN held by another strategy — deferring.
+2026-07-02 16:50:25,145 INFO GOOGL held by another strategy — deferring.
+2026-07-02 16:51:25,539 INFO NVDA $193.73 below SMA50 $209.77 — no entry.
+2026-07-02 16:51:26,053 INFO AVGO $359.61 below SMA50 $409.41 — no entry.
+2026-07-02 16:51:26,685 INFO AMZN held by another strategy — deferring.
+2026-07-02 16:51:26,930 INFO GOOGL held by another strategy — deferring.
+2026-07-02 16:52:27,319 INFO NVDA $193.93 below SMA50 $209.78 — no entry.
+2026-07-02 16:52:27,911 INFO AVGO $360.33 below SMA50 $409.42 — no entry.
+2026-07-02 16:52:28,617 INFO AMZN held by another strategy — deferring.
+2026-07-02 16:52:28,886 INFO GOOGL held by another strategy — deferring.
+2026-07-02 16:53:29,249 INFO NVDA $193.86 below SMA50 $209.78 — no entry.
+2026-07-02 16:53:29,790 INFO AVGO $360.09 below SMA50 $409.42 — no entry.
+2026-07-02 16:53:30,575 INFO AMZN held by another strategy — deferring.
+2026-07-02 16:53:30,966 INFO GOOGL held by another strategy — deferring.
+2026-07-02 16:54:31,318 INFO NVDA $193.94 below SMA50 $209.78 — no entry.
+2026-07-02 16:54:31,847 INFO AVGO $359.91 below SMA50 $409.41 — no entry.
+2026-07-02 16:54:32,502 INFO AMZN held by another strategy — deferring.
+2026-07-02 16:54:32,735 INFO GOOGL held by another strategy — deferring.
+2026-07-02 16:55:33,293 INFO NVDA $193.69 below SMA50 $209.78 — no entry.
+2026-07-02 16:55:33,852 INFO AVGO $359.19 below SMA50 $409.41 — no entry.
+2026-07-02 16:55:34,468 INFO AMZN held by another strategy — deferring.
+2026-07-02 16:55:34,725 INFO GOOGL held by another strategy — deferring.
+2026-07-02 16:56:35,316 INFO NVDA $193.39 below SMA50 $209.77 — no entry.
+2026-07-02 16:56:36,279 INFO AVGO $358.72 below SMA50 $409.40 — no entry.
+2026-07-02 16:56:36,872 INFO AMZN held by another strategy — deferring.
+2026-07-02 16:56:37,158 INFO GOOGL held by another strategy — deferring.
+2026-07-02 16:57:37,534 INFO NVDA $193.36 below SMA50 $209.77 — no entry.
+2026-07-02 16:57:38,319 INFO AVGO $358.67 below SMA50 $409.39 — no entry.
+2026-07-02 16:57:38,815 INFO AMZN held by another strategy — deferring.
+2026-07-02 16:57:39,076 INFO GOOGL held by another strategy — deferring.
+2026-07-02 16:58:39,725 INFO NVDA $193.25 below SMA50 $209.76 — no entry.
+2026-07-02 16:58:40,428 INFO AVGO $358.76 below SMA50 $409.39 — no entry.
+2026-07-02 16:58:40,950 INFO AMZN held by another strategy — deferring.
+2026-07-02 16:58:41,242 INFO GOOGL held by another strategy — deferring.
+2026-07-02 16:59:41,629 INFO NVDA $193.45 below SMA50 $209.77 — no entry.
+2026-07-02 16:59:42,259 INFO AVGO $358.91 below SMA50 $409.39 — no entry.
+2026-07-02 16:59:42,803 INFO AMZN held by another strategy — deferring.
+2026-07-02 16:59:43,092 INFO GOOGL held by another strategy — deferring.
+2026-07-02 17:00:43,674 INFO NVDA $193.45 below SMA50 $209.77 — no entry.
+2026-07-02 17:00:44,694 INFO AVGO $358.81 below SMA50 $409.40 — no entry.
+2026-07-02 17:00:45,679 INFO AMZN held by another strategy — deferring.
+2026-07-02 17:00:46,289 INFO GOOGL held by another strategy — deferring.
+2026-07-02 17:01:46,766 INFO NVDA $192.94 below SMA50 $209.76 — no entry.
+2026-07-02 17:01:47,525 INFO AVGO $358.40 below SMA50 $409.39 — no entry.
+2026-07-02 17:01:48,169 INFO AMZN held by another strategy — deferring.
+2026-07-02 17:01:48,464 INFO GOOGL held by another strategy — deferring.
+2026-07-02 17:02:49,457 INFO NVDA $193.06 below SMA50 $209.76 — no entry.
+2026-07-02 17:02:50,106 INFO AVGO $358.20 below SMA50 $409.39 — no entry.
+2026-07-02 17:02:50,806 INFO AMZN held by another strategy — deferring.
+2026-07-02 17:02:51,107 INFO GOOGL held by another strategy — deferring.
+2026-07-02 17:03:51,538 INFO NVDA $193.00 below SMA50 $209.76 — no entry.
+2026-07-02 17:03:52,197 INFO AVGO $357.96 below SMA50 $409.38 — no entry.
+2026-07-02 17:03:53,057 INFO AMZN held by another strategy — deferring.
+2026-07-02 17:03:53,416 INFO GOOGL held by another strategy — deferring.
+2026-07-02 17:04:53,916 INFO NVDA $192.95 below SMA50 $209.76 — no entry.
+2026-07-02 17:04:54,654 INFO AVGO $358.11 below SMA50 $409.38 — no entry.
+2026-07-02 17:04:55,198 INFO AMZN held by another strategy — deferring.
+2026-07-02 17:04:55,488 INFO GOOGL held by another strategy — deferring.
+2026-07-02 17:05:56,076 INFO NVDA $193.11 below SMA50 $209.76 — no entry.
+2026-07-02 17:05:56,774 INFO AVGO $358.52 below SMA50 $409.39 — no entry.
+2026-07-02 17:05:57,358 INFO AMZN held by another strategy — deferring.
+2026-07-02 17:05:57,692 INFO GOOGL held by another strategy — deferring.
+2026-07-02 17:06:58,098 INFO NVDA $193.51 below SMA50 $209.76 — no entry.
+2026-07-02 17:06:58,736 INFO AVGO $359.06 below SMA50 $409.39 — no entry.
+2026-07-02 17:06:59,517 INFO AMZN held by another strategy — deferring.
+2026-07-02 17:06:59,861 INFO GOOGL held by another strategy — deferring.
+2026-07-02 17:08:00,401 INFO NVDA $193.59 below SMA50 $209.77 — no entry.
+2026-07-02 17:08:01,037 INFO AVGO $359.24 below SMA50 $409.40 — no entry.
+2026-07-02 17:08:01,711 INFO AMZN held by another strategy — deferring.
+2026-07-02 17:08:02,017 INFO GOOGL held by another strategy — deferring.
+2026-07-02 17:09:02,517 INFO NVDA $193.41 below SMA50 $209.77 — no entry.
+2026-07-02 17:09:03,489 INFO AVGO $359.03 below SMA50 $409.40 — no entry.
+2026-07-02 17:09:04,220 INFO AMZN held by another strategy — deferring.
+2026-07-02 17:09:04,610 INFO GOOGL held by another strategy — deferring.
+2026-07-02 17:10:05,089 INFO NVDA $193.26 below SMA50 $209.76 — no entry.
+2026-07-02 17:10:05,931 INFO AVGO $358.73 below SMA50 $409.39 — no entry.
+2026-07-02 17:10:06,751 INFO AMZN held by another strategy — deferring.
+2026-07-02 17:10:07,356 INFO GOOGL held by another strategy — deferring.
+2026-07-02 17:11:07,780 INFO NVDA $193.17 below SMA50 $209.76 — no entry.
+2026-07-02 17:11:08,454 INFO AVGO $358.48 below SMA50 $409.39 — no entry.
+2026-07-02 17:11:09,055 INFO AMZN held by another strategy — deferring.
+2026-07-02 17:11:09,369 INFO GOOGL held by another strategy — deferring.
+2026-07-02 17:12:09,723 INFO NVDA $193.22 below SMA50 $209.76 — no entry.
+2026-07-02 17:12:11,376 INFO AVGO $358.53 below SMA50 $409.39 — no entry.
+2026-07-02 17:12:11,913 INFO AMZN held by another strategy — deferring.
+2026-07-02 17:12:12,370 INFO GOOGL held by another strategy — deferring.
+2026-07-02 17:13:12,772 INFO NVDA $193.04 below SMA50 $209.76 — no entry.
+2026-07-02 17:13:13,337 INFO AVGO $358.21 below SMA50 $409.38 — no entry.
+2026-07-02 17:13:14,042 INFO AMZN held by another strategy — deferring.
+2026-07-02 17:13:14,419 INFO GOOGL held by another strategy — deferring.
+2026-07-02 17:14:14,855 INFO NVDA $193.00 below SMA50 $209.76 — no entry.
+2026-07-02 17:14:15,508 INFO AVGO $358.55 below SMA50 $409.39 — no entry.
+2026-07-02 17:14:16,046 INFO AMZN held by another strategy — deferring.
+2026-07-02 17:14:16,451 INFO GOOGL held by another strategy — deferring.
+2026-07-02 17:15:17,000 INFO NVDA $192.98 below SMA50 $209.76 — no entry.
+2026-07-02 17:15:17,761 INFO AVGO $358.49 below SMA50 $409.39 — no entry.
+2026-07-02 17:15:18,362 INFO AMZN held by another strategy — deferring.
+2026-07-02 17:15:18,907 INFO GOOGL held by another strategy — deferring.
+2026-07-02 17:16:19,415 INFO NVDA $193.04 below SMA50 $209.76 — no entry.
+2026-07-02 17:16:20,031 INFO AVGO $358.52 below SMA50 $409.39 — no entry.
+2026-07-02 17:16:20,673 INFO AMZN held by another strategy — deferring.
+2026-07-02 17:16:21,075 INFO GOOGL held by another strategy — deferring.
+2026-07-02 17:17:22,006 INFO NVDA $193.37 below SMA50 $209.76 — no entry.
+2026-07-02 17:17:22,567 INFO AVGO $358.88 below SMA50 $409.39 — no entry.
+2026-07-02 17:17:23,273 INFO AMZN held by another strategy — deferring.
+2026-07-02 17:17:23,940 INFO GOOGL held by another strategy — deferring.
+2026-07-02 17:18:24,322 INFO NVDA $193.29 below SMA50 $209.76 — no entry.
+2026-07-02 17:18:24,967 INFO AVGO $358.69 below SMA50 $409.39 — no entry.
+2026-07-02 17:18:25,511 INFO AMZN held by another strategy — deferring.
+2026-07-02 17:18:25,831 INFO GOOGL held by another strategy — deferring.
+2026-07-02 17:19:26,175 INFO NVDA $193.17 below SMA50 $209.76 — no entry.
+2026-07-02 17:19:26,825 INFO AVGO $358.18 below SMA50 $409.39 — no entry.
+2026-07-02 17:19:27,448 INFO AMZN held by another strategy — deferring.
+2026-07-02 17:19:27,784 INFO GOOGL held by another strategy — deferring.
+2026-07-02 17:20:28,371 INFO NVDA $193.02 below SMA50 $209.76 — no entry.
+2026-07-02 17:20:29,058 INFO AVGO $358.16 below SMA50 $409.39 — no entry.
+2026-07-02 17:20:29,692 INFO AMZN held by another strategy — deferring.
+2026-07-02 17:20:30,097 INFO GOOGL held by another strategy — deferring.
+2026-07-02 17:21:30,583 INFO NVDA $193.09 below SMA50 $209.76 — no entry.
+2026-07-02 17:21:31,329 INFO AVGO $358.76 below SMA50 $409.39 — no entry.
+2026-07-02 17:21:31,877 INFO AMZN held by another strategy — deferring.
+2026-07-02 17:21:32,389 INFO GOOGL held by another strategy — deferring.
+2026-07-02 17:22:32,800 INFO NVDA $193.29 below SMA50 $209.76 — no entry.
+2026-07-02 17:22:33,366 INFO AVGO $358.97 below SMA50 $409.39 — no entry.
+2026-07-02 17:22:33,881 INFO AMZN held by another strategy — deferring.
+2026-07-02 17:22:34,277 INFO GOOGL held by another strategy — deferring.
+2026-07-02 17:23:34,869 INFO NVDA $193.10 below SMA50 $209.76 — no entry.
+2026-07-02 17:23:35,395 INFO AVGO $359.15 below SMA50 $409.40 — no entry.
+2026-07-02 17:23:35,905 INFO AMZN held by another strategy — deferring.
+2026-07-02 17:23:36,392 INFO GOOGL held by another strategy — deferring.
+2026-07-02 17:24:36,755 INFO NVDA $192.96 below SMA50 $209.76 — no entry.
+2026-07-02 17:24:37,294 INFO AVGO $359.00 below SMA50 $409.40 — no entry.
+2026-07-02 17:24:37,808 INFO AMZN held by another strategy — deferring.
+2026-07-02 17:24:38,158 INFO GOOGL held by another strategy — deferring.
+2026-07-02 17:25:38,506 INFO NVDA $192.88 below SMA50 $209.76 — no entry.
+2026-07-02 17:25:39,038 INFO AVGO $359.06 below SMA50 $409.40 — no entry.
+2026-07-02 17:25:39,579 INFO AMZN held by another strategy — deferring.
+2026-07-02 17:25:39,938 INFO GOOGL held by another strategy — deferring.
+2026-07-02 17:26:40,278 INFO NVDA $192.86 below SMA50 $209.76 — no entry.
+2026-07-02 17:26:40,812 INFO AVGO $359.12 below SMA50 $409.40 — no entry.
+2026-07-02 17:26:41,362 INFO AMZN held by another strategy — deferring.
+2026-07-02 17:26:41,648 INFO GOOGL held by another strategy — deferring.
+2026-07-02 17:27:42,043 INFO NVDA $193.00 below SMA50 $209.76 — no entry.
+2026-07-02 17:27:42,630 INFO AVGO $359.25 below SMA50 $409.40 — no entry.
+2026-07-02 17:27:43,164 INFO AMZN held by another strategy — deferring.
+2026-07-02 17:27:43,617 INFO GOOGL held by another strategy — deferring.
+2026-07-02 17:28:43,972 INFO NVDA $192.96 below SMA50 $209.76 — no entry.
+2026-07-02 17:28:44,532 INFO AVGO $359.04 below SMA50 $409.40 — no entry.
+2026-07-02 17:28:45,159 INFO AMZN held by another strategy — deferring.
+2026-07-02 17:28:45,486 INFO GOOGL held by another strategy — deferring.
+2026-07-02 17:29:45,878 INFO NVDA $193.04 below SMA50 $209.76 — no entry.
+2026-07-02 17:29:46,420 INFO AVGO $359.11 below SMA50 $409.40 — no entry.
+2026-07-02 17:29:46,984 INFO AMZN held by another strategy — deferring.
+2026-07-02 17:29:47,253 INFO GOOGL held by another strategy — deferring.
+2026-07-02 17:30:47,662 INFO NVDA $193.12 below SMA50 $209.76 — no entry.
+2026-07-02 17:30:48,235 INFO AVGO $359.41 below SMA50 $409.40 — no entry.
+2026-07-02 17:30:48,862 INFO AMZN held by another strategy — deferring.
+2026-07-02 17:30:49,242 INFO GOOGL held by another strategy — deferring.
+2026-07-02 17:31:49,793 INFO NVDA $193.06 below SMA50 $209.76 — no entry.
+2026-07-02 17:31:50,440 INFO AVGO $359.52 below SMA50 $409.41 — no entry.
+2026-07-02 17:31:51,102 INFO AMZN held by another strategy — deferring.
+2026-07-02 17:31:51,503 INFO GOOGL held by another strategy — deferring.
+2026-07-02 17:32:51,875 INFO NVDA $193.26 below SMA50 $209.76 — no entry.
+2026-07-02 17:32:52,439 INFO AVGO $359.93 below SMA50 $409.41 — no entry.
+2026-07-02 17:32:52,972 INFO AMZN held by another strategy — deferring.
+2026-07-02 17:32:53,383 INFO GOOGL held by another strategy — deferring.
+2026-07-02 17:33:54,051 INFO NVDA $193.19 below SMA50 $209.76 — no entry.
+2026-07-02 17:33:54,580 INFO AVGO $360.32 below SMA50 $409.42 — no entry.
+2026-07-02 17:33:55,445 INFO AMZN held by another strategy — deferring.
+2026-07-02 17:33:56,042 INFO GOOGL held by another strategy — deferring.
+2026-07-02 17:34:56,419 INFO NVDA $192.98 below SMA50 $209.76 — no entry.
+2026-07-02 17:34:57,005 INFO AVGO $359.83 below SMA50 $409.43 — no entry.
+2026-07-02 17:34:57,578 INFO AMZN held by another strategy — deferring.
+2026-07-02 17:34:58,057 INFO GOOGL held by another strategy — deferring.
+2026-07-02 17:35:58,419 INFO NVDA $192.93 below SMA50 $209.76 — no entry.
+2026-07-02 17:35:58,959 INFO AVGO $359.60 below SMA50 $409.41 — no entry.
+2026-07-02 17:35:59,609 INFO AMZN held by another strategy — deferring.
+2026-07-02 17:36:00,100 INFO GOOGL held by another strategy — deferring.
+2026-07-02 17:37:00,688 INFO NVDA $192.75 below SMA50 $209.76 — no entry.
+2026-07-02 17:37:01,288 INFO AVGO $359.28 below SMA50 $409.41 — no entry.
+2026-07-02 17:37:01,975 INFO AMZN held by another strategy — deferring.
+2026-07-02 17:37:02,429 INFO GOOGL held by another strategy — deferring.
+2026-07-02 17:38:02,975 INFO NVDA $192.64 below SMA50 $209.75 — no entry.
+2026-07-02 17:38:04,125 INFO AVGO $359.09 below SMA50 $409.40 — no entry.
+2026-07-02 17:38:05,046 INFO AMZN held by another strategy — deferring.
+2026-07-02 17:38:05,419 INFO GOOGL held by another strategy — deferring.
+2026-07-02 17:39:05,777 INFO NVDA $192.46 below SMA50 $209.75 — no entry.
+2026-07-02 17:39:06,564 INFO AVGO $358.94 below SMA50 $409.40 — no entry.
+2026-07-02 17:39:07,519 INFO AMZN held by another strategy — deferring.
+2026-07-02 17:39:07,869 INFO GOOGL held by another strategy — deferring.
+2026-07-02 17:40:08,314 INFO NVDA $192.45 below SMA50 $209.75 — no entry.
+2026-07-02 17:40:08,986 INFO AVGO $359.30 below SMA50 $409.40 — no entry.
+2026-07-02 17:40:10,050 INFO AMZN held by another strategy — deferring.
+2026-07-02 17:40:10,420 INFO GOOGL held by another strategy — deferring.
+2026-07-02 17:41:10,842 INFO NVDA $192.72 below SMA50 $209.75 — no entry.
+2026-07-02 17:41:11,398 INFO AVGO $359.65 below SMA50 $409.41 — no entry.
+2026-07-02 17:41:12,284 INFO AMZN held by another strategy — deferring.
+2026-07-02 17:41:12,623 INFO GOOGL held by another strategy — deferring.
+2026-07-02 17:42:13,343 INFO NVDA $192.93 below SMA50 $209.76 — no entry.
+2026-07-02 17:42:14,002 INFO AVGO $359.80 below SMA50 $409.42 — no entry.
+2026-07-02 17:42:14,827 INFO AMZN held by another strategy — deferring.
+2026-07-02 17:42:15,197 INFO GOOGL held by another strategy — deferring.
+2026-07-02 17:43:15,651 INFO NVDA $192.85 below SMA50 $209.76 — no entry.
+2026-07-02 17:43:16,413 INFO AVGO $359.43 below SMA50 $409.42 — no entry.
+2026-07-02 17:43:17,151 INFO AMZN held by another strategy — deferring.
+2026-07-02 17:43:17,454 INFO GOOGL held by another strategy — deferring.
+2026-07-02 17:44:17,907 INFO NVDA $192.95 below SMA50 $209.76 — no entry.
+2026-07-02 17:44:18,491 INFO AVGO $359.82 below SMA50 $409.41 — no entry.
+2026-07-02 17:44:19,206 INFO AMZN held by another strategy — deferring.
+2026-07-02 17:44:19,486 INFO GOOGL held by another strategy — deferring.
+2026-07-02 17:45:20,134 INFO NVDA $193.00 below SMA50 $209.76 — no entry.
+2026-07-02 17:45:21,053 INFO AVGO $359.81 below SMA50 $409.41 — no entry.
+2026-07-02 17:45:21,991 INFO AMZN held by another strategy — deferring.
+2026-07-02 17:45:22,347 INFO GOOGL held by another strategy — deferring.
+2026-07-02 17:46:22,844 INFO NVDA $192.82 below SMA50 $209.76 — no entry.
+2026-07-02 17:46:23,882 INFO AVGO $359.39 below SMA50 $409.41 — no entry.
+2026-07-02 17:46:24,721 INFO AMZN held by another strategy — deferring.
+2026-07-02 17:46:25,110 INFO GOOGL held by another strategy — deferring.
+2026-07-02 17:47:25,521 INFO NVDA $192.74 below SMA50 $209.76 — no entry.
+2026-07-02 17:47:26,175 INFO AVGO $358.96 below SMA50 $409.40 — no entry.
+2026-07-02 17:47:27,098 INFO AMZN held by another strategy — deferring.
+2026-07-02 17:47:27,717 INFO GOOGL held by another strategy — deferring.
+2026-07-02 17:48:28,103 INFO NVDA $192.76 below SMA50 $209.75 — no entry.
+2026-07-02 17:48:28,622 INFO AVGO $358.96 below SMA50 $409.40 — no entry.
+2026-07-02 17:48:29,525 INFO AMZN held by another strategy — deferring.
+2026-07-02 17:48:29,818 INFO GOOGL held by another strategy — deferring.
+2026-07-02 17:49:30,162 INFO NVDA $192.82 below SMA50 $209.76 — no entry.
+2026-07-02 17:49:30,675 INFO AVGO $359.06 below SMA50 $409.40 — no entry.
+2026-07-02 17:49:31,419 INFO AMZN held by another strategy — deferring.
+2026-07-02 17:49:31,800 INFO GOOGL held by another strategy — deferring.
+2026-07-02 17:50:32,173 INFO NVDA $192.70 below SMA50 $209.76 — no entry.
+2026-07-02 17:50:32,744 INFO AVGO $358.28 below SMA50 $409.40 — no entry.
+2026-07-02 17:50:33,649 INFO AMZN held by another strategy — deferring.
+2026-07-02 17:50:33,994 INFO GOOGL held by another strategy — deferring.
+2026-07-02 17:51:34,394 INFO NVDA $192.81 below SMA50 $209.76 — no entry.
+2026-07-02 17:51:35,030 INFO AVGO $358.53 below SMA50 $409.39 — no entry.
+2026-07-02 17:51:35,752 INFO AMZN held by another strategy — deferring.
+2026-07-02 17:51:36,045 INFO GOOGL held by another strategy — deferring.
+2026-07-02 17:52:36,423 INFO NVDA $192.71 below SMA50 $209.76 — no entry.
+2026-07-02 17:52:37,004 INFO AVGO $358.65 below SMA50 $409.39 — no entry.
+2026-07-02 17:52:37,828 INFO AMZN held by another strategy — deferring.
+2026-07-02 17:52:38,154 INFO GOOGL held by another strategy — deferring.
+2026-07-02 17:53:38,619 INFO NVDA $192.92 below SMA50 $209.76 — no entry.
+2026-07-02 17:53:39,284 INFO AVGO $358.91 below SMA50 $409.39 — no entry.
+2026-07-02 17:53:39,932 INFO AMZN held by another strategy — deferring.
+2026-07-02 17:53:40,234 INFO GOOGL held by another strategy — deferring.
+2026-07-02 17:54:40,597 INFO NVDA $193.12 below SMA50 $209.76 — no entry.
+2026-07-02 17:54:41,455 INFO AVGO $359.40 below SMA50 $409.40 — no entry.
+2026-07-02 17:54:42,214 INFO AMZN held by another strategy — deferring.
+2026-07-02 17:54:42,559 INFO GOOGL held by another strategy — deferring.
+2026-07-02 17:55:42,993 INFO NVDA $193.02 below SMA50 $209.76 — no entry.
+2026-07-02 17:55:43,608 INFO AVGO $359.24 below SMA50 $409.41 — no entry.
+2026-07-02 17:55:44,358 INFO AMZN held by another strategy — deferring.
+2026-07-02 17:55:44,732 INFO GOOGL held by another strategy — deferring.
+2026-07-02 17:56:45,201 INFO NVDA $192.84 below SMA50 $209.76 — no entry.
+2026-07-02 17:56:45,772 INFO AVGO $359.12 below SMA50 $409.41 — no entry.
+2026-07-02 17:56:46,449 INFO AMZN held by another strategy — deferring.
+2026-07-02 17:56:46,776 INFO GOOGL held by another strategy — deferring.
+2026-07-02 17:57:47,150 INFO NVDA $192.78 below SMA50 $209.76 — no entry.
+2026-07-02 17:57:47,720 INFO AVGO $359.12 below SMA50 $409.40 — no entry.
+2026-07-02 17:57:48,457 INFO AMZN held by another strategy — deferring.
+2026-07-02 17:57:48,760 INFO GOOGL held by another strategy — deferring.
+2026-07-02 17:58:49,381 INFO NVDA $192.57 below SMA50 $209.75 — no entry.
+2026-07-02 17:58:50,185 INFO AVGO $358.74 below SMA50 $409.40 — no entry.
+2026-07-02 17:58:50,866 INFO AMZN held by another strategy — deferring.
+2026-07-02 17:58:51,218 INFO GOOGL held by another strategy — deferring.
+2026-07-02 17:59:51,726 INFO NVDA $192.51 below SMA50 $209.75 — no entry.
+2026-07-02 17:59:52,244 INFO AVGO $358.56 below SMA50 $409.39 — no entry.
+2026-07-02 17:59:52,865 INFO AMZN held by another strategy — deferring.
+2026-07-02 17:59:53,184 INFO GOOGL held by another strategy — deferring.
+2026-07-02 18:00:53,894 INFO NVDA $192.70 below SMA50 $209.75 — no entry.
+2026-07-02 18:00:54,772 INFO AVGO $358.87 below SMA50 $409.39 — no entry.
+2026-07-02 18:00:55,486 INFO AMZN held by another strategy — deferring.
+2026-07-02 18:00:55,872 INFO GOOGL held by another strategy — deferring.
+2026-07-02 18:01:56,486 INFO NVDA $192.79 below SMA50 $209.75 — no entry.
+2026-07-02 18:01:57,195 INFO AVGO $358.93 below SMA50 $409.40 — no entry.
+2026-07-02 18:01:57,887 INFO AMZN held by another strategy — deferring.
+2026-07-02 18:01:58,250 INFO GOOGL held by another strategy — deferring.
+2026-07-02 18:02:58,771 INFO NVDA $192.72 below SMA50 $209.75 — no entry.
+2026-07-02 18:02:59,471 INFO AVGO $358.76 below SMA50 $409.39 — no entry.
+2026-07-02 18:03:00,416 INFO AMZN held by another strategy — deferring.
+2026-07-02 18:03:00,773 INFO GOOGL held by another strategy — deferring.
+2026-07-02 18:04:01,522 INFO NVDA $192.69 below SMA50 $209.75 — no entry.
+2026-07-02 18:04:02,216 INFO AVGO $358.76 below SMA50 $409.39 — no entry.
+2026-07-02 18:04:03,217 INFO AMZN held by another strategy — deferring.
+2026-07-02 18:04:03,583 INFO GOOGL held by another strategy — deferring.
+2026-07-02 18:05:04,435 INFO NVDA $192.87 below SMA50 $209.76 — no entry.
+2026-07-02 18:05:05,218 INFO AVGO $358.95 below SMA50 $409.40 — no entry.
+2026-07-02 18:05:06,243 INFO AMZN held by another strategy — deferring.
+2026-07-02 18:05:06,572 INFO GOOGL held by another strategy — deferring.
+2026-07-02 18:06:07,243 INFO NVDA $193.11 below SMA50 $209.76 — no entry.
+2026-07-02 18:06:08,072 INFO AVGO $359.42 below SMA50 $409.41 — no entry.
+2026-07-02 18:06:09,200 INFO AMZN held by another strategy — deferring.
+2026-07-02 18:06:09,578 INFO GOOGL held by another strategy — deferring.
+2026-07-02 18:07:10,285 INFO NVDA $193.36 below SMA50 $209.77 — no entry.
+2026-07-02 18:07:11,408 INFO AVGO $359.80 below SMA50 $409.42 — no entry.
+2026-07-02 18:07:12,568 INFO AMZN held by another strategy — deferring.
+2026-07-02 18:07:12,933 INFO GOOGL held by another strategy — deferring.
+2026-07-02 18:08:13,730 INFO NVDA $193.25 below SMA50 $209.76 — no entry.
+2026-07-02 18:08:14,854 INFO AVGO $359.88 below SMA50 $409.42 — no entry.
+2026-07-02 18:08:15,761 INFO AMZN held by another strategy — deferring.
+2026-07-02 18:08:16,085 INFO GOOGL held by another strategy — deferring.
+2026-07-02 18:09:17,052 INFO NVDA $193.30 below SMA50 $209.77 — no entry.
+2026-07-02 18:09:17,925 INFO AVGO $360.33 below SMA50 $409.42 — no entry.
+2026-07-02 18:09:18,741 INFO AMZN held by another strategy — deferring.
+2026-07-02 18:09:19,152 INFO GOOGL held by another strategy — deferring.
+2026-07-02 18:10:19,805 INFO NVDA $193.65 below SMA50 $209.77 — no entry.
+2026-07-02 18:10:20,776 INFO AVGO $361.23 below SMA50 $409.44 — no entry.
+2026-07-02 18:10:21,677 INFO AMZN held by another strategy — deferring.
+2026-07-02 18:10:22,254 INFO GOOGL held by another strategy — deferring.
+2026-07-02 18:11:23,561 INFO NVDA $193.66 below SMA50 $209.77 — no entry.
+2026-07-02 18:11:24,964 INFO AVGO $361.24 below SMA50 $409.44 — no entry.
+2026-07-02 18:11:25,858 INFO AMZN held by another strategy — deferring.
+2026-07-02 18:11:26,359 INFO GOOGL held by another strategy — deferring.
+2026-07-02 18:12:26,841 INFO NVDA $193.57 below SMA50 $209.77 — no entry.
+2026-07-02 18:12:28,062 INFO AVGO $361.04 below SMA50 $409.44 — no entry.
+2026-07-02 18:12:29,406 INFO AMZN held by another strategy — deferring.
+2026-07-02 18:12:29,848 INFO GOOGL held by another strategy — deferring.
+2026-07-02 18:13:30,390 INFO NVDA $193.50 below SMA50 $209.77 — no entry.
+2026-07-02 18:13:31,168 INFO AVGO $361.07 below SMA50 $409.45 — no entry.
+2026-07-02 18:13:32,033 INFO AMZN held by another strategy — deferring.
+2026-07-02 18:13:32,565 INFO GOOGL held by another strategy — deferring.
+2026-07-02 18:14:33,149 INFO NVDA $193.33 below SMA50 $209.77 — no entry.
+2026-07-02 18:14:33,816 INFO AVGO $360.87 below SMA50 $409.44 — no entry.
+2026-07-02 18:14:34,734 INFO AMZN held by another strategy — deferring.
+2026-07-02 18:14:35,219 INFO GOOGL held by another strategy — deferring.
+2026-07-02 18:15:36,330 INFO NVDA $193.12 below SMA50 $209.76 — no entry.
+2026-07-02 18:15:37,154 INFO AVGO $360.62 below SMA50 $409.44 — no entry.
+2026-07-02 18:15:38,528 INFO AMZN held by another strategy — deferring.
+2026-07-02 18:15:39,288 INFO GOOGL held by another strategy — deferring.
+2026-07-02 18:16:39,832 INFO NVDA $193.13 below SMA50 $209.76 — no entry.
+2026-07-02 18:16:40,521 INFO AVGO $360.48 below SMA50 $409.44 — no entry.
+2026-07-02 18:16:41,390 INFO AMZN held by another strategy — deferring.
+2026-07-02 18:16:41,909 INFO GOOGL held by another strategy — deferring.
+2026-07-02 18:17:42,324 INFO NVDA $192.97 below SMA50 $209.76 — no entry.
+2026-07-02 18:17:42,952 INFO AVGO $360.35 below SMA50 $409.43 — no entry.
+2026-07-02 18:17:43,695 INFO AMZN held by another strategy — deferring.
+2026-07-02 18:17:44,152 INFO GOOGL held by another strategy — deferring.
+2026-07-02 18:18:44,573 INFO NVDA $193.00 below SMA50 $209.76 — no entry.
+2026-07-02 18:18:45,165 INFO AVGO $360.40 below SMA50 $409.42 — no entry.
+2026-07-02 18:18:46,199 INFO AMZN held by another strategy — deferring.
+2026-07-02 18:18:46,566 INFO GOOGL held by another strategy — deferring.
+2026-07-02 18:19:47,315 INFO NVDA $192.88 below SMA50 $209.75 — no entry.
+2026-07-02 18:19:48,046 INFO AVGO $359.94 below SMA50 $409.42 — no entry.
+2026-07-02 18:19:48,929 INFO AMZN held by another strategy — deferring.
+2026-07-02 18:19:49,319 INFO GOOGL held by another strategy — deferring.
+2026-07-02 18:20:49,915 INFO NVDA $193.08 below SMA50 $209.76 — no entry.
+2026-07-02 18:20:50,583 INFO AVGO $360.01 below SMA50 $409.42 — no entry.
+2026-07-02 18:20:51,486 INFO AMZN held by another strategy — deferring.
+2026-07-02 18:20:51,890 INFO GOOGL held by another strategy — deferring.
+2026-07-02 18:21:52,410 INFO NVDA $193.03 below SMA50 $209.76 — no entry.
+2026-07-02 18:21:53,102 INFO AVGO $359.44 below SMA50 $409.42 — no entry.
+2026-07-02 18:21:53,805 INFO AMZN held by another strategy — deferring.
+2026-07-02 18:21:54,085 INFO GOOGL held by another strategy — deferring.
+2026-07-02 18:22:54,617 INFO NVDA $193.14 below SMA50 $209.76 — no entry.
+2026-07-02 18:22:55,434 INFO AVGO $359.29 below SMA50 $409.41 — no entry.
+2026-07-02 18:22:56,113 INFO AMZN held by another strategy — deferring.
+2026-07-02 18:22:56,479 INFO GOOGL held by another strategy — deferring.
+2026-07-02 18:23:57,081 INFO NVDA $193.15 below SMA50 $209.76 — no entry.
+2026-07-02 18:23:58,016 INFO AVGO $359.27 below SMA50 $409.41 — no entry.
+2026-07-02 18:23:58,538 INFO AMZN held by another strategy — deferring.
+2026-07-02 18:23:58,856 INFO GOOGL held by another strategy — deferring.
+2026-07-02 18:24:59,234 INFO NVDA $193.32 below SMA50 $209.76 — no entry.
+2026-07-02 18:24:59,817 INFO AVGO $359.59 below SMA50 $409.40 — no entry.
+2026-07-02 18:25:00,578 INFO AMZN held by another strategy — deferring.
+2026-07-02 18:25:01,269 INFO GOOGL held by another strategy — deferring.
+2026-07-02 18:26:02,143 INFO NVDA $193.31 below SMA50 $209.77 — no entry.
+2026-07-02 18:26:03,037 INFO AVGO $359.36 below SMA50 $409.41 — no entry.
+2026-07-02 18:26:03,563 INFO AMZN held by another strategy — deferring.
+2026-07-02 18:26:03,979 INFO GOOGL held by another strategy — deferring.
+2026-07-02 18:27:04,564 INFO NVDA $193.56 below SMA50 $209.77 — no entry.
+2026-07-02 18:27:05,328 INFO AVGO $359.93 below SMA50 $409.42 — no entry.
+2026-07-02 18:27:05,922 INFO AMZN held by another strategy — deferring.
+2026-07-02 18:27:06,542 INFO GOOGL held by another strategy — deferring.
+2026-07-02 18:28:07,194 INFO NVDA $193.64 below SMA50 $209.77 — no entry.
+2026-07-02 18:28:08,272 INFO AVGO $360.18 below SMA50 $409.42 — no entry.
+2026-07-02 18:28:08,891 INFO AMZN held by another strategy — deferring.
+2026-07-02 18:28:09,471 INFO GOOGL held by another strategy — deferring.
+2026-07-02 18:29:09,975 INFO NVDA $193.74 below SMA50 $209.77 — no entry.
+2026-07-02 18:29:10,811 INFO AVGO $360.33 below SMA50 $409.42 — no entry.
+2026-07-02 18:29:11,398 INFO AMZN held by another strategy — deferring.
+2026-07-02 18:29:11,997 INFO GOOGL held by another strategy — deferring.
+2026-07-02 18:30:13,064 INFO NVDA $193.74 below SMA50 $209.77 — no entry.
+2026-07-02 18:30:14,194 INFO AVGO $360.42 below SMA50 $409.43 — no entry.
+2026-07-02 18:30:14,842 INFO AMZN held by another strategy — deferring.
+2026-07-02 18:30:15,473 INFO GOOGL held by another strategy — deferring.
+2026-07-02 18:31:16,119 INFO NVDA $193.77 below SMA50 $209.77 — no entry.
+2026-07-02 18:31:16,960 INFO AVGO $360.62 below SMA50 $409.43 — no entry.
+2026-07-02 18:31:17,592 INFO AMZN held by another strategy — deferring.
+2026-07-02 18:31:18,336 INFO GOOGL held by another strategy — deferring.
+2026-07-02 18:32:19,126 INFO NVDA $193.75 below SMA50 $209.78 — no entry.
+2026-07-02 18:32:20,246 INFO AVGO $360.58 below SMA50 $409.43 — no entry.
+2026-07-02 18:32:20,834 INFO AMZN held by another strategy — deferring.
+2026-07-02 18:32:21,109 INFO GOOGL held by another strategy — deferring.
+2026-07-02 18:33:21,968 INFO NVDA $193.94 below SMA50 $209.78 — no entry.
+2026-07-02 18:33:22,963 INFO AVGO $360.67 below SMA50 $409.43 — no entry.
+2026-07-02 18:33:23,496 INFO AMZN held by another strategy — deferring.
+2026-07-02 18:33:23,750 INFO GOOGL held by another strategy — deferring.
+2026-07-02 18:34:24,434 INFO NVDA $193.66 below SMA50 $209.78 — no entry.
+2026-07-02 18:34:25,268 INFO AVGO $359.97 below SMA50 $409.43 — no entry.
+2026-07-02 18:34:25,821 INFO AMZN held by another strategy — deferring.
+2026-07-02 18:34:26,191 INFO GOOGL held by another strategy — deferring.
+2026-07-02 18:35:27,081 INFO NVDA $193.69 below SMA50 $209.77 — no entry.
+2026-07-02 18:35:28,057 INFO AVGO $360.03 below SMA50 $409.42 — no entry.
+2026-07-02 18:35:28,623 INFO AMZN held by another strategy — deferring.
+2026-07-02 18:35:29,029 INFO GOOGL held by another strategy — deferring.
+2026-07-02 18:36:30,156 INFO NVDA $193.47 below SMA50 $209.77 — no entry.
+2026-07-02 18:36:31,083 INFO AVGO $359.53 below SMA50 $409.41 — no entry.
+2026-07-02 18:36:31,655 INFO AMZN held by another strategy — deferring.
+2026-07-02 18:36:31,948 INFO GOOGL held by another strategy — deferring.
+2026-07-02 18:37:32,680 INFO NVDA $193.42 below SMA50 $209.77 — no entry.
+2026-07-02 18:37:33,591 INFO AVGO $359.24 below SMA50 $409.41 — no entry.
+2026-07-02 18:37:34,314 INFO AMZN held by another strategy — deferring.
+2026-07-02 18:37:34,599 INFO GOOGL held by another strategy — deferring.
+2026-07-02 18:38:35,212 INFO NVDA $193.57 below SMA50 $209.77 — no entry.
+2026-07-02 18:38:35,999 INFO AVGO $359.81 below SMA50 $409.41 — no entry.
+2026-07-02 18:38:36,606 INFO AMZN held by another strategy — deferring.
+2026-07-02 18:38:36,874 INFO GOOGL held by another strategy — deferring.
+2026-07-02 18:39:37,568 INFO NVDA $193.50 below SMA50 $209.77 — no entry.
+2026-07-02 18:39:38,316 INFO AVGO $359.64 below SMA50 $409.41 — no entry.
+2026-07-02 18:39:38,892 INFO AMZN held by another strategy — deferring.
+2026-07-02 18:39:39,144 INFO GOOGL held by another strategy — deferring.
+2026-07-02 18:40:40,145 INFO NVDA $193.44 below SMA50 $209.77 — no entry.
+2026-07-02 18:40:41,376 INFO AVGO $359.56 below SMA50 $409.41 — no entry.
+2026-07-02 18:40:43,070 INFO AMZN held by another strategy — deferring.
+2026-07-02 18:40:43,321 INFO GOOGL held by another strategy — deferring.
+2026-07-02 18:41:43,812 INFO NVDA $193.37 below SMA50 $209.77 — no entry.
+2026-07-02 18:41:44,547 INFO AVGO $359.03 below SMA50 $409.41 — no entry.
+2026-07-02 18:41:45,373 INFO AMZN held by another strategy — deferring.
+2026-07-02 18:41:45,620 INFO GOOGL held by another strategy — deferring.
+2026-07-02 18:42:46,101 INFO NVDA $193.41 below SMA50 $209.77 — no entry.
+2026-07-02 18:42:46,809 INFO AVGO $358.98 below SMA50 $409.40 — no entry.
+2026-07-02 18:42:47,336 INFO AMZN held by another strategy — deferring.
+2026-07-02 18:42:47,584 INFO GOOGL held by another strategy — deferring.
+2026-07-02 18:43:48,035 INFO NVDA $193.45 below SMA50 $209.77 — no entry.
+2026-07-02 18:43:48,638 INFO AVGO $359.23 below SMA50 $409.40 — no entry.
+2026-07-02 18:43:49,202 INFO AMZN held by another strategy — deferring.
+2026-07-02 18:43:49,517 INFO GOOGL held by another strategy — deferring.
+2026-07-02 18:44:49,885 INFO NVDA $193.33 below SMA50 $209.77 — no entry.
+2026-07-02 18:44:50,447 INFO AVGO $359.19 below SMA50 $409.40 — no entry.
+2026-07-02 18:44:51,220 INFO AMZN held by another strategy — deferring.
+2026-07-02 18:44:51,489 INFO GOOGL held by another strategy — deferring.
+2026-07-02 18:45:51,954 INFO NVDA $192.94 below SMA50 $209.76 — no entry.
+2026-07-02 18:45:52,784 INFO AVGO $358.25 below SMA50 $409.40 — no entry.
+2026-07-02 18:45:53,406 INFO AMZN held by another strategy — deferring.
+2026-07-02 18:45:53,714 INFO GOOGL held by another strategy — deferring.
+2026-07-02 18:46:54,166 INFO NVDA $193.04 below SMA50 $209.76 — no entry.
+2026-07-02 18:46:54,858 INFO AVGO $358.31 below SMA50 $409.39 — no entry.
+2026-07-02 18:46:55,352 INFO AMZN held by another strategy — deferring.
+2026-07-02 18:46:55,592 INFO GOOGL held by another strategy — deferring.
+2026-07-02 18:47:55,960 INFO NVDA $193.09 below SMA50 $209.76 — no entry.
+2026-07-02 18:47:56,516 INFO AVGO $358.61 below SMA50 $409.39 — no entry.
+2026-07-02 18:47:57,031 INFO AMZN held by another strategy — deferring.
+2026-07-02 18:47:57,270 INFO GOOGL held by another strategy — deferring.
+2026-07-02 18:48:57,682 INFO NVDA $193.35 below SMA50 $209.76 — no entry.
+2026-07-02 18:48:58,491 INFO AVGO $358.85 below SMA50 $409.39 — no entry.
+2026-07-02 18:48:59,190 INFO AMZN held by another strategy — deferring.
+2026-07-02 18:48:59,450 INFO GOOGL held by another strategy — deferring.
+2026-07-02 18:49:59,973 INFO NVDA $193.44 below SMA50 $209.77 — no entry.
+2026-07-02 18:50:00,896 INFO AVGO $359.01 below SMA50 $409.40 — no entry.
+2026-07-02 18:50:02,440 INFO AMZN held by another strategy — deferring.
+2026-07-02 18:50:02,804 INFO GOOGL held by another strategy — deferring.
+2026-07-02 18:51:03,219 INFO NVDA $193.56 below SMA50 $209.77 — no entry.
+2026-07-02 18:51:03,857 INFO AVGO $359.42 below SMA50 $409.41 — no entry.
+2026-07-02 18:51:04,507 INFO AMZN held by another strategy — deferring.
+2026-07-02 18:51:04,854 INFO GOOGL held by another strategy — deferring.
+2026-07-02 18:52:05,239 INFO NVDA $193.57 below SMA50 $209.77 — no entry.
+2026-07-02 18:52:06,050 INFO AVGO $359.45 below SMA50 $409.41 — no entry.
+2026-07-02 18:52:06,581 INFO AMZN held by another strategy — deferring.
+2026-07-02 18:52:06,862 INFO GOOGL held by another strategy — deferring.
+2026-07-02 18:53:07,549 INFO NVDA $193.58 below SMA50 $209.77 — no entry.
+2026-07-02 18:53:08,261 INFO AVGO $359.54 below SMA50 $409.41 — no entry.
+2026-07-02 18:53:09,061 INFO AMZN held by another strategy — deferring.
+2026-07-02 18:53:09,369 INFO GOOGL held by another strategy — deferring.
+2026-07-02 18:54:09,733 INFO NVDA $193.52 below SMA50 $209.77 — no entry.
+2026-07-02 18:54:10,291 INFO AVGO $359.18 below SMA50 $409.40 — no entry.
+2026-07-02 18:54:10,842 INFO AMZN held by another strategy — deferring.
+2026-07-02 18:54:11,080 INFO GOOGL held by another strategy — deferring.
+2026-07-02 18:55:11,578 INFO NVDA $193.45 below SMA50 $209.77 — no entry.
+2026-07-02 18:55:12,193 INFO AVGO $359.00 below SMA50 $409.40 — no entry.
+2026-07-02 18:55:12,903 INFO AMZN held by another strategy — deferring.
+2026-07-02 18:55:13,168 INFO GOOGL held by another strategy — deferring.
+2026-07-02 18:56:13,594 INFO NVDA $193.60 below SMA50 $209.77 — no entry.
+2026-07-02 18:56:14,229 INFO AVGO $358.93 below SMA50 $409.40 — no entry.
+2026-07-02 18:56:14,741 INFO AMZN held by another strategy — deferring.
+2026-07-02 18:56:14,981 INFO GOOGL held by another strategy — deferring.
+2026-07-02 18:57:15,392 INFO NVDA $193.40 below SMA50 $209.77 — no entry.
+2026-07-02 18:57:15,993 INFO AVGO $358.55 below SMA50 $409.39 — no entry.
+2026-07-02 18:57:16,829 INFO AMZN held by another strategy — deferring.
+2026-07-02 18:57:17,080 INFO GOOGL held by another strategy — deferring.
+2026-07-02 18:58:17,521 INFO NVDA $193.55 below SMA50 $209.77 — no entry.
+2026-07-02 18:58:18,160 INFO AVGO $359.43 below SMA50 $409.40 — no entry.
+2026-07-02 18:58:18,705 INFO AMZN held by another strategy — deferring.
+2026-07-02 18:58:18,939 INFO GOOGL held by another strategy — deferring.
+2026-07-02 18:59:19,300 INFO NVDA $193.26 below SMA50 $209.77 — no entry.
+2026-07-02 18:59:19,945 INFO AVGO $359.18 below SMA50 $409.40 — no entry.
+2026-07-02 18:59:20,485 INFO AMZN held by another strategy — deferring.
+2026-07-02 18:59:20,746 INFO GOOGL held by another strategy — deferring.
+2026-07-02 19:00:21,476 INFO NVDA $193.49 below SMA50 $209.77 — no entry.
+2026-07-02 19:00:22,371 INFO AVGO $359.36 below SMA50 $409.41 — no entry.
+2026-07-02 19:00:23,097 INFO AMZN held by another strategy — deferring.
+2026-07-02 19:00:23,411 INFO GOOGL held by another strategy — deferring.
+2026-07-02 19:01:24,246 INFO NVDA $193.12 below SMA50 $209.76 — no entry.
+2026-07-02 19:01:25,231 INFO AVGO $358.44 below SMA50 $409.39 — no entry.
+2026-07-02 19:01:25,930 INFO AMZN held by another strategy — deferring.
+2026-07-02 19:01:26,211 INFO GOOGL held by another strategy — deferring.
+2026-07-02 19:02:26,615 INFO NVDA $193.22 below SMA50 $209.76 — no entry.
+2026-07-02 19:02:27,241 INFO AVGO $358.67 below SMA50 $409.39 — no entry.
+2026-07-02 19:02:28,014 INFO AMZN held by another strategy — deferring.
+2026-07-02 19:02:28,284 INFO GOOGL held by another strategy — deferring.
+2026-07-02 19:03:28,817 INFO NVDA $193.28 below SMA50 $209.76 — no entry.
+2026-07-02 19:03:29,424 INFO AVGO $358.81 below SMA50 $409.40 — no entry.
+2026-07-02 19:03:30,099 INFO AMZN held by another strategy — deferring.
+2026-07-02 19:03:30,355 INFO GOOGL held by another strategy — deferring.
+2026-07-02 19:04:30,831 INFO NVDA $192.86 below SMA50 $209.76 — no entry.
+2026-07-02 19:04:31,637 INFO AVGO $358.13 below SMA50 $409.40 — no entry.
+2026-07-02 19:04:32,168 INFO AMZN held by another strategy — deferring.
+2026-07-02 19:04:32,427 INFO GOOGL held by another strategy — deferring.
+2026-07-02 19:05:33,225 INFO NVDA $192.71 below SMA50 $209.76 — no entry.
+2026-07-02 19:05:34,122 INFO AVGO $357.57 below SMA50 $409.37 — no entry.
+2026-07-02 19:05:35,014 INFO AMZN held by another strategy — deferring.
+2026-07-02 19:05:35,312 INFO GOOGL held by another strategy — deferring.
+2026-07-02 19:06:35,913 INFO NVDA $192.90 below SMA50 $209.75 — no entry.
+2026-07-02 19:06:36,671 INFO AVGO $358.17 below SMA50 $409.37 — no entry.
+2026-07-02 19:06:37,407 INFO AMZN held by another strategy — deferring.
+2026-07-02 19:06:37,668 INFO GOOGL held by another strategy — deferring.
+2026-07-02 19:07:38,186 INFO NVDA $192.60 below SMA50 $209.76 — no entry.
+2026-07-02 19:07:38,882 INFO AVGO $357.02 below SMA50 $409.38 — no entry.
+2026-07-02 19:07:39,423 INFO AMZN held by another strategy — deferring.
+2026-07-02 19:07:39,716 INFO GOOGL held by another strategy — deferring.
+2026-07-02 19:08:40,125 INFO NVDA $192.64 below SMA50 $209.75 — no entry.
+2026-07-02 19:08:40,706 INFO AVGO $357.21 below SMA50 $409.36 — no entry.
+2026-07-02 19:08:41,211 INFO AMZN held by another strategy — deferring.
+2026-07-02 19:08:41,528 INFO GOOGL held by another strategy — deferring.
+2026-07-02 19:09:42,461 INFO NVDA $192.72 below SMA50 $209.75 — no entry.
+2026-07-02 19:09:43,130 INFO AVGO $357.06 below SMA50 $409.36 — no entry.
+2026-07-02 19:09:43,698 INFO AMZN held by another strategy — deferring.
+2026-07-02 19:09:43,965 INFO GOOGL held by another strategy — deferring.
+2026-07-02 19:10:44,476 INFO NVDA $192.63 below SMA50 $209.75 — no entry.
+2026-07-02 19:10:45,166 INFO AVGO $356.81 below SMA50 $409.36 — no entry.
+2026-07-02 19:10:45,794 INFO AMZN held by another strategy — deferring.
+2026-07-02 19:10:46,067 INFO GOOGL held by another strategy — deferring.
+2026-07-02 19:11:46,415 INFO NVDA $192.76 below SMA50 $209.75 — no entry.
+2026-07-02 19:11:46,984 INFO AVGO $357.28 below SMA50 $409.36 — no entry.
+2026-07-02 19:11:47,546 INFO AMZN held by another strategy — deferring.
+2026-07-02 19:11:47,810 INFO GOOGL held by another strategy — deferring.
+2026-07-02 19:12:48,295 INFO NVDA $192.86 below SMA50 $209.76 — no entry.
+2026-07-02 19:12:48,906 INFO AVGO $357.34 below SMA50 $409.37 — no entry.
+2026-07-02 19:12:49,457 INFO AMZN held by another strategy — deferring.
+2026-07-02 19:12:49,742 INFO GOOGL held by another strategy — deferring.
+2026-07-02 19:13:50,688 INFO NVDA $192.88 below SMA50 $209.76 — no entry.
+2026-07-02 19:13:51,361 INFO AVGO $357.71 below SMA50 $409.37 — no entry.
+2026-07-02 19:13:52,001 INFO AMZN held by another strategy — deferring.
+2026-07-02 19:13:52,518 INFO GOOGL held by another strategy — deferring.
+2026-07-02 19:14:53,040 INFO NVDA $192.90 below SMA50 $209.76 — no entry.
+2026-07-02 19:14:53,705 INFO AVGO $357.88 below SMA50 $409.37 — no entry.
+2026-07-02 19:14:54,386 INFO AMZN held by another strategy — deferring.
+2026-07-02 19:14:54,642 INFO GOOGL held by another strategy — deferring.
+2026-07-02 19:15:55,133 INFO NVDA $192.90 below SMA50 $209.76 — no entry.
+2026-07-02 19:15:55,888 INFO AVGO $358.04 below SMA50 $409.38 — no entry.
+2026-07-02 19:15:56,631 INFO AMZN held by another strategy — deferring.
+2026-07-02 19:15:56,974 INFO GOOGL held by another strategy — deferring.
+2026-07-02 19:16:57,421 INFO NVDA $192.88 below SMA50 $209.76 — no entry.
+2026-07-02 19:16:58,029 INFO AVGO $357.76 below SMA50 $409.38 — no entry.
+2026-07-02 19:16:58,834 INFO AMZN held by another strategy — deferring.
+2026-07-02 19:16:59,079 INFO GOOGL held by another strategy — deferring.
+2026-07-02 19:17:59,489 INFO NVDA $192.90 below SMA50 $209.76 — no entry.
+2026-07-02 19:18:00,218 INFO AVGO $357.69 below SMA50 $409.37 — no entry.
+2026-07-02 19:18:01,116 INFO AMZN held by another strategy — deferring.
+2026-07-02 19:18:01,429 INFO GOOGL held by another strategy — deferring.
+2026-07-02 19:19:01,827 INFO NVDA $192.94 below SMA50 $209.76 — no entry.
+2026-07-02 19:19:02,372 INFO AVGO $357.67 below SMA50 $409.37 — no entry.
+2026-07-02 19:19:03,225 INFO AMZN held by another strategy — deferring.
+2026-07-02 19:19:03,463 INFO GOOGL held by another strategy — deferring.
+2026-07-02 19:20:04,013 INFO NVDA $193.07 below SMA50 $209.76 — no entry.
+2026-07-02 19:20:04,693 INFO AVGO $357.70 below SMA50 $409.37 — no entry.
+2026-07-02 19:20:05,921 INFO AMZN held by another strategy — deferring.
+2026-07-02 19:20:06,214 INFO GOOGL held by another strategy — deferring.
+2026-07-02 19:21:06,635 INFO NVDA $192.91 below SMA50 $209.76 — no entry.
+2026-07-02 19:21:07,217 INFO AVGO $357.22 below SMA50 $409.36 — no entry.
+2026-07-02 19:21:08,142 INFO AMZN held by another strategy — deferring.
+2026-07-02 19:21:08,392 INFO GOOGL held by another strategy — deferring.
+2026-07-02 19:22:08,780 INFO NVDA $192.96 below SMA50 $209.76 — no entry.
+2026-07-02 19:22:09,574 INFO AVGO $356.87 below SMA50 $409.35 — no entry.
+2026-07-02 19:22:11,239 INFO AMZN held by another strategy — deferring.
+2026-07-02 19:22:11,693 INFO GOOGL held by another strategy — deferring.
+2026-07-02 19:23:12,473 INFO NVDA $192.94 below SMA50 $209.76 — no entry.
+2026-07-02 19:23:13,056 INFO AVGO $356.82 below SMA50 $409.35 — no entry.
+2026-07-02 19:23:13,836 INFO AMZN held by another strategy — deferring.
+2026-07-02 19:23:14,166 INFO GOOGL held by another strategy — deferring.
+2026-07-02 19:24:14,528 INFO NVDA $192.78 below SMA50 $209.76 — no entry.
+2026-07-02 19:24:15,077 INFO AVGO $356.76 below SMA50 $409.35 — no entry.
+2026-07-02 19:24:15,788 INFO AMZN held by another strategy — deferring.
+2026-07-02 19:24:16,033 INFO GOOGL held by another strategy — deferring.
+2026-07-02 19:25:16,456 INFO NVDA $192.75 below SMA50 $209.76 — no entry.
+2026-07-02 19:25:17,058 INFO AVGO $356.75 below SMA50 $409.36 — no entry.
+2026-07-02 19:25:17,744 INFO AMZN held by another strategy — deferring.
+2026-07-02 19:25:18,033 INFO GOOGL held by another strategy — deferring.
+2026-07-02 19:26:18,648 INFO NVDA $192.72 below SMA50 $209.76 — no entry.
+2026-07-02 19:26:19,441 INFO AVGO $356.76 below SMA50 $409.35 — no entry.
+2026-07-02 19:26:20,055 INFO AMZN held by another strategy — deferring.
+2026-07-02 19:26:20,570 INFO GOOGL held by another strategy — deferring.
+2026-07-02 19:27:21,047 INFO NVDA $192.90 below SMA50 $209.76 — no entry.
+2026-07-02 19:27:22,204 INFO AVGO $357.61 below SMA50 $409.36 — no entry.
+2026-07-02 19:27:23,224 INFO AMZN held by another strategy — deferring.
+2026-07-02 19:27:23,507 INFO GOOGL held by another strategy — deferring.
+2026-07-02 19:28:23,873 INFO NVDA $192.85 below SMA50 $209.76 — no entry.
+2026-07-02 19:28:24,581 INFO AVGO $357.60 below SMA50 $409.37 — no entry.
+2026-07-02 19:28:25,205 INFO AMZN held by another strategy — deferring.
+2026-07-02 19:28:25,460 INFO GOOGL held by another strategy — deferring.
