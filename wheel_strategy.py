@@ -315,7 +315,7 @@ def check_early_close(state):
     if loss_pct >= STOP_LOSS_PCT:
         order = close_contract(contract["symbol"])
         loss_amt = (current_price - sell_price) * 100
-        record_trade("wheel", contract["symbol"], -loss_amt, "stop loss 200% of premium")
+        record_trade("wheel", contract["symbol"], -loss_amt, "stop loss 100% of premium")
         log.warning(f"STOP LOSS ({loss_pct*100:.0f}% loss): {contract['symbol']} buy_back=${current_price:.2f} | loss -${loss_amt:.2f} | order {order['id']}")
         print(f"[WHEEL] Stop loss triggered at {loss_pct*100:.0f}% loss: {contract['symbol']} | -${loss_amt:.2f}")
         state["active_contract"] = None

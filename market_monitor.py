@@ -240,6 +240,17 @@ def tick():
     # Check if we still have a position
     position = get_position(symbol)
 
+    # Sanity-check: warn if price is >60% below avg cost — likely a split/spinoff,
+    # not a normal drawdown. Do not act automatically; flag for human review.
+    if position:
+        avg_cost = float(position.get("avg_entry_price") or 0)
+        if avg_cost > 0 and price < avg_cost * 0.40:
+            log.warning(
+                f"POSSIBLE CORPORATE ACTION: {symbol} avg_cost=${avg_cost:.2f} "
+                f"current=${price:.2f} ({(price/avg_cost-1)*100:.1f}%) — "
+                f"verify for split/spinoff before acting on stop"
+            )
+
     # ── Stop was hit: no position left ───────────────────────────────────────
     if position is None:
         stop_order = get_order(stop_order_id)
@@ -279,6 +290,13 @@ def tick():
         trailing = True
         persist_state(state, "chore: trailing activated")
 
+    # Update HWM if price has made a new high (must happen BEFORE stop calculation
+    # so the stop raise uses the current HWM, not last tick's value)
+    if price > hwm:
+        hwm = price
+        state["high_water_mark"] = price
+        log.info(f"HWM UPDATED: ${hwm:.2f}")
+
     # ── Raise the floor if trailing is active ────────────────────────────────
     if trailing:
         # Primary: ATR-based trailing; fallback to fixed %
@@ -304,12 +322,6 @@ def tick():
             state["stop_order_id"] = new_order["id"]
             state["current_stop"]  = new_stop
             persist_state(state, "chore: stop raised")
-
-    # Update HWM if price has made a new high
-    if price > hwm:
-        state["high_water_mark"] = price
-        hwm = price
-        log.info(f"HWM UPDATED: ${hwm:.2f}")
 
     log.info(f"TICK: {symbol} ${price:.2f} | HWM ${hwm:.2f} | Stop ${state['current_stop']:.2f} | Trailing: {trailing}")
     save_state(state)  # disk only — routine HWM drift isn't worth a commit
