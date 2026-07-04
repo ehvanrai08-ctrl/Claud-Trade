@@ -16,3 +16,7 @@ Newest lessons are appended at the bottom with a date stamp.
 ### 2026-07-03
 - HWM must be updated before the trailing-stop calculation in the same tick, not after — otherwise the stop raise on the tick where a new high is set uses the prior bar's HWM, silently leaving one tick of value on the table every time price makes a new high.
 - Positions showing >50% gap between avg cost and current price should be flagged as potential corporate actions (splits, spinoffs) rather than treated as realized losses; bots with no split-detection logic will misreport P&L and may trigger erroneous stop orders.
+
+### 2026-07-04
+- A portfolio-wide corporate-action scan (flagging any position where current price is <40% of avg_cost) should run independently of the TSLA monitor, since split-distorted positions can exist in any holding and the per-strategy warning only fires during that strategy's tick loop.
+- When a short-put stop-loss threshold is breached on a market holiday, the bot cannot act until the next open; the position can gap further against you overnight. Holiday exposure on short options in volatile underlyings should be sized or hedged accordingly.
