@@ -1,180 +1,197 @@
 {
-  "updated": "2026-06-29",
-  "tradeable": [],
+  "updated": "2026-07-06",
+  "tradeable": [
+    "RKLB",
+    "IOT",
+    "TOST",
+    "AXON",
+    "NBIS",
+    "CAVA",
+    "GTLB",
+    "DUOL",
+    "CRDO",
+    "ONON",
+    "TMDX",
+    "RELY",
+    "ASTS",
+    "HIMS",
+    "PATH",
+    "ESTC"
+  ],
   "public": [
     {
-      "ticker": "S",
-      "name": "SentinelOne",
-      "stage": "small-cap growth (IPO 2021)",
-      "conviction": "medium",
-      "thesis": "AI-native endpoint security gaining share against legacy players with improving margins and expanding platform attach."
-    },
-    {
-      "ticker": "RBRK",
-      "name": "Rubrik",
-      "stage": "recent IPO 2024",
-      "conviction": "medium",
-      "thesis": "Cyber-resilience/data-security backup leader riding ransomware-driven demand with strong subscription growth."
-    },
-    {
-      "ticker": "TMDX",
-      "name": "TransMedics",
+      "ticker": "RKLB",
+      "name": "Rocket Lab",
       "stage": "small-cap growth",
+      "conviction": "medium",
+      "thesis": "Small-launch leader scaling into medium-lift Neutron rocket and a growing space-systems business that could rival established primes."
+    },
+    {
+      "ticker": "IOT",
+      "name": "Samsara",
+      "stage": "recent IPO 2021, small/mid-cap growth",
       "conviction": "high",
-      "thesis": "Organ-transplant logistics + perfusion platform expanding the donor pool with a vertically integrated service model."
+      "thesis": "Connected-operations platform digitizing physical-ops fleets with strong net retention and a large underpenetrated industrial TAM."
+    },
+    {
+      "ticker": "TOST",
+      "name": "Toast",
+      "stage": "recent IPO 2021",
+      "conviction": "medium",
+      "thesis": "Vertical restaurant OS expanding payments, lending, and SaaS attach across a massive fragmented base of US eateries."
     },
     {
       "ticker": "AXON",
       "name": "Axon Enterprise",
       "stage": "mid-cap growth",
       "conviction": "high",
-      "thesis": "Tasers + body cams + cloud evidence software create a sticky public-safety ecosystem with recurring revenue expansion."
+      "thesis": "Sticky law-enforcement hardware + recurring cloud/evidence software with expanding real-time-ops and AI TAM."
     },
     {
-      "ticker": "ESTC",
-      "name": "Elastic",
-      "stage": "small/mid-cap growth",
+      "ticker": "NBIS",
+      "name": "Nebius Group",
+      "stage": "recent relisting 2024",
+      "conviction": "speculative",
+      "thesis": "European AI-cloud/GPU infrastructure play riding compute demand, but capital-intensive and execution-dependent."
+    },
+    {
+      "ticker": "CAVA",
+      "name": "CAVA Group",
+      "stage": "recent IPO 2023",
       "conviction": "medium",
-      "thesis": "Search/observability platform monetizing generative-AI workloads as enterprises index vector data."
+      "thesis": "Mediterranean fast-casual with strong unit economics and a long US whitespace runway toward becoming a national brand."
     },
     {
       "ticker": "GTLB",
       "name": "GitLab",
-      "stage": "small-cap growth (IPO 2021)",
+      "stage": "recent IPO 2021",
       "conviction": "medium",
-      "thesis": "Unified DevSecOps platform with AI coding assist (Duo) driving seat expansion and enterprise consolidation."
+      "thesis": "End-to-end DevSecOps platform with AI code features that could consolidate fragmented developer tooling spend."
     },
     {
-      "ticker": "PCT",
-      "name": "PureCycle Technologies",
-      "stage": "small-cap growth",
-      "conviction": "speculative",
-      "thesis": "Polypropylene recycling tech could scale into a large circular-plastics market if plants reach reliable commercial throughput."
-    },
-    {
-      "ticker": "NU",
-      "name": "Nu Holdings",
-      "stage": "mid-cap growth",
-      "conviction": "high",
-      "thesis": "Latin American digital bank rapidly adding customers and cross-selling credit across a vastly underbanked region."
-    },
-    {
-      "ticker": "TOST",
-      "name": "Toast",
-      "stage": "small/mid-cap growth (IPO 2021)",
+      "ticker": "DUOL",
+      "name": "Duolingo",
+      "stage": "recent IPO 2021",
       "conviction": "medium",
-      "thesis": "Restaurant POS + fintech + payroll bundle expanding into enterprise and international with rising payments take-rate."
-    },
-    {
-      "ticker": "ASTS",
-      "name": "AST SpaceMobile",
-      "stage": "small-cap growth",
-      "conviction": "speculative",
-      "thesis": "Direct satellite-to-cellphone broadband could open a massive connectivity TAM if constellation deployment and carrier deals execute."
-    },
-    {
-      "ticker": "IOT",
-      "name": "Samsara",
-      "stage": "mid-cap growth (IPO 2021)",
-      "conviction": "high",
-      "thesis": "Connected-operations IoT platform for physical industries with strong net retention and large untapped fleet/asset TAM."
+      "thesis": "Gamified learning leader expanding beyond languages into math/music with high engagement and AI-driven monetization."
     },
     {
       "ticker": "CRDO",
       "name": "Credo Technology",
-      "stage": "small-cap growth (IPO 2022)",
-      "conviction": "medium",
-      "thesis": "High-speed connectivity (active electrical cables, SerDes) riding AI-datacenter bandwidth buildout."
+      "stage": "recent IPO 2022, small-cap",
+      "conviction": "speculative",
+      "thesis": "Connectivity (AECs) supplier benefiting from AI datacenter buildouts and higher-bandwidth interconnect demand."
     },
     {
-      "ticker": "GLBE",
-      "name": "Global-E Online",
+      "ticker": "ONON",
+      "name": "On Holding",
+      "stage": "recent IPO 2021",
+      "conviction": "medium",
+      "thesis": "Premium performance-footwear brand with global expansion and strong DTC/brand momentum in a large apparel TAM."
+    },
+    {
+      "ticker": "TMDX",
+      "name": "TransMedics Group",
       "stage": "small-cap growth",
       "conviction": "medium",
-      "thesis": "Cross-border e-commerce enablement platform with Shopify partnership scaling international merchant volume."
+      "thesis": "Organ-transplant perfusion platform expanding transplant volumes and logistics network in an underserved medical market."
     },
     {
-      "ticker": "RKLB",
-      "name": "Rocket Lab",
-      "stage": "small/mid-cap growth",
-      "conviction": "medium",
-      "thesis": "Launch + space-systems vertical integration with Neutron rocket potentially unlocking medium-lift market share."
+      "ticker": "RELY",
+      "name": "Remitly Global",
+      "stage": "recent IPO 2021",
+      "conviction": "speculative",
+      "thesis": "Digital cross-border remittance provider taking share from legacy players in large migrant-corridor payment flows."
+    },
+    {
+      "ticker": "ASTS",
+      "name": "AST SpaceMobile",
+      "stage": "speculative growth",
+      "conviction": "speculative",
+      "thesis": "Direct-to-cell satellite broadband with carrier partnerships that could unlock a huge market if constellation executes."
     },
     {
       "ticker": "HIMS",
       "name": "Hims & Hers Health",
       "stage": "small/mid-cap growth",
       "conviction": "speculative",
-      "thesis": "Direct-to-consumer telehealth scaling subscriptions across weight-loss, derm, and personalized formulations."
+      "thesis": "Consumer telehealth brand scaling subscription care across new categories, though regulatory/GLP-1 dynamics add risk."
     },
     {
-      "ticker": "DOCS",
-      "name": "Doximity",
-      "stage": "small/mid-cap growth",
+      "ticker": "PATH",
+      "name": "UiPath",
+      "stage": "recent IPO 2021",
+      "conviction": "speculative",
+      "thesis": "Automation/RPA platform pivoting toward agentic AI orchestration in a large enterprise-efficiency market."
+    },
+    {
+      "ticker": "ESTC",
+      "name": "Elastic",
+      "stage": "mid-cap growth",
       "conviction": "medium",
-      "thesis": "Physician network monetizing pharma marketing and AI workflow tools with high margins and durable engagement."
+      "thesis": "Search/observability platform positioned to monetize enterprise vector search and generative-AI retrieval workloads."
     }
   ],
   "private": [
     {
-      "name": "Databricks",
-      "sector": "Data / AI infrastructure",
-      "thesis": "Lakehouse platform unifying data engineering, analytics, and AI model training at enterprise scale.",
-      "ipo_watch": "Frequently cited as an imminent IPO candidate given size, revenue scale, and late-stage funding pressure."
+      "name": "Stripe",
+      "sector": "Fintech / Payments",
+      "thesis": "Global payments and financial-infrastructure backbone with deep enterprise penetration and expanding embedded-finance products.",
+      "ipo_watch": "Perennial IPO candidate; continues tender offers/secondaries in lieu of listing\u2014could move if markets stay strong."
     },
     {
-      "name": "Stripe",
-      "sector": "Fintech / payments",
-      "thesis": "Global payments and financial-infrastructure backbone embedded across internet commerce.",
-      "ipo_watch": "Long-rumored listing; tender offers and secondary sales suggest eventual public debut when timing favors."
+      "name": "Databricks",
+      "sector": "Data / AI Infrastructure",
+      "thesis": "Lakehouse platform unifying data + AI workloads with rapid enterprise adoption and strong ARR growth.",
+      "ipo_watch": "Widely expected near-term IPO candidate following large late-stage rounds at rising valuations."
     },
     {
       "name": "Anduril Industries",
-      "sector": "Defense tech",
-      "thesis": "Software-defined autonomous defense systems disrupting legacy primes amid rising defense budgets.",
-      "ipo_watch": "Rapid contract wins and large raises position it for an IPO once revenue durability is proven."
-    },
-    {
-      "name": "Anthropic",
-      "sector": "AI / foundation models",
-      "thesis": "Frontier LLM developer (Claude) competing on enterprise safety and reasoning capabilities.",
-      "ipo_watch": "Heavily funded by strategics; IPO possible but may stay private given capital intensity and backer alignment."
-    },
-    {
-      "name": "Canva",
-      "sector": "Software / design",
-      "thesis": "Mass-market design platform expanding into enterprise and AI-assisted content creation.",
-      "ipo_watch": "Profitable and large; likely listing candidate when market conditions support high-multiple software IPOs."
-    },
-    {
-      "name": "Ramp",
-      "sector": "Fintech / spend management",
-      "thesis": "Corporate cards + AP automation + finance tooling consolidating SMB/mid-market back office.",
-      "ipo_watch": "Fast revenue growth and rising valuation point to an IPO once scale and profitability mature."
+      "sector": "Defense Tech",
+      "thesis": "Software-defined autonomous defense systems disrupting legacy primes with faster product cycles and growing DoD contracts.",
+      "ipo_watch": "Frequently cited pre-IPO; large funding rounds suggest eventual listing as defense-tech demand grows."
     },
     {
       "name": "SpaceX",
-      "sector": "Aerospace / space",
-      "thesis": "Dominant launch provider plus Starlink broadband generating large recurring connectivity revenue.",
-      "ipo_watch": "Starlink spin-out/IPO has been speculated; core SpaceX likely stays private longer."
+      "sector": "Aerospace / Space",
+      "thesis": "Dominant launch provider plus Starlink connectivity creating a vertically integrated space franchise.",
+      "ipo_watch": "Starlink segment often floated as a potential separate IPO; core company likely stays private near-term."
     },
     {
-      "name": "Fanatics",
-      "sector": "Consumer / sports commerce",
-      "thesis": "Vertically integrated sports merchandise, collectibles, and betting ecosystem with licensing moats.",
-      "ipo_watch": "Repeated IPO chatter; could list once betting and commerce segments stabilize."
+      "name": "Canva",
+      "sector": "Software / Design",
+      "thesis": "Freemium design platform with huge user base moving upmarket into enterprise and AI-assisted creation.",
+      "ipo_watch": "Mature, profitable-scale SaaS often mentioned as IPO-ready when conditions favor."
+    },
+    {
+      "name": "Ramp",
+      "sector": "Fintech / Spend Management",
+      "thesis": "Fast-growing corporate cards + spend-automation platform gaining share among SMB/mid-market finance teams.",
+      "ipo_watch": "High growth and rising valuation make it a medium-term IPO watch item."
     },
     {
       "name": "Chime",
-      "sector": "Fintech / consumer banking",
-      "thesis": "Mobile-first banking for underserved US consumers with fee-light revenue model.",
-      "ipo_watch": "Previously filed/explored; likely to revisit public markets in favorable fintech windows."
+      "sector": "Fintech / Consumer Banking",
+      "thesis": "Digital-first consumer banking targeting underserved mass-market customers with large deposit/interchange base.",
+      "ipo_watch": "Long-rumored IPO candidate; may list as consumer-fintech sentiment recovers."
     },
     {
-      "name": "Helion Energy",
-      "sector": "Energy / fusion",
-      "thesis": "Fusion power developer targeting commercial electricity with a contracted offtake deal.",
-      "ipo_watch": "Highly speculative; IPO contingent on technical milestones and first-plant progress."
+      "name": "Cerebras Systems",
+      "sector": "AI Semiconductors",
+      "thesis": "Wafer-scale AI chips offering an alternative to GPU incumbents for training/inference workloads.",
+      "ipo_watch": "Filed/pursued IPO amid AI-hardware demand; timing sensitive to market and customer-concentration concerns."
+    },
+    {
+      "name": "Figure AI",
+      "sector": "Robotics / Humanoids",
+      "thesis": "Humanoid-robot developer targeting labor automation with high-profile partnerships\u2014large TAM if commercialization works.",
+      "ipo_watch": "Very early and speculative; IPO likely years away pending real deployment revenue."
+    },
+    {
+      "name": "Anthropic",
+      "sector": "AI / Foundation Models",
+      "thesis": "Frontier LLM developer with enterprise focus and rapid revenue ramp in a fast-growing AI-model market.",
+      "ipo_watch": "Heavily funded private; IPO speculative and dependent on capital needs and AI-market durability."
     }
   ]
 }
