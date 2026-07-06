@@ -12,7 +12,20 @@
       "avg_win": 0.0,
       "avg_loss": -23.7,
       "profit_factor": 0.0
+    },
+    "wheel": {
+      "trades": 1,
+      "wins": 1,
+      "losses": 0,
+      "breakeven": 0,
+      "total_pnl": 137.0,
+      "gross_win": 137.0,
+      "gross_loss": 0.0,
+      "win_rate": 100.0,
+      "avg_win": 137.0,
+      "avg_loss": 0.0,
+      "profit_factor": null
     }
   },
-  "total_trades": 1
+  "total_trades": 2
 }

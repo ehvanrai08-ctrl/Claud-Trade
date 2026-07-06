@@ -20,3 +20,7 @@ Newest lessons are appended at the bottom with a date stamp.
 ### 2026-07-04
 - A portfolio-wide corporate-action scan (flagging any position where current price is <40% of avg_cost) should run independently of the TSLA monitor, since split-distorted positions can exist in any holding and the per-strategy warning only fires during that strategy's tick loop.
 - When a short-put stop-loss threshold is breached on a market holiday, the bot cannot act until the next open; the position can gap further against you overnight. Holiday exposure on short options in volatile underlyings should be sized or hedged accordingly.
+
+### 2026-07-06
+- A portfolio-wide corporate-action scan placed only inside one strategy's tick loop will silently miss split-distorted positions in all other holdings; the scan must run at bot startup, independently of any per-strategy loop, to catch anomalies across the entire portfolio.
+- Rolling a short put immediately at the 50% profit target without checking trend direction can re-enter a deteriorating position; a simple price-vs-SMA check before selling a new put avoids selling into confirmed weakness.

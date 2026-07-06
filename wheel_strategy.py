@@ -34,6 +34,7 @@ CALL_STRIKE_PCT  = 1.10   # sell call 10% above cost basis
 MIN_EXP_DAYS     = 14
 MAX_EXP_DAYS     = 28
 EARLY_CLOSE_PCT  = 0.50   # close at 50% profit
+STOP_LOSS_PCT    = 1.00   # close if contract costs 100% of premium received (lost 1x)
 
 STATE_FILE = f"{BASE_DIR}/wheel_state.json"
 
@@ -212,8 +213,31 @@ def sell_fill_price(order_id, contract_symbol):
 
 # ── Stage logic ───────────────────────────────────────────────────────────────
 
+def get_sma(symbol, period=20):
+    """Return the simple moving average of closing prices over `period` days, or None."""
+    try:
+        from datetime import timezone
+        start = (datetime.now(timezone.utc) - timedelta(days=period + 10)).strftime("%Y-%m-%dT%H:%M:%SZ")
+        r = requests.get(
+            f"https://data.alpaca.markets/v2/stocks/{symbol}/bars",
+            headers=HEADERS,
+            params={"timeframe": "1Day", "start": start, "limit": period + 5,
+                    "adjustment": "raw", "sort": "asc"},
+        )
+        bars = r.json().get("bars", []) if r.ok else []
+        closes = [b["c"] for b in bars[-period:]]
+        return sum(closes) / len(closes) if len(closes) >= period else None
+    except Exception:
+        return None
+
+
 def stage1_sell_put(state, price):
     """Sell a cash-secured put at -10% strike."""
+    sma20 = get_sma(SYMBOL, 20)
+    if sma20 and price < sma20:
+        log.info(f"SKIP put sale: {SYMBOL} ${price:.2f} below 20-day SMA ${sma20:.2f} — avoiding selling into weakness")
+        print(f"[WHEEL] Skipping put — price ${price:.2f} below SMA20 ${sma20:.2f}")
+        return
     cash = get_cash()
     strike_target = round(price * PUT_STRIKE_PCT, 0)
     required_cash = strike_target * 100  # 1 contract = 100 shares

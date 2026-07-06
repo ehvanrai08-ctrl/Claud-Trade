@@ -329,10 +329,29 @@ def tick():
 
 # ── Self-looping main ─────────────────────────────────────────────────────────
 
+def portfolio_corporate_action_scan():
+    """Warn on any position where current price is less than 40% of avg cost — likely a split/spinoff."""
+    try:
+        positions = api_get("/positions")
+        for pos in positions:
+            symbol    = pos.get("symbol", "")
+            avg_cost  = float(pos.get("avg_entry_price") or 0)
+            curr      = float(pos.get("current_price") or 0)
+            if avg_cost > 0 and curr > 0 and curr < avg_cost * 0.40:
+                log.warning(
+                    f"POSSIBLE CORPORATE ACTION: {symbol} avg_cost=${avg_cost:.2f} "
+                    f"current=${curr:.2f} ({(curr/avg_cost-1)*100:.1f}%) — "
+                    f"verify for split/spinoff before acting"
+                )
+    except Exception as e:
+        log.warning(f"Portfolio corporate-action scan failed (non-fatal): {e}")
+
+
 def run():
     start = time.monotonic()
     log.info("Monitor loop started")
     print("Monitor loop started")
+    portfolio_corporate_action_scan()
 
     while True:
         elapsed_min = (time.monotonic() - start) / 60

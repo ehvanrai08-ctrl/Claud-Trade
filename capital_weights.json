@@ -17,7 +17,7 @@
   "notes": {
     "tsla_trailing": "insufficient data (0/5 trades) \u2014 default 1.0",
     "trend_basket": "insufficient data (1/5 trades) \u2014 default 1.0",
-    "wheel": "insufficient data (0/5 trades) \u2014 default 1.0",
+    "wheel": "insufficient data (1/5 trades) \u2014 default 1.0",
     "copy_trader": "insufficient data (0/5 trades) \u2014 default 1.0",
     "tjr": "insufficient data (0/5 trades) \u2014 default 1.0",
     "mean_reversion": "insufficient data (0/5 trades) \u2014 default 1.0",
