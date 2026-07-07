@@ -1,22 +1,3 @@
 {
-  "positions": {
-    "META": {
-      "entry_price": 618.56,
-      "qty": 4,
-      "stop_order_id": "e4653327-7b06-4c30-a0a4-7f37f16edd8f",
-      "current_stop": 574.94,
-      "hwm": 622.66,
-      "trailing_active": false,
-      "entry_date": "2026-07-01"
-    },
-    "AMD": {
-      "entry_price": 511.81,
-      "qty": 4,
-      "stop_order_id": "f839b491-02e1-45aa-ac40-d5dfbf24f981",
-      "current_stop": 438.87,
-      "hwm": 561.34,
-      "trailing_active": false,
-      "entry_date": "2026-07-02"
-    }
-  }
+  "positions": {}
 }
