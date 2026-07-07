@@ -85,14 +85,19 @@ def is_tradeable(symbol):
     except Exception:
         return False
 
-def place_order(symbol, side, notional):
-    r = requests.post(f"{BASE_URL}/orders", headers=HEADERS, timeout=15, json={
-        "symbol":        symbol,
-        "notional":      str(round(notional, 2)),
-        "side":          side,
-        "type":          "market",
-        "time_in_force": "day",
-    })
+def place_order(symbol, side, notional, qty=None):
+    """Market order by notional (default) or by qty (fallback for sells on
+    fractional positions where Alpaca rejects the notional form). DRY_RUN=1
+    logs the intent without placing anything (CI smoke tests)."""
+    payload = {"symbol": symbol, "side": side, "type": "market", "time_in_force": "day"}
+    if qty is not None:
+        payload["qty"] = str(round(float(qty), 6))
+    else:
+        payload["notional"] = str(round(notional, 2))
+    if os.environ.get("DRY_RUN"):
+        log.info(f"DRY_RUN: would {side} {symbol} {payload.get('qty') or '$' + payload['notional']}")
+        return {"id": "dry-run"}
+    r = requests.post(f"{BASE_URL}/orders", headers=HEADERS, timeout=15, json=payload)
     if r.ok:
         return r.json()
     log.error(f"Order failed {symbol} {side}: {r.text}")
@@ -255,13 +260,25 @@ def run():
                 continue
 
         order = place_order(ticker, side, notional)
+        if not order and side == "sell":
+            # Notional sells on fractional positions get rejected — fall back
+            # to selling the exact share qty instead of leaving the signal
+            # permanently stuck.
+            frac = 0.5 if transaction == "Sale (Partial)" else 1.0
+            fallback_qty = abs(float(pos.get("qty", 0) or 0)) * frac
+            if fallback_qty > 0:
+                order = place_order(ticker, side, notional, qty=fallback_qty)
         if order:
             log.info(f"COPIED: {politician} | {side} {ticker} ~${notional:.0f} | report {report_date} | order {order['id']}")
             print(f"[COPY] {side.upper()} ${notional:.0f} of {ticker} (copied from {politician}, filed {report_date})")
             state["total_trades"] += 1
             new_copies += 1
-
-        copied.append(trade_id)
+            copied.append(trade_id)
+        else:
+            # Do NOT mark a failed order as copied — a transient broker error
+            # would otherwise permanently skip this trade; the hourly cron
+            # retries it instead.
+            log.warning(f"Order failed for {ticker} — leaving uncopied to retry next run")
 
     state["copied_trades"] = copied[-500:]  # keep last 500 to avoid unbounded growth
 

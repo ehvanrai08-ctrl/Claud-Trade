@@ -49,6 +49,9 @@ STRATEGIES = [
 
 
 def _profit_factor(trades):
+    """Gross wins / gross losses. A zero-loss record is DELIBERATELY clamped to
+    2.0 — the weight scale tops out at 2.0x anyway, and a flawless streak over
+    <=30 trades is small-sample luck, not evidence deserving extra leverage."""
     gross_win  = sum(t["pnl"] for t in trades if t["pnl"] > 0)
     gross_loss = sum(t["pnl"] for t in trades if t["pnl"] < 0)
     if gross_loss == 0:
@@ -95,7 +98,8 @@ def compute_weights():
     prior = {}
     if os.path.exists(WEIGHTS_FILE):
         try:
-            prior = json.load(open(WEIGHTS_FILE)).get("weights", {})
+            with open(WEIGHTS_FILE) as f:
+                prior = json.load(f).get("weights", {})
         except Exception:
             pass
 
@@ -126,7 +130,8 @@ def compute_weights():
 def get_weight(strategy):
     """Read current weight for a strategy. Returns 1.0 if file missing or strategy unknown."""
     try:
-        data = json.load(open(WEIGHTS_FILE))
+        with open(WEIGHTS_FILE) as f:
+            data = json.load(f)
         return data["weights"].get(strategy, 1.0)
     except Exception:
         return 1.0

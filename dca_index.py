@@ -61,7 +61,10 @@ def save_state(state):
 
 
 def buy(symbol, notional):
-    r = requests.post(f"{BASE_URL}/orders", headers=HEADERS, json={
+    if os.environ.get("DRY_RUN"):
+        log.info(f"DRY_RUN: would buy ${notional} of {symbol}")
+        return {"id": "dry-run"}
+    r = requests.post(f"{BASE_URL}/orders", headers=HEADERS, timeout=15, json={
         "symbol":        symbol,
         "notional":      str(round(notional, 2)),
         "side":          "buy",
@@ -81,9 +84,20 @@ def run():
     state = load_state()
     today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
 
-    # Guard: only one buy per day (in case the workflow fires more than once)
+    # Guard: only one buy per day (in case the workflow fires more than once),
+    # and at most one per rolling week — the cron is Mondays, but a manual
+    # dispatch mid-week must not double the weekly contribution.
     if state.get("last_buy_date") == today:
         return
+    last = state.get("last_buy_date")
+    if last:
+        from datetime import date
+        d0 = date.fromisoformat(last)
+        d1 = date.fromisoformat(today)
+        if (d1 - d0).days < 5:
+            log.info(f"Skipping — already bought this week ({last}).")
+            print(f"[DCA] Already bought this week ({last}) — skipping")
+            return
 
     order = buy(ETF, WEEKLY_AMOUNT)
     if order:

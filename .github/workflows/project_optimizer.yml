@@ -58,6 +58,9 @@ jobs:
           done
           echo "✓ all Python files compile"
 
+      - name: Run indicator unit tests (regression gate)
+        run: python tests_indicators.py
+
       - name: Commit & push improvements
         run: |
           git config user.name "Claude Optimizer"

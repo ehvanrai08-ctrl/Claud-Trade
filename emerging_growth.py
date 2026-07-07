@@ -202,6 +202,33 @@ def rank(universe):
     return scored[:TOP_N]
 
 
+def reconcile_corporate_actions(held, strategy):
+    """Adopt broker qty/avg_entry after a split: cost basis is preserved by a
+    split (qty x entry stays equal) while qty jumps, so 'same cost basis,
+    different qty' identifies one. Without this, a 4:1 split (e.g. CRWD 2026-07)
+    leaves state at pre-split numbers — the bot would sell a quarter of the
+    position and record a phantom loss. Safe because each basket bot is the
+    sole owner of its symbols."""
+    for sym, h in held.items():
+        pos = get_position(sym)
+        if not pos:
+            continue
+        try:
+            b_qty = float(pos["qty"]); b_avg = float(pos["avg_entry_price"])
+            s_qty = float(h.get("qty", 0)); s_ent = float(h.get("entry_price", 0))
+        except (KeyError, TypeError, ValueError):
+            continue
+        if min(b_qty, b_avg, s_qty, s_ent) <= 0:
+            continue
+        state_cost, broker_cost = s_qty * s_ent, b_qty * b_avg
+        qty_moved   = abs(b_qty - s_qty) / s_qty > 0.20
+        cost_intact = abs(broker_cost - state_cost) / state_cost < 0.02
+        if qty_moved and cost_intact:
+            log.warning(f"{sym}: corporate action detected — adopting broker "
+                        f"{b_qty:.4f} sh @ ${b_avg:.2f} (was {s_qty:.4f} @ ${s_ent:.2f})")
+            h["qty"], h["entry_price"] = b_qty, b_avg
+
+
 def run():
     if not market_is_open():
         log.info("Market closed — skipping.")
@@ -227,6 +254,7 @@ def run():
 
     target = {s for s, _ in top}
     held   = dict(state.get("holdings", {}))
+    reconcile_corporate_actions(held, "emerging_growth")
     log.info("Ranked: " + " ".join(f"{s}={m:+.2%}" for s, m in top))
     log.info(f"Target {sorted(target)} | held {sorted(held)}")
     print(f"[EMERGING] target {sorted(target)} | held {sorted(held)}")

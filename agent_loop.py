@@ -64,7 +64,7 @@ def run_discovery():
         return None
 
 
-def run_backtest(strategy_description, limit=5):
+def run_backtest(strategy_description):
     """Step 2: Call backtest_generator.py for a single candidate."""
     print(f"[AGENT LOOP] Backtesting: {strategy_description[:60]}...", flush=True)
     result = subprocess.run(
@@ -263,7 +263,12 @@ def main(limit_candidates=5):
 
     # Build & write report.
     report = build_report(discovery, backtest_results, optimizer_results)
-    report_file = f"{REPORTS_DIR}/agent_loop_{datetime.utcnow().strftime('%Y-%m-%d')}.md"
+    # Same-day re-runs get a numbered suffix instead of overwriting history.
+    base = f"{REPORTS_DIR}/agent_loop_{datetime.utcnow().strftime('%Y-%m-%d')}"
+    report_file, n = f"{base}.md", 2
+    while os.path.exists(report_file):
+        report_file = f"{base}_{n}.md"
+        n += 1
     with open(report_file, "w") as f:
         f.write(report)
 

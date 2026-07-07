@@ -117,6 +117,9 @@ def get_position(symbol):
 def close_position(symbol):
     pos = get_position(symbol)
     pnl = float(pos["unrealized_pl"]) if pos else 0.0
+    if os.environ.get("DRY_RUN"):
+        log.info(f"DRY_RUN: would close {symbol} (unrealized ${pnl:+.2f})")
+        return True
     r = requests.delete(f"{BASE_URL}/positions/{symbol}", headers=HEADERS, timeout=15)
     if r.ok:
         log.info(f"CLOSED {symbol} | realized ~${pnl:+.2f}")
@@ -127,6 +130,9 @@ def close_position(symbol):
 
 
 def buy_notional(symbol, notional):
+    if os.environ.get("DRY_RUN"):
+        log.info(f"DRY_RUN: would buy ${notional:.0f} of {symbol}")
+        return {"id": "dry-run"}
     r = requests.post(f"{BASE_URL}/orders", headers=HEADERS, timeout=15, json={
         "symbol":        symbol,
         "notional":      str(round(notional, 2)),
@@ -160,10 +166,16 @@ def save_state(state):
 def decide_target():
     """Return (target_symbol, reason) per GEM, or (None, reason) if data is
     insufficient to act safely."""
-    scores = {}
-    for sym in (US_EQUITY, EX_US, CASH):
-        closes = get_adjusted_closes(sym)
-        scores[sym] = momentum_score(closes)
+    # One batched request instead of three serial round-trips (smaller
+    # partial-failure window; broker.get_bars_multi paginates for us).
+    # AGG is deliberately NOT scored: GEM only scores SPY/EFA/CASH — bonds are
+    # the unconditional risk-off destination, not a momentum contestant.
+    from broker import Broker
+    start = (datetime.now(timezone.utc) - timedelta(days=420)).strftime("%Y-%m-%d")
+    multi = Broker().get_bars_multi([US_EQUITY, EX_US, CASH], "1Day", start,
+                                    limit=500, adjustment="all")
+    scores = {sym: momentum_score([b["c"] for b in (multi.get(sym) or [])])
+              for sym in (US_EQUITY, EX_US, CASH)}
 
     if any(scores[s] is None for s in (US_EQUITY, EX_US, CASH)):
         return None, f"insufficient history: {scores}"

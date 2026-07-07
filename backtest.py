@@ -104,10 +104,11 @@ def backtest_symbol(symbol, bars):
     entry_price = entry_date = qty = 0
     hold_days = 0
 
+    all_closes = [b["c"] for b in bars]   # built once — the per-bar slice was O(n²)
     for i in range(1, len(bars)):
         today = bars[i]
         prev  = bars[i - 1]
-        closes = [b["c"] for b in bars[:i + 1]]
+        closes = all_closes[:i + 1]
 
         # ── Manage open position FIRST (exit decisions use today's close) ──
         if in_pos:
