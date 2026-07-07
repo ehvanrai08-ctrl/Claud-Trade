@@ -2620,3 +2620,10 @@
 2026-07-07 15:59:22,791 WARNING DAILY LOSS LIMIT HIT: -39.51% — halting all trading
 2026-07-07 15:59:22,792 WARNING Daily loss limit breached — halting for the day.
 2026-07-07 15:59:22,792 INFO Monitor loop ended
+2026-07-07 19:59:08,580 INFO Monitor loop started
+2026-07-07 19:59:08,922 INFO Corporate-action scan: checking 23 positions
+2026-07-07 19:59:08,922 INFO Corporate-action scan complete: 0 flag(s) raised
+2026-07-07 19:59:09,747 INFO SWING STOP used: $389.30 (ATR stop was $379.25)
+2026-07-07 19:59:09,747 INFO TICK: TSLA $403.04 | HWM $419.90 | Stop $389.30 | Trailing: True
+2026-07-07 20:00:09,898 INFO Market closed — exiting loop.
+2026-07-07 20:00:09,899 INFO Monitor loop ended
