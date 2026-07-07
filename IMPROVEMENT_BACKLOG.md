@@ -2,7 +2,7 @@
 
 Continuously maintained by `project_optimizer.py`. Priority: P1 = high impact / low risk, P2 = medium, P3 = nice-to-have. Capped at 40 items.
 
-_Last run: 2026-07-04 — 1 patch(es) auto-applied, 15 new idea(s) filed._
+_Last run: 2026-07-07 — 6 patch(es) auto-applied, 15 new idea(s) filed._
 
 - [P1] `copy_trader.get_congress_trades()` can raise (raise_for_status) but `run()` doesn't catch it — wrap the Quiver fetch in try/except so a bad API response doesn't crash the hourly job.
 - [P1] Centralize all bots on `broker.py` instead of duplicating raw `requests` calls + headers (copy_trader, dca_index, dual_momentum each re-implement market_is_open/order placement) — reduces drift and the `class` vs `asset_class` bug class.
@@ -16,6 +16,11 @@ _Last run: 2026-07-04 — 1 patch(es) auto-applied, 15 new idea(s) filed._
 - [P1] Add a shared `market_is_open()` in `broker.py` and have copy_trader/dca_index/dual_momentum import it — removes the three duplicated unguarded `r.json()["is_open"]` implementations and gives consistent `.ok`/exception safety.
 - [P1] `agent_loop` writes `report_file` keyed only by date, so a same-day re-run silently overwrites the prior report — append a timestamp or a run counter to preserve history.
 - [P1] `copy_trader.place_order` returns `None` on failure but callers append `trade_id` to `copied` only on success in some paths — audit the copied/idempotency bookkeeping so a transient order failure isn't permanently marked as "copied" and skipped forever.
+- [P1] `agent_loop.build_report` formats `perf.get('sharpe','?')` with `:.2f`; add a `_fmt(v)` helper that returns `'?'` unchanged and only float-formats numbers, so partial backtest results don't crash report generation with a ValueError.
+- [P1] Add a `close_position`/qty-based liquidation fallback in `copy_trader` for fractional-share positions where notional sells are rejected by Alpaca, preventing permanently-stuck sell signals.
+- [P1] Wrap `copy_trader.get_congress_trades()` in try/except within `run()` so a Quiver `raise_for_status()` or timeout degrades gracefully instead of crashing the hourly job.
+- [P1] Introduce a shared `broker.market_is_open()` and migrate copy_trader/dca_index/dual_momentum off their duplicated unguarded `r.json()["is_open"]` implementations.
+- [P1] Add a `risk_guard.check_ok()` portfolio-level kill-switch (equity drawdown threshold) invoked at the top of each bot `run()` to pause all trading during cascading losses.
 - [P2] `backtest.py` recomputes `closes = [b["c"] for b in bars[:i+1]]` every iteration (O(n²)); maintain a rolling closes list and rolling SMA sum for large-window backtests.
 - [P2] Refactor the three large files (post_market_analysis is protected) — split tjr_strategy.py and sip_orb.py into indicator/signal/execution modules to ease testing.
 - [P2] `capital_allocator._profit_factor` returns 2.0 when gross_loss==0 but gross_win>0 — cap could understate a flawless strategy; consider distinguishing "no losses" vs "PF=2" and document the clamp.
@@ -35,17 +40,12 @@ _Last run: 2026-07-04 — 1 patch(es) auto-applied, 15 new idea(s) filed._
 - [P2] Add a `--dry-run` flag to dual_momentum/copy_trader/dca_index that logs the intended `buy_notional`/`place_order` calls without POSTing, enabling CI smoke tests of the full decision path.
 - [P2] `dual_momentum.get_adjusted_closes` issues `requests.get` without a `timeout`, unlike the rest of the module (15s/30s elsewhere) — add a timeout so a hung data endpoint can't stall the whole run.
 - [P2] Cache the `momentum_score` inputs: `decide_target` fetches SPY/EFA/BIL closes but the docstring/AGG logic implies AGG could also be scored — verify AGG is intentionally unscored and document, or include it for consistency.
-- [P3] `archive_logs.rotate()` reads entire log into memory before truncating; stream/copy in chunks for very large logs to bound memory.
-- [P3] `agent_loop` uses `datetime.utcnow()` (deprecated) — migrate to `datetime.now(timezone.utc)` consistent with newer files.
-- [P3] Add `--dry-run` flag to copy_trader/dca_index/dual_momentum to log intended orders without placing them, easing CI validation.
-- [P3] Document the `ALLOC` recycling assumption in backtest.py summary more prominently (single unit recycled vs concurrent positions) to avoid misreading CAGR.
-- [P3] `perf.record_trade` swallows all exceptions silently — at least emit to stderr once so a broken ledger path is discoverable.
-- [P3] `archive_logs.rotate()` reads the whole log into memory before truncating — stream/copy in fixed-size chunks to bound memory for very large logs.
-- [P3] Add retry/backoff to `broker._data` and `_trade` on transient 429/5xx responses so a single Alpaca hiccup doesn't silently return empty data mid-strategy.
-- [P3] `dual_momentum.get_adjusted_closes` has no `.ok`/exception guard around the bars fetch beyond `r.json().get()` — wrap in try/except returning `[]` so a data outage yields "insufficient history" rather than an exception.
-- [P3] Document the `ALLOC` single-unit-recycled assumption more prominently in `backtest.py` output (a reader can misread CAGR as concurrent-capital return).
+- [P2] Make `capital_allocator.get_weight`/`compute_weights` use `with open(...)` context managers instead of bare `json.load(open(...))` to avoid leaking file descriptors.
+- [P2] Batch `dual_momentum.decide_target()` SPY/EFA/BIL fetches via `broker.get_bars_multi` to cut 3–4 serial round-trips to one and shrink the partial-failure window.
+- [P2] Add `--dry-run` flags to copy_trader/dca_index/dual_momentum that log intended orders without POSTing, enabling CI smoke tests of the decision path.
+- [P2] Wire the unused `limit` parameter in `agent_loop.run_backtest` through to `backtest_generator.py`, or remove it to eliminate confusion.
 
 ---
 
-## Run log 2026-07-04
-- ✅ Auto-applied: agent_loop.py
+## Run log 2026-07-07
+- ✅ Auto-applied: dual_momentum.py, dual_momentum.py, copy_trader.py, dual_momentum.py, copy_trader.py, copy_trader.py

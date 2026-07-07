@@ -85,6 +85,7 @@ def get_adjusted_closes(symbol, days=420):
         headers=DATA_HEADERS,
         params={"timeframe": "1Day", "start": start, "limit": 500,
                 "sort": "asc", "adjustment": "all"},
+        timeout=30,
     )
     bars = r.json().get("bars") or [] if r.ok else []
     return [b["c"] for b in bars]
@@ -109,14 +110,14 @@ def momentum_score(closes):
 # ── Order helpers ─────────────────────────────────────────────────────────────
 
 def get_position(symbol):
-    r = requests.get(f"{BASE_URL}/positions/{symbol}", headers=HEADERS)
+    r = requests.get(f"{BASE_URL}/positions/{symbol}", headers=HEADERS, timeout=15)
     return r.json() if r.ok else None
 
 
 def close_position(symbol):
     pos = get_position(symbol)
     pnl = float(pos["unrealized_pl"]) if pos else 0.0
-    r = requests.delete(f"{BASE_URL}/positions/{symbol}", headers=HEADERS)
+    r = requests.delete(f"{BASE_URL}/positions/{symbol}", headers=HEADERS, timeout=15)
     if r.ok:
         log.info(f"CLOSED {symbol} | realized ~${pnl:+.2f}")
         record_trade("dual_momentum", symbol, pnl, "rebalance out")
@@ -126,7 +127,7 @@ def close_position(symbol):
 
 
 def buy_notional(symbol, notional):
-    r = requests.post(f"{BASE_URL}/orders", headers=HEADERS, json={
+    r = requests.post(f"{BASE_URL}/orders", headers=HEADERS, timeout=15, json={
         "symbol":        symbol,
         "notional":      str(round(notional, 2)),
         "side":          "buy",

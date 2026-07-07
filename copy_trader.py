@@ -77,7 +77,7 @@ def get_price(symbol):
 def is_tradeable(symbol):
     """Check if symbol is a tradeable US equity on Alpaca."""
     try:
-        r = requests.get(f"{BASE_URL}/assets/{symbol}", headers=HEADERS)
+        r = requests.get(f"{BASE_URL}/assets/{symbol}", headers=HEADERS, timeout=15)
         asset = r.json()
         # Alpaca's asset object uses the field "class" (not "asset_class").
         asset_cls = asset.get("class") or asset.get("asset_class")
@@ -86,7 +86,7 @@ def is_tradeable(symbol):
         return False
 
 def place_order(symbol, side, notional):
-    r = requests.post(f"{BASE_URL}/orders", headers=HEADERS, json={
+    r = requests.post(f"{BASE_URL}/orders", headers=HEADERS, timeout=15, json={
         "symbol":        symbol,
         "notional":      str(round(notional, 2)),
         "side":          side,
@@ -100,7 +100,7 @@ def place_order(symbol, side, notional):
 
 def get_position(symbol):
     try:
-        r = requests.get(f"{BASE_URL}/positions/{symbol}", headers=HEADERS)
+        r = requests.get(f"{BASE_URL}/positions/{symbol}", headers=HEADERS, timeout=15)
         if r.ok:
             return r.json()
     except Exception:
