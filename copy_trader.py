@@ -149,7 +149,14 @@ def run():
         return
 
     state = load_state()
-    trades = get_congress_trades()
+    try:
+        trades = get_congress_trades()
+    except Exception as e:
+        # Quiver hiccup (rate limit, 5xx, timeout) — degrade gracefully; the
+        # hourly cron retries for free instead of crashing the job red.
+        log.warning(f"Quiver fetch failed, skipping this run: {e}")
+        print(f"[COPY] Quiver fetch failed — skipping ({e})")
+        return
 
     # Re-evaluate best politician weekly to avoid locking onto a stale pick.
     # Default last_eval to today so a missing key doesn't force a re-eval every run.

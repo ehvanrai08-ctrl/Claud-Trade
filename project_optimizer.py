@@ -331,17 +331,49 @@ def _dedup_key(item):
     return s.lower().strip()
 
 
+_STOPWORDS = {"the", "a", "an", "in", "to", "so", "and", "or", "of", "for",
+              "with", "on", "is", "it", "that", "add", "should", "can", "be"}
+
+
+def _tokens(item):
+    # Split on dots too, so `broker.market_is_open` and `market_is_open` in
+    # `broker.py` count as the same concept tokens.
+    return {w for w in re.findall(r"[a-z_][a-z0-9_]+", _dedup_key(item))
+            if w not in _STOPWORDS}
+
+
+def _is_duplicate(item, kept):
+    """Fuzzy dedup: the model rephrases the same idea each run, so exact-text
+    matching lets near-duplicates pile up until they fill the cap. Two items
+    are the same idea when their content-token overlap (Jaccard) is high."""
+    t = _tokens(item)
+    if not t:
+        return True
+    for other in kept:
+        o = _tokens(other)
+        if not o:
+            continue
+        # Overlap coefficient (shared / smaller set) beats Jaccard here: a
+        # rephrasing adds filler words that dilute the union but not the core.
+        overlap = len(t & o) / min(len(t), len(o))
+        if overlap >= 0.6:
+            return True
+    return False
+
+
 def update_backlog(new_items, applied, rejected):
-    """Merge new ideas into the backlog (dedup, priority-sort, cap), prepend a
-    run summary. Returns the count of genuinely-new items added."""
-    existing = read_backlog_items()
-    seen = {_dedup_key(i) for i in existing}
+    """Merge new ideas into the backlog (fuzzy dedup, priority-sort, cap),
+    prepend a run summary. Returns the count of genuinely-new items added."""
+    existing_raw = read_backlog_items()
+    # One-time self-clean: collapse near-duplicates already in the file.
+    existing = []
+    for i in existing_raw:
+        if not _is_duplicate(i, existing):
+            existing.append(i)
     fresh = []
     for i in new_items:
-        key = _dedup_key(i)
-        if key and key not in seen:
+        if _dedup_key(i) and not _is_duplicate(i, existing + fresh):
             fresh.append(i)
-            seen.add(key)
 
     merged = sorted(existing + fresh, key=_priority)[:MAX_BACKLOG]
 

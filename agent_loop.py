@@ -104,6 +104,15 @@ def run_optimizer(strategy_name, param_description):
         return None
 
 
+def _fmt(v, spec=".2f"):
+    """Format a metric that may legitimately be missing ('?')  — a partial
+    backtest result must not crash report generation with a ValueError."""
+    try:
+        return format(float(v), spec)
+    except (TypeError, ValueError):
+        return "?"
+
+
 def build_report(discovery, backtest_results, optimizer_results):
     """Assemble the final markdown report."""
     timestamp = datetime.utcnow().isoformat()
@@ -145,29 +154,40 @@ def build_report(discovery, backtest_results, optimizer_results):
     passed = [b for b in backtest_results if b.get("verdict") == "PASS"]
     maybe  = [b for b in backtest_results if b.get("verdict") == "MAYBE"]
     failed = [b for b in backtest_results if b.get("verdict") == "FAIL"]
+    errored = [b for b in backtest_results
+               if b.get("verdict") not in ("PASS", "MAYBE", "FAIL")]
 
     if passed:
         lines.append("### ✓ PASS (PF > 1.0, Sharpe > 0.5)")
         for b in passed:
             perf = b.get("performance", {})
-            lines.append(f"- **{b.get('strategy')}**: Sharpe={perf.get('sharpe', '?'):.2f}, "
-                        f"PF={perf.get('profit_factor', '?'):.2f}, "
-                        f"maxDD={perf.get('max_drawdown', '?'):.1%}")
+            lines.append(f"- **{b.get('strategy')}**: Sharpe={_fmt(perf.get('sharpe'))}, "
+                        f"PF={_fmt(perf.get('profit_factor'))}, "
+                        f"maxDD={_fmt(perf.get('max_drawdown'), '.1%')}")
 
     if maybe:
         lines.append("### ~ MAYBE (profitable but low Sharpe)")
         for b in maybe:
             perf = b.get("performance", {})
-            lines.append(f"- **{b.get('strategy')}**: Sharpe={perf.get('sharpe', '?'):.2f}, "
-                        f"PF={perf.get('profit_factor', '?'):.2f}")
+            lines.append(f"- **{b.get('strategy')}**: Sharpe={_fmt(perf.get('sharpe'))}, "
+                        f"PF={_fmt(perf.get('profit_factor'))}")
 
     if failed:
         lines.append("### ✗ FAIL (PF < 1.0 or negative)")
         for b in failed:
             perf = b.get("performance", {})
             reason = b.get("diagnostics", "no edge")
-            lines.append(f"- **{b.get('strategy')}**: Sharpe={perf.get('sharpe', '?'):.2f}, "
-                        f"PF={perf.get('profit_factor', '?'):.2f} — {reason[:80]}")
+            lines.append(f"- **{b.get('strategy')}**: Sharpe={_fmt(perf.get('sharpe'))}, "
+                        f"PF={_fmt(perf.get('profit_factor'))} — {reason[:80]}")
+
+    if errored:
+        # Backtests that never produced a verdict (generation/runtime error).
+        # Rendering these is the difference between "5 tested, all rejected"
+        # and "5 tested, none actually ran" — which need opposite responses.
+        lines.append("### ⚠ ERROR (backtest did not run — no verdict)")
+        for b in errored:
+            reason = b.get("diagnostics", "unknown error")
+            lines.append(f"- **{b.get('strategy')}**: {reason[:120]}")
 
     # Optimizer results.
     if optimizer_results:

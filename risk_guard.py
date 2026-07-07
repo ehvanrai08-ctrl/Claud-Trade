@@ -33,6 +33,7 @@ can_enter FAILS CLOSED (blocks the entry) — a guard that can't see risk must n
 wave trades through.
 """
 
+import json
 import os
 import requests
 from datetime import datetime, timezone
@@ -47,10 +48,13 @@ HEADERS  = {
     "APCA-API-SECRET-KEY": config.get("ALPACA_SECRET_KEY", ""),
 }
 
+PEAK_FILE = f"{BASE_DIR}/risk_state.json"   # persisted equity high-water mark
+
 # ── Limits (tune here — code is the contract, not a prompt) ────────────────────
 MAX_DAILY_LOSS_PCT  = 0.04   # halt new entries once the account is -4% on the day
 MAX_POSITION_PCT    = 0.25   # no single symbol may exceed 25% of equity
 MAX_NEW_ENTRIES_DAY = 20     # cap total new BUY orders across all bots per day
+MAX_TOTAL_DD_PCT    = 0.15   # circuit breaker: no new entries below -15% from peak equity
 
 
 def _get(path, params=None):
@@ -85,6 +89,26 @@ def position_value(symbol):
         return 0.0
 
 
+def _peak_equity(current):
+    """Persisted equity high-water mark (ratchets up, never down). The state
+    file is committed by the bot workflows alongside the other shared
+    artifacts, so every runner sees the same peak."""
+    peak = 0.0
+    try:
+        with open(PEAK_FILE) as f:
+            peak = float(json.load(f).get("peak_equity", 0) or 0)
+    except Exception:
+        pass
+    if current > peak:
+        peak = current
+        try:
+            with open(PEAK_FILE, "w") as f:
+                json.dump({"peak_equity": round(peak, 2)}, f, indent=2)
+        except Exception:
+            pass
+    return peak
+
+
 def new_buys_today():
     """Count of BUY orders submitted today (any status). Authoritative shared
     counter — every runner sees the same broker order book."""
@@ -110,6 +134,15 @@ def can_enter(strategy, symbol, notional):
     if daily_pct <= -MAX_DAILY_LOSS_PCT:
         return False, (f"daily loss kill-switch: account {daily_pct*100:+.2f}% "
                        f"<= -{MAX_DAILY_LOSS_PCT*100:.0f}% — no new entries today")
+
+    # 1b. Portfolio circuit breaker: cumulative drawdown from peak equity.
+    # Catches a slow bleed the daily check never trips (e.g. -2% for 10 days).
+    peak = _peak_equity(equity)
+    if peak > 0:
+        dd = (equity - peak) / peak
+        if dd <= -MAX_TOTAL_DD_PCT:
+            return False, (f"portfolio circuit breaker: {dd*100:+.1f}% from peak "
+                           f"equity ${peak:,.0f} — no new entries until recovery")
 
     # 2. Per-position cap (existing exposure + this order).
     projected = position_value(symbol) + max(float(notional), 0)
