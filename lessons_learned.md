@@ -24,3 +24,7 @@ Newest lessons are appended at the bottom with a date stamp.
 ### 2026-07-06
 - A portfolio-wide corporate-action scan placed only inside one strategy's tick loop will silently miss split-distorted positions in all other holdings; the scan must run at bot startup, independently of any per-strategy loop, to catch anomalies across the entire portfolio.
 - Rolling a short put immediately at the 50% profit target without checking trend direction can re-enter a deteriorating position; a simple price-vs-SMA check before selling a new put avoids selling into confirmed weakness.
+
+### 2026-07-07
+- Rolling a short put immediately after an early-close trigger (same bot run) can lock in a new position at a locally unfavorable implied-volatility spike; a short cooldown window (e.g., 2 hours) between closing and re-selling gives the market time to settle and avoids compounding a bad entry.
+- A corporate-action scan that silently skips positions due to null API fields will produce no log output, making it indistinguishable from "scan ran and found nothing"; always log the count of positions checked and any skipped items so scan failures are immediately visible.

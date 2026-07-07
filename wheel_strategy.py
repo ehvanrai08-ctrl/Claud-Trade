@@ -333,6 +333,8 @@ def check_early_close(state):
         print(f"[WHEEL] Early close at {profit_pct*100:.0f}% profit: {contract['symbol']} | locked in ${locked:.2f}")
         state["active_contract"] = None
         state["cycles"] += 1
+        # Record the close timestamp so the next run can enforce a roll cooldown
+        state["last_close_ts"] = datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ")
         return True
 
     loss_pct = (current_price - sell_price) / sell_price
@@ -467,6 +469,21 @@ def run():
     # No active contract — act based on stage
     if not state.get("active_contract"):
         if state["stage"] == 1:
+            # Roll cooldown: do not sell a new put within 2 hours of closing the last one.
+            # This avoids rolling immediately into a poor-premium or directionally weak moment.
+            ROLL_COOLDOWN_HOURS = 2
+            last_close = state.get("last_close_ts")
+            if last_close:
+                try:
+                    last_close_dt = datetime.strptime(last_close, "%Y-%m-%dT%H:%M:%SZ")
+                    hours_elapsed = (datetime.utcnow() - last_close_dt).total_seconds() / 3600
+                    if hours_elapsed < ROLL_COOLDOWN_HOURS:
+                        log.info(f"ROLL COOLDOWN: {hours_elapsed:.1f}h since last close (min {ROLL_COOLDOWN_HOURS}h) — skipping roll this run")
+                        print(f"[WHEEL] Roll cooldown active ({hours_elapsed:.1f}h elapsed) — waiting before new put")
+                        save_state(state)
+                        return
+                except Exception:
+                    pass
             # Guard: verify no open short-option sell order already exists before
             # selling. Note: a symbols=TSLA filter would NOT match option orders
             # (their symbol is the OCC contract, e.g. TSLA260715P00375000), so we

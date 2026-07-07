@@ -333,16 +333,30 @@ def portfolio_corporate_action_scan():
     """Warn on any position where current price is less than 40% of avg cost — likely a split/spinoff."""
     try:
         positions = api_get("/positions")
+        log.info(f"Corporate-action scan: checking {len(positions)} positions")
+        flagged = 0
         for pos in positions:
-            symbol    = pos.get("symbol", "")
-            avg_cost  = float(pos.get("avg_entry_price") or 0)
-            curr      = float(pos.get("current_price") or 0)
-            if avg_cost > 0 and curr > 0 and curr < avg_cost * 0.40:
+            symbol   = pos.get("symbol", "")
+            avg_raw  = pos.get("avg_entry_price")
+            curr_raw = pos.get("current_price")
+            # Log explicitly when fields are missing so silent failures are visible
+            if avg_raw is None or curr_raw is None:
+                log.info(f"Corporate-action scan: {symbol} skipped — avg_entry_price={avg_raw!r} current_price={curr_raw!r}")
+                continue
+            avg_cost = float(avg_raw)
+            curr     = float(curr_raw)
+            if avg_cost <= 0 or curr <= 0:
+                log.info(f"Corporate-action scan: {symbol} skipped — zero/negative price (avg={avg_cost} curr={curr})")
+                continue
+            ratio = curr / avg_cost
+            if ratio < 0.40:
                 log.warning(
                     f"POSSIBLE CORPORATE ACTION: {symbol} avg_cost=${avg_cost:.2f} "
-                    f"current=${curr:.2f} ({(curr/avg_cost-1)*100:.1f}%) — "
+                    f"current=${curr:.2f} ({(ratio-1)*100:.1f}%) — "
                     f"verify for split/spinoff before acting"
                 )
+                flagged += 1
+        log.info(f"Corporate-action scan complete: {flagged} flag(s) raised")
     except Exception as e:
         log.warning(f"Portfolio corporate-action scan failed (non-fatal): {e}")
 
