@@ -12,3 +12,4 @@
 2026-06-25 16:19:49,356 INFO Tracking: John Fetterman
 2026-06-25 16:19:49,357 INFO No recent trades from John Fetterman in last 14 days
 2026-07-08 15:59:27,972 WARNING Quiver fetch failed, skipping this run: 401 Client Error: Unauthorized for url: https://api.quiverquant.com/beta/live/congresstrading
+2026-07-08 17:45:37,150 WARNING Quiver fetch failed, skipping this run: 401 Client Error: Unauthorized for url: https://api.quiverquant.com/beta/live/congresstrading
