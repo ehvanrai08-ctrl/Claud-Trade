@@ -2,8 +2,8 @@
   "symbol": "TSLA",
   "entry_price": 381.21,
   "entry_qty": 10,
-  "stop_order_id": "3243f85e-b862-478f-aa9f-e1635b601a6d",
-  "current_stop": 389.3011,
+  "stop_order_id": "43fc0154-3899-4d4e-a5b4-e2f5344698aa",
+  "current_stop": 390.51,
   "trailing_active": true,
   "high_water_mark": 419.9
 }
