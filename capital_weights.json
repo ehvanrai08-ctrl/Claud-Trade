@@ -12,12 +12,13 @@
     "dca": 1.0,
     "sector_momentum": 1.0,
     "superinvestor": 1.0,
-    "emerging_growth": 1.0
+    "emerging_growth": 1.0,
+    "tsmom": 1.0
   },
   "notes": {
     "tsla_trailing": "insufficient data (0/5 trades) \u2014 default 1.0",
     "trend_basket": "insufficient data (1/5 trades) \u2014 default 1.0",
-    "wheel": "insufficient data (1/5 trades) \u2014 default 1.0",
+    "wheel": "insufficient data (2/5 trades) \u2014 default 1.0",
     "copy_trader": "insufficient data (0/5 trades) \u2014 default 1.0",
     "tjr": "insufficient data (0/5 trades) \u2014 default 1.0",
     "mean_reversion": "insufficient data (0/5 trades) \u2014 default 1.0",
@@ -27,6 +28,7 @@
     "dca": "insufficient data (0/5 trades) \u2014 default 1.0",
     "sector_momentum": "insufficient data (0/5 trades) \u2014 default 1.0",
     "superinvestor": "insufficient data (0/5 trades) \u2014 default 1.0",
-    "emerging_growth": "insufficient data (0/5 trades) \u2014 default 1.0"
+    "emerging_growth": "insufficient data (0/5 trades) \u2014 default 1.0",
+    "tsmom": "insufficient data (0/5 trades) \u2014 default 1.0"
   }
 }

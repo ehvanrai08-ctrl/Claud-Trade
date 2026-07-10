@@ -160,7 +160,13 @@ def run():
         # Quiver hiccup (rate limit, 5xx, timeout) — degrade gracefully; the
         # hourly cron retries for free instead of crashing the job red.
         log.warning(f"Quiver fetch failed, skipping this run: {e}")
-        print(f"[COPY] Quiver fetch failed — skipping ({e})")
+        consecutive = state.get("quiver_fail_count", 0) + 1
+        state["quiver_fail_count"] = consecutive
+        save_state(state)
+        if consecutive >= 3:
+            print(f"[COPY] ALERT: Quiver API has failed {consecutive} consecutive runs — check API key/subscription ({e})")
+        else:
+            print(f"[COPY] Quiver fetch failed — skipping ({e})")
         return
 
     # Re-evaluate best politician weekly to avoid locking onto a stale pick.

@@ -28,3 +28,7 @@ Newest lessons are appended at the bottom with a date stamp.
 ### 2026-07-07
 - Rolling a short put immediately after an early-close trigger (same bot run) can lock in a new position at a locally unfavorable implied-volatility spike; a short cooldown window (e.g., 2 hours) between closing and re-selling gives the market time to settle and avoids compounding a bad entry.
 - A corporate-action scan that silently skips positions due to null API fields will produce no log output, making it indistinguishable from "scan ran and found nothing"; always log the count of positions checked and any skipped items so scan failures are immediately visible.
+
+### 2026-07-10
+- A stop-loss exit on a short option is the highest-risk moment to re-enter — the cooldown between closing and re-selling must apply equally to stop-loss exits as to profit-taking exits, not only to the happy path.
+- A degraded-gracefully API failure that repeats for days without escalation is functionally equivalent to a silent crash; consecutive-failure counting with a threshold alert is necessary to distinguish "transient blip" from "broken credential."

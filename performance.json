@@ -14,18 +14,18 @@
       "profit_factor": 0.0
     },
     "wheel": {
-      "trades": 1,
+      "trades": 2,
       "wins": 1,
-      "losses": 0,
+      "losses": 1,
       "breakeven": 0,
-      "total_pnl": 137.0,
+      "total_pnl": -39.0,
       "gross_win": 137.0,
-      "gross_loss": 0.0,
-      "win_rate": 100.0,
+      "gross_loss": -176.0,
+      "win_rate": 50.0,
       "avg_win": 137.0,
-      "avg_loss": 0.0,
-      "profit_factor": null
+      "avg_loss": -176.0,
+      "profit_factor": 0.78
     }
   },
-  "total_trades": 2
+  "total_trades": 3
 }

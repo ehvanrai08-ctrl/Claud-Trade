@@ -320,8 +320,6 @@ def check_early_close(state):
     if not current_price or not sell_price:
         return False
 
-    STOP_LOSS_PCT = 1.0   # close if contract costs 100% of premium received (lost 1x)
-
     profit_pct = (sell_price - current_price) / sell_price
     log.info(f"EARLY CLOSE CHECK: {contract['symbol']} sell=${sell_price:.2f} now=${current_price:.2f} pnl={profit_pct*100:.1f}% (close_target=+{EARLY_CLOSE_PCT*100:.0f}%)")
 
@@ -346,6 +344,9 @@ def check_early_close(state):
         print(f"[WHEEL] Stop loss triggered at {loss_pct*100:.0f}% loss: {contract['symbol']} | -${loss_amt:.2f}")
         state["active_contract"] = None
         state["cycles"] += 1
+        # Cooldown applies after stop-loss exits too — these are the highest-risk
+        # moments to immediately re-sell into a deteriorating market.
+        state["last_close_ts"] = datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ")
         return True
 
     return False
