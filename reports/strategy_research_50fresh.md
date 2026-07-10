@@ -168,3 +168,26 @@ or mean-reversion), and worth the next research cycle.
 (sector_momentum only went live after a lookback×top-N robustness grid, not a
 single backtest), a PASS here means "worth a follow-up robustness sweep,"
 not "ready for capital."
+
+---
+
+## Follow-up (same day): the TSMOM robustness grid — verdict
+
+`backtest_tsmom.py` ran the promised grid: 24 cells (lookback 3/6/9/12/ensemble
++ SMA-crossover variant × 200d-gate on/off × 5-asset vs no-UUP universe), with
+the honest null — equal-weight holding the SAME basket, never timed.
+
+**The null strikes a third time: the trend timing adds ~zero Sharpe.** Untimed
+basket Sharpe **1.19**; best timed cell 1.19; headline 12-mo cell 1.08. The
+sweep's "Sharpe 1.20" was mostly the diversified basket itself.
+
+**But unlike the previous two null-victories, the timing DOES buy something
+real and grid-stable: max drawdown halves (13.3% → ~7.8%) in every single
+cell**, across all lookbacks, both universes, gate or no gate — and the
+out-of-sample half *improved* (Sharpe 0.86 IS → 1.32 OOS, side-stepping 2022).
+
+**Decision: deployed as `tsmom_sleeve.py`** — a $6k defensive-diversifier
+sleeve, honestly labeled NOT-alpha (same convention as emerging_growth), using
+the ensembled 6/9/12-mo config from the grid's middle rather than the best
+cell (selection-bias hygiene). It is the only leg in the fleet with a sub-8%
+drawdown profile and low equity beta.

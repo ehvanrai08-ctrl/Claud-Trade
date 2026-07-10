@@ -45,6 +45,7 @@ STRATEGIES = [
     "sector_momentum",
     "superinvestor",
     "emerging_growth",
+    "tsmom",
 ]
 
 

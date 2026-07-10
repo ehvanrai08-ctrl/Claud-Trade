@@ -69,6 +69,7 @@ These bugs were each hit more than once. Don't reintroduce them:
 | Mean Reversion | `mean_reversion.py` | 10 AM daily | Buy RSI<30 + below lower Bollinger with up-day confirmation; sell on revert |
 | ~~ORB~~ **PAUSED** | `orb_strategy.py` | cron disabled (manual only) | Opening Range Breakout on QQQ. **Paused 2026-06-24**: backtests showed no edge unleveraged (every variant PF<1). Code kept; re-enable cron in the workflow to revive. |
 | ~~SIP-ORB~~ **PAUSED** | `sip_orb.py` | cron disabled (manual only) | Multi-stock Stocks-in-Play ORB (Zarattini/Barbon/Aziz SSRN 4729284). **Paused 2026-06-24**: tuning sweep showed no config reaches PF>1 unleveraged (paper's edge needs 4× leverage + 1000+ stock universe). Code kept; re-enable cron to revive. |
+| TSMOM Sleeve | `tsmom_sleeve.py` | 11:05 AM, first 5 days of month | Multi-asset absolute trend-following (Moskowitz-Ooi-Pedersen, long-only): SPY/TLT/GLD/DBC/UUP each get an independent ensembled-6/9/12mo trend signal; OFF slots park in BIL. The fleet's **defensive diversifier leg** — `backtest_tsmom.py` (24-cell grid) was honest: timing adds ~0 Sharpe over holding the basket untimed (null 1.19), but it **halves maxDD (13%→~8%) in every grid cell** and improved out-of-sample (0.86→1.32, side-stepped 2022). NOT alpha; sized $6k, config from the grid's middle (not best cell). Own-qty collision-safe (shares SPY with rsi2/dual_momentum); risk-guarded. |
 | Dual Momentum | `dual_momentum.py` | 10:30 AM, first trading day of month | GEM (Antonacci): hold the stronger of SPY/EFA while equities beat cash (absolute gate), else 100% AGG bonds; ensembled 6–12mo lookbacks; ~1.5 trades/yr |
 | Sector Momentum | `sector_momentum.py` | 10:35 AM, first trading day of month | Cross-sectional rotation: hold the top 3 of 11 sector SPDRs by ensembled 9–12mo momentum, equal-weight, monthly. Only strategy to survive `backtest_research.py` vs SPY buy-and-hold (Sharpe 1.03 vs 0.88, maxDD 18% vs 34%, robust across the lookback×top_n grid). Risk-adjusted/diversification leg, not a guaranteed index-beater. |
 | IBS | `ibs_strategy.py` | 3:50 PM daily | Internal Bar Strength mean reversion on QQQ: buy when IBS=(C−L)/(H−L) < 0.20 (closed near low), sell when IBS > 0.80; holds multi-day. Backtest: 69% win rate, PF 2.10 |
@@ -218,6 +219,7 @@ the universe; only the trend gate's drawdown control survived).
 | `rsi2_state.json` | RSI(2) bot: holding flag, entry price/qty/date for SPY |
 | `superinvestor_state.json` | Superinvestor copy: per-symbol qty/entry, last rebalance month, last 13F accession per manager, history |
 | `emerging_growth_state.json` | Emerging-growth basket: per-symbol qty/entry, last rebalance month, history |
+| `tsmom_state.json` | TSMOM sleeve: per-symbol qty/entry, last rebalance month, monthly target history |
 | `emerging_watchlist.json` | Emerging-company scout output: tradeable tickers (live-bot universe) + public/private candidate details, updated weekly |
 | `trades_ledger.jsonl` | Append-only realized-trade log (via `perf.record_trade()`) |
 | `performance.json` | Per-strategy win rate / P&L (via `performance_tracker.py`) |
