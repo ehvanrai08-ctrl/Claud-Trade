@@ -8,6 +8,15 @@
       "hwm": 407.34,
       "trailing_active": false,
       "entry_date": "2026-07-09"
+    },
+    "NVDA": {
+      "entry_price": 209.19,
+      "qty": 11,
+      "stop_order_id": "5dff751f-656e-486f-9052-7b89c8573a1f",
+      "current_stop": 195.8,
+      "hwm": 210.845,
+      "trailing_active": false,
+      "entry_date": "2026-07-10"
     }
   }
 }
