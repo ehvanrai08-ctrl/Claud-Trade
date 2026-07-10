@@ -60,6 +60,12 @@ jobs:
           git config user.email "bot@claud-trade"
           git add reports/ lessons_learned.md benchmark_state.json logs/ market_monitor.py wheel_strategy.py copy_trader.py
           git add trades_ledger.jsonl performance.json capital_weights.json risk_state.json 2>/dev/null || true
+          # archive_logs.rotate() (called by post_market_analysis.py) truncates any
+          # root-level *.log over 512KB in place. That truncation is a real change
+          # to a tracked file — if left unstaged, `git pull --rebase` refuses with
+          # "unstaged changes" and the report commit above can never sync (this
+          # silently ate 3 days of reports once trend_basket.log crossed 512KB).
+          git add -f ./*.log 2>/dev/null || true
           git diff --cached --quiet || git commit -m "chore: post-market report + improvements $(date +%Y-%m-%d) [skip ci]"
           n=0; until git pull --rebase origin claude/charming-edison-b7imkj && git push origin claude/charming-edison-b7imkj; do
             n=$((n+1)); [ "$n" -ge 4 ] && echo "git sync failed after $n attempts (non-fatal)" && break
