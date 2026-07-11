@@ -199,8 +199,8 @@ def build_report(discovery, backtest_results, optimizer_results):
             if opt.get("winner"):
                 winner = opt["winner"]
                 lines.append(f"  - Best params: {winner.get('params')}")
-                lines.append(f"  - Sharpe: {winner.get('sharpe', '?'):.2f}, "
-                            f"PF: {winner.get('profit_factor', '?'):.2f}")
+                lines.append(f"  - Sharpe: {_fmt(winner.get('sharpe'))}, "
+                            f"PF: {_fmt(winner.get('profit_factor'))}")
 
     lines.append("")
     lines.append("---")

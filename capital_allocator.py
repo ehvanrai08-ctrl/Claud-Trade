@@ -101,7 +101,7 @@ def compute_weights():
         try:
             with open(WEIGHTS_FILE) as f:
                 prior = json.load(f).get("weights", {})
-        except Exception:
+        except (json.JSONDecodeError, OSError):
             pass
 
     weights = {}
