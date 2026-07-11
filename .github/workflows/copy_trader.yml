@@ -23,7 +23,7 @@ jobs:
           cache: pip
 
       - run: |
-          n=0; until pip install requests python-dotenv; do
+          n=0; until pip install requests python-dotenv pypdf; do
             n=$((n+1)); [ "$n" -ge 3 ] && echo "pip install failed after $n attempts" && exit 1
             echo "pip install failed (attempt $n) — retrying in $((n*5))s..."; sleep $((n*5))
           done
@@ -43,7 +43,7 @@ jobs:
         run: |
           git config user.name  "Claud-Trade Bot"
           git config user.email "bot@claud-trade"
-          git add copy_trader_state.json 2>/dev/null || true
+          git add copy_trader_state.json congress_cache.json 2>/dev/null || true
           git add -f copy_trader.log 2>/dev/null || true
           git add trades_ledger.jsonl performance.json capital_weights.json risk_state.json 2>/dev/null || true
           git diff --cached --quiet || git commit -m "chore: update copy trader state [skip ci]"

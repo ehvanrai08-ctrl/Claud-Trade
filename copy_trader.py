@@ -1,8 +1,12 @@
 """
-Copy Trading Bot — tracks US congressional trades via Quiver Quant
-and mirrors them on Alpaca paper trading.
-- Fetches latest congressional trades
-- Picks the most profitable active politician
+Copy Trading Bot — tracks US congressional trades and mirrors them on Alpaca
+paper trading.
+- Fetches latest congressional trades from the OFFICIAL disclosure systems
+  (House Clerk + Senate eFD, via congress_disclosures.py). Quiver Quant was
+  the original source until it went 401/paywalled on 2026-07-08.
+- Picks the most profitable active politician — ranked by the realized
+  performance of their disclosed buys (Alpaca price data), since Quiver's
+  proprietary ExcessReturn field is no longer available.
 - Copies their recent trades if not already placed
 - Runs hourly during market hours via GitHub Actions
 """
@@ -24,7 +28,6 @@ HEADERS  = {
     "Content-Type":        "application/json",
 }
 
-QUIVER_URL      = "https://api.quiverquant.com/beta/live/congresstrading"
 STATE_FILE      = f"{BASE_DIR}/copy_trader_state.json"
 MAX_TRADE_VALUE = 5000   # max $ per copied trade
 LOOKBACK_DAYS   = 30     # only copy trades filed in last 30 days
@@ -58,9 +61,8 @@ def save_state(state):
         json.dump(state, f, indent=2)
 
 def get_congress_trades():
-    r = requests.get(QUIVER_URL, headers={"Accept": "application/json"}, timeout=15)
-    r.raise_for_status()
-    return r.json()
+    from congress_disclosures import fetch_recent_trades
+    return fetch_recent_trades(days=90)
 
 def get_price(symbol):
     r = requests.get(
@@ -115,35 +117,79 @@ def get_position(symbol):
 
 # ── Politician scoring ────────────────────────────────────────────────────────
 
+MAX_SCORE_TICKERS = 50   # bound Alpaca bar fetches per scoring pass
+
+
+def _daily_closes(symbol, days=130):
+    """[(iso_date, close), ...] ascending, dividend/split-adjusted."""
+    start = (datetime.now() - timedelta(days=days)).strftime("%Y-%m-%dT00:00:00Z")
+    try:
+        r = requests.get(
+            f"https://data.alpaca.markets/v2/stocks/{symbol}/bars",
+            headers=HEADERS,
+            params={"timeframe": "1Day", "start": start, "limit": 200,
+                    "adjustment": "all", "sort": "asc"},
+            timeout=15,
+        )
+        bars = r.json().get("bars") or [] if r.ok else []
+        return [(b["t"][:10], b["c"]) for b in bars]
+    except Exception:
+        return []
+
+
 def pick_best_politician(trades):
     """
-    Score politicians by:
-    - Number of recent trades (activity)
-    - Average ExcessReturn (beats market)
-    Only consider trades filed in the last 90 days.
+    Rank politicians by how their disclosed BUYS actually performed from
+    transaction date to now (Alpaca daily bars) — a primary-data replacement
+    for Quiver's proprietary ExcessReturn field. Score = avg buy return ×
+    min(buy_count, 10); at least 2 scoreable buys required. Falls back to
+    plain activity ranking if no prices could be fetched (e.g. data outage).
+    Only considers trades filed in the last 90 days.
     """
     cutoff = (datetime.now() - timedelta(days=90)).strftime("%Y-%m-%d")
-    recent = [t for t in trades if t.get("ReportDate", "") >= cutoff]
+    buys = [t for t in trades
+            if t.get("ReportDate", "") >= cutoff
+            and t.get("Transaction") == "Purchase" and t.get("Ticker")]
+    if not buys:
+        return None
+
+    # One bar fetch per unique ticker, most recently traded first, capped.
+    tickers = []
+    for t in sorted(buys, key=lambda x: x["ReportDate"], reverse=True):
+        tk = t["Ticker"].strip().upper()
+        if tk not in tickers:
+            tickers.append(tk)
+    closes = {tk: _daily_closes(tk) for tk in tickers[:MAX_SCORE_TICKERS]}
 
     scores = {}
-    for t in recent:
-        name = t["Representative"]
-        excess = float(t.get("ExcessReturn") or 0)
-        if name not in scores:
-            scores[name] = {"count": 0, "excess_total": 0.0}
-        scores[name]["count"] += 1
-        scores[name]["excess_total"] += excess
+    for t in buys:
+        name   = t["Representative"]
+        series = closes.get(t["Ticker"].strip().upper())
+        entry_date = t.get("TransactionDate") or t["ReportDate"]
+        s = scores.setdefault(name, {"count": 0, "ret_total": 0.0, "scored": 0})
+        s["count"] += 1
+        if not series:
+            continue
+        entry = next((c for d, c in series if d >= entry_date), None)
+        if not entry or entry <= 0:
+            continue
+        s["ret_total"] += series[-1][1] / entry - 1
+        s["scored"]    += 1
 
-    # Rank by avg excess return * trade frequency
     ranked = sorted(
-        scores.items(),
-        key=lambda x: (x[1]["excess_total"] / max(x[1]["count"], 1)) * min(x[1]["count"], 10),
+        ((n, s) for n, s in scores.items() if s["scored"] >= 2),
+        key=lambda x: (x[1]["ret_total"] / x[1]["scored"]) * min(x[1]["scored"], 10),
         reverse=True,
     )
     if not ranked:
-        return None
+        # No prices at all (data outage / all-new tickers) — most active buyer.
+        ranked = sorted(scores.items(), key=lambda x: x[1]["count"], reverse=True)
+        best = ranked[0]
+        log.info(f"Top politician (activity fallback): {best[0]} buys={best[1]['count']}")
+        return best[0]
     best = ranked[0]
-    log.info(f"Top politician: {best[0]} trades={best[1]['count']} avg_excess={best[1]['excess_total']/best[1]['count']:.2f}%")
+    log.info(f"Top politician: {best[0]} buys={best[1]['scored']} "
+             f"avg_buy_return={best[1]['ret_total']/best[1]['scored']*100:+.2f}%")
     return best[0]
 
 
@@ -157,22 +203,24 @@ def run():
     try:
         trades = get_congress_trades()
         # Reset failure counter on success so future alerts reflect fresh outages.
-        state["quiver_fail_count"] = 0
+        state["fetch_fail_count"] = 0
+        state.pop("quiver_fail_count", None)   # legacy key from the Quiver era
     except Exception as e:
-        # Distinguish auth failures (401/403 → bad credential, needs human fix)
-        # from transient errors (5xx, timeout → retry is fine).
+        # Distinguish auth/blocking failures (401/403 → source changed, needs a
+        # human) from transient errors (5xx, timeout → retry is fine).
         err_str = str(e)
         is_auth_failure = "401" in err_str or "403" in err_str
-        log.warning(f"Quiver fetch failed, skipping this run: {e}")
-        consecutive = state.get("quiver_fail_count", 0) + 1
-        state["quiver_fail_count"] = consecutive
+        log.warning(f"Disclosure fetch failed, skipping this run: {e}")
+        consecutive = state.get("fetch_fail_count",
+                                state.get("quiver_fail_count", 0)) + 1
+        state["fetch_fail_count"] = consecutive
         save_state(state)
         if is_auth_failure:
-            print(f"[COPY] ALERT: Quiver API auth failure ({e}) — API key is invalid or subscription lapsed. Manual fix required.")
+            print(f"[COPY] ALERT: disclosure source is blocking us ({e}) — House Clerk / Senate eFD access needs a human look.")
         elif consecutive >= 3:
-            print(f"[COPY] ALERT: Quiver API has failed {consecutive} consecutive runs — check API key/subscription ({e})")
+            print(f"[COPY] ALERT: disclosure fetch has failed {consecutive} consecutive runs ({e})")
         else:
-            print(f"[COPY] Quiver fetch failed — skipping ({e})")
+            print(f"[COPY] Disclosure fetch failed — skipping ({e})")
         return
 
     # Re-evaluate best politician weekly to avoid locking onto a stale pick.
