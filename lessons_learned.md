@@ -32,3 +32,7 @@ Newest lessons are appended at the bottom with a date stamp.
 ### 2026-07-10
 - A stop-loss exit on a short option is the highest-risk moment to re-enter — the cooldown between closing and re-selling must apply equally to stop-loss exits as to profit-taking exits, not only to the happy path.
 - A degraded-gracefully API failure that repeats for days without escalation is functionally equivalent to a silent crash; consecutive-failure counting with a threshold alert is necessary to distinguish "transient blip" from "broken credential."
+
+### 2026-07-11
+- A consecutive-failure counter that is never reset on success will eventually misrepresent the severity of a new outage; always zero the counter immediately when the call succeeds.
+- A 401 API failure requires human intervention (credential rotation), whereas a 5xx/timeout is self-healing via retry; error-handling code should branch on the HTTP status code and emit distinct, actionable messages for each case rather than treating all failures identically.

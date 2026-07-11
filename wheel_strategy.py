@@ -476,8 +476,9 @@ def run():
             last_close = state.get("last_close_ts")
             if last_close:
                 try:
-                    last_close_dt = datetime.strptime(last_close, "%Y-%m-%dT%H:%M:%SZ")
-                    hours_elapsed = (datetime.utcnow() - last_close_dt).total_seconds() / 3600
+                    from datetime import timezone as _tz
+                    last_close_dt = datetime.strptime(last_close, "%Y-%m-%dT%H:%M:%SZ").replace(tzinfo=_tz.utc)
+                    hours_elapsed = (datetime.now(_tz.utc) - last_close_dt).total_seconds() / 3600
                     if hours_elapsed < ROLL_COOLDOWN_HOURS:
                         log.info(f"ROLL COOLDOWN: {hours_elapsed:.1f}h since last close (min {ROLL_COOLDOWN_HOURS}h) — skipping roll this run")
                         print(f"[WHEEL] Roll cooldown active ({hours_elapsed:.1f}h elapsed) — waiting before new put")

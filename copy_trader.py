@@ -156,14 +156,20 @@ def run():
     state = load_state()
     try:
         trades = get_congress_trades()
+        # Reset failure counter on success so future alerts reflect fresh outages.
+        state["quiver_fail_count"] = 0
     except Exception as e:
-        # Quiver hiccup (rate limit, 5xx, timeout) — degrade gracefully; the
-        # hourly cron retries for free instead of crashing the job red.
+        # Distinguish auth failures (401/403 → bad credential, needs human fix)
+        # from transient errors (5xx, timeout → retry is fine).
+        err_str = str(e)
+        is_auth_failure = "401" in err_str or "403" in err_str
         log.warning(f"Quiver fetch failed, skipping this run: {e}")
         consecutive = state.get("quiver_fail_count", 0) + 1
         state["quiver_fail_count"] = consecutive
         save_state(state)
-        if consecutive >= 3:
+        if is_auth_failure:
+            print(f"[COPY] ALERT: Quiver API auth failure ({e}) — API key is invalid or subscription lapsed. Manual fix required.")
+        elif consecutive >= 3:
             print(f"[COPY] ALERT: Quiver API has failed {consecutive} consecutive runs — check API key/subscription ({e})")
         else:
             print(f"[COPY] Quiver fetch failed — skipping ({e})")
