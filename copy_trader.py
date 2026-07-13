@@ -233,7 +233,10 @@ def run():
         state["last_politician_eval"] = today_str
     else:
         politician = state.get("tracked_politician")
-        state["last_politician_eval"] = state.get("last_politician_eval") or today_str
+        # Do NOT overwrite last_politician_eval here — preserving the original
+        # eval date is what allows the weekly re-evaluation to fire correctly.
+        # Overwriting it on every non-eval run would silently push the timer
+        # forward and prevent re-evaluation from ever triggering after week 1.
     if not politician:
         log.warning("No politician found to track")
         return

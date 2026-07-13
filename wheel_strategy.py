@@ -254,22 +254,28 @@ def stage1_sell_put(state, price):
         return
 
     order = sell_contract(contract["symbol"])
+    # Wait briefly for the market order to fill before reading the fill price,
+    # so sell_price captures the real execution rather than the pre-fill bid estimate.
+    import time as _time
+    _time.sleep(3)
     premium = sell_fill_price(order["id"], contract["symbol"]) or 0
     collected = premium * 100
 
     state["stage"]           = 1
     state["active_contract"] = {
-        "symbol":     contract["symbol"],
-        "type":       "put",
-        "strike":     float(contract["strike_price"]),
-        "expiration": contract["expiration_date"],
-        "sell_price": premium,
-        "order_id":   order["id"],
+        "symbol":        contract["symbol"],
+        "type":          "put",
+        "strike":        float(contract["strike_price"]),
+        "expiration":    contract["expiration_date"],
+        "sell_price":    premium,
+        "order_id":      order["id"],
+        "sell_price_confirmed": premium > 0,
     }
     state["total_premium"] += collected
 
-    log.info(f"SOLD PUT: {contract['symbol']} strike=${contract['strike_price']} exp={contract['expiration_date']} premium~${premium:.2f} | order {order['id']}")
-    print(f"[WHEEL] Sold put: {contract['symbol']} @ ${contract['strike_price']} exp {contract['expiration_date']} | premium ~${premium:.2f}/share")
+    fill_tag = "" if premium > 0 else " (ESTIMATED — fill pending)"
+    log.info(f"SOLD PUT: {contract['symbol']} strike=${contract['strike_price']} exp={contract['expiration_date']} premium~${premium:.2f}{fill_tag} | order {order['id']}")
+    print(f"[WHEEL] Sold put: {contract['symbol']} @ ${contract['strike_price']} exp {contract['expiration_date']} | premium ~${premium:.2f}/share{fill_tag}")
 
 
 def stage2_sell_call(state, cost_basis):

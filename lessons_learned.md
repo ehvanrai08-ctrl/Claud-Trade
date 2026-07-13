@@ -36,3 +36,7 @@ Newest lessons are appended at the bottom with a date stamp.
 ### 2026-07-11
 - A consecutive-failure counter that is never reset on success will eventually misrepresent the severity of a new outage; always zero the counter immediately when the call succeeds.
 - A 401 API failure requires human intervention (credential rotation), whereas a 5xx/timeout is self-healing via retry; error-handling code should branch on the HTTP status code and emit distinct, actionable messages for each case rather than treating all failures identically.
+
+### 2026-07-13
+- A market order placed for options may not have a `filled_avg_price` when queried within the same second; reading fill price without a short delay (or a retry loop) silently records the pre-fill bid estimate as the official sell price, causing permanent P&L tracking drift.
+- A state timestamp field that is overwritten on every run (even when the guarded action did not execute) effectively disables the time-based re-evaluation it was designed to enforce; only update the "last evaluated" timestamp inside the branch where the evaluation actually runs.
