@@ -1,6 +1,7 @@
 {
   "copied_trades": [],
-  "tracked_politician": "John Fetterman",
+  "tracked_politician": "Josh Gottheimer",
   "total_trades": 0,
-  "last_politician_eval": "2026-06-22"
+  "last_politician_eval": "2026-07-13",
+  "fetch_fail_count": 0
 }

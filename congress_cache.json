@@ -3262,6 +3262,1827 @@
      "Amount": "$1,001 - $15,000"
     }
    ]
+  },
+  "20034521": {
+   "name": "John McGuire",
+   "report_date": "2026-05-13",
+   "trades": [
+    {
+     "Ticker": "AAPL",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-04-15",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "MSFT",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-04-15",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "NVDA",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-04-15",
+     "Amount": "$1,001 - $15,000"
+    }
+   ]
+  },
+  "20034542": {
+   "name": "Richard Dean Dr McCormick",
+   "report_date": "2026-05-12",
+   "trades": [
+    {
+     "Ticker": "AMT",
+     "Transaction": "Sale (Full)",
+     "TransactionDate": "2026-04-17",
+     "Amount": "$1,001 - $15,000"
+    }
+   ]
+  },
+  "20034528": {
+   "name": "Chip Roy",
+   "report_date": "2026-05-11",
+   "trades": []
+  },
+  "20034524": {
+   "name": "Cliff Bentz",
+   "report_date": "2026-05-09",
+   "trades": [
+    {
+     "Ticker": "INTC",
+     "Transaction": "Sale (Full)",
+     "TransactionDate": "2026-04-09",
+     "Amount": "$1,001 - $15,000"
+    }
+   ]
+  },
+  "20034375": {
+   "name": "Chip Roy",
+   "report_date": "2026-05-09",
+   "trades": []
+  },
+  "20034502": {
+   "name": "Earl Leroy Carter",
+   "report_date": "2026-05-08",
+   "trades": []
+  },
+  "20034500": {
+   "name": "Gilbert Cisneros",
+   "report_date": "2026-05-08",
+   "trades": [
+    {
+     "Ticker": "ACN",
+     "Transaction": "Sale (Full)",
+     "TransactionDate": "2026-04-14",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "ADBE",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-04-14",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "AMD",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-04-14",
+     "Amount": "$15,001 - $50,000"
+    },
+    {
+     "Ticker": "ARE",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-04-14",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "AMZN",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-04-14",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "AMZN",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-04-22",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "APO",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-04-14",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "APP",
+     "Transaction": "Sale (Partial)",
+     "TransactionDate": "2026-04-14",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "ADP",
+     "Transaction": "Sale (Partial)",
+     "TransactionDate": "2026-04-14",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "BKNG",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-04-14",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "BBIO",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-04-29",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "BR",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-04-14",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "CVNA",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-04-14",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "CHTR",
+     "Transaction": "Sale (Partial)",
+     "TransactionDate": "2026-04-14",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "CTSH",
+     "Transaction": "Sale (Partial)",
+     "TransactionDate": "2026-04-14",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "COIN",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-04-14",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "CMCSA",
+     "Transaction": "Sale (Partial)",
+     "TransactionDate": "2026-04-14",
+     "Amount": "$15,001 - $50,000"
+    },
+    {
+     "Ticker": "CAG",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-04-14",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "CSGP",
+     "Transaction": "Sale (Partial)",
+     "TransactionDate": "2026-04-14",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "CRWD",
+     "Transaction": "Sale (Full)",
+     "TransactionDate": "2026-04-14",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "DDOG",
+     "Transaction": "Sale (Full)",
+     "TransactionDate": "2026-04-14",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "DPZ",
+     "Transaction": "Sale (Full)",
+     "TransactionDate": "2026-04-14",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "DASH",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-05-01",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "DASH",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-04-15",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "DASH",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-04-14",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "DASH",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-04-06",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "DASH",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-04-13",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "LLY",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-04-14",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "EPAM",
+     "Transaction": "Sale (Full)",
+     "TransactionDate": "2026-04-14",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "EFX",
+     "Transaction": "Sale (Full)",
+     "TransactionDate": "2026-04-14",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "FICO",
+     "Transaction": "Sale (Full)",
+     "TransactionDate": "2026-04-14",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "FIS",
+     "Transaction": "Sale (Full)",
+     "TransactionDate": "2026-04-14",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "FSV",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-05-01",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "FSV",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-04-24",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "FISV",
+     "Transaction": "Sale (Partial)",
+     "TransactionDate": "2026-04-14",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "FLEX",
+     "Transaction": "Sale (Partial)",
+     "TransactionDate": "2026-04-13",
+     "Amount": "$15,001 - $50,000"
+    },
+    {
+     "Ticker": "FLEX",
+     "Transaction": "Sale (Partial)",
+     "TransactionDate": "2026-04-15",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "FLEX",
+     "Transaction": "Sale (Partial)",
+     "TransactionDate": "2026-04-22",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "FLEX",
+     "Transaction": "Sale (Partial)",
+     "TransactionDate": "2026-04-27",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "FLEX",
+     "Transaction": "Sale (Partial)",
+     "TransactionDate": "2026-05-01",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "FTNT",
+     "Transaction": "Sale (Full)",
+     "TransactionDate": "2026-04-14",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "IT",
+     "Transaction": "Sale (Full)",
+     "TransactionDate": "2026-04-14",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "GEN",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-04-14",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "GIL",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-04-24",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "GIL",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-04-27",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "GIL",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-04-29",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "GIL",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-04-22",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "GPN",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-04-14",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "GDDY",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-04-14",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "HESAF",
+     "Transaction": "Sale (Full)",
+     "TransactionDate": "2026-04-23",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "IBM",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-04-14",
+     "Amount": "$15,001 - $50,000"
+    },
+    {
+     "Ticker": "IP",
+     "Transaction": "Sale (Full)",
+     "TransactionDate": "2026-04-14",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "INTU",
+     "Transaction": "Sale (Partial)",
+     "TransactionDate": "2026-04-14",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "JKHY",
+     "Transaction": "Sale (Full)",
+     "TransactionDate": "2026-04-14",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "LPLA",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-05-01",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "LPLA",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-04-06",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "LITE",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-04-14",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "MSFT",
+     "Transaction": "Sale (Partial)",
+     "TransactionDate": "2026-04-14",
+     "Amount": "$15,001 - $50,000"
+    },
+    {
+     "Ticker": "MOS",
+     "Transaction": "Sale (Partial)",
+     "TransactionDate": "2026-04-14",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "NWS",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-04-14",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "NKE",
+     "Transaction": "Sale (Partial)",
+     "TransactionDate": "2026-04-14",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "NVDA",
+     "Transaction": "Sale (Partial)",
+     "TransactionDate": "2026-04-14",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "OMC",
+     "Transaction": "Sale (Full)",
+     "TransactionDate": "2026-04-14",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "PLTR",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-04-14",
+     "Amount": "$15,001 - $50,000"
+    },
+    {
+     "Ticker": "PANW",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-04-14",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "PAYX",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-04-14",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "PAYC",
+     "Transaction": "Sale (Full)",
+     "TransactionDate": "2026-04-14",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "RVTY",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-05-01",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "HOOD",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-04-14",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "ROP",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-04-14",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "ST",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-05-01",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "NOW",
+     "Transaction": "Sale (Partial)",
+     "TransactionDate": "2026-04-14",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "SNEJF",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-04-24",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "SSNC",
+     "Transaction": "Sale (Partial)",
+     "TransactionDate": "2026-04-13",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "SSNC",
+     "Transaction": "Sale (Partial)",
+     "TransactionDate": "2026-04-06",
+     "Amount": "$15,001 - $50,000"
+    },
+    {
+     "Ticker": "SSNC",
+     "Transaction": "Sale (Full)",
+     "TransactionDate": "2026-05-01",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "SSNC",
+     "Transaction": "Sale (Partial)",
+     "TransactionDate": "2026-04-29",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "STE",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-05-01",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "STE",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-04-29",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "TSLA",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-04-14",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "KHC",
+     "Transaction": "Sale (Full)",
+     "TransactionDate": "2026-04-14",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "TTD",
+     "Transaction": "Sale (Full)",
+     "TransactionDate": "2026-04-14",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "TRMB",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-04-14",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "TYL",
+     "Transaction": "Sale (Partial)",
+     "TransactionDate": "2026-04-14",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "UBER",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-04-14",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "UNH",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-04-14",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "VLTO",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-04-06",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "VLTO",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-04-13",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "VLTO",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-05-01",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "VRSK",
+     "Transaction": "Sale (Full)",
+     "TransactionDate": "2026-04-14",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "VZ",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-04-14",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "W",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-05-01",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "WDAY",
+     "Transaction": "Sale (Partial)",
+     "TransactionDate": "2026-04-14",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "ZTS",
+     "Transaction": "Sale (Partial)",
+     "TransactionDate": "2026-04-14",
+     "Amount": "$1,001 - $15,000"
+    }
+   ]
+  },
+  "20034466": {
+   "name": "Suzan K. DelBene",
+   "report_date": "2026-05-08",
+   "trades": []
+  },
+  "20034479": {
+   "name": "Maria Elvira Salazar",
+   "report_date": "2026-05-08",
+   "trades": [
+    {
+     "Ticker": "AMGN",
+     "Transaction": "Sale (Full)",
+     "TransactionDate": "2026-04-17",
+     "Amount": "$15,001 - $50,000"
+    },
+    {
+     "Ticker": "CARR",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-05-01",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "CARR",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-05-01",
+     "Amount": "$15,001 - $50,000"
+    },
+    {
+     "Ticker": "MRVL",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-04-06",
+     "Amount": "$15,001 - $50,000"
+    },
+    {
+     "Ticker": "MSFT",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-04-17",
+     "Amount": "$15,001 - $50,000"
+    },
+    {
+     "Ticker": "CRM",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-04-06",
+     "Amount": "$15,001 - $50,000"
+    },
+    {
+     "Ticker": "SHW",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-04-20",
+     "Amount": "$15,001 - $50,000"
+    },
+    {
+     "Ticker": "SHW",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-04-20",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "URI",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-04-24",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "UNH",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-04-22",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "UNH",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-04-22",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "VOYG",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-04-14",
+     "Amount": "$1,001 - $15,000"
+    }
+   ]
+  },
+  "20034503": {
+   "name": "Thomas Suozzi",
+   "report_date": "2026-05-08",
+   "trades": []
+  },
+  "20034499": {
+   "name": "Greg Stanton",
+   "report_date": "2026-05-07",
+   "trades": [
+    {
+     "Ticker": "TCNNF",
+     "Transaction": "Sale (Partial)",
+     "TransactionDate": "2026-05-06",
+     "Amount": "$15,001 - $50,000"
+    }
+   ]
+  },
+  "20034489": {
+   "name": "David J. Taylor",
+   "report_date": "2026-05-07",
+   "trades": [
+    {
+     "Ticker": "AVGO",
+     "Transaction": "Sale (Full)",
+     "TransactionDate": "2026-04-27",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "AVGO",
+     "Transaction": "Sale (Full)",
+     "TransactionDate": "2026-04-27",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "HD",
+     "Transaction": "Sale (Full)",
+     "TransactionDate": "2026-04-27",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "HD",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-04-27",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "LRCX",
+     "Transaction": "Sale (Full)",
+     "TransactionDate": "2026-04-27",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "LRCX",
+     "Transaction": "Sale (Full)",
+     "TransactionDate": "2026-04-27",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "PG",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-04-27",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "PG",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-04-27",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "PGR",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-04-27",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "V",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-04-27",
+     "Amount": "$1,001 - $15,000"
+    }
+   ]
+  },
+  "20034487": {
+   "name": "April McClain Delaney",
+   "report_date": "2026-05-06",
+   "trades": [
+    {
+     "Ticker": "TECH",
+     "Transaction": "Sale (Full)",
+     "TransactionDate": "2026-04-08",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "BRO",
+     "Transaction": "Sale (Partial)",
+     "TransactionDate": "2026-04-17",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "CHRW",
+     "Transaction": "Sale (Partial)",
+     "TransactionDate": "2026-04-24",
+     "Amount": "$15,001 - $50,000"
+    },
+    {
+     "Ticker": "CLH",
+     "Transaction": "Sale (Partial)",
+     "TransactionDate": "2026-04-30",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "ENTG",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-04-15",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "FBIN",
+     "Transaction": "Sale (Partial)",
+     "TransactionDate": "2026-04-24",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "MKL",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-04-30",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "MORN",
+     "Transaction": "Sale (Partial)",
+     "TransactionDate": "2026-04-16",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "MORN",
+     "Transaction": "Sale (Partial)",
+     "TransactionDate": "2026-04-17",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "NDAQ",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-04-24",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "PKG",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-04-29",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "PKG",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-04-24",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "PAYX",
+     "Transaction": "Sale (Partial)",
+     "TransactionDate": "2026-04-16",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "PAYX",
+     "Transaction": "Sale (Partial)",
+     "TransactionDate": "2026-04-21",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "SCI",
+     "Transaction": "Sale (Partial)",
+     "TransactionDate": "2026-04-30",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "STE",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-04-30",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "TDG",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-04-29",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "TDG",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-04-16",
+     "Amount": "$15,001 - $50,000"
+    },
+    {
+     "Ticker": "TDG",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-04-20",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "TDG",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-04-15",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "TDG",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-04-17",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "VIK",
+     "Transaction": "Sale (Partial)",
+     "TransactionDate": "2026-04-20",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "VIK",
+     "Transaction": "Sale (Partial)",
+     "TransactionDate": "2026-04-16",
+     "Amount": "$1,001 - $15,000"
+    }
+   ]
+  },
+  "20034486": {
+   "name": "Lloyd Doggett",
+   "report_date": "2026-05-06",
+   "trades": [
+    {
+     "Ticker": "KO",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-04-01",
+     "Amount": "$1,001 - $15,000"
+    }
+   ]
+  },
+  "20034461": {
+   "name": "Kevin Hern",
+   "report_date": "2026-05-05",
+   "trades": []
+  },
+  "20034300": {
+   "name": "Kelly Louise Morrison",
+   "report_date": "2026-05-05",
+   "trades": []
+  },
+  "20034315": {
+   "name": "Richard W. Allen",
+   "report_date": "2026-05-04",
+   "trades": []
+  },
+  "20034462": {
+   "name": "Ann Wagner",
+   "report_date": "2026-05-04",
+   "trades": []
+  },
+  "20034413": {
+   "name": "Elizabeth Fletcher",
+   "report_date": "2026-05-01",
+   "trades": [
+    {
+     "Ticker": "GOOGL",
+     "Transaction": "Sale (Partial)",
+     "TransactionDate": "2026-04-08",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "AMP",
+     "Transaction": "Sale (Partial)",
+     "TransactionDate": "2026-04-08",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "AAPL",
+     "Transaction": "Sale (Partial)",
+     "TransactionDate": "2026-04-08",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "ETN",
+     "Transaction": "Sale (Partial)",
+     "TransactionDate": "2026-04-08",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "LLY",
+     "Transaction": "Sale (Partial)",
+     "TransactionDate": "2026-04-08",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "JPM",
+     "Transaction": "Sale (Partial)",
+     "TransactionDate": "2026-04-08",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "KLAC",
+     "Transaction": "Sale (Partial)",
+     "TransactionDate": "2026-04-08",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "MCK",
+     "Transaction": "Sale (Partial)",
+     "TransactionDate": "2026-04-08",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "MSFT",
+     "Transaction": "Sale (Partial)",
+     "TransactionDate": "2026-04-08",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "NVDA",
+     "Transaction": "Sale (Partial)",
+     "TransactionDate": "2026-04-08",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "PWR",
+     "Transaction": "Sale (Partial)",
+     "TransactionDate": "2026-04-08",
+     "Amount": "$1,001 - $15,000"
+    }
+   ]
+  },
+  "20034274": {
+   "name": "Jared Moskowitz",
+   "report_date": "2026-04-30",
+   "trades": [
+    {
+     "Ticker": "ACN",
+     "Transaction": "Sale (Full)",
+     "TransactionDate": "2026-03-23",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "ACN",
+     "Transaction": "Sale (Full)",
+     "TransactionDate": "2026-03-23",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "ACN",
+     "Transaction": "Sale (Full)",
+     "TransactionDate": "2026-03-23",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "AXP",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-03-31",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "ASML",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-03-31",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "ASML",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-03-23",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "ASML",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-03-23",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "ASML",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-03-23",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "ADP",
+     "Transaction": "Sale (Full)",
+     "TransactionDate": "2026-03-23",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "ADP",
+     "Transaction": "Sale (Full)",
+     "TransactionDate": "2026-03-23",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "ADP",
+     "Transaction": "Sale (Full)",
+     "TransactionDate": "2026-03-23",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "AVGO",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-03-31",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "BRO",
+     "Transaction": "Sale (Full)",
+     "TransactionDate": "2026-03-23",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "BRO",
+     "Transaction": "Sale (Full)",
+     "TransactionDate": "2026-03-23",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "BRO",
+     "Transaction": "Sale (Full)",
+     "TransactionDate": "2026-03-23",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "CAT",
+     "Transaction": "Sale (Partial)",
+     "TransactionDate": "2026-03-31",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "COR",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-03-31",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "COR",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-03-23",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "COR",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-03-23",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "CB",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-03-31",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "CMI",
+     "Transaction": "Sale (Partial)",
+     "TransactionDate": "2026-03-31",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "GE",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-03-31",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "GE",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-03-23",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "GE",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-03-23",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "GD",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-03-31",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "GD",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-03-23",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "GD",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-03-23",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "HD",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-03-31",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "MCD",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-03-31",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "MNST",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-03-23",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "MNST",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-03-23",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "MSI",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-03-23",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "MSI",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-03-23",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "ORCL",
+     "Transaction": "Sale (Full)",
+     "TransactionDate": "2026-03-23",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "ORCL",
+     "Transaction": "Sale (Full)",
+     "TransactionDate": "2026-03-23",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "ORCL",
+     "Transaction": "Sale (Full)",
+     "TransactionDate": "2026-03-23",
+     "Amount": "$15,001 - $50,000"
+    },
+    {
+     "Ticker": "PANW",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-03-31",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "PANW",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-03-23",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "PANW",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-03-23",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "PH",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-03-23",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "PH",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-03-23",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "QCOM",
+     "Transaction": "Sale (Full)",
+     "TransactionDate": "2026-03-31",
+     "Amount": "$15,001 - $50,000"
+    },
+    {
+     "Ticker": "CI",
+     "Transaction": "Sale (Full)",
+     "TransactionDate": "2026-03-23",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "CI",
+     "Transaction": "Sale (Full)",
+     "TransactionDate": "2026-03-23",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "TJX",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-03-23",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "TSCO",
+     "Transaction": "Sale (Full)",
+     "TransactionDate": "2026-03-23",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "TSCO",
+     "Transaction": "Sale (Full)",
+     "TransactionDate": "2026-03-23",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "TSCO",
+     "Transaction": "Sale (Full)",
+     "TransactionDate": "2026-03-23",
+     "Amount": "$15,001 - $50,000"
+    }
+   ]
+  },
+  "20019182": {
+   "name": "Lloyd K. Smucker",
+   "report_date": "2026-04-30",
+   "trades": [
+    {
+     "Ticker": "ENBP",
+     "Transaction": "Sale (Full)",
+     "TransactionDate": "2026-04-23",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "FULT",
+     "Transaction": "Sale (Full)",
+     "TransactionDate": "2026-04-23",
+     "Amount": "$50,001 - $100,000"
+    },
+    {
+     "Ticker": "FULT",
+     "Transaction": "Sale (Full)",
+     "TransactionDate": "2026-04-17",
+     "Amount": "$100,001 - $250,000"
+    },
+    {
+     "Ticker": "FULT",
+     "Transaction": "Sale (Full)",
+     "TransactionDate": "2026-04-17",
+     "Amount": "$100,001 - $250,000"
+    },
+    {
+     "Ticker": "PRU",
+     "Transaction": "Sale (Full)",
+     "TransactionDate": "2026-04-23",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "TFC",
+     "Transaction": "Sale (Full)",
+     "TransactionDate": "2026-04-17",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "VZ",
+     "Transaction": "Sale (Full)",
+     "TransactionDate": "2026-04-23",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "WFC",
+     "Transaction": "Sale (Full)",
+     "TransactionDate": "2026-04-23",
+     "Amount": "$15,001 - $50,000"
+    }
+   ]
+  },
+  "20034414": {
+   "name": "Lori Trahan",
+   "report_date": "2026-04-30",
+   "trades": []
+  },
+  "20034342": {
+   "name": "Scott H. Peters",
+   "report_date": "2026-04-29",
+   "trades": []
+  },
+  "20034368": {
+   "name": "Steve Cohen",
+   "report_date": "2026-04-28",
+   "trades": []
+  },
+  "20034400": {
+   "name": "Suzan K. DelBene",
+   "report_date": "2026-04-28",
+   "trades": []
+  },
+  "20034416": {
+   "name": "Debbie Dingell",
+   "report_date": "2026-04-28",
+   "trades": [
+    {
+     "Ticker": "PTA",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-04-21",
+     "Amount": "$1,001 - $15,000"
+    }
+   ]
+  },
+  "20034419": {
+   "name": "Max Miller",
+   "report_date": "2026-04-28",
+   "trades": []
+  },
+  "20034424": {
+   "name": "Tim Moore",
+   "report_date": "2026-04-28",
+   "trades": [
+    {
+     "Ticker": "CBRL",
+     "Transaction": "Sale (Full)",
+     "TransactionDate": "2026-04-01",
+     "Amount": "$15,001 - $50,000"
+    },
+    {
+     "Ticker": "HOG",
+     "Transaction": "Sale (Full)",
+     "TransactionDate": "2026-04-07",
+     "Amount": "$50,001 - $100,000"
+    },
+    {
+     "Ticker": "LGIH",
+     "Transaction": "Sale (Full)",
+     "TransactionDate": "2026-03-26",
+     "Amount": "$100,001 - $250,000"
+    },
+    {
+     "Ticker": "NVDA",
+     "Transaction": "Sale (Full)",
+     "TransactionDate": "2026-03-24",
+     "Amount": "$15,001 - $50,000"
+    }
+   ]
+  },
+  "20034401": {
+   "name": "Robert E. Latta",
+   "report_date": "2026-04-24",
+   "trades": [
+    {
+     "Ticker": "FMAO",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-04-20",
+     "Amount": "$1,001 - $15,000"
+    }
+   ]
+  },
+  "20034359": {
+   "name": "Daniel Meuser",
+   "report_date": "2026-04-21",
+   "trades": [
+    {
+     "Ticker": "NVDA",
+     "Transaction": "Sale (Partial)",
+     "TransactionDate": "2026-03-25",
+     "Amount": "$1,001 - $15,000"
+    }
+   ]
+  },
+  "20033993": {
+   "name": "Maria Elvira Salazar",
+   "report_date": "2026-04-21",
+   "trades": [
+    {
+     "Ticker": "AMGN",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-03-24",
+     "Amount": "$15,001 - $50,000"
+    },
+    {
+     "Ticker": "BA",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-03-19",
+     "Amount": "$15,001 - $50,000"
+    },
+    {
+     "Ticker": "BA",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-03-19",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "CSCO",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-03-19",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "CSCO",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-03-19",
+     "Amount": "$15,001 - $50,000"
+    },
+    {
+     "Ticker": "C",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-03-19",
+     "Amount": "$15,001 - $50,000"
+    },
+    {
+     "Ticker": "C",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-03-19",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "GLW",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-03-19",
+     "Amount": "$15,001 - $50,000"
+    },
+    {
+     "Ticker": "GLW",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-03-19",
+     "Amount": "$15,001 - $50,000"
+    },
+    {
+     "Ticker": "FDX",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-03-19",
+     "Amount": "$15,001 - $50,000"
+    },
+    {
+     "Ticker": "FDX",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-03-25",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "GE",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-03-24",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "GS",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-03-19",
+     "Amount": "$15,001 - $50,000"
+    },
+    {
+     "Ticker": "GS",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-03-19",
+     "Amount": "$15,001 - $50,000"
+    },
+    {
+     "Ticker": "HON",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-03-24",
+     "Amount": "$15,001 - $50,000"
+    },
+    {
+     "Ticker": "NVR",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-03-19",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "PTON",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-03-19",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "PTON",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-03-19",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "RH",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-03-19",
+     "Amount": "$15,001 - $50,000"
+    },
+    {
+     "Ticker": "RH",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-03-19",
+     "Amount": "$15,001 - $50,000"
+    },
+    {
+     "Ticker": "ULTA",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-03-19",
+     "Amount": "$15,001 - $50,000"
+    },
+    {
+     "Ticker": "URI",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-03-25",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "VG",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-03-19",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "WHR",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-03-19",
+     "Amount": "$15,001 - $50,000"
+    }
+   ]
+  },
+  "20034384": {
+   "name": "Terri A. Sewell",
+   "report_date": "2026-04-21",
+   "trades": [
+    {
+     "Ticker": "GEHC",
+     "Transaction": "Sale (Full)",
+     "TransactionDate": "2026-03-25",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "TPR",
+     "Transaction": "Sale (Full)",
+     "TransactionDate": "2026-03-25",
+     "Amount": "$15,001 - $50,000"
+    }
+   ]
+  },
+  "20034379": {
+   "name": "Dwight Evans",
+   "report_date": "2026-04-20",
+   "trades": [
+    {
+     "Ticker": "MU",
+     "Transaction": "Sale (Full)",
+     "TransactionDate": "2026-03-24",
+     "Amount": "$15,001 - $50,000"
+    }
+   ]
+  },
+  "20034357": {
+   "name": "Cleo Fields",
+   "report_date": "2026-04-20",
+   "trades": [
+    {
+     "Ticker": "TSM",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-04-09",
+     "Amount": "$1,001 - $15,000"
+    }
+   ]
+  },
+  "20034355": {
+   "name": "Laura Friedman",
+   "report_date": "2026-04-17",
+   "trades": []
+  },
+  "20034346": {
+   "name": "Sheri Biggs",
+   "report_date": "2026-04-16",
+   "trades": [
+    {
+     "Ticker": "IBIT",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-03-04",
+     "Amount": "$100,001 - $250,000"
+    }
+   ]
+  },
+  "20034311": {
+   "name": "Jennifer McClellan",
+   "report_date": "2026-04-16",
+   "trades": [
+    {
+     "Ticker": "VZ",
+     "Transaction": "Sale (Partial)",
+     "TransactionDate": "2026-04-07",
+     "Amount": "$100,001 - $250,000"
+    }
+   ]
+  },
+  "20034351": {
+   "name": "Rick Larsen",
+   "report_date": "2026-04-15",
+   "trades": [
+    {
+     "Ticker": "AXP",
+     "Transaction": "Sale (Full)",
+     "TransactionDate": "2026-04-07",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "AWK",
+     "Transaction": "Sale (Full)",
+     "TransactionDate": "2026-04-07",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "BR",
+     "Transaction": "Sale (Full)",
+     "TransactionDate": "2026-04-07",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "CARR",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-04-07",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "CASY",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-04-07",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "NEE",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-04-07",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "PAYX",
+     "Transaction": "Sale (Full)",
+     "TransactionDate": "2026-04-07",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "SNDA",
+     "Transaction": "Sale (Full)",
+     "TransactionDate": "2026-04-07",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "WAB",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-04-07",
+     "Amount": "$1,001 - $15,000"
+    }
+   ]
+  },
+  "20034348": {
+   "name": "August Lee Pfluger",
+   "report_date": "2026-04-15",
+   "trades": [
+    {
+     "Ticker": "UHALB",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-03-13",
+     "Amount": "$15,001 - $50,000"
+    },
+    {
+     "Ticker": "BRK.B",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-03-13",
+     "Amount": "$15,001 - $50,000"
+    },
+    {
+     "Ticker": "DMLP",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-03-13",
+     "Amount": "$15,001 - $50,000"
+    },
+    {
+     "Ticker": "EPD",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-03-13",
+     "Amount": "$15,001 - $50,000"
+    },
+    {
+     "Ticker": "KRP",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-03-13",
+     "Amount": "$15,001 - $50,000"
+    },
+    {
+     "Ticker": "VNOM",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-03-13",
+     "Amount": "$15,001 - $50,000"
+    }
+   ]
+  },
+  "20034345": {
+   "name": "Greg Steube",
+   "report_date": "2026-04-14",
+   "trades": [
+    {
+     "Ticker": "IONQ",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-03-18",
+     "Amount": "$1,001 - $15,000"
+    }
+   ]
   }
  },
  "senate": {
