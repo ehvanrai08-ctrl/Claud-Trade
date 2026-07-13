@@ -5896,6 +5896,66 @@
      "Amount": "$1,001 - $15,000"
     }
    ]
+  },
+  "c52854ed-a778-483a-883c-0ba2bba17877": {
+   "name": "John Boozman",
+   "report_date": "2026-07-13",
+   "trades": [
+    {
+     "Ticker": "TPYP",
+     "Transaction": "Sale (Partial)",
+     "TransactionDate": "2026-06-25",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "FTGC",
+     "Transaction": "Sale (Partial)",
+     "TransactionDate": "2026-06-25",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "IEF",
+     "Transaction": "Sale (Partial)",
+     "TransactionDate": "2026-06-17",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "ATO",
+     "Transaction": "Sale (Full)",
+     "TransactionDate": "2026-06-12",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "BSX",
+     "Transaction": "Sale (Partial)",
+     "TransactionDate": "2026-06-04",
+     "Amount": "$1,001 - $15,000"
+    }
+   ]
+  },
+  "9c0b720d-7e27-4b02-8cf5-a85ba88c9543": {
+   "name": "John Boozman",
+   "report_date": "2026-07-13",
+   "trades": [
+    {
+     "Ticker": "IGV",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-06-25",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "PALL",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-06-25",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "UNH",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-06-04",
+     "Amount": "$1,001 - $15,000"
+    }
+   ]
   }
  }
 }
