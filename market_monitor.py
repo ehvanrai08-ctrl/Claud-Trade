@@ -324,7 +324,7 @@ def tick():
             persist_state(state, "chore: stop raised")
 
     proximity_pct = (price - state["current_stop"]) / price if price > 0 else 1.0
-    if proximity_pct < 0.01:
+    if proximity_pct < 0.02:
         log.warning(
             f"STOP PROXIMITY WARNING: {symbol} ${price:.2f} is only "
             f"{proximity_pct*100:.2f}% above stop ${state['current_stop']:.2f} — near stop-out"

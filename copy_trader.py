@@ -246,11 +246,11 @@ def run():
     log.info(f"Tracking: {politician}")
 
     # Get their recent trades within lookback window
-    cutoff = (datetime.now() - timedelta(days=LOOKBACK_DAYS)).strftime("%Y-%m-%d")
+    copy_cutoff = (datetime.now() - timedelta(days=LOOKBACK_DAYS)).strftime("%Y-%m-%d")
     their_trades = [
         t for t in trades
         if t["Representative"] == politician
-        and t.get("ReportDate", "") >= cutoff
+        and t.get("ReportDate", "") >= copy_cutoff
         and t.get("Ticker")
         and t.get("Transaction") in ("Purchase", "Sale (Full)", "Sale (Partial)")
     ]
@@ -264,7 +264,7 @@ def run():
     # Build conviction map: tickers bought by 2+ politicians recently
     all_recent_buys = {}
     for t in trades:
-        if t.get("ReportDate","") >= cutoff and t.get("Transaction") == "Purchase" and t.get("Ticker"):
+        if t.get("ReportDate","") >= copy_cutoff and t.get("Transaction") == "Purchase" and t.get("Ticker"):
             ticker = t["Ticker"].strip().upper()
             buyers = all_recent_buys.setdefault(ticker, set())
             buyers.add(t["Representative"])

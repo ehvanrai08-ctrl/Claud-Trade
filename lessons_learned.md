@@ -40,3 +40,7 @@ Newest lessons are appended at the bottom with a date stamp.
 ### 2026-07-13
 - A market order placed for options may not have a `filled_avg_price` when queried within the same second; reading fill price without a short delay (or a retry loop) silently records the pre-fill bid estimate as the official sell price, causing permanent P&L tracking drift.
 - A state timestamp field that is overwritten on every run (even when the guarded action did not execute) effectively disables the time-based re-evaluation it was designed to enforce; only update the "last evaluated" timestamp inside the branch where the evaluation actually runs.
+
+### 2026-07-14
+- A fill-price field marked as estimated at order time should be re-confirmed on the next bot run by re-querying the order; using an unconfirmed baseline for profit/loss threshold decisions (early close, stop loss) can trigger the wrong action at the wrong time.
+- Using the same cutoff variable for both candidate scoring and trade copying silently couples two independent time windows; always name and compute them separately so changing one doesn't affect the other.

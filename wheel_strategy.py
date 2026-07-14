@@ -326,6 +326,18 @@ def check_early_close(state):
     if not current_price or not sell_price:
         return False
 
+    if not contract.get("sell_price_confirmed", True):
+        # Fill price was estimated at order time — try to confirm it now before
+        # making a profit/loss decision based on a potentially wrong baseline.
+        order_id = contract.get("order_id")
+        if order_id:
+            confirmed = sell_fill_price(order_id, contract["symbol"])
+            if confirmed and confirmed > 0:
+                contract["sell_price"] = confirmed
+                contract["sell_price_confirmed"] = True
+                sell_price = confirmed
+                log.info(f"SELL PRICE CONFIRMED (deferred): {contract['symbol']} fill=${confirmed:.2f}")
+
     profit_pct = (sell_price - current_price) / sell_price
     log.info(f"EARLY CLOSE CHECK: {contract['symbol']} sell=${sell_price:.2f} now=${current_price:.2f} pnl={profit_pct*100:.1f}% (close_target=+{EARLY_CLOSE_PCT*100:.0f}%)")
 
