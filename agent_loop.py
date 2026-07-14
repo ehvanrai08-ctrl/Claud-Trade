@@ -20,7 +20,7 @@ import json
 import os
 import sys
 import subprocess
-from datetime import datetime
+from datetime import datetime, timezone
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 REPORTS_DIR = f"{BASE_DIR}/reports"
@@ -264,7 +264,7 @@ def main(limit_candidates=5):
     # Build & write report.
     report = build_report(discovery, backtest_results, optimizer_results)
     # Same-day re-runs get a numbered suffix instead of overwriting history.
-    base = f"{REPORTS_DIR}/agent_loop_{datetime.utcnow().strftime('%Y-%m-%d')}"
+    base = f"{REPORTS_DIR}/agent_loop_{datetime.now(timezone.utc).strftime('%Y-%m-%d')}"
     report_file, n = f"{base}.md", 2
     while os.path.exists(report_file):
         report_file = f"{base}_{n}.md"

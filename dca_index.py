@@ -15,7 +15,7 @@ import json
 import logging
 import os
 import requests
-from datetime import datetime, timezone
+from datetime import date, datetime, timezone
 from dotenv import dotenv_values
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
