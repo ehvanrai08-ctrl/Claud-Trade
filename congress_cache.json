@@ -5083,6 +5083,53 @@
      "Amount": "$1,001 - $15,000"
     }
    ]
+  },
+  "20034949": {
+   "name": "John James",
+   "report_date": "2026-07-12",
+   "trades": []
+  },
+  "20034977": {
+   "name": "Rick Larsen",
+   "report_date": "2026-07-12",
+   "trades": [
+    {
+     "Ticker": "ABT",
+     "Transaction": "Sale (Full)",
+     "TransactionDate": "2026-07-08",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "APH",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-07-08",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "MCK",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-07-08",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "SPGI",
+     "Transaction": "Sale (Full)",
+     "TransactionDate": "2026-07-08",
+     "Amount": "$1,001 - $15,000"
+    }
+   ]
+  },
+  "20034895": {
+   "name": "Virginia Foxx",
+   "report_date": "2026-07-10",
+   "trades": [
+    {
+     "Ticker": "ARLP",
+     "Transaction": "Sale (Partial)",
+     "TransactionDate": "2026-06-18",
+     "Amount": "$15,001 - $50,000"
+    }
+   ]
   }
  },
  "senate": {
