@@ -44,3 +44,7 @@ Newest lessons are appended at the bottom with a date stamp.
 ### 2026-07-14
 - A fill-price field marked as estimated at order time should be re-confirmed on the next bot run by re-querying the order; using an unconfirmed baseline for profit/loss threshold decisions (early close, stop loss) can trigger the wrong action at the wrong time.
 - Using the same cutoff variable for both candidate scoring and trade copying silently couples two independent time windows; always name and compute them separately so changing one doesn't affect the other.
+
+### 2026-07-15
+- A stop-proximity warning that fires on every tick with no escalation path becomes log noise; consecutive-tick counters with a print-level alert after N triggers are necessary to distinguish "briefly close" from "pinned near stop for 30 minutes."
+- An unconfirmed fill-price field should be re-confirmed on every bot run (at startup), not only inside the conditional branch that happens to check it — otherwise the unconfirmed estimate can persist for the entire life of a contract if the trigger condition is never met.

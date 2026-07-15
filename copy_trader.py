@@ -346,8 +346,13 @@ def run():
     state["copied_trades"] = copied[-500:]  # keep last 500 to avoid unbounded growth
 
     if new_copies == 0:
-        print(f"[COPY] No new trades to copy from {politician}")
-        log.info("No new trades to copy this run")
+        already_seen = sum(
+            1 for trade in their_trades
+            if f"{politician}|{trade['Ticker'].strip().upper()}|{trade['ReportDate']}|{trade['Transaction']}"
+               in copied
+        )
+        print(f"[COPY] No new trades to copy from {politician} ({len(their_trades)} examined, {already_seen} already copied)")
+        log.info(f"No new trades to copy this run ({len(their_trades)} examined, {already_seen} already copied)")
 
     save_state(state)
 

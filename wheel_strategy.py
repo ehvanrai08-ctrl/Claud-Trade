@@ -485,6 +485,17 @@ def run():
         if not closed:
             check_assignment_or_expiry(state)
 
+    # Re-confirm any unconfirmed sell price before acting on it
+    active = state.get("active_contract")
+    if active and not active.get("sell_price_confirmed", True):
+        order_id = active.get("order_id")
+        if order_id:
+            confirmed = sell_fill_price(order_id, active["symbol"])
+            if confirmed and confirmed > 0:
+                active["sell_price"] = confirmed
+                active["sell_price_confirmed"] = True
+                log.info(f"SELL PRICE CONFIRMED (startup recheck): {active['symbol']} fill=${confirmed:.2f}")
+
     # No active contract — act based on stage
     if not state.get("active_contract"):
         if state["stage"] == 1:

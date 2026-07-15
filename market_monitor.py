@@ -329,6 +329,15 @@ def tick():
             f"STOP PROXIMITY WARNING: {symbol} ${price:.2f} is only "
             f"{proximity_pct*100:.2f}% above stop ${state['current_stop']:.2f} — near stop-out"
         )
+        consecutive = state.get("proximity_warn_count", 0) + 1
+        state["proximity_warn_count"] = consecutive
+        if consecutive >= 5 and consecutive % 5 == 0:
+            print(
+                f"[ALERT] {symbol} has been within 2% of stop for {consecutive} consecutive ticks "
+                f"(${price:.2f} vs stop ${state['current_stop']:.2f}) — consider manual review"
+            )
+    else:
+        state["proximity_warn_count"] = 0
     log.info(f"TICK: {symbol} ${price:.2f} | HWM ${hwm:.2f} | Stop ${state['current_stop']:.2f} | Trailing: {trailing}")
     save_state(state)  # disk only — routine HWM drift isn't worth a commit
 
