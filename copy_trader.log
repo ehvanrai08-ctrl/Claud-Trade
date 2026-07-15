@@ -64,3 +64,12 @@
 2026-07-14 19:11:59,996 INFO SKIP sell NTDOY — no position
 2026-07-14 19:12:00,156 INFO SKIP sell NVZMY — no position
 2026-07-14 19:12:00,157 INFO No new trades to copy this run
+2026-07-15 15:23:41,783 INFO Tracking: Josh Gottheimer
+2026-07-15 15:23:42,024 INFO SKIP sell ADC — no position
+2026-07-15 15:23:42,066 INFO SKIP sell BABA — no position
+2026-07-15 15:23:42,101 INFO SKIP sell BKNG — no position
+2026-07-15 15:23:42,142 INFO SKIP sell INSM — no position
+2026-07-15 15:23:42,509 INFO SKIP sell NSRGY — no position
+2026-07-15 15:23:42,559 INFO SKIP sell NTDOY — no position
+2026-07-15 15:23:42,600 INFO SKIP sell NVZMY — no position
+2026-07-15 15:23:42,600 INFO No new trades to copy this run (7 examined, 0 already copied)
