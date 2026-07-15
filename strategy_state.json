@@ -5,5 +5,6 @@
   "stop_order_id": "f915bc9c-4ed4-4ea7-8485-a0b35477a0b1",
   "current_stop": 391.37,
   "trailing_active": true,
-  "high_water_mark": 419.9
+  "high_water_mark": 419.9,
+  "proximity_warn_count": 90
 }
