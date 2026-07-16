@@ -15,7 +15,7 @@ import json
 import logging
 import os
 import requests
-from datetime import date, datetime, timezone
+from datetime import datetime, timezone
 from dotenv import dotenv_values
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -91,9 +91,9 @@ def run():
         return
     last = state.get("last_buy_date")
     if last:
-        from datetime import date
-        d0 = date.fromisoformat(last)
-        d1 = date.fromisoformat(today)
+        from datetime import date as _date
+        d0 = _date.fromisoformat(last)
+        d1 = _date.fromisoformat(today)
         if (d1 - d0).days < 5:
             log.info(f"Skipping — already bought this week ({last}).")
             print(f"[DCA] Already bought this week ({last}) — skipping")
