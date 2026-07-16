@@ -5135,6 +5135,28 @@
    "name": "Rudy C. Yakym",
    "report_date": "2026-07-13",
    "trades": []
+  },
+  "20034960": {
+   "name": "Debbie Dingell",
+   "report_date": "2026-07-15",
+   "trades": []
+  },
+  "20034892": {
+   "name": "Katherine M. Clark",
+   "report_date": "2026-07-14",
+   "trades": []
+  },
+  "20034999": {
+   "name": "Debbie Wasserman Schultz",
+   "report_date": "2026-07-14",
+   "trades": [
+    {
+     "Ticker": "ICHR",
+     "Transaction": "Sale (Full)",
+     "TransactionDate": "2026-06-17",
+     "Amount": "$2,722"
+    }
+   ]
   }
  },
  "senate": {
@@ -6005,6 +6027,72 @@
      "Ticker": "UNH",
      "Transaction": "Purchase",
      "TransactionDate": "2026-06-04",
+     "Amount": "$1,001 - $15,000"
+    }
+   ]
+  },
+  "392ac3e5-07f6-4f8c-840f-84e9066ffb29": {
+   "name": "Thomas H Tuberville",
+   "report_date": "2026-07-16",
+   "trades": [
+    {
+     "Ticker": "WAB",
+     "Transaction": "Sale (Full)",
+     "TransactionDate": "2026-06-09",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "AWK",
+     "Transaction": "Sale (Full)",
+     "TransactionDate": "2026-06-08",
+     "Amount": "$15,001 - $50,000"
+    },
+    {
+     "Ticker": "CSX",
+     "Transaction": "Sale (Full)",
+     "TransactionDate": "2026-06-08",
+     "Amount": "$15,001 - $50,000"
+    },
+    {
+     "Ticker": "DUK",
+     "Transaction": "Sale (Full)",
+     "TransactionDate": "2026-06-08",
+     "Amount": "$15,001 - $50,000"
+    },
+    {
+     "Ticker": "LMT",
+     "Transaction": "Sale (Full)",
+     "TransactionDate": "2026-06-08",
+     "Amount": "$15,001 - $50,000"
+    },
+    {
+     "Ticker": "MA",
+     "Transaction": "Sale (Full)",
+     "TransactionDate": "2026-06-08",
+     "Amount": "$15,001 - $50,000"
+    },
+    {
+     "Ticker": "NEE",
+     "Transaction": "Sale (Full)",
+     "TransactionDate": "2026-06-08",
+     "Amount": "$15,001 - $50,000"
+    },
+    {
+     "Ticker": "PFE",
+     "Transaction": "Sale (Full)",
+     "TransactionDate": "2026-06-08",
+     "Amount": "$15,001 - $50,000"
+    },
+    {
+     "Ticker": "PG",
+     "Transaction": "Sale (Full)",
+     "TransactionDate": "2026-06-08",
+     "Amount": "$15,001 - $50,000"
+    },
+    {
+     "Ticker": "TSCO",
+     "Transaction": "Sale (Full)",
+     "TransactionDate": "2026-06-08",
      "Amount": "$1,001 - $15,000"
     }
    ]
