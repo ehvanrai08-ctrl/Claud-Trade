@@ -331,7 +331,9 @@ def tick():
         )
         consecutive = state.get("proximity_warn_count", 0) + 1
         state["proximity_warn_count"] = consecutive
-        if consecutive >= 5 and consecutive % 5 == 0:
+        # Fire at 5, 10, 25, 50, 100, then every 100 — reduces noise for long pinned periods.
+        alert_thresholds = {5, 10, 25, 50, 100}
+        if consecutive in alert_thresholds or (consecutive > 100 and consecutive % 100 == 0):
             print(
                 f"[ALERT] {symbol} has been within 2% of stop for {consecutive} consecutive ticks "
                 f"(${price:.2f} vs stop ${state['current_stop']:.2f}) — consider manual review"

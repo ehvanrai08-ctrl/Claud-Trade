@@ -48,3 +48,7 @@ Newest lessons are appended at the bottom with a date stamp.
 ### 2026-07-15
 - A stop-proximity warning that fires on every tick with no escalation path becomes log noise; consecutive-tick counters with a print-level alert after N triggers are necessary to distinguish "briefly close" from "pinned near stop for 30 minutes."
 - An unconfirmed fill-price field should be re-confirmed on every bot run (at startup), not only inside the conditional branch that happens to check it — otherwise the unconfirmed estimate can persist for the entire life of a contract if the trigger condition is never met.
+
+### 2026-07-16
+- A proximity-warning escalation scheme using a fixed modulus (every N ticks) becomes log noise when a position stays pinned for hours; geometric or sparse thresholds (5, 10, 25, 50, 100, then every 100) preserve urgency without flooding output.
+- A startup fill-price reconfirmation block placed *after* the early-close check defeats its own purpose — the unconfirmed baseline is already consumed before the correction can apply; always reconfirm before any decision that reads the field.

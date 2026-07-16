@@ -479,13 +479,7 @@ def run():
 
     log.info(f"TICK: {SYMBOL} ${price:.2f} stage={state['stage']} contract={state.get('active_contract', {}).get('symbol') if state.get('active_contract') else 'none'}")
 
-    # Check if current contract hit 50% profit — close early
-    if state.get("active_contract"):
-        closed = check_early_close(state)
-        if not closed:
-            check_assignment_or_expiry(state)
-
-    # Re-confirm any unconfirmed sell price before acting on it
+    # Re-confirm any unconfirmed sell price BEFORE acting on it in check_early_close.
     active = state.get("active_contract")
     if active and not active.get("sell_price_confirmed", True):
         order_id = active.get("order_id")
@@ -495,6 +489,12 @@ def run():
                 active["sell_price"] = confirmed
                 active["sell_price_confirmed"] = True
                 log.info(f"SELL PRICE CONFIRMED (startup recheck): {active['symbol']} fill=${confirmed:.2f}")
+
+    # Check if current contract hit 50% profit — close early
+    if state.get("active_contract"):
+        closed = check_early_close(state)
+        if not closed:
+            check_assignment_or_expiry(state)
 
     # No active contract — act based on stage
     if not state.get("active_contract"):

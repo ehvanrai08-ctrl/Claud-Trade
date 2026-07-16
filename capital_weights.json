@@ -1,6 +1,6 @@
 {
   "weights": {
-    "tsla_trailing": 1.0,
+    "tsla_trailing": 1.3,
     "trend_basket": 1.0,
     "wheel": 1.0,
     "copy_trader": 1.0,
@@ -16,7 +16,7 @@
     "tsmom": 1.0
   },
   "notes": {
-    "tsla_trailing": "insufficient data (0/5 trades) \u2014 default 1.0",
+    "tsla_trailing": "PF=2.00 over 30 trades, consec_losses=0 \u2192 raw 2.00",
     "trend_basket": "insufficient data (1/5 trades) \u2014 default 1.0",
     "wheel": "insufficient data (2/5 trades) \u2014 default 1.0",
     "copy_trader": "insufficient data (0/5 trades) \u2014 default 1.0",
