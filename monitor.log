@@ -289,3 +289,6 @@
 2026-07-16 20:00:00,132 INFO STOP HIT: sold 10 TSLA @ $388.44
 2026-07-16 20:01:00,205 INFO Market closed — exiting loop.
 2026-07-16 20:01:00,205 INFO Monitor loop ended
+2026-07-17 14:55:13,122 INFO Monitor loop started
+2026-07-17 14:55:13,344 INFO Corporate-action scan: checking 24 positions
+2026-07-17 14:55:13,344 INFO Corporate-action scan complete: 0 flag(s) raised
