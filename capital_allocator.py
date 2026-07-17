@@ -46,6 +46,7 @@ STRATEGIES = [
     "superinvestor",
     "emerging_growth",
     "tsmom",
+    "credit_vol_qqq",
 ]
 
 
