@@ -142,12 +142,17 @@ def validate_and_run(code):
         except py_compile.PyCompileError as e:
             return False, None, f"Syntax error: {str(e)[:200]}"
 
+        # `cwd=` does NOT put BASE_DIR on the import path — see
+        # backtest_generator.py's validate_and_run for the same fix (this was
+        # copy-pasted and had the identical ModuleNotFoundError bug).
+        env = {**os.environ, "PYTHONPATH": BASE_DIR}
         result = subprocess.run(
             ["python", temp_path],
             capture_output=True,
             text=True,
             timeout=120,  # sweep can take a while
-            cwd=BASE_DIR,  # so `from backtest_research import ...` resolves
+            cwd=BASE_DIR,
+            env=env,
         )
         if result.returncode != 0:
             return False, None, f"Runtime error: {result.stderr[:500]}"

@@ -129,14 +129,19 @@ def validate_and_run(code):
         except py_compile.PyCompileError as e:
             return False, None, f"Syntax error: {str(e)[:200]}"
 
-        # Run it FROM the repo dir so `from backtest_research import ...` resolves
-        # (the temp file lives in /tmp, which isn't on the import path).
+        # `cwd=` does NOT put BASE_DIR on the import path — Python adds the
+        # SCRIPT's own directory (/tmp) to sys.path[0], not the subprocess's
+        # working directory. Every generated backtest was crashing on
+        # `from backtest_research import ...` with ModuleNotFoundError until
+        # this was set explicitly via PYTHONPATH.
+        env = {**os.environ, "PYTHONPATH": BASE_DIR}
         result = subprocess.run(
             ["python", temp_path],
             capture_output=True,
             text=True,
             timeout=60,
             cwd=BASE_DIR,
+            env=env,
         )
         if result.returncode != 0:
             return False, None, f"Runtime error: {result.stderr[:500]}"
