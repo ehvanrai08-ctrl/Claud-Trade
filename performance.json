@@ -27,18 +27,18 @@
       "profit_factor": 0.78
     },
     "tsla_trailing": {
-      "trades": 366,
+      "trades": 85,
       "wins": 84,
-      "losses": 282,
+      "losses": 1,
       "breakeven": 0,
-      "total_pnl": -21986.1,
+      "total_pnl": 8375.95,
       "gross_win": 8484.0,
-      "gross_loss": -30470.09999999986,
-      "win_rate": 23.0,
+      "gross_loss": -108.05,
+      "win_rate": 98.8,
       "avg_win": 101.0,
       "avg_loss": -108.05,
-      "profit_factor": 0.28
+      "profit_factor": 78.52
     }
   },
-  "total_trades": 369
+  "total_trades": 88
 }

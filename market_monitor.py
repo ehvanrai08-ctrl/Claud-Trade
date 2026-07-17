@@ -253,6 +253,38 @@ def tick():
 
     # ── Stop was hit: no position left ───────────────────────────────────────
     if position is None:
+        def reenter(fill_price):
+            """Buy back in; returns True if the order was placed."""
+            new_stop = round(price * (1 - TRAIL_OFFSET_PCT), 2)
+            order = place_bracket_buy(symbol, entry_qty, new_stop)
+            if not order:
+                return False
+            log.info(f"RE-ENTRY: bought {entry_qty} {symbol} @ market, new stop ${new_stop:.2f} | order {order['id']}")
+            print(f"[RE-ENTRY] Bought {entry_qty} {symbol} @ market | stop ${new_stop:.2f}")
+            state["entry_price"]   = price
+            legs = order.get("legs", [])
+            stop_leg = next((l for l in legs if l.get("type") == "stop_loss"), None)
+            stop_leg_id = stop_leg["id"] if stop_leg else (legs[1]["id"] if len(legs) > 1 else order["id"])
+            state["stop_order_id"] = stop_leg_id
+            state["current_stop"]  = new_stop
+            state["high_water_mark"] = price
+            state["trailing_active"] = True
+            state["awaiting_reentry"] = False
+            state.pop("stop_fill_price", None)
+            return True
+
+        if state.get("awaiting_reentry"):
+            # Trade was already recorded on the tick the stop filled — this
+            # branch ONLY re-checks the recovery price each tick, it must
+            # never call record_trade() again (that was the bug: every tick
+            # after a stop-out with no recovery re-logged the same "stop hit"
+            # trade, corrupting the ledger with hundreds of phantom losses).
+            fill = state.get("stop_fill_price", current_stop)
+            if price >= fill * (1 + REENTRY_PCT):
+                reenter(fill)
+                persist_state(state, "chore: stop hit / re-entry")
+            return
+
         stop_order = get_order(stop_order_id)
         if stop_order and stop_order["status"] == "filled":
             fill = float(stop_order.get("filled_avg_price") or current_stop)
@@ -261,21 +293,15 @@ def tick():
             log.info(f"STOP HIT: sold {entry_qty} {symbol} @ ${fill:.2f}")
             print(f"[STOP HIT] Sold {entry_qty} {symbol} @ ${fill:.2f}")
 
-            # Re-enter if price has recovered 2% above the stop
+            # Re-enter now if price has already recovered 2% above the stop;
+            # otherwise mark awaiting_reentry so future ticks re-check the
+            # price WITHOUT re-recording the trade.
             if price >= fill * (1 + REENTRY_PCT):
-                new_stop = round(price * (1 - TRAIL_OFFSET_PCT), 2)
-                order = place_bracket_buy(symbol, entry_qty, new_stop)
-                log.info(f"RE-ENTRY: bought {entry_qty} {symbol} @ market, new stop ${new_stop:.2f} | order {order['id']}")
-                print(f"[RE-ENTRY] Bought {entry_qty} {symbol} @ market | stop ${new_stop:.2f}")
-                state["entry_price"]   = price
-                legs = order.get("legs", [])
-                stop_leg = next((l for l in legs if l.get("type") == "stop_loss"), None)
-                stop_leg_id = stop_leg["id"] if stop_leg else (legs[1]["id"] if len(legs) > 1 else order["id"])
-                state["stop_order_id"] = stop_leg_id
-                state["current_stop"]  = new_stop
-                state["high_water_mark"] = price
-                state["trailing_active"] = True
-        persist_state(state, "chore: stop hit / re-entry")
+                reenter(fill)
+            else:
+                state["awaiting_reentry"] = True
+                state["stop_fill_price"]  = fill
+            persist_state(state, "chore: stop hit / re-entry")
         return
 
     # ── Activate trailing once up 10% ────────────────────────────────────────

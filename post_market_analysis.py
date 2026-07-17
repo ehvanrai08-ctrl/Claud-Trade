@@ -10,6 +10,7 @@ import os
 import sys
 import requests
 from datetime import datetime
+from zoneinfo import ZoneInfo
 from dotenv import dotenv_values
 from capital_allocator import compute_weights, summary_text as weights_summary
 
@@ -22,7 +23,14 @@ HEADERS  = {
     "APCA-API-SECRET-KEY": config["ALPACA_SECRET_KEY"],
 }
 ANTHROPIC_KEY = os.environ.get("ANTHROPIC_API_KEY", "")
-TODAY = datetime.utcnow().strftime("%Y-%m-%d")
+# ET, not UTC: the 23:40 UTC catch-up cron is "best-effort" and routinely
+# fires 1-2h late (GitHub's own scheduling slop). A run that slips past
+# 20:00 UTC (8 PM ET) used to roll datetime.utcnow() onto the NEXT calendar
+# date, mislabel that day's report, and — because run() skips if
+# reports/<date>.md already exists — permanently block the real report for
+# the day that was about to start. ET doesn't roll over until hours later,
+# so it survives the same lateness UTC didn't.
+TODAY = datetime.now(ZoneInfo("America/New_York")).strftime("%Y-%m-%d")
 
 LESSONS_FILE   = f"{BASE_DIR}/lessons_learned.md"
 MAX_LESSONS    = 60   # keep the file small (context is expensive) — trim oldest

@@ -1,6 +1,6 @@
 {
   "weights": {
-    "tsla_trailing": 0.985,
+    "tsla_trailing": 1.29,
     "trend_basket": 1.0,
     "wheel": 1.0,
     "copy_trader": 1.0,
@@ -13,10 +13,11 @@
     "sector_momentum": 1.0,
     "superinvestor": 1.0,
     "emerging_growth": 1.0,
-    "tsmom": 1.0
+    "tsmom": 1.0,
+    "credit_vol_qqq": 1.0
   },
   "notes": {
-    "tsla_trailing": "PF=0.00 over 30 trades, consec_losses=30 \u2192 raw 0.25",
+    "tsla_trailing": "PF=27.11 over 30 trades, consec_losses=1 \u2192 raw 2.00",
     "trend_basket": "insufficient data (1/5 trades) \u2014 default 1.0",
     "wheel": "insufficient data (2/5 trades) \u2014 default 1.0",
     "copy_trader": "insufficient data (0/5 trades) \u2014 default 1.0",
@@ -29,6 +30,7 @@
     "sector_momentum": "insufficient data (0/5 trades) \u2014 default 1.0",
     "superinvestor": "insufficient data (0/5 trades) \u2014 default 1.0",
     "emerging_growth": "insufficient data (0/5 trades) \u2014 default 1.0",
-    "tsmom": "insufficient data (0/5 trades) \u2014 default 1.0"
+    "tsmom": "insufficient data (0/5 trades) \u2014 default 1.0",
+    "credit_vol_qqq": "insufficient data (0/5 trades) \u2014 default 1.0"
   }
 }
