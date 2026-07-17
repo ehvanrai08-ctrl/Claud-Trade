@@ -5157,6 +5157,197 @@
      "Amount": "$2,722"
     }
    ]
+  },
+  "20035013": {
+   "name": "Kevin Hern",
+   "report_date": "2026-07-16",
+   "trades": []
+  },
+  "20034945": {
+   "name": "Richard W. Allen",
+   "report_date": "2026-07-15",
+   "trades": [
+    {
+     "Ticker": "INTU",
+     "Transaction": "Sale (Full)",
+     "TransactionDate": "2026-06-10",
+     "Amount": "$15,001 - $50,000"
+    }
+   ]
+  },
+  "20034968": {
+   "name": "Byron Donalds",
+   "report_date": "2026-07-15",
+   "trades": [
+    {
+     "Ticker": "CDNS",
+     "Transaction": "Sale (Partial)",
+     "TransactionDate": "2026-06-05",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "CDNS",
+     "Transaction": "Sale (Partial)",
+     "TransactionDate": "2026-06-05",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "MPWR",
+     "Transaction": "Sale (Partial)",
+     "TransactionDate": "2026-06-05",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "MPWR",
+     "Transaction": "Sale (Partial)",
+     "TransactionDate": "2026-06-05",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "ZTS",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-06-09",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "ZTS",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-06-09",
+     "Amount": "$1,001 - $15,000"
+    }
+   ]
+  },
+  "20034908": {
+   "name": "Jonathan Jackson",
+   "report_date": "2026-07-15",
+   "trades": [
+    {
+     "Ticker": "HLT",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-06-15",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "MCK",
+     "Transaction": "Sale (Full)",
+     "TransactionDate": "2026-06-15",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "SPHR",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-06-15",
+     "Amount": "$1,001 - $15,000"
+    }
+   ]
+  },
+  "20035003": {
+   "name": "Thomas H. Kean",
+   "report_date": "2026-07-15",
+   "trades": [
+    {
+     "Ticker": "GOOGL",
+     "Transaction": "Sale (Partial)",
+     "TransactionDate": "2026-06-02",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "GOOGL",
+     "Transaction": "Sale (Partial)",
+     "TransactionDate": "2026-06-24",
+     "Amount": "$15,001 - $50,000"
+    },
+    {
+     "Ticker": "ADI",
+     "Transaction": "Sale (Partial)",
+     "TransactionDate": "2026-06-30",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "CHKP",
+     "Transaction": "Sale (Full)",
+     "TransactionDate": "2026-06-01",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "EQT",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-06-01",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "ESAB",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-06-22",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "ESAB",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-06-24",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "GIL",
+     "Transaction": "Sale (Full)",
+     "TransactionDate": "2026-06-17",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "GIL",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-06-02",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "JNJ",
+     "Transaction": "Sale (Partial)",
+     "TransactionDate": "2026-06-29",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "JNJ",
+     "Transaction": "Sale (Partial)",
+     "TransactionDate": "2026-06-02",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "MKL",
+     "Transaction": "Sale (Partial)",
+     "TransactionDate": "2026-06-02",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "MKL",
+     "Transaction": "Sale (Partial)",
+     "TransactionDate": "2026-06-29",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "MSFT",
+     "Transaction": "Sale (Partial)",
+     "TransactionDate": "2026-06-02",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "SPGI",
+     "Transaction": "Sale (Partial)",
+     "TransactionDate": "2026-06-29",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "SYK",
+     "Transaction": "Sale (Partial)",
+     "TransactionDate": "2026-06-02",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "WPM",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-06-04",
+     "Amount": "$1,001 - $15,000"
+    }
+   ]
   }
  },
  "senate": {
