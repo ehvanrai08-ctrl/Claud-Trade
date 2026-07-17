@@ -182,6 +182,58 @@ worth doing by hand.
 
 ---
 
+## The bug hunter — behavioral/data anomaly detection (`bug_hunter.py`)
+
+Neither `post_market_analysis.py` (reviews today's outcome) nor
+`project_optimizer.py` (reviews code for mechanical smells) catches the class
+of bug found on 2026-07-17: `market_monitor.py`'s stop-hit handler recorded a
+trade but only updated state inside a conditional re-entry branch, so when
+re-entry didn't fire, every subsequent ~60s tick re-detected the same filled
+stop order and re-recorded the SAME trade — 282 duplicate ledger entries from
+one real event (plus, found only once this tool existed, 84 more from a
+separate earlier event the same bug had already caused). Neither bug looked
+like bad code — `market_monitor.py` compiled fine and passed pyflakes. It only
+showed up as bad DATA: performance.json said tsla_trailing was the worst
+strategy in the fleet (−$21,986) when the truth was roughly break-even
+(−$7.05, 2 real trades). A second bug in the same incident — `TODAY` computed
+from `datetime.utcnow()` in `post_market_analysis.py` — let a late catch-up
+cron (GitHub's crons are "best-effort, routinely 1-2h late") roll onto the
+wrong calendar date, mislabel that day's report, and then (via the
+`reports/<date>.md`-exists idempotency guard) permanently block the real
+report for the day that was about to start.
+
+Runs daily (20:45 UTC, 30 min after post-market) via
+`.github/workflows/bug_hunter.yml`. Four deterministic detectors, no API
+needed for detection itself:
+1. **`detect_duplicate_trades()`** — N+ identical (strategy, symbol, note,
+   pnl) ledger records within 15 minutes of each other has no legitimate
+   explanation at any bot's tick interval. Auto-repaired directly: dedupe
+   (keep the first/real one), regenerate `performance.json` +
+   `capital_weights.json` from the corrected ledger — the exact by-hand fix
+   from 2026-07-17, now mechanical.
+2. **`detect_report_date_mismatches()`** — a report's filename vs. its own
+   embedded `DATE:` line. Always just flagged (never auto-renamed/merged —
+   too risky to do blindly); traces to `post_market_analysis.py`, which is
+   protected.
+3. **`detect_missing_reports()`** — weekday gaps in the last 10 days
+   (the same failure mode as the 3-day silent outage fixed 2026-07-10).
+4. **`detect_performance_drift()`** — `performance.json` should always equal
+   `aggregate(trades_ledger.jsonl)`; a mismatch means it went stale.
+   Auto-repaired: just regenerate from the ledger (the source of truth).
+
+For duplicate-trade anomalies, it also asks Claude to diagnose the root cause
+in the specific strategy file (`STRATEGY_FILE` map) and produce a patch,
+applied behind the **same two gates** as `project_optimizer.py` (py_compile,
+pyflakes "undefined name") — same **self-protection**: it can never patch
+itself, `post_market_analysis.py`, or `project_optimizer.py` (`PROTECTED`
+set, mirrored into `project_optimizer.py`'s own set so neither engine can
+patch the other), and never touches `.yml`/`requirements.txt`. Anything that
+traces to a protected file, or whose patch doesn't survive the gates, is
+flagged in `reports/bug_hunter_YYYY-MM-DD.md` for a human/session to fix —
+exactly the channel that fixed both bugs in the founding incident.
+
+---
+
 ## The emerging-company scout (`emerging_scout.py`)
 
 The "find companies early that become huge" research agent. Runs weekly
@@ -228,6 +280,7 @@ the universe; only the trend gate's drawdown control survived).
 | `performance.json` | Per-strategy win rate / P&L (via `performance_tracker.py`) |
 | `capital_weights.json` | Dynamic per-strategy notional multipliers (0.25×–2×), updated nightly by `capital_allocator.py` |
 | `reports/YYYY-MM-DD.md` | Daily post-market reports |
+| `reports/bug_hunter_YYYY-MM-DD.md` | Daily anomaly-scan report (duplicate trades, report mislabeling, missing reports, performance drift) |
 | `*.log` | Per-bot run logs (committed back to the repo) |
 
 ---

@@ -558,7 +558,14 @@ def benchmark_vs_index():
 # ── Save report ───────────────────────────────────────────────────────────────
 
 def save_report(context, analysis):
-    report = f"# Post-Market Report — {TODAY}\n\n## Session Data\n```\n{context}\n```\n\n## Analysis & Improvements\n\n{analysis}\n"
+    # Self-contained generation timestamp (UTC) so a downstream check (e.g.
+    # bug_hunter.py) can tell "ran before market close" from the report file
+    # alone, without depending on git history (shallow checkouts don't keep
+    # it) or comparing two fields both derived from the same TODAY value.
+    generated_at = datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ")
+    report = (f"# Post-Market Report — {TODAY}\n\n"
+              f"_Generated: {generated_at} UTC_\n\n"
+              f"## Session Data\n```\n{context}\n```\n\n## Analysis & Improvements\n\n{analysis}\n")
     os.makedirs(f"{BASE_DIR}/reports", exist_ok=True)
     path = f"{BASE_DIR}/reports/{TODAY}.md"
     with open(path, "w") as f:

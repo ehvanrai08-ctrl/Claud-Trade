@@ -1,0 +1,66 @@
+name: Bug Hunter — Data/Behavioral Anomaly Detection
+
+on:
+  schedule:
+    # 20:45 UTC daily, Mon-Fri — 30 min after post-market's primary cron so
+    # today's ledger/report writes have landed. If post-market's primary was
+    # dropped/late, this just finds nothing new (or missing-report anomalies,
+    # which is exactly the right thing to surface).
+    - cron: "45 20 * * 1-5"
+  workflow_dispatch:
+
+jobs:
+  bug-hunter:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: claude/charming-edison-b7imkj
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - run: |
+          n=0; until pip install requests python-dotenv pyflakes tzdata; do
+            n=$((n+1)); [ "$n" -ge 3 ] && echo "pip install failed after $n attempts" && exit 1
+            echo "pip install failed (attempt $n) — retrying in $((n*5))s..."; sleep $((n*5))
+          done
+
+      - name: Write .env
+        run: |
+          cat > .env <<EOF
+          ALPACA_API_KEY=${{ secrets.ALPACA_API_KEY }}
+          ALPACA_SECRET_KEY=${{ secrets.ALPACA_SECRET_KEY }}
+          ALPACA_BASE_URL=https://paper-api.alpaca.markets/v2
+          EOF
+
+      - name: Run bug hunter
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: python bug_hunter.py
+
+      - name: Verify all bots still compile
+        run: |
+          n=0
+          for f in *.py; do
+            python -m py_compile "$f" || { echo "COMPILE FAILED: $f"; n=$((n+1)); }
+          done
+          [ "$n" -eq 0 ] || { echo "$n file(s) failed to compile — aborting commit"; exit 1; }
+
+      - name: Commit findings and any auto-repairs
+        run: |
+          git config user.name  "Claud-Trade Bot"
+          git config user.email "bot@claud-trade"
+          git add -f "reports/bug_hunter_"*.md 2>/dev/null || true
+          git add trades_ledger.jsonl performance.json capital_weights.json lessons_learned.md 2>/dev/null || true
+          git add -A -- '*.py' ':!bug_hunter.py' ':!project_optimizer.py' ':!post_market_analysis.py' 2>/dev/null || true
+          git diff --cached --quiet || git commit -m "Bug hunter: anomaly scan + auto-repairs $(date -u +%Y-%m-%d) [skip ci]"
+          n=0; until git pull --rebase origin claude/charming-edison-b7imkj && git push origin claude/charming-edison-b7imkj; do
+            n=$((n+1)); [ "$n" -ge 4 ] && echo "git sync failed after $n attempts (non-fatal)" && break
+            echo "git sync failed (attempt $n) — retrying in $((n*2))s..."; sleep $((n*2))
+          done || true

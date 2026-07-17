@@ -46,7 +46,7 @@ MAX_BACKLOG  = 40   # keep the file (and the prompt context) bounded
 
 # Files the optimizer must NEVER edit — its own engine + the other meta-engine.
 # Editing these could break the recoverability guarantee or the safety gates.
-PROTECTED = {"project_optimizer.py", "post_market_analysis.py"}
+PROTECTED = {"project_optimizer.py", "post_market_analysis.py", "bug_hunter.py"}
 
 # Files that should never be auto-patched even if suggested — the workflow YAMLs
 # and requirements are infra; a bad edit takes the whole fleet down.
@@ -196,7 +196,7 @@ Here is the EXISTING improvement backlog (do NOT repeat these — only add genui
 </backlog>
 
 IMPORTANT CONSTRAINTS:
-- NEVER suggest editing project_optimizer.py or post_market_analysis.py (protected engines).
+- NEVER suggest editing project_optimizer.py, post_market_analysis.py, or bug_hunter.py (protected engines).
 - NEVER suggest editing .yml workflow files or requirements.txt via a patch.
 - Auto-patches must be SAFE, mechanical, and obviously correct (e.g. remove an unused import flagged by pyflakes, fix a typo in a comment, tighten an except clause, add a missing .get() default). Anything touching live trading LOGIC goes in the backlog, NOT a patch.
 
