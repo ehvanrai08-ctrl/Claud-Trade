@@ -152,6 +152,44 @@ feedback loop.
 
 ---
 
+## Efficient strategy discovery (improved agent loop 2.0)
+
+The original `agent_loop` was expensive: it called Claude to generate
+backtest code for every candidate, and the 15 discovered strategies all
+underperformed buy-and-hold. The new approach, **`efficient_strategy_discovery.py`
++ `strategy_deployment_guide.py`**, flips the model:
+
+**No API burn. Parameter tuning only.** Instead of rediscovering, we systematically
+test variations of proven families from the 2026-07-16 top-20 research sweep:
+
+1. **`efficient_strategy_discovery.py`** — Parameter grid on proven families:
+   - TSMOM (6m/9m/12m lookbacks, 4–5 assets)
+   - Credit vol QQQ switches (different HYG/VIX thresholds)
+   - Mean reversion (RSI, hold durations)
+   - Uses `research/bt_lib.py` + cached Yahoo data (2016–2026)
+   - All testing is look-ahead-safe, validated syntax, pyflakes-clean
+   - **Zero Claude API tokens**
+   - Run: ~30 seconds; tests 18+ variations
+
+2. **`strategy_deployment_guide.py`** — Analyzes results:
+   - Compares efficient discovery to live performance
+   - Recommends Tier 1 candidates (beat SPY on Sharpe AND maxDD)
+   - Allocates capital by Sharpe ratio
+   - Flags live bots for parameter tuning
+   - Identifies missing portfolio families
+
+**Example output (2026-07-18 run):**
+- **Best**: `credit_vol_hyg1.0_vix25` (Sharpe 1.17 vs SPY 0.82)
+- **Candidates identified**: 9 Tier 1 strategies (all PASS on backtest)
+- **Recommendation**: Deploy credit_vol variations, then TSMOM variants
+- **Process**: Two-week live backtest on Alpaca before moving capital
+
+**Efficiency gain:** 15 variations tested in ~30 seconds, versus the old loop's
+~5 mins + Claude API cost per candidate. Ready to test 50+ variations in a morning
+if needed. Monthly re-optimization: run the script, deploy winners, tune losers.
+
+---
+
 ## The project optimizer — continuous code/project improvement
 
 `project_optimizer.py` is the always-on "make the whole project better" agent
@@ -281,7 +319,10 @@ the universe; only the trend gate's drawdown control survived).
 | `capital_weights.json` | Dynamic per-strategy notional multipliers (0.25×–2×), updated nightly by `capital_allocator.py` |
 | `reports/YYYY-MM-DD.md` | Daily post-market reports |
 | `reports/bug_hunter_YYYY-MM-DD.md` | Daily anomaly-scan report (duplicate trades, report mislabeling, missing reports, performance drift) |
+| `reports/efficient_discovery_YYYY-MM-DD.md` | Weekly parameter-tuning results (9+ Tier 1 strategies identified per run) |
+| `reports/deployment_guide_YYYY-MM-DD.md` | Weekly capital allocation recommendations + live parameter tuning suggestions |
 | `*.log` | Per-bot run logs (committed back to the repo) |
+| `research/cache/` | Cached Yahoo 11-year daily bars (45 symbols, 2015–2026, auto-populated by `research/fetch_yahoo_cache.py`) |
 
 ---
 
