@@ -5348,6 +5348,258 @@
      "Amount": "$1,001 - $15,000"
     }
    ]
+  },
+  "20034998": {
+   "name": "Dan Newhouse",
+   "report_date": "2026-07-17",
+   "trades": [
+    {
+     "Ticker": "ACN",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-07-10",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "ADBE",
+     "Transaction": "Sale (Full)",
+     "TransactionDate": "2026-07-10",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "AMD",
+     "Transaction": "Sale (Partial)",
+     "TransactionDate": "2026-07-10",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "GOOGL",
+     "Transaction": "Sale (Partial)",
+     "TransactionDate": "2026-07-10",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "AMCR",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-07-10",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "APH",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-07-10",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "AMAT",
+     "Transaction": "Sale (Partial)",
+     "TransactionDate": "2026-07-10",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "ANET",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-07-10",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "COST",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-07-10",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "CSX",
+     "Transaction": "Sale (Partial)",
+     "TransactionDate": "2026-07-10",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "DE",
+     "Transaction": "Sale (Partial)",
+     "TransactionDate": "2026-07-10",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "DUK",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-07-10",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "LLY",
+     "Transaction": "Sale (Partial)",
+     "TransactionDate": "2026-07-10",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "FIS",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-07-10",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "FE",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-07-10",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "FMC",
+     "Transaction": "Sale (Full)",
+     "TransactionDate": "2026-07-10",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "FTNT",
+     "Transaction": "Sale (Partial)",
+     "TransactionDate": "2026-07-10",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "HONAV",
+     "Transaction": "Sale (Partial)",
+     "TransactionDate": "2026-07-10",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "HON",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-07-10",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "INTU",
+     "Transaction": "Sale (Full)",
+     "TransactionDate": "2026-07-10",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "MGA",
+     "Transaction": "Sale (Partial)",
+     "TransactionDate": "2026-07-10",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "MPC",
+     "Transaction": "Sale (Partial)",
+     "TransactionDate": "2026-07-10",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "MU",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-07-10",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "MS",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-07-10",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "NVDA",
+     "Transaction": "Sale (Partial)",
+     "TransactionDate": "2026-07-10",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "PANW",
+     "Transaction": "Sale (Partial)",
+     "TransactionDate": "2026-07-10",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "HSY",
+     "Transaction": "Sale (Full)",
+     "TransactionDate": "2026-07-10",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "TMO",
+     "Transaction": "Sale (Full)",
+     "TransactionDate": "2026-07-10",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "UBER",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-07-10",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "UPS",
+     "Transaction": "Sale (Full)",
+     "TransactionDate": "2026-07-10",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "UNH",
+     "Transaction": "Sale (Full)",
+     "TransactionDate": "2026-07-10",
+     "Amount": "$1,001 - $15,000"
+    }
+   ]
+  },
+  "20035024": {
+   "name": "Daniel Crenshaw",
+   "report_date": "2026-07-16",
+   "trades": [
+    {
+     "Ticker": "GOOG",
+     "Transaction": "Sale (Full)",
+     "TransactionDate": "2026-06-01",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "AMZN",
+     "Transaction": "Sale (Full)",
+     "TransactionDate": "2026-06-01",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "AAPL",
+     "Transaction": "Sale (Full)",
+     "TransactionDate": "2026-06-01",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "META",
+     "Transaction": "Sale (Full)",
+     "TransactionDate": "2026-06-01",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "USOU",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-06-01",
+     "Amount": "$1,001 - $15,000"
+    }
+   ]
+  },
+  "20034894": {
+   "name": "Cleo Fields",
+   "report_date": "2026-07-16",
+   "trades": [
+    {
+     "Ticker": "NVDA",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-06-26",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "NVDA",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-06-26",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "NVDA",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-06-26",
+     "Amount": "$1,001 - $15,000"
+    }
+   ]
   }
  },
  "senate": {
