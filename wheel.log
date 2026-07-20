@@ -138,3 +138,5 @@
 2026-07-20 15:27:52,003 INFO ROLL COOLDOWN: 0.0h since last close (min 2h) — skipping roll this run
 2026-07-20 15:48:15,103 INFO TICK: TSLA $372.21 stage=1 contract=none
 2026-07-20 15:48:15,109 INFO ROLL COOLDOWN: 0.3h since last close (min 2h) — skipping roll this run
+2026-07-20 18:00:54,840 INFO TICK: TSLA $373.48 stage=1 contract=none
+2026-07-20 18:00:55,123 INFO SKIP put sale: TSLA $373.48 below 20-day SMA $396.48 — avoiding selling into weakness
