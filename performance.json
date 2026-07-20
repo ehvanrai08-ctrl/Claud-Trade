@@ -14,17 +14,17 @@
       "profit_factor": 0.0
     },
     "wheel": {
-      "trades": 2,
+      "trades": 3,
       "wins": 1,
-      "losses": 1,
+      "losses": 2,
       "breakeven": 0,
-      "total_pnl": -39.0,
+      "total_pnl": -473.0,
       "gross_win": 137.0,
-      "gross_loss": -176.0,
-      "win_rate": 50.0,
+      "gross_loss": -610.0,
+      "win_rate": 33.3,
       "avg_win": 137.0,
-      "avg_loss": -176.0,
-      "profit_factor": 0.78
+      "avg_loss": -305.0,
+      "profit_factor": 0.22
     },
     "tsla_trailing": {
       "trades": 2,
@@ -40,5 +40,5 @@
       "profit_factor": 0.93
     }
   },
-  "total_trades": 5
+  "total_trades": 6
 }

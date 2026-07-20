@@ -1,6 +1,6 @@
 {
   "weights": {
-    "tsla_trailing": 1.203,
+    "tsla_trailing": 1.142,
     "trend_basket": 1.0,
     "wheel": 1.0,
     "copy_trader": 1.0,
@@ -19,7 +19,7 @@
   "notes": {
     "tsla_trailing": "insufficient data (2/5 trades) \u2014 default 1.0",
     "trend_basket": "insufficient data (1/5 trades) \u2014 default 1.0",
-    "wheel": "insufficient data (2/5 trades) \u2014 default 1.0",
+    "wheel": "insufficient data (3/5 trades) \u2014 default 1.0",
     "copy_trader": "insufficient data (0/5 trades) \u2014 default 1.0",
     "tjr": "insufficient data (0/5 trades) \u2014 default 1.0",
     "mean_reversion": "insufficient data (0/5 trades) \u2014 default 1.0",
