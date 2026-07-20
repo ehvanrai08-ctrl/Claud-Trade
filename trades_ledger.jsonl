@@ -3,3 +3,4 @@
 {"ts": "2026-07-07T16:00:36.102133+00:00", "strategy": "wheel", "symbol": "TSLA260720P00375000", "pnl": -176.0, "note": "stop loss 100% of premium"}
 {"ts": "2026-07-15T16:37:07.031851+00:00", "strategy": "tsla_trailing", "symbol": "TSLA", "pnl": 101.0, "note": "stop hit"}
 {"ts": "2026-07-16T15:16:18.396280+00:00", "strategy": "tsla_trailing", "symbol": "TSLA", "pnl": -108.05, "note": "stop hit"}
+{"ts": "2026-07-20T15:27:51.953507+00:00", "strategy": "wheel", "symbol": "TSLA260724P00365000", "pnl": -434.0, "note": "stop loss 100% of premium"}

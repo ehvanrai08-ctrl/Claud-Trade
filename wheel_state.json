@@ -1,14 +1,8 @@
 {
   "stage": 1,
-  "active_contract": {
-    "symbol": "TSLA260724P00365000",
-    "type": "put",
-    "strike": 365.0,
-    "expiration": "2026-07-24",
-    "sell_price": 4.17,
-    "order_id": "fe8c5dd4-f186-488d-9e76-75ded86c48a6"
-  },
+  "active_contract": null,
   "cost_basis": null,
   "total_premium": 1094.0,
-  "cycles": 3
+  "cycles": 4,
+  "last_close_ts": "2026-07-20T15:27:51Z"
 }
