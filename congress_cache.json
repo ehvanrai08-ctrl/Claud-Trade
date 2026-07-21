@@ -5600,6 +5600,40 @@
      "Amount": "$1,001 - $15,000"
     }
    ]
+  },
+  "20034694": {
+   "name": "Laurel Lee",
+   "report_date": "2026-07-19",
+   "trades": [
+    {
+     "Ticker": "BAC",
+     "Transaction": "Sale (Partial)",
+     "TransactionDate": "2026-06-02",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "NOK",
+     "Transaction": "Sale (Partial)",
+     "TransactionDate": "2026-05-11",
+     "Amount": "$15,001 - $50,000"
+    },
+    {
+     "Ticker": "NOK",
+     "Transaction": "Sale (Partial)",
+     "TransactionDate": "2026-06-02",
+     "Amount": "$1,001 - $15,000"
+    }
+   ]
+  },
+  "20022577": {
+   "name": "William R. Timmons",
+   "report_date": "2026-07-19",
+   "trades": []
+  },
+  "20035042": {
+   "name": "William R. Timmons",
+   "report_date": "2026-07-19",
+   "trades": []
   }
  },
  "senate": {
