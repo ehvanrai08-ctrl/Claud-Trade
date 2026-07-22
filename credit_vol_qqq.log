@@ -3,3 +3,4 @@
 2026-07-17 15:21:24,806 INFO Done — holding QQQ
 2026-07-20 15:57:14,504 INFO Signal: target=QQQ | HYG 79.72 > SMA200 78.49 (credit OK) | VIXY 90d percentile 4% < 50% (vol OK)
 2026-07-21 15:48:11,808 INFO Signal: target=QQQ | HYG 79.64 > SMA200 78.50 (credit OK) | VIXY 90d percentile 3% < 50% (vol OK)
+2026-07-22 15:46:58,059 INFO Signal: target=QQQ | HYG 79.53 > SMA200 78.51 (credit OK) | VIXY 90d percentile 4% < 50% (vol OK)
