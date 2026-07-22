@@ -151,3 +151,5 @@
 2026-07-21 17:01:32,605 INFO SKIP put sale: TSLA $381.02 below 20-day SMA $395.11 — avoiding selling into weakness
 2026-07-21 18:39:53,810 INFO TICK: TSLA $379.62 stage=1 contract=none
 2026-07-21 18:39:54,020 INFO SKIP put sale: TSLA $379.62 below 20-day SMA $395.04 — avoiding selling into weakness
+2026-07-22 15:19:54,769 INFO TICK: TSLA $377.95 stage=1 contract=none
+2026-07-22 15:19:55,249 INFO SKIP put sale: TSLA $377.95 below 20-day SMA $394.80 — avoiding selling into weakness
