@@ -181,9 +181,16 @@ def sma(closes, n):
 def compute_target():
     """Return (target_symbol, reason) or (None, reason) if signal can't be computed.
     Alpaca doesn't carry ^VIX bars, so the vol gate uses VIXY (the tradable ETF
-    proxy) scaled to an approximate VIX level (VIXY doesn't track spot 1:1, but
-    is highly correlated and the 25-level threshold is optimized from efficient
-    discovery vs the prior 30-level, improving backtest Sharpe 1.13→1.17)."""
+    proxy): VIXY's own 90d percentile rank, index-free and robust to VIXY's
+    structural contango decay unlike a fixed price level.
+
+    Threshold is 0.50 (bottom half of the 90d range). Backtested on this exact
+    VIXY-percentile mechanism (research/backtest_vixy_gate.py, Yahoo 2015-2026,
+    5bps cost): 0.50 gives Sharpe 1.05 / maxDD 20.6% vs the prior 0.80's
+    Sharpe 1.06 / maxDD 27.6%. So 0.50 is ~Sharpe-neutral but cuts drawdown
+    ~7 pts — a drawdown-control choice, NOT a return/alpha improvement. (Both
+    beat same-period SPY 0.89; note the tradable-VIXY proxy underperforms the
+    idealized ^VIX<30 backtest at 1.11 — the proxy costs ~0.05 Sharpe.)"""
     hyg  = get_closes("HYG")
     vixy = get_closes("VIXY")
     if len(hyg) < SMA_PERIOD:
@@ -192,10 +199,6 @@ def compute_target():
     credit_ok = hyg[-1] > hyg_sma
     if not vixy:
         return None, "no VIXY data available"
-    # VIXY's own 90d percentile rank as the vol-spike proxy (index-free, robust
-    # to VIXY's structural contango decay unlike a fixed price level).
-    # Optimized (2026-07-18 efficient_strategy_discovery): use 50th percentile
-    # instead of 80th for stricter vol gate during elevated vol regimes.
     window = vixy[-90:]
     lo, hi = min(window), max(window)
     pct = (vixy[-1] - lo) / (hi - lo) if hi > lo else 0.0
