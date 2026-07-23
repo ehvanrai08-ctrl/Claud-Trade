@@ -321,3 +321,6 @@
 2026-07-22 19:24:53,348 INFO Corporate-action scan complete: 0 flag(s) raised
 2026-07-22 20:00:02,335 INFO Market closed — exiting loop.
 2026-07-22 20:00:02,335 INFO Monitor loop ended
+2026-07-23 15:30:10,177 INFO Monitor loop started
+2026-07-23 15:30:10,226 INFO Corporate-action scan: checking 24 positions
+2026-07-23 15:30:10,227 INFO Corporate-action scan complete: 0 flag(s) raised
