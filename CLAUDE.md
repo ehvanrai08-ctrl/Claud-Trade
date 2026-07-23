@@ -178,15 +178,28 @@ test variations of proven families from the 2026-07-16 top-20 research sweep:
    - Flags live bots for parameter tuning
    - Identifies missing portfolio families
 
-**Example output (2026-07-18 run):**
-- **Best**: `credit_vol_hyg1.0_vix25` (Sharpe 1.17 vs SPY 0.82)
-- **Candidates identified**: 9 Tier 1 strategies (all PASS on backtest)
-- **Recommendation**: Deploy credit_vol variations, then TSMOM variants
-- **Process**: Two-week live backtest on Alpaca before moving capital
+**Important honesty caveat.** All three families this tests (credit/vol, TSMOM,
+mean-reversion) are **already live** (`credit_vol_qqq.py`, `tsmom_sleeve.py`,
+`rsi2`/`ibs`/`mean_reversion`). So its output is **parameter-tuning inputs for
+existing bots, NOT new strategies to deploy.** A high-Sharpe "candidate" that
+re-tunes a live bot must never be added as a second sleeve — that just fights the
+live bot for the same symbols and dilutes capital. `strategy_deployment_guide.py`
+classifies every candidate back to its live bot and only flags a *novel* family
+(no matching live bot) as a real deployment. Also: discovery's vol gate is a
+*proxy* (QQQ realized vol / a fixed threshold), which differs from what a live bot
+actually runs — e.g. `credit_vol_qqq`'s live gate is a VIXY 90d-percentile rank, a
+different signal, so a discovery Sharpe does **not** transfer 1:1. Before changing
+a live param, backtest the bot's *actual* mechanism (see
+`research/backtest_vixy_gate.py` for the worked example).
+
+**Example output (2026-07-23 run):**
+- **Best tuning candidate**: `credit_vol_hyg1.0_vix25` (proxy-backtest Sharpe 1.17)
+- **Genuinely novel strategies found**: **0** — every candidate re-tunes a live bot
+- **Action**: use as tuning inputs; validate on the live mechanism first
 
 **Efficiency gain:** 15 variations tested in ~30 seconds, versus the old loop's
-~5 mins + Claude API cost per candidate. Ready to test 50+ variations in a morning
-if needed. Monthly re-optimization: run the script, deploy winners, tune losers.
+~5 mins + Claude API cost per candidate. Wired to run weekly via
+`.github/workflows/efficient_discovery.yml`.
 
 ---
 

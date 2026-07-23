@@ -44,27 +44,36 @@ def load_efficient_discovery():
     if not reports:
         return None
 
-    # Parse Tier 1 results from markdown
+    # Parse the Tier 1 table from markdown. Match on ROW SHAPE (name + numeric
+    # sharpe in the first two cells), not on any status wording — the report's
+    # status column text changes, but a data row always starts with a strategy
+    # name and a float Sharpe.
+    def _num(s):
+        try:
+            return float(s)
+        except (TypeError, ValueError):
+            return None
+
     tier1 = []
     with open(reports[0]) as f:
         content = f.read()
-        in_tier1 = False
-        for line in content.split("\n"):
-            if "Tier 1 —" in line:
-                in_tier1 = True
-                continue
-            if in_tier1 and line.startswith("### Tier"):
-                break
-            if in_tier1 and "|" in line and "—" not in line and "Deploy" in line:
-                parts = [p.strip() for p in line.split("|")]
-                if len(parts) >= 6:
-                    tier1.append({
-                        "name": parts[1],
-                        "sharpe": float(parts[2]) if parts[2] != "?" else None,
-                        "spy_sharpe": float(parts[3]) if parts[3] != "?" else None,
-                        "cagr": parts[4],
-                        "maxdd": parts[5],
-                    })
+    in_tier1 = False
+    for line in content.split("\n"):
+        if "Tier 1 —" in line:
+            in_tier1 = True
+            continue
+        if in_tier1 and line.startswith("### ") and "Tier 1" not in line:
+            break
+        if in_tier1 and line.strip().startswith("|"):
+            parts = [p.strip() for p in line.strip().strip("|").split("|")]
+            if len(parts) >= 5 and _num(parts[1]) is not None:  # parts[0]=name, [1]=sharpe
+                tier1.append({
+                    "name": parts[0],
+                    "sharpe": _num(parts[1]),
+                    "spy_sharpe": _num(parts[2]),
+                    "cagr": parts[3],
+                    "maxdd": parts[4],
+                })
 
     return {"tier1_candidates": tier1, "source": reports[0]}
 
@@ -104,37 +113,28 @@ def analyze_portfolio():
     }
 
 
-def calculate_allocation(tier1_candidates):
-    """Recommend capital allocation for new strategies."""
-    # Current: 5 trades in ~$40k account = ~$8k per strategy
-    # Assume total capital is ~$40k (typical Alpaca paper account)
-    TOTAL_CAPITAL = 40000
-    N_STRATEGIES = 15  # Target portfolio size
-    BASE_ALLOCATION = TOTAL_CAPITAL / N_STRATEGIES  # ~$2.7k per strategy
-
-    recommendations = []
-    for cand in tier1_candidates:
-        # Weight by Sharpe: high-Sharpe strategies get more capital
-        sharpe = cand.get("sharpe", 0.8)
-        spy_sharpe = cand.get("spy_sharpe", 0.8)
-        if sharpe > spy_sharpe:
-            # This strategy has genuine alpha, allocate more
-            allocation = BASE_ALLOCATION * (sharpe / spy_sharpe)
-        else:
-            # Diversifier, standard allocation
-            allocation = BASE_ALLOCATION
-
-        recommendations.append({
-            "strategy": cand["name"],
-            "sharpe": cand.get("sharpe"),
-            "recommended_capital": int(allocation),
-            "reason": "alpha" if sharpe > spy_sharpe else "diversification",
-        })
-
-    return sorted(recommendations, key=lambda x: x["recommended_capital"], reverse=True)
+# Every family efficient_strategy_discovery tests is ALREADY live in the fleet.
+# So a "candidate" is a parameter re-tune of an existing bot, NOT a new strategy
+# to deploy alongside it — deploying a redundant sleeve would fight the live bot
+# for the same symbols (QQQ/SPY), dilute capital, and fake diversification.
+# This map classifies each candidate back to the live bot it would tune.
+LIVE_FAMILY_MAP = {
+    "credit_vol": "credit_vol_qqq.py",
+    "tsmom":      "tsmom_sleeve.py",
+    "rsi":        "rsi2_strategy.py / ibs_strategy.py / mean_reversion.py",
+    "mr":         "rsi2_strategy.py / ibs_strategy.py / mean_reversion.py",
+}
 
 
-def build_report(perf, discovery, portfolio, allocations):
+def classify_candidate(name):
+    """Return the live bot a candidate re-tunes, or None if genuinely novel."""
+    for prefix, live_bot in LIVE_FAMILY_MAP.items():
+        if name.startswith(prefix):
+            return live_bot
+    return None
+
+
+def build_report(perf, discovery, portfolio):
     """Assemble deployment guide markdown."""
     timestamp = datetime.now(timezone.utc).isoformat()
 
@@ -172,58 +172,81 @@ def build_report(perf, discovery, portfolio, allocations):
 
     if discovery and discovery.get("tier1_candidates"):
         tier1 = discovery["tier1_candidates"]
-        lines.extend([
-            "### New Strategies to Deploy (Tier 1 from efficient discovery)",
-            "",
-            "High-Sharpe, look-ahead-safe backtest results (2016–2026 Yahoo data):",
-            "",
-            "| Strategy | Sharpe | vs SPY | CAGR | MaxDD | Allocation | Rationale |",
-            "|---|---|---|---|---|---|---|",
-        ])
+        # Split candidates: re-tunes of live bots vs genuinely novel families.
+        retunes = [c for c in tier1 if classify_candidate(c["name"])]
+        novel   = [c for c in tier1 if not classify_candidate(c["name"])]
 
-        for alloc in allocations:
-            # Find the corresponding Tier 1 candidate
-            cand = next((c for c in tier1 if c["name"] == alloc["strategy"]), None)
-            if cand:
+        lines.extend([
+            "> **Read this first.** Every family efficient discovery tests"
+            " (credit/vol, TSMOM, mean-reversion) is ALREADY live in the fleet."
+            " The high-Sharpe candidates below are parameter *re-tunes* of"
+            " existing bots, NOT new strategies to deploy alongside them."
+            " Deploying a redundant sleeve fights the live bot for the same"
+            " symbols, dilutes capital, and fakes diversification. Treat these"
+            " as tuning inputs for the live bot — validate the winning params"
+            " against the bot's ACTUAL mechanism before changing anything"
+            " (see credit_vol_qqq: its live VIXY-percentile gate is a different"
+            " signal from discovery's QQQ-realized-vol proxy, so the discovery"
+            " Sharpe does NOT transfer 1:1 — cf. research/backtest_vixy_gate.py).",
+            "",
+            "### Tuning candidates for LIVE bots (top by Sharpe)",
+            "",
+            "| Candidate | Sharpe | vs SPY | CAGR | MaxDD | Tunes live bot |",
+            "|---|---|---|---|---|---|",
+        ])
+        for cand in sorted(retunes, key=lambda c: c.get("sharpe", 0), reverse=True):
+            live_bot = classify_candidate(cand["name"])
+            spy_s = cand.get("spy_sharpe", 0.8) or 0.8
+            lines.append(
+                f"| {cand['name']} | {cand['sharpe']:.2f} | +{float(cand['sharpe']) - spy_s:.2f} | "
+                f"{cand['cagr']} | {cand['maxdd']} | {live_bot} |"
+            )
+
+        if novel:
+            lines.extend([
+                "",
+                "### Genuinely novel candidates (no matching live bot)",
+                "",
+                "These do NOT map to an existing bot and would be real additions"
+                " — the only rows that justify a *new* sleeve. Validate on live"
+                " Alpaca paper for 2–4 weeks before allocating capital.",
+                "",
+                "| Candidate | Sharpe | CAGR | MaxDD |",
+                "|---|---|---|---|",
+            ])
+            for cand in sorted(novel, key=lambda c: c.get("sharpe", 0), reverse=True):
                 lines.append(
-                    f"| {cand['name']} | {cand['sharpe']:.2f} | +{float(cand['sharpe']) - (cand.get('spy_sharpe', 0.8)):.2f} | "
-                    f"{cand['cagr']} | {cand['maxdd']} | ${alloc['recommended_capital']:,} | "
-                    f"{alloc['reason']} |"
+                    f"| {cand['name']} | {cand['sharpe']:.2f} | {cand['cagr']} | {cand['maxdd']} |"
                 )
-
-        lines.extend([
-            "",
-            "### Deployment Order",
-            "1. **Priority 1** (top 3 by Sharpe): Start with credit_vol variations (best risk-adjusted returns)",
-            "2. **Priority 2** (next 3): TSMOM variations (proven diversifiers, low correlation to SPY)",
-            "3. **Priority 3** (others): Test in staging first, deploy if live backtest confirms",
-            "",
-        ])
+        else:
+            lines.extend([
+                "",
+                "### Genuinely novel candidates",
+                "",
+                "**None this run.** Every Tier-1 candidate re-tunes a live bot."
+                " No new sleeve is warranted — the fleet already covers these"
+                " families. The honest action is parameter tuning, not deployment.",
+            ])
 
     lines.extend([
-        "## Parameter Tuning for Live Bots",
         "",
-        "Based on efficient discovery, live bots can be improved:",
+        "## How to act on this",
         "",
-        "- **credit_vol_qqq**: Currently uses HYG > 200d SMA and VIX < 30. Backtest suggests HYG > 1.0×200d and VIX < 25 is optimal (Sharpe 1.17 vs 1.13 live).",
-        "- **tsmom_sleeve**: 6-month lookback on 5 assets (SPY/TLT/GLD/DBC/UUP) achieves Sharpe 1.01, comparable to current (0.86–1.19 range).",
-        "- **rsi2_strategy / ibs_strategy**: Mean reversion still under test — discovery phase incomplete.",
-        "",
-        "## Process",
-        "",
-        "1. Efficient discovery identifies parameter variations on proven families (no Claude API used).",
-        "2. Tier 1 candidates (beat SPY on Sharpe AND maxDD) are recommended for live deployment.",
-        "3. Each new strategy gets 5–10% of portfolio, scaled by Sharpe ratio.",
-        "4. Live backtest on Alpaca paper for 2–4 weeks before moving capital.",
-        "5. Monthly re-optimization: tune parameters on live data, redeploy if improvements found.",
+        "1. Efficient discovery tests parameter variations on proven families"
+        " (no Claude API). Its job is **tuning live bots**, not finding new ones —"
+        " all three families it tests are already deployed.",
+        "2. A candidate only justifies a NEW sleeve if it appears under \"novel\""
+        " above (no matching live bot). Redundant re-tunes do not.",
+        "3. Before changing a live bot's params, backtest the bot's ACTUAL"
+        " mechanism (not discovery's proxy) — the two can diverge materially.",
+        "4. All numbers are in-sample 2015–2026, no holdout. Directional, not gospel.",
         "",
         "## Next Steps",
         "",
-        "- [ ] Deploy credit_vol_hyg1.0_vix25 (Sharpe 1.17)",
-        "- [ ] Deploy tsmom_6m_5a (Sharpe 1.01) as alternative to current TSMOM sleeve",
-        "- [ ] Re-test mean reversion (debug, fix errors)",
-        "- [ ] Run efficient_strategy_discovery again in 1 week",
-        "- [ ] Measure live Alpaca performance vs backtest, adjust parameters weekly",
+        "- [ ] Treat credit_vol / tsmom candidates as tuning inputs only (already live)",
+        "- [ ] For any param change, validate on the live bot's real mechanism first",
+        "- [ ] Only deploy from the \"novel\" table (empty this run)",
+        "- [ ] Re-run efficient_strategy_discovery weekly; watch for novel families",
         "",
         "---",
         "*Report generated by strategy_deployment_guide.py*",
@@ -239,9 +262,8 @@ def main():
     perf = load_performance()
     discovery = load_efficient_discovery()
     portfolio = analyze_portfolio()
-    allocations = calculate_allocation(discovery.get("tier1_candidates", []) if discovery else [])
 
-    report = build_report(perf, discovery, portfolio, allocations)
+    report = build_report(perf, discovery, portfolio)
 
     # Write report
     report_file = f"{REPORTS_DIR}/deployment_guide_{datetime.now(timezone.utc).strftime('%Y-%m-%d')}.md"
