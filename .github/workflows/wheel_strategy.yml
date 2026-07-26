@@ -2,9 +2,23 @@ name: Wheel Strategy (TSLA)
 
 on:
   schedule:
-    # Every 15 minutes Mon-Fri strictly within market hours (13:30-19:45 UTC = 9:30 AM-3:45 PM ET)
-    - cron: "30,45 13 * * 1-5"
-    - cron: "0,15,30,45 14-19 * * 1-5"
+    # PAUSED 2026-07-26: negative expectancy BY CONSTRUCTION, not just a small
+    # sample. The "stop loss at 100% of premium" (check_early_close) buys the
+    # short put back at a realized loss the moment it doubles — which defeats the
+    # wheel itself: a cash-secured put that goes ITM is supposed to be ASSIGNED
+    # (own the shares at the strike, then sell covered calls to recover). The stop
+    # converts that into a pure short-put loss with no recovery leg, and on TSLA
+    # (very high vol) the 10%-OTM puts breach constantly. Result: $1,094 premium
+    # collected but -$473 net realized (PF 0.22) over 4 cycles. Currently flat
+    # (no open contract), so pausing is clean.
+    #
+    # Revival conditions (all): (1) remove/replace the premium stop-loss so it
+    # takes assignment or ROLLS down-and-out for a credit instead of realizing a
+    # loss; (2) wheel a name you'd actually want to own at the strike (a quality
+    # name or ETF), not a single high-vol meme name; (3) backtest the revised
+    # mechanic and show positive expectancy before re-enabling. Code kept intact.
+    #   - cron: "30,45 13 * * 1-5"
+    #   - cron: "0,15,30,45 14-19 * * 1-5"
   workflow_dispatch:
 
 jobs:
