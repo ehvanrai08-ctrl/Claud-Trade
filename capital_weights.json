@@ -1,6 +1,6 @@
 {
   "weights": {
-    "tsla_trailing": 1.034,
+    "tsla_trailing": 1.024,
     "trend_basket": 1.0,
     "wheel": 1.0,
     "copy_trader": 1.0,
