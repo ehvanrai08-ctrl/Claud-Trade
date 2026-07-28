@@ -5663,6 +5663,149 @@
    "name": "Debbie Dingell",
    "report_date": "2026-07-22",
    "trades": []
+  },
+  "20034736": {
+   "name": "Sam T. Liccardo",
+   "report_date": "2026-07-27",
+   "trades": [
+    {
+     "Ticker": "NVDA",
+     "Transaction": "Sale (Partial)",
+     "TransactionDate": "2026-07-21",
+     "Amount": "$15,001 - $50,000"
+    }
+   ]
+  },
+  "20035075": {
+   "name": "Max Miller",
+   "report_date": "2026-07-26",
+   "trades": []
+  },
+  "20034963": {
+   "name": "Jared Moskowitz",
+   "report_date": "2026-07-26",
+   "trades": [
+    {
+     "Ticker": "AMAT",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-06-18",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "AMAT",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-06-18",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "AMAT",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-06-18",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "HCA",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-06-17",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "HCA",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-06-17",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "HD",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-06-17",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "META",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-06-17",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "META",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-06-17",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "MSFT",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-06-17",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "MSFT",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-06-17",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "MNST",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-06-17",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "MNST",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-06-17",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "SPGI",
+     "Transaction": "Sale (Full)",
+     "TransactionDate": "2026-06-17",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "SPGI",
+     "Transaction": "Sale (Full)",
+     "TransactionDate": "2026-06-17",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "SPGI",
+     "Transaction": "Sale (Full)",
+     "TransactionDate": "2026-06-17",
+     "Amount": "$1,001 - $15,000"
+    },
+    {
+     "Ticker": "SPCX",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-06-12",
+     "Amount": "$1,001 - $15,000"
+    }
+   ]
+  },
+  "20035065": {
+   "name": "Robert E. Latta",
+   "report_date": "2026-07-24",
+   "trades": [
+    {
+     "Ticker": "FMAO",
+     "Transaction": "Purchase",
+     "TransactionDate": "2026-07-20",
+     "Amount": "$1,001 - $15,000"
+    }
+   ]
+  },
+  "20035068": {
+   "name": "Pete Sessions",
+   "report_date": "2026-07-24",
+   "trades": [
+    {
+     "Ticker": "ARCC",
+     "Transaction": "Sale (Full)",
+     "TransactionDate": "2026-07-24",
+     "Amount": "$1,001 - $15,000"
+    }
+   ]
   }
  },
  "senate": {
