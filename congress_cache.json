@@ -5806,6 +5806,16 @@
      "Amount": "$1,001 - $15,000"
     }
    ]
+  },
+  "20035007": {
+   "name": "Sheri Biggs",
+   "report_date": "2026-07-27",
+   "trades": []
+  },
+  "20035067": {
+   "name": "Adrian Smith",
+   "report_date": "2026-07-27",
+   "trades": []
   }
  },
  "senate": {
