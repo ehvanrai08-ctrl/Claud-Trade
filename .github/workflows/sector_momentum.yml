@@ -46,7 +46,7 @@ jobs:
         run: |
           git config user.name  "Claud-Trade Bot"
           git config user.email "bot@claud-trade"
-          git add sector_momentum_state.json
+          git add sector_momentum_state.json 2>/dev/null || true
           git add -f sector_momentum.log 2>/dev/null || true
           git add trades_ledger.jsonl performance.json capital_weights.json risk_state.json 2>/dev/null || true
           git diff --cached --quiet || git commit -m "chore: sector-momentum rebalance $(date +%Y-%m) [skip ci]"

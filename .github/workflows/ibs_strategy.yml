@@ -51,7 +51,7 @@ jobs:
       - name: Commit state
         if: always()
         run: |
-          git add ibs_state.json
+          git add ibs_state.json 2>/dev/null || true
           git add -f ibs.log 2>/dev/null || true
           git add trades_ledger.jsonl performance.json capital_weights.json risk_state.json 2>/dev/null || true
           git diff --cached --quiet || git commit -m "chore: update IBS state [skip ci]"

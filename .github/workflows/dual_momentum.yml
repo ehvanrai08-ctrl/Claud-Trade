@@ -45,7 +45,7 @@ jobs:
         run: |
           git config user.name  "Claud-Trade Bot"
           git config user.email "bot@claud-trade"
-          git add dual_momentum_state.json
+          git add dual_momentum_state.json 2>/dev/null || true
           git add -f dual_momentum.log 2>/dev/null || true
           git add trades_ledger.jsonl performance.json capital_weights.json risk_state.json 2>/dev/null || true
           git diff --cached --quiet || git commit -m "chore: dual-momentum rebalance $(date +%Y-%m) [skip ci]"
