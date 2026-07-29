@@ -317,3 +317,474 @@
 2026-07-28 18:10:03,916 INFO SKIP sell NTDOY — no position
 2026-07-28 18:10:04,118 INFO SKIP sell NVZMY — no position
 2026-07-28 18:10:04,118 INFO No new trades to copy this run (7 examined, 0 already copied)
+2026-07-29 15:47:31,988 INFO Top politician: Alan Armstrong buys=57 avg_buy_return=+17.99%
+2026-07-29 15:47:31,988 INFO Tracking: Alan Armstrong
+2026-07-29 15:47:32,184 INFO COPIED: Alan Armstrong | buy UHS ~$2500 | report 2026-07-21 | order 55124e1d-db9e-44f2-877c-72c91d003069
+2026-07-29 15:47:32,242 INFO SKIP sell WMB — no position
+2026-07-29 15:47:32,288 INFO SKIP sell WMB — no position
+2026-07-29 15:47:32,453 INFO COPIED: Alan Armstrong | buy DVA ~$2500 | report 2026-07-21 | order 55b8ccdf-24d9-4491-a788-5e07cf565e26
+2026-07-29 15:47:32,636 INFO COPIED: Alan Armstrong | buy DDOG ~$2500 | report 2026-07-21 | order e42c5b8d-f25a-4a71-9795-fc35605b5595
+2026-07-29 15:47:32,706 INFO SKIP sell CDNS — no position
+2026-07-29 15:47:32,859 INFO COPIED: Alan Armstrong | buy BXP ~$2500 | report 2026-07-21 | order 6d08fe08-bb74-4f2e-ab50-a06a881a9629
+2026-07-29 15:47:33,011 INFO COPIED: Alan Armstrong | buy BG ~$2500 | report 2026-07-21 | order ed4fd693-ca1e-4cd8-9773-ca5aa4143d6a
+2026-07-29 15:47:33,186 INFO COPIED: Alan Armstrong | buy BRO ~$2500 | report 2026-07-21 | order f7b3d482-8481-4a81-b312-07d367daf373
+2026-07-29 15:47:33,337 INFO COPIED: Alan Armstrong | buy BR ~$2500 | report 2026-07-21 | order beab18a7-665d-4650-8d25-8de61165d1d9
+2026-07-29 15:47:33,498 INFO COPIED: Alan Armstrong | buy NVS ~$2500 | report 2026-07-21 | order f23d2c0f-11ac-4688-86d6-6f3bf034f4d0
+2026-07-29 15:47:33,656 INFO COPIED: Alan Armstrong | buy SAN ~$5000 | report 2026-07-21 | order acc7e4a1-5f7c-450c-beaa-8af88a8d4a5d
+2026-07-29 15:47:33,812 INFO COPIED: Alan Armstrong | buy AZN ~$2500 | report 2026-07-21 | order 1ea49aae-19c9-4a09-bdbf-669c4dafef29
+2026-07-29 15:47:33,962 INFO COPIED: Alan Armstrong | buy ASML ~$2500 | report 2026-07-21 | order b7240402-05f9-497d-9e7c-3a7f5393f697
+2026-07-29 15:47:34,118 INFO COPIED: Alan Armstrong | buy WELL ~$2500 | report 2026-07-21 | order ea252f35-1d31-4183-8e0c-779d82c0bc00
+2026-07-29 15:47:34,276 INFO COPIED: Alan Armstrong | buy VRSN ~$2500 | report 2026-07-21 | order 6ea08313-68d5-4eda-940c-7aebdb7836fe
+2026-07-29 15:47:34,431 INFO COPIED: Alan Armstrong | buy UBS ~$2500 | report 2026-07-21 | order 55b9e7e0-e6f0-41e4-b62f-6061099750cc
+2026-07-29 15:47:34,594 INFO COPIED: Alan Armstrong | buy UBER ~$5000 | report 2026-07-21 | order c06c5892-58f7-4018-a5c2-6f517aa2c4cb
+2026-07-29 15:47:34,748 INFO COPIED: Alan Armstrong | buy TM ~$2500 | report 2026-07-21 | order b1a3e53c-19dd-46cc-bfa4-b52bc439bb9f
+2026-07-29 15:47:34,898 INFO COPIED: Alan Armstrong | buy TEVA ~$2500 | report 2026-07-21 | order 8cba8f36-c26a-481b-96a8-5fb03eddb4ba
+2026-07-29 15:47:35,116 INFO COPIED: Alan Armstrong | buy TSLA ~$2500 | report 2026-07-21 | order bc417437-1702-4f78-9dc0-e864964f8cf7
+2026-07-29 15:47:35,265 INFO COPIED: Alan Armstrong | buy SMFG ~$2500 | report 2026-07-21 | order 37be38ee-423e-46cb-b959-9c25d4b72abb
+2026-07-29 15:47:35,412 INFO COPIED: Alan Armstrong | buy STM ~$2500 | report 2026-07-21 | order b73a4304-8180-45b3-baff-63f7c320e4ea
+2026-07-29 15:47:35,557 INFO COPIED: Alan Armstrong | buy STLA ~$2500 | report 2026-07-21 | order 27527cbd-84b5-4b33-8626-6df6e27739ff
+2026-07-29 15:47:35,710 INFO COPIED: Alan Armstrong | buy SPOT ~$2500 | report 2026-07-21 | order 1aee447f-a37d-4f85-9800-52e8def1f980
+2026-07-29 15:47:35,878 INFO COPIED: Alan Armstrong | buy SONY ~$2500 | report 2026-07-21 | order 95d82957-c089-479f-a8cf-6cfd2854da65
+2026-07-29 15:47:36,030 INFO COPIED: Alan Armstrong | buy SNN ~$2500 | report 2026-07-21 | order cd1d540f-925c-46c9-b601-eabf5e0f085c
+2026-07-29 15:47:36,236 INFO COPIED: Alan Armstrong | buy SCHW ~$2500 | report 2026-07-21 | order cdbc1346-150d-4cc8-a64c-ca7a95203073
+2026-07-29 15:47:36,399 INFO COPIED: Alan Armstrong | buy SAP ~$2500 | report 2026-07-21 | order fbfdbe11-e286-4237-a4fd-a38b0c9ac898
+2026-07-29 15:47:36,579 INFO COPIED: Alan Armstrong | buy SNY ~$2500 | report 2026-07-21 | order fb6e2cf6-063f-4696-8bd7-f49225cbacb1
+2026-07-29 15:47:36,729 INFO COPIED: Alan Armstrong | buy RIO ~$2500 | report 2026-07-21 | order 4ca7ce14-a8b7-4965-a291-ba31254248ab
+2026-07-29 15:47:36,877 INFO COPIED: Alan Armstrong | buy DGX ~$2500 | report 2026-07-21 | order 6e84f3c0-7462-4763-abb3-0b88d3a46469
+2026-07-29 15:47:37,041 INFO COPIED: Alan Armstrong | buy PSO ~$2500 | report 2026-07-21 | order 70d87b26-3863-449d-b767-968f7ab7f684
+2026-07-29 15:47:37,217 INFO COPIED: Alan Armstrong | buy IX ~$2500 | report 2026-07-21 | order 6a0a249c-f47f-4b21-8707-8c0ddef55da5
+2026-07-29 15:47:37,409 INFO COPIED: Alan Armstrong | buy ORLY ~$2500 | report 2026-07-21 | order a4c627a9-da30-4294-9c67-5e3c9a2517c2
+2026-07-29 15:47:37,608 INFO COPIED: Alan Armstrong | buy NVDA ~$5000 | report 2026-07-21 | order 7c4c9297-edf7-4b6f-b63b-3b3fa2c85022
+2026-07-29 15:47:37,751 INFO COPIED: Alan Armstrong | buy NVO ~$2500 | report 2026-07-21 | order 73b2097c-6696-4ce3-83b6-24b67fe08c61
+2026-07-29 15:47:37,913 INFO COPIED: Alan Armstrong | buy NMR ~$2500 | report 2026-07-21 | order 421204b4-b627-490a-8b78-a83fc325eeeb
+2026-07-29 15:47:38,098 INFO COPIED: Alan Armstrong | buy NOK ~$2500 | report 2026-07-21 | order 3cf35828-8259-4f32-8064-836ddae86859
+2026-07-29 15:47:38,248 INFO COPIED: Alan Armstrong | buy NBIS ~$2500 | report 2026-07-21 | order 81c6e897-e6e0-4ad5-9f42-86931e5acd02
+2026-07-29 15:47:38,409 INFO COPIED: Alan Armstrong | buy MNDY ~$2500 | report 2026-07-21 | order 42ad1dab-1589-4a33-8633-db39587e9d05
+2026-07-29 15:47:38,579 INFO COPIED: Alan Armstrong | buy MFG ~$2500 | report 2026-07-21 | order d71ead87-df15-4102-8f16-fdfc57d37ab7
+2026-07-29 15:47:38,728 INFO COPIED: Alan Armstrong | buy MSFT ~$5000 | report 2026-07-21 | order 63d351aa-2a22-4d0a-97ec-77007c0af12e
+2026-07-29 15:47:38,871 INFO COPIED: Alan Armstrong | buy LOGI ~$2500 | report 2026-07-21 | order 983278f6-ea50-441f-8bee-3820599997fa
+2026-07-29 15:47:39,021 INFO COPIED: Alan Armstrong | buy LYG ~$2500 | report 2026-07-21 | order c7495802-7f65-41ba-b376-0a40c23e5d5c
+2026-07-29 15:47:39,174 INFO COPIED: Alan Armstrong | buy KMB ~$2500 | report 2026-07-21 | order 56ae790c-8ee8-4949-a83a-ce9592181df8
+2026-07-29 15:47:39,320 INFO COPIED: Alan Armstrong | buy JNJ ~$5000 | report 2026-07-21 | order cb304c2a-4524-4e25-bbe2-f06bd12a5770
+2026-07-29 15:47:39,461 INFO COPIED: Alan Armstrong | buy AER ~$2500 | report 2026-07-21 | order 19dff059-00e2-4f3f-851c-f7f8ca9fcf0f
+2026-07-29 15:47:39,622 INFO COPIED: Alan Armstrong | buy ING ~$2500 | report 2026-07-21 | order 2bb9bd7b-3ca0-444c-8254-09479320fb54
+2026-07-29 15:47:39,775 INFO COPIED: Alan Armstrong | buy ICL ~$2500 | report 2026-07-21 | order 819b6cf6-a172-4128-b513-0aa7c0b1ed34
+2026-07-29 15:47:39,944 INFO COPIED: Alan Armstrong | buy HSBC ~$2500 | report 2026-07-21 | order d8999500-dc67-4d0c-96c0-0147ab920ff2
+2026-07-29 15:47:40,089 ERROR Order failed HMC buy: {"buying_power":"2463.35","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-29 15:47:40,090 WARNING Order failed for HMC — leaving uncopied to retry next run
+2026-07-29 15:47:40,241 ERROR Order failed ZBH buy: {"buying_power":"2461.06","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-29 15:47:40,242 WARNING Order failed for ZBH — leaving uncopied to retry next run
+2026-07-29 15:47:40,400 ERROR Order failed YUM buy: {"buying_power":"2461.86","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-29 15:47:40,401 WARNING Order failed for YUM — leaving uncopied to retry next run
+2026-07-29 15:47:40,646 ERROR Order failed GS buy: {"buying_power":"2461.75","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-29 15:47:40,647 WARNING Order failed for GS — leaving uncopied to retry next run
+2026-07-29 15:47:40,796 ERROR Order failed WYNN buy: {"buying_power":"2456.96","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-29 15:47:40,797 WARNING Order failed for WYNN — leaving uncopied to retry next run
+2026-07-29 15:47:40,957 ERROR Order failed WDC buy: {"buying_power":"2455.83","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-29 15:47:40,958 WARNING Order failed for WDC — leaving uncopied to retry next run
+2026-07-29 15:47:41,153 ERROR Order failed WDAY buy: {"buying_power":"2452.51","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-29 15:47:41,154 WARNING Order failed for WDAY — leaving uncopied to retry next run
+2026-07-29 15:47:41,303 ERROR Order failed GMAB buy: {"buying_power":"2450.25","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-29 15:47:41,304 WARNING Order failed for GMAB — leaving uncopied to retry next run
+2026-07-29 15:47:41,453 ERROR Order failed WFC buy: {"buying_power":"2449.79","code":40310000,"cost_basis":"5000","message":"insufficient buying power"}
+2026-07-29 15:47:41,454 WARNING Order failed for WFC — leaving uncopied to retry next run
+2026-07-29 15:47:41,605 ERROR Order failed WBD buy: {"buying_power":"2449.84","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-29 15:47:41,606 WARNING Order failed for WBD — leaving uncopied to retry next run
+2026-07-29 15:47:41,783 ERROR Order failed DIS buy: {"buying_power":"2449.35","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-29 15:47:41,784 WARNING Order failed for DIS — leaving uncopied to retry next run
+2026-07-29 15:47:41,830 INFO SKIP sell WMT — no position
+2026-07-29 15:47:41,982 ERROR Order failed RACE buy: {"buying_power":"2448.55","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-29 15:47:41,983 WARNING Order failed for RACE — leaving uncopied to retry next run
+2026-07-29 15:47:42,205 ERROR Order failed WAB buy: {"buying_power":"2448.25","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-29 15:47:42,206 WARNING Order failed for WAB — leaving uncopied to retry next run
+2026-07-29 15:47:42,375 ERROR Order failed V buy: {"buying_power":"2448.98","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-29 15:47:42,376 WARNING Order failed for V — leaving uncopied to retry next run
+2026-07-29 15:47:42,522 ERROR Order failed VICI buy: {"buying_power":"2448.88","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-29 15:47:42,523 WARNING Order failed for VICI — leaving uncopied to retry next run
+2026-07-29 15:47:42,694 ERROR Order failed EA buy: {"buying_power":"2447.19","code":40310000,"cost_basis":"5000","message":"insufficient buying power"}
+2026-07-29 15:47:42,695 WARNING Order failed for EA — leaving uncopied to retry next run
+2026-07-29 15:47:42,861 ERROR Order failed ESLT buy: {"buying_power":"2445.8","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-29 15:47:42,862 WARNING Order failed for ESLT — leaving uncopied to retry next run
+2026-07-29 15:47:43,013 ERROR Order failed DEO buy: {"buying_power":"2445.71","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-29 15:47:43,014 WARNING Order failed for DEO — leaving uncopied to retry next run
+2026-07-29 15:47:43,187 ERROR Order failed DB buy: {"buying_power":"2447.16","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-29 15:47:43,188 WARNING Order failed for DB — leaving uncopied to retry next run
+2026-07-29 15:47:43,348 ERROR Order failed VRT buy: {"buying_power":"2447.16","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-29 15:47:43,348 WARNING Order failed for VRT — leaving uncopied to retry next run
+2026-07-29 15:47:43,499 ERROR Order failed VRTX buy: {"buying_power":"2446.47","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-29 15:47:43,500 WARNING Order failed for VRTX — leaving uncopied to retry next run
+2026-07-29 15:47:43,657 ERROR Order failed VZ buy: {"buying_power":"2447.39","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-29 15:47:43,658 WARNING Order failed for VZ — leaving uncopied to retry next run
+2026-07-29 15:47:43,827 ERROR Order failed VRSK buy: {"buying_power":"2445.72","code":40310000,"cost_basis":"5000","message":"insufficient buying power"}
+2026-07-29 15:47:43,828 WARNING Order failed for VRSK — leaving uncopied to retry next run
+2026-07-29 15:47:43,982 ERROR Order failed VTR buy: {"buying_power":"2445.67","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-29 15:47:43,983 WARNING Order failed for VTR — leaving uncopied to retry next run
+2026-07-29 15:47:44,172 ERROR Order failed URI buy: {"buying_power":"2445.68","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-29 15:47:44,172 WARNING Order failed for URI — leaving uncopied to retry next run
+2026-07-29 15:47:44,322 ERROR Order failed UNH buy: {"buying_power":"2445.42","code":40310000,"cost_basis":"5000","message":"insufficient buying power"}
+2026-07-29 15:47:44,323 WARNING Order failed for UNH — leaving uncopied to retry next run
+2026-07-29 15:47:44,465 ERROR Order failed UPS buy: {"buying_power":"2447.47","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-29 15:47:44,466 WARNING Order failed for UPS — leaving uncopied to retry next run
+2026-07-29 15:47:44,622 ERROR Order failed UNP buy: {"buying_power":"2449.58","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-29 15:47:44,623 WARNING Order failed for UNP — leaving uncopied to retry next run
+2026-07-29 15:47:44,766 ERROR Order failed UDR buy: {"buying_power":"2450.95","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-29 15:47:44,767 WARNING Order failed for UDR — leaving uncopied to retry next run
+2026-07-29 15:47:44,965 ERROR Order failed TFC buy: {"buying_power":"2450.41","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-29 15:47:44,966 WARNING Order failed for TFC — leaving uncopied to retry next run
+2026-07-29 15:47:45,120 ERROR Order failed TRV buy: {"buying_power":"2450.74","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-29 15:47:45,120 WARNING Order failed for TRV — leaving uncopied to retry next run
+2026-07-29 15:47:45,265 ERROR Order failed TDG buy: {"buying_power":"2450.53","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-29 15:47:45,266 WARNING Order failed for TDG — leaving uncopied to retry next run
+2026-07-29 15:47:45,312 INFO SKIP sell TT — no position
+2026-07-29 15:47:45,453 ERROR Order failed TMO buy: {"buying_power":"2448.16","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-29 15:47:45,453 WARNING Order failed for TMO — leaving uncopied to retry next run
+2026-07-29 15:47:45,602 ERROR Order failed COO buy: {"buying_power":"2445.45","code":40310000,"cost_basis":"5000","message":"insufficient buying power"}
+2026-07-29 15:47:45,602 WARNING Order failed for COO — leaving uncopied to retry next run
+2026-07-29 15:47:45,767 ERROR Order failed CI buy: {"buying_power":"2444.85","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-29 15:47:45,768 WARNING Order failed for CI — leaving uncopied to retry next run
+2026-07-29 15:47:45,943 ERROR Order failed CPB buy: {"buying_power":"2444.97","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-29 15:47:45,944 WARNING Order failed for CPB — leaving uncopied to retry next run
+2026-07-29 15:47:46,089 ERROR Order failed TXT buy: {"buying_power":"2444.94","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-29 15:47:46,090 WARNING Order failed for TXT — leaving uncopied to retry next run
+2026-07-29 15:47:46,267 ERROR Order failed TXN buy: {"buying_power":"2445.17","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-29 15:47:46,268 WARNING Order failed for TXN — leaving uncopied to retry next run
+2026-07-29 15:47:46,420 ERROR Order failed TER buy: {"buying_power":"2444.98","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-29 15:47:46,420 WARNING Order failed for TER — leaving uncopied to retry next run
+2026-07-29 15:47:46,466 INFO SKIP sell TDY — no position
+2026-07-29 15:47:46,633 ERROR Order failed TPR buy: {"buying_power":"2442.8","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-29 15:47:46,634 WARNING Order failed for TPR — leaving uncopied to retry next run
+2026-07-29 15:47:46,786 ERROR Order failed TTWO buy: {"buying_power":"2442.78","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-29 15:47:46,787 WARNING Order failed for TTWO — leaving uncopied to retry next run
+2026-07-29 15:47:46,839 INFO SKIP sell TMUS — no position
+2026-07-29 15:47:46,998 ERROR Order failed SNPS buy: {"buying_power":"2440.85","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-29 15:47:46,999 WARNING Order failed for SNPS — leaving uncopied to retry next run
+2026-07-29 15:47:47,145 ERROR Order failed SYF buy: {"buying_power":"2440.88","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-29 15:47:47,146 WARNING Order failed for SYF — leaving uncopied to retry next run
+2026-07-29 15:47:47,192 INFO SKIP sell SYK — no position
+2026-07-29 15:47:47,341 ERROR Order failed STLD buy: {"buying_power":"2441.74","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-29 15:47:47,341 WARNING Order failed for STLD — leaving uncopied to retry next run
+2026-07-29 15:47:47,483 ERROR Order failed SBUX buy: {"buying_power":"2445.31","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-29 15:47:47,484 WARNING Order failed for SBUX — leaving uncopied to retry next run
+2026-07-29 15:47:47,660 ERROR Order failed SOLV buy: {"buying_power":"2445.06","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-29 15:47:47,661 WARNING Order failed for SOLV — leaving uncopied to retry next run
+2026-07-29 15:47:47,883 ERROR Order failed SNA buy: {"buying_power":"2445.25","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-29 15:47:47,884 WARNING Order failed for SNA — leaving uncopied to retry next run
+2026-07-29 15:47:48,030 ERROR Order failed SJM buy: {"buying_power":"2446.98","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-29 15:47:48,030 WARNING Order failed for SJM — leaving uncopied to retry next run
+2026-07-29 15:47:48,178 ERROR Order failed SWKS buy: {"buying_power":"2450.37","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-29 15:47:48,179 WARNING Order failed for SWKS — leaving uncopied to retry next run
+2026-07-29 15:47:48,352 ERROR Order failed SPG buy: {"buying_power":"2445.7","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-29 15:47:48,353 WARNING Order failed for SPG — leaving uncopied to retry next run
+2026-07-29 15:47:48,401 INFO SKIP sell NOW — no position
+2026-07-29 15:47:48,606 ERROR Order failed STX buy: {"buying_power":"2446.54","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-29 15:47:48,607 WARNING Order failed for STX — leaving uncopied to retry next run
+2026-07-29 15:47:48,755 ERROR Order failed SNDK buy: {"buying_power":"2446.72","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-29 15:47:48,756 WARNING Order failed for SNDK — leaving uncopied to retry next run
+2026-07-29 15:47:48,908 ERROR Order failed CRM buy: {"buying_power":"2446.72","code":40310000,"cost_basis":"5000","message":"insufficient buying power"}
+2026-07-29 15:47:48,908 WARNING Order failed for CRM — leaving uncopied to retry next run
+2026-07-29 15:47:49,066 ERROR Order failed SPGI buy: {"buying_power":"2446.9","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-29 15:47:49,067 WARNING Order failed for SPGI — leaving uncopied to retry next run
+2026-07-29 15:47:49,235 ERROR Order failed RTX buy: {"buying_power":"2446.79","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-29 15:47:49,236 WARNING Order failed for RTX — leaving uncopied to retry next run
+2026-07-29 15:47:49,388 ERROR Order failed RCL buy: {"buying_power":"2446.92","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-29 15:47:49,389 WARNING Order failed for RCL — leaving uncopied to retry next run
+2026-07-29 15:47:49,563 ERROR Order failed HOOD buy: {"buying_power":"2447.52","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-29 15:47:49,564 WARNING Order failed for HOOD — leaving uncopied to retry next run
+2026-07-29 15:47:49,712 ERROR Order failed RMD buy: {"buying_power":"2447.89","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-29 15:47:49,713 WARNING Order failed for RMD — leaving uncopied to retry next run
+2026-07-29 15:47:49,872 ERROR Order failed RSG buy: {"buying_power":"2447.53","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-29 15:47:49,873 WARNING Order failed for RSG — leaving uncopied to retry next run
+2026-07-29 15:47:50,017 ERROR Order failed REGN buy: {"buying_power":"2447.62","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-29 15:47:50,018 WARNING Order failed for REGN — leaving uncopied to retry next run
+2026-07-29 15:47:50,170 ERROR Order failed REG buy: {"buying_power":"2447.05","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-29 15:47:50,171 WARNING Order failed for REG — leaving uncopied to retry next run
+2026-07-29 15:47:50,318 ERROR Order failed O buy: {"buying_power":"2447.23","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-29 15:47:50,318 WARNING Order failed for O — leaving uncopied to retry next run
+2026-07-29 15:47:50,486 ERROR Order failed PWR buy: {"buying_power":"2446.89","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-29 15:47:50,487 WARNING Order failed for PWR — leaving uncopied to retry next run
+2026-07-29 15:47:50,659 ERROR Order failed QCOM buy: {"buying_power":"2449.51","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-29 15:47:50,660 WARNING Order failed for QCOM — leaving uncopied to retry next run
+2026-07-29 15:47:50,807 ERROR Order failed Q buy: {"buying_power":"2449.25","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-29 15:47:50,808 WARNING Order failed for Q — leaving uncopied to retry next run
+2026-07-29 15:47:50,964 ERROR Order failed PSA buy: {"buying_power":"2450.9","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-29 15:47:50,965 WARNING Order failed for PSA — leaving uncopied to retry next run
+2026-07-29 15:47:51,130 ERROR Order failed PTC buy: {"buying_power":"2450.83","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-29 15:47:51,131 WARNING Order failed for PTC — leaving uncopied to retry next run
+2026-07-29 15:47:51,185 INFO SKIP sell PRU — no position
+2026-07-29 15:47:51,230 INFO SKIP sell PGR — no position
+2026-07-29 15:47:51,276 INFO SKIP sell PG — no position
+2026-07-29 15:47:51,425 ERROR Order failed PFG buy: {"buying_power":"2453.8","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-29 15:47:51,426 WARNING Order failed for PFG — leaving uncopied to retry next run
+2026-07-29 15:47:51,569 ERROR Order failed POOL buy: {"buying_power":"2453.48","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-29 15:47:51,570 WARNING Order failed for POOL — leaving uncopied to retry next run
+2026-07-29 15:47:51,616 INFO SKIP sell PNC — no position
+2026-07-29 15:47:51,665 INFO SKIP sell PSX — no position
+2026-07-29 15:47:51,813 ERROR Order failed PM buy: {"buying_power":"2452.85","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-29 15:47:51,814 WARNING Order failed for PM — leaving uncopied to retry next run
+2026-07-29 15:47:51,953 ERROR Order failed PEP buy: {"buying_power":"2453.03","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-29 15:47:51,954 WARNING Order failed for PEP — leaving uncopied to retry next run
+2026-07-29 15:47:52,197 ERROR Order failed PYPL buy: {"buying_power":"2458.01","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-29 15:47:52,198 WARNING Order failed for PYPL — leaving uncopied to retry next run
+2026-07-29 15:47:52,245 INFO SKIP sell PAYX — no position
+2026-07-29 15:47:52,430 ERROR Order failed PH buy: {"buying_power":"2460.5","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-29 15:47:52,431 WARNING Order failed for PH — leaving uncopied to retry next run
+2026-07-29 15:47:52,593 ERROR Order failed PANW buy: {"buying_power":"2462.98","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-29 15:47:52,594 WARNING Order failed for PANW — leaving uncopied to retry next run
+2026-07-29 15:47:52,639 INFO SKIP CCEP — not tradeable on Alpaca
+2026-07-29 15:47:52,686 INFO SKIP PLTR — not tradeable on Alpaca
+2026-07-29 15:47:52,820 ERROR Order failed CIEN buy: {"code":42910000,"message":"rate limit exceeded"}
+2026-07-29 15:47:52,821 WARNING Order failed for CIEN — leaving uncopied to retry next run
+2026-07-29 15:47:52,867 INFO SKIP PCAR — not tradeable on Alpaca
+2026-07-29 15:47:52,915 INFO SKIP CHKP — not tradeable on Alpaca
+2026-07-29 15:47:52,960 INFO SKIP OTIS — not tradeable on Alpaca
+2026-07-29 15:47:53,005 INFO SKIP ORCL — not tradeable on Alpaca
+2026-07-29 15:47:53,150 ERROR Order failed OMC buy: {"buying_power":"2464.1","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-29 15:47:53,151 WARNING Order failed for OMC — leaving uncopied to retry next run
+2026-07-29 15:47:53,198 INFO SKIP NXPI — not tradeable on Alpaca
+2026-07-29 15:47:53,240 INFO SKIP NUE — not tradeable on Alpaca
+2026-07-29 15:47:53,285 INFO SKIP NOC — not tradeable on Alpaca
+2026-07-29 15:47:53,331 INFO SKIP NSC — not tradeable on Alpaca
+2026-07-29 15:47:53,470 ERROR Order failed NKE buy: {"code":42910000,"message":"rate limit exceeded"}
+2026-07-29 15:47:53,471 WARNING Order failed for NKE — leaving uncopied to retry next run
+2026-07-29 15:47:53,518 INFO SKIP BTI — not tradeable on Alpaca
+2026-07-29 15:47:53,563 INFO SKIP BBVA — not tradeable on Alpaca
+2026-07-29 15:47:53,609 INFO SKIP sell NEE — no position
+2026-07-29 15:47:53,655 INFO SKIP NEM — not tradeable on Alpaca
+2026-07-29 15:47:53,801 ERROR Order failed NFLX buy: {"code":42910000,"message":"rate limit exceeded"}
+2026-07-29 15:47:53,801 WARNING Order failed for NFLX — leaving uncopied to retry next run
+2026-07-29 15:47:53,849 INFO SKIP sell NDAQ — no position
+2026-07-29 15:47:53,899 INFO SKIP MSCI — not tradeable on Alpaca
+2026-07-29 15:47:53,945 INFO SKIP MSI — not tradeable on Alpaca
+2026-07-29 15:47:53,993 INFO SKIP MOS — not tradeable on Alpaca
+2026-07-29 15:47:54,132 ERROR Order failed MS buy: {"code":42910000,"message":"rate limit exceeded"}
+2026-07-29 15:47:54,133 WARNING Order failed for MS — leaving uncopied to retry next run
+2026-07-29 15:47:54,179 INFO SKIP sell MDLZ — no position
+2026-07-29 15:47:54,222 INFO SKIP TAP — not tradeable on Alpaca
+2026-07-29 15:47:54,269 INFO SKIP MAA — not tradeable on Alpaca
+2026-07-29 15:47:54,319 INFO SKIP MU — not tradeable on Alpaca
+2026-07-29 15:47:54,456 ERROR Order failed MCHP buy: {"code":42910000,"message":"rate limit exceeded"}
+2026-07-29 15:47:54,457 WARNING Order failed for MCHP — leaving uncopied to retry next run
+2026-07-29 15:47:54,506 INFO SKIP ARGX — not tradeable on Alpaca
+2026-07-29 15:47:54,553 INFO SKIP MGM — not tradeable on Alpaca
+2026-07-29 15:47:54,596 INFO SKIP MT — not tradeable on Alpaca
+2026-07-29 15:47:54,644 INFO SKIP MET — not tradeable on Alpaca
+2026-07-29 15:47:54,785 ERROR Order failed AAPL buy: {"code":42910000,"message":"rate limit exceeded"}
+2026-07-29 15:47:54,786 WARNING Order failed for AAPL — leaving uncopied to retry next run
+2026-07-29 15:47:54,834 INFO SKIP META — not tradeable on Alpaca
+2026-07-29 15:47:54,880 INFO SKIP sell MRK — no position
+2026-07-29 15:47:54,928 INFO SKIP MDT — not tradeable on Alpaca
+2026-07-29 15:47:54,974 INFO SKIP BUD — not tradeable on Alpaca
+2026-07-29 15:47:55,115 ERROR Order failed MCK buy: {"code":42910000,"message":"rate limit exceeded"}
+2026-07-29 15:47:55,116 WARNING Order failed for MCK — leaving uncopied to retry next run
+2026-07-29 15:47:55,169 INFO SKIP MCD — not tradeable on Alpaca
+2026-07-29 15:47:55,217 INFO SKIP sell MA — no position
+2026-07-29 15:47:55,261 INFO SKIP sell MRSH — no position
+2026-07-29 15:47:55,308 INFO SKIP MAR — not tradeable on Alpaca
+2026-07-29 15:47:55,447 ERROR Order failed LYB buy: {"code":42910000,"message":"rate limit exceeded"}
+2026-07-29 15:47:55,448 WARNING Order failed for LYB — leaving uncopied to retry next run
+2026-07-29 15:47:55,496 INFO SKIP GOOG — not tradeable on Alpaca
+2026-07-29 15:47:55,545 INFO SKIP LITE — not tradeable on Alpaca
+2026-07-29 15:47:55,600 INFO SKIP LOW — not tradeable on Alpaca
+2026-07-29 15:47:55,647 INFO SKIP LMT — not tradeable on Alpaca
+2026-07-29 15:47:55,801 ERROR Order failed LYV buy: {"code":42910000,"message":"rate limit exceeded"}
+2026-07-29 15:47:55,802 WARNING Order failed for LYV — leaving uncopied to retry next run
+2026-07-29 15:47:55,855 INFO SKIP ALC — not tradeable on Alpaca
+2026-07-29 15:47:55,905 INFO SKIP sell LIN — no position
+2026-07-29 15:47:55,951 INFO SKIP sell LLY — no position
+2026-07-29 15:47:56,091 ERROR Order failed LEN buy: {"code":42910000,"message":"rate limit exceeded"}
+2026-07-29 15:47:56,092 WARNING Order failed for LEN — leaving uncopied to retry next run
+2026-07-29 15:47:56,139 INFO SKIP sell LDOS — no position
+2026-07-29 15:47:56,192 INFO SKIP LRCX — not tradeable on Alpaca
+2026-07-29 15:47:56,239 INFO SKIP LH — not tradeable on Alpaca
+2026-07-29 15:47:56,289 INFO SKIP LHX — not tradeable on Alpaca
+2026-07-29 15:47:56,426 ERROR Order failed KHC buy: {"code":42910000,"message":"rate limit exceeded"}
+2026-07-29 15:47:56,427 WARNING Order failed for KHC — leaving uncopied to retry next run
+2026-07-29 15:47:56,474 INFO SKIP KLAC — not tradeable on Alpaca
+2026-07-29 15:47:56,520 INFO SKIP KKR — not tradeable on Alpaca
+2026-07-29 15:47:56,566 INFO SKIP sell KMI — no position
+2026-07-29 15:47:56,615 INFO SKIP KIM — not tradeable on Alpaca
+2026-07-29 15:47:56,762 ERROR Order failed KEY buy: {"buying_power":"2472.29","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-29 15:47:56,763 WARNING Order failed for KEY — leaving uncopied to retry next run
+2026-07-29 15:47:56,808 INFO SKIP KDP — not tradeable on Alpaca
+2026-07-29 15:47:56,852 INFO SKIP KVUE — not tradeable on Alpaca
+2026-07-29 15:47:56,899 INFO SKIP sell JPM — no position
+2026-07-29 15:47:56,947 INFO SKIP INVH — not tradeable on Alpaca
+2026-07-29 15:47:57,090 ERROR Order failed ISRG buy: {"code":42910000,"message":"rate limit exceeded"}
+2026-07-29 15:47:57,090 WARNING Order failed for ISRG — leaving uncopied to retry next run
+2026-07-29 15:47:57,136 INFO SKIP INTU — not tradeable on Alpaca
+2026-07-29 15:47:57,182 INFO SKIP IBM — not tradeable on Alpaca
+2026-07-29 15:47:57,232 INFO SKIP ICE — not tradeable on Alpaca
+2026-07-29 15:47:57,276 INFO SKIP INTC — not tradeable on Alpaca
+2026-07-29 15:47:57,417 ERROR Order failed HBAN buy: {"code":42910000,"message":"rate limit exceeded"}
+2026-07-29 15:47:57,418 WARNING Order failed for HBAN — leaving uncopied to retry next run
+2026-07-29 15:47:57,464 INFO SKIP HUM — not tradeable on Alpaca
+2026-07-29 15:47:57,515 INFO SKIP HUBB — not tradeable on Alpaca
+2026-07-29 15:47:57,566 INFO SKIP HPQ — not tradeable on Alpaca
+2026-07-29 15:47:57,611 INFO SKIP HWM — not tradeable on Alpaca
+2026-07-29 15:47:57,755 ERROR Order failed HON buy: {"code":42910000,"message":"rate limit exceeded"}
+2026-07-29 15:47:57,755 WARNING Order failed for HON — leaving uncopied to retry next run
+2026-07-29 15:47:57,804 INFO SKIP sell HD — no position
+2026-07-29 15:47:57,851 INFO SKIP HLT — not tradeable on Alpaca
+2026-07-29 15:47:57,900 INFO SKIP HPE — not tradeable on Alpaca
+2026-07-29 15:47:57,953 INFO SKIP HSY — not tradeable on Alpaca
+2026-07-29 15:47:58,091 ERROR Order failed DOC buy: {"code":42910000,"message":"rate limit exceeded"}
+2026-07-29 15:47:58,092 WARNING Order failed for DOC — leaving uncopied to retry next run
+2026-07-29 15:47:58,140 INFO SKIP HCA — not tradeable on Alpaca
+2026-07-29 15:47:58,187 INFO SKIP HAS — not tradeable on Alpaca
+2026-07-29 15:47:58,232 INFO SKIP HIG — not tradeable on Alpaca
+2026-07-29 15:47:58,278 INFO SKIP GS — not tradeable on Alpaca
+2026-07-29 15:47:58,410 ERROR Order failed GDDY buy: {"code":42910000,"message":"rate limit exceeded"}
+2026-07-29 15:47:58,411 WARNING Order failed for GDDY — leaving uncopied to retry next run
+2026-07-29 15:47:58,458 INFO SKIP GL — not tradeable on Alpaca
+2026-07-29 15:47:58,502 INFO SKIP GPN — not tradeable on Alpaca
+2026-07-29 15:47:58,550 INFO SKIP GILD — not tradeable on Alpaca
+2026-07-29 15:47:58,600 INFO SKIP GPC — not tradeable on Alpaca
+2026-07-29 15:47:58,737 ERROR Order failed GIS buy: {"code":42910000,"message":"rate limit exceeded"}
+2026-07-29 15:47:58,738 WARNING Order failed for GIS — leaving uncopied to retry next run
+2026-07-29 15:47:58,784 INFO SKIP GD — not tradeable on Alpaca
+2026-07-29 15:47:58,831 INFO SKIP GM — not tradeable on Alpaca
+2026-07-29 15:47:58,879 INFO SKIP GEN — not tradeable on Alpaca
+2026-07-29 15:47:58,925 INFO SKIP sell GEV — no position
+2026-07-29 15:47:59,067 ERROR Order failed GEHC buy: {"code":42910000,"message":"rate limit exceeded"}
+2026-07-29 15:47:59,068 WARNING Order failed for GEHC — leaving uncopied to retry next run
+2026-07-29 15:47:59,113 INFO SKIP GE — not tradeable on Alpaca
+2026-07-29 15:47:59,163 INFO SKIP AJG — not tradeable on Alpaca
+2026-07-29 15:47:59,212 INFO SKIP FCX — not tradeable on Alpaca
+2026-07-29 15:47:59,261 INFO SKIP BEN — not tradeable on Alpaca
+2026-07-29 15:47:59,397 ERROR Order failed FOXA buy: {"code":42910000,"message":"rate limit exceeded"}
+2026-07-29 15:47:59,398 WARNING Order failed for FOXA — leaving uncopied to retry next run
+2026-07-29 15:47:59,444 INFO SKIP FTV — not tradeable on Alpaca
+2026-07-29 15:47:59,491 INFO SKIP FTNT — not tradeable on Alpaca
+2026-07-29 15:47:59,539 INFO SKIP F — not tradeable on Alpaca
+2026-07-29 15:47:59,584 INFO SKIP FISV — not tradeable on Alpaca
+2026-07-29 15:47:59,725 ERROR Order failed FSLR buy: {"code":42910000,"message":"rate limit exceeded"}
+2026-07-29 15:47:59,726 WARNING Order failed for FSLR — leaving uncopied to retry next run
+2026-07-29 15:47:59,773 INFO SKIP FIS — not tradeable on Alpaca
+2026-07-29 15:47:59,818 INFO SKIP FDX — not tradeable on Alpaca
+2026-07-29 15:47:59,867 INFO SKIP FRT — not tradeable on Alpaca
+2026-07-29 15:47:59,914 INFO SKIP FICO — not tradeable on Alpaca
+2026-07-29 15:48:00,083 ERROR Order failed FFIV buy: {"buying_power":"2478.41","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-29 15:48:00,084 WARNING Order failed for FFIV — leaving uncopied to retry next run
+2026-07-29 15:48:00,133 INFO SKIP sell XOM — no position
+2026-07-29 15:48:00,179 INFO SKIP EXPD — not tradeable on Alpaca
+2026-07-29 15:48:00,226 INFO SKIP sell EXPE — no position
+2026-07-29 15:48:00,396 ERROR Order failed EG buy: {"code":42910000,"message":"rate limit exceeded"}
+2026-07-29 15:48:00,397 WARNING Order failed for EG — leaving uncopied to retry next run
+2026-07-29 15:48:00,444 INFO SKIP ESS — not tradeable on Alpaca
+2026-07-29 15:48:00,489 INFO SKIP EMR — not tradeable on Alpaca
+2026-07-29 15:48:00,534 INFO SKIP EME — not tradeable on Alpaca
+2026-07-29 15:48:00,677 ERROR Order failed ELV buy: {"code":42910000,"message":"rate limit exceeded"}
+2026-07-29 15:48:00,678 WARNING Order failed for ELV — leaving uncopied to retry next run
+2026-07-29 15:48:00,725 INFO SKIP EA — not tradeable on Alpaca
+2026-07-29 15:48:00,770 INFO SKIP EW — not tradeable on Alpaca
+2026-07-29 15:48:00,815 INFO SKIP EBAY — not tradeable on Alpaca
+2026-07-29 15:48:00,867 INFO SKIP ETN — not tradeable on Alpaca
+2026-07-29 15:48:00,913 INFO SKIP sell DUK — no position
+2026-07-29 15:48:00,961 INFO SKIP DOW — not tradeable on Alpaca
+2026-07-29 15:48:01,008 INFO SKIP DOV — not tradeable on Alpaca
+2026-07-29 15:48:01,054 INFO SKIP sell DASH — no position
+2026-07-29 15:48:01,100 INFO SKIP DPZ — not tradeable on Alpaca
+2026-07-29 15:48:01,148 INFO SKIP DLR — not tradeable on Alpaca
+2026-07-29 15:48:01,195 INFO SKIP DELL — not tradeable on Alpaca
+2026-07-29 15:48:01,351 ERROR Order failed DE buy: {"code":42910000,"message":"rate limit exceeded"}
+2026-07-29 15:48:01,352 WARNING Order failed for DE — leaving uncopied to retry next run
+2026-07-29 15:48:01,403 INFO SKIP DRI — not tradeable on Alpaca
+2026-07-29 15:48:01,453 INFO SKIP DHR — not tradeable on Alpaca
+2026-07-29 15:48:01,501 INFO SKIP CVS — not tradeable on Alpaca
+2026-07-29 15:48:01,659 ERROR Order failed CSX buy: {"code":42910000,"message":"rate limit exceeded"}
+2026-07-29 15:48:01,660 WARNING Order failed for CSX — leaving uncopied to retry next run
+2026-07-29 15:48:01,720 INFO SKIP CCI — not tradeable on Alpaca
+2026-07-29 15:48:01,774 INFO SKIP sell CRWD — no position
+2026-07-29 15:48:01,823 INFO SKIP COST — not tradeable on Alpaca
+2026-07-29 15:48:01,970 ERROR Order failed CTVA buy: {"code":42910000,"message":"rate limit exceeded"}
+2026-07-29 15:48:01,971 WARNING Order failed for CTVA — leaving uncopied to retry next run
+2026-07-29 15:48:02,016 INFO SKIP sell GLW — no position
+2026-07-29 15:48:02,061 INFO SKIP CPRT — not tradeable on Alpaca
+2026-07-29 15:48:02,106 INFO SKIP STZ — not tradeable on Alpaca
+2026-07-29 15:48:02,154 INFO SKIP CAG — not tradeable on Alpaca
+2026-07-29 15:48:02,294 ERROR Order failed FIX buy: {"code":42910000,"message":"rate limit exceeded"}
+2026-07-29 15:48:02,294 WARNING Order failed for FIX — leaving uncopied to retry next run
+2026-07-29 15:48:02,340 INFO SKIP CMCSA — not tradeable on Alpaca
+2026-07-29 15:48:02,387 INFO SKIP COIN — not tradeable on Alpaca
+2026-07-29 15:48:02,444 INFO SKIP CTSH — not tradeable on Alpaca
+2026-07-29 15:48:02,613 ERROR Order failed KO buy: {"code":42910000,"message":"rate limit exceeded"}
+2026-07-29 15:48:02,614 WARNING Order failed for KO — leaving uncopied to retry next run
+2026-07-29 15:48:02,663 INFO SKIP CME — not tradeable on Alpaca
+2026-07-29 15:48:02,712 INFO SKIP C — not tradeable on Alpaca
+2026-07-29 15:48:02,761 INFO SKIP CSCO — not tradeable on Alpaca
+2026-07-29 15:48:02,957 ERROR Order failed CIEN buy: {"code":42910000,"message":"rate limit exceeded"}
+2026-07-29 15:48:02,958 WARNING Order failed for CIEN — leaving uncopied to retry next run
+2026-07-29 15:48:03,008 INFO SKIP CB — not tradeable on Alpaca
+2026-07-29 15:48:03,057 INFO SKIP sell CVX — no position
+2026-07-29 15:48:03,107 INFO SKIP CHTR — not tradeable on Alpaca
+2026-07-29 15:48:03,293 ERROR Order failed CF buy: {"code":42910000,"message":"rate limit exceeded"}
+2026-07-29 15:48:03,294 WARNING Order failed for CF — leaving uncopied to retry next run
+2026-07-29 15:48:03,340 INFO SKIP COR — not tradeable on Alpaca
+2026-07-29 15:48:03,390 INFO SKIP CBOE — not tradeable on Alpaca
+2026-07-29 15:48:03,436 INFO SKIP CCL — not tradeable on Alpaca
+2026-07-29 15:48:03,583 ERROR Order failed CAH buy: {"code":42910000,"message":"rate limit exceeded"}
+2026-07-29 15:48:03,584 WARNING Order failed for CAH — leaving uncopied to retry next run
+2026-07-29 15:48:03,634 INFO SKIP COF — not tradeable on Alpaca
+2026-07-29 15:48:03,680 INFO SKIP CPT — not tradeable on Alpaca
+2026-07-29 15:48:03,725 INFO SKIP sell AVGO — no position
+2026-07-29 15:48:03,771 INFO SKIP BMY — not tradeable on Alpaca
+2026-07-29 15:48:03,928 ERROR Order failed BSX buy: {"code":42910000,"message":"rate limit exceeded"}
+2026-07-29 15:48:03,929 WARNING Order failed for BSX — leaving uncopied to retry next run
+2026-07-29 15:48:03,974 INFO SKIP BKNG — not tradeable on Alpaca
+2026-07-29 15:48:04,023 INFO SKIP BA — not tradeable on Alpaca
+2026-07-29 15:48:04,070 INFO SKIP BX — not tradeable on Alpaca
+2026-07-29 15:48:04,120 INFO SKIP BIIB — not tradeable on Alpaca
+2026-07-29 15:48:04,271 ERROR Order failed BBY buy: {"buying_power":"2475.05","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-29 15:48:04,272 WARNING Order failed for BBY — leaving uncopied to retry next run
+2026-07-29 15:48:04,321 INFO SKIP BRK.B — not tradeable on Alpaca
+2026-07-29 15:48:04,368 INFO SKIP BDX — not tradeable on Alpaca
+2026-07-29 15:48:04,416 INFO SKIP BAC — not tradeable on Alpaca
+2026-07-29 15:48:04,464 INFO SKIP AXON — not tradeable on Alpaca
+2026-07-29 15:48:04,609 ERROR Order failed AVB buy: {"code":42910000,"message":"rate limit exceeded"}
+2026-07-29 15:48:04,610 WARNING Order failed for AVB — leaving uncopied to retry next run
+2026-07-29 15:48:04,657 INFO SKIP AZO — not tradeable on Alpaca
+2026-07-29 15:48:04,703 INFO SKIP ADP — not tradeable on Alpaca
+2026-07-29 15:48:04,756 INFO SKIP ADSK — not tradeable on Alpaca
+2026-07-29 15:48:04,803 INFO SKIP T — not tradeable on Alpaca
+2026-07-29 15:48:04,943 ERROR Order failed ANET buy: {"code":42910000,"message":"rate limit exceeded"}
+2026-07-29 15:48:04,944 WARNING Order failed for ANET — leaving uncopied to retry next run
+2026-07-29 15:48:04,991 INFO SKIP ACGL — not tradeable on Alpaca
+2026-07-29 15:48:05,036 INFO SKIP APP — not tradeable on Alpaca
+2026-07-29 15:48:05,085 INFO SKIP AMAT — not tradeable on Alpaca
+2026-07-29 15:48:05,136 INFO SKIP AAPL — not tradeable on Alpaca
+2026-07-29 15:48:05,277 ERROR Order failed APO buy: {"code":42910000,"message":"rate limit exceeded"}
+2026-07-29 15:48:05,278 WARNING Order failed for APO — leaving uncopied to retry next run
+2026-07-29 15:48:05,324 INFO SKIP AON — not tradeable on Alpaca
+2026-07-29 15:48:05,370 INFO SKIP ADI — not tradeable on Alpaca
+2026-07-29 15:48:05,417 INFO SKIP APH — not tradeable on Alpaca
+2026-07-29 15:48:05,465 INFO SKIP sell AMGN — no position
+2026-07-29 15:48:05,642 ERROR Order failed AME buy: {"code":42910000,"message":"rate limit exceeded"}
+2026-07-29 15:48:05,642 WARNING Order failed for AME — leaving uncopied to retry next run
+2026-07-29 15:48:05,689 INFO SKIP AMP — not tradeable on Alpaca
+2026-07-29 15:48:05,736 INFO SKIP sell AMT — no position
+2026-07-29 15:48:05,784 INFO SKIP AIG — not tradeable on Alpaca
+2026-07-29 15:48:05,943 ERROR Order failed AXP buy: {"code":42910000,"message":"rate limit exceeded"}
+2026-07-29 15:48:05,943 WARNING Order failed for AXP — leaving uncopied to retry next run
+2026-07-29 15:48:05,988 INFO SKIP AMCR — not tradeable on Alpaca
+2026-07-29 15:48:06,045 INFO SKIP AMZN — not tradeable on Alpaca
+2026-07-29 15:48:06,090 INFO SKIP MO — not tradeable on Alpaca
+2026-07-29 15:48:06,238 ERROR Order failed ALL buy: {"code":42910000,"message":"rate limit exceeded"}
+2026-07-29 15:48:06,238 WARNING Order failed for ALL — leaving uncopied to retry next run
+2026-07-29 15:48:06,282 INFO SKIP AKAM — not tradeable on Alpaca
+2026-07-29 15:48:06,330 INFO SKIP ABNB — not tradeable on Alpaca
+2026-07-29 15:48:06,375 INFO SKIP APD — not tradeable on Alpaca
+2026-07-29 15:48:06,421 INFO SKIP AFL — not tradeable on Alpaca
+2026-07-29 15:48:06,468 INFO SKIP sell ACM — no position
+2026-07-29 15:48:06,514 INFO SKIP AMD — not tradeable on Alpaca
+2026-07-29 15:48:06,561 INFO SKIP ADBE — not tradeable on Alpaca
+2026-07-29 15:48:06,607 INFO SKIP ACN — not tradeable on Alpaca
+2026-07-29 15:48:06,653 INFO SKIP ABBV — not tradeable on Alpaca
+2026-07-29 15:48:06,699 INFO SKIP sell ABT — no position
+2026-07-29 15:48:06,749 INFO SKIP MMM — not tradeable on Alpaca
+2026-07-29 15:48:06,794 INFO SKIP sell SOLS — no position
+2026-07-29 15:48:06,841 INFO SKIP sell PFE — no position
+2026-07-29 15:48:06,889 INFO SKIP sell HON — no position
+2026-07-29 15:48:06,938 INFO SKIP sell HD — no position
+2026-07-29 15:48:06,984 INFO SKIP sell RACE — no position
+2026-07-29 15:48:07,031 INFO SKIP sell FDX — no position
+2026-07-29 15:48:07,081 INFO SKIP sell DVN — no position
