@@ -1,14 +1,5 @@
 {
   "positions": {
-    "AVGO": {
-      "entry_price": 406.71,
-      "qty": 6,
-      "stop_order_id": "517f5132-ca12-4963-a0cf-18d4def13833",
-      "current_stop": 373.75,
-      "hwm": 407.34,
-      "trailing_active": false,
-      "entry_date": "2026-07-09"
-    },
     "NVDA": {
       "entry_price": 209.19,
       "qty": 11,
