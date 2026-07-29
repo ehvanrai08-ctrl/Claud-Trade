@@ -191,10 +191,13 @@
     "Alan Armstrong|ADBE|2026-07-21|Purchase",
     "Alan Armstrong|ACN|2026-07-21|Purchase",
     "Alan Armstrong|ABBV|2026-07-21|Purchase",
-    "Alan Armstrong|MMM|2026-07-21|Purchase"
+    "Alan Armstrong|MMM|2026-07-21|Purchase",
+    "Alan Armstrong|HMC|2026-07-21|Purchase",
+    "Alan Armstrong|AVGO|2026-07-21|Sale (Full)",
+    "Alan Armstrong|BBY|2026-07-21|Purchase"
   ],
   "tracked_politician": "Alan Armstrong",
-  "total_trades": 48,
+  "total_trades": 51,
   "last_politician_eval": "2026-07-29",
   "fetch_fail_count": 0
 }
