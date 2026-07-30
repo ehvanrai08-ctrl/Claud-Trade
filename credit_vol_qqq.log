@@ -9,3 +9,4 @@
 2026-07-27 16:27:58,613 INFO Signal: target=QQQ | HYG 79.31 > SMA200 78.54 (credit OK) | VIXY 90d percentile 8% < 50% (vol OK)
 2026-07-28 16:09:08,926 INFO Signal: target=QQQ | HYG 79.38 > SMA200 78.55 (credit OK) | VIXY 90d percentile 5% < 50% (vol OK)
 2026-07-29 15:54:13,076 INFO Signal: target=QQQ | HYG 79.16 > SMA200 78.56 (credit OK) | VIXY 90d percentile 11% < 50% (vol OK)
+2026-07-30 15:56:33,683 INFO Signal: target=QQQ | HYG 79.47 > SMA200 78.58 (credit OK) | VIXY 90d percentile 8% < 50% (vol OK)
