@@ -1,1 +1,1207 @@
 # rotated 2026-07-29 -> logs/archive/trend_basket.2026-07-29.log
+2026-07-30 15:28:52,964 INFO Trend basket loop started
+2026-07-30 15:28:53,641 INFO AMD held by another strategy — deferring.
+2026-07-30 15:28:53,818 INFO AVGO $383.58 below SMA50 $395.66 — no entry.
+2026-07-30 15:28:53,991 INFO META held by another strategy — deferring.
+2026-07-30 15:28:59,777 INFO AMZN held by another strategy — deferring.
+2026-07-30 15:29:00,260 INFO GOOGL held by another strategy — deferring.
+2026-07-30 15:30:00,971 INFO AMD held by another strategy — deferring.
+2026-07-30 15:30:01,167 INFO AVGO $383.53 below SMA50 $395.66 — no entry.
+2026-07-30 15:30:01,333 INFO META held by another strategy — deferring.
+2026-07-30 15:30:01,583 INFO AMZN held by another strategy — deferring.
+2026-07-30 15:30:01,784 INFO GOOGL held by another strategy — deferring.
+2026-07-30 15:31:02,903 INFO AMD held by another strategy — deferring.
+2026-07-30 15:31:03,055 INFO AVGO $382.32 below SMA50 $395.66 — no entry.
+2026-07-30 15:31:03,248 INFO META held by another strategy — deferring.
+2026-07-30 15:31:03,556 INFO AMZN held by another strategy — deferring.
+2026-07-30 15:31:03,737 INFO GOOGL held by another strategy — deferring.
+2026-07-30 15:32:04,970 INFO AMD held by another strategy — deferring.
+2026-07-30 15:32:05,157 INFO AVGO $382.96 below SMA50 $395.63 — no entry.
+2026-07-30 15:32:05,326 INFO META held by another strategy — deferring.
+2026-07-30 15:32:05,524 INFO AMZN held by another strategy — deferring.
+2026-07-30 15:32:05,665 INFO GOOGL held by another strategy — deferring.
+2026-07-30 15:33:06,102 INFO AMD held by another strategy — deferring.
+2026-07-30 15:33:06,299 INFO AVGO $383.27 below SMA50 $395.65 — no entry.
+2026-07-30 15:33:06,470 INFO META held by another strategy — deferring.
+2026-07-30 15:33:06,686 INFO AMZN held by another strategy — deferring.
+2026-07-30 15:33:06,870 INFO GOOGL held by another strategy — deferring.
+2026-07-30 15:34:07,729 INFO AMD held by another strategy — deferring.
+2026-07-30 15:34:07,886 INFO AVGO $383.43 below SMA50 $395.66 — no entry.
+2026-07-30 15:34:08,193 INFO META held by another strategy — deferring.
+2026-07-30 15:34:08,391 INFO AMZN held by another strategy — deferring.
+2026-07-30 15:34:08,551 INFO GOOGL held by another strategy — deferring.
+2026-07-30 15:35:09,591 INFO AMD held by another strategy — deferring.
+2026-07-30 15:35:09,748 INFO AVGO $383.64 below SMA50 $395.66 — no entry.
+2026-07-30 15:35:09,935 INFO META held by another strategy — deferring.
+2026-07-30 15:35:10,188 INFO AMZN held by another strategy — deferring.
+2026-07-30 15:35:10,339 INFO GOOGL held by another strategy — deferring.
+2026-07-30 15:36:10,736 INFO AMD held by another strategy — deferring.
+2026-07-30 15:36:10,896 INFO AVGO $383.45 below SMA50 $395.65 — no entry.
+2026-07-30 15:36:11,091 INFO META held by another strategy — deferring.
+2026-07-30 15:36:11,310 INFO AMZN held by another strategy — deferring.
+2026-07-30 15:36:11,516 INFO GOOGL held by another strategy — deferring.
+2026-07-30 15:37:11,941 INFO AMD held by another strategy — deferring.
+2026-07-30 15:37:12,108 INFO AVGO $383.15 below SMA50 $395.65 — no entry.
+2026-07-30 15:37:12,262 INFO META held by another strategy — deferring.
+2026-07-30 15:37:12,435 INFO AMZN held by another strategy — deferring.
+2026-07-30 15:37:12,601 INFO GOOGL held by another strategy — deferring.
+2026-07-30 15:38:13,669 INFO AMD held by another strategy — deferring.
+2026-07-30 15:38:14,361 INFO AVGO $382.59 below SMA50 $395.64 — no entry.
+2026-07-30 15:38:14,539 INFO META held by another strategy — deferring.
+2026-07-30 15:38:14,699 INFO AMZN held by another strategy — deferring.
+2026-07-30 15:38:14,872 INFO GOOGL held by another strategy — deferring.
+2026-07-30 15:39:15,832 INFO AMD held by another strategy — deferring.
+2026-07-30 15:39:16,005 INFO AVGO $382.74 below SMA50 $395.64 — no entry.
+2026-07-30 15:39:16,161 INFO META held by another strategy — deferring.
+2026-07-30 15:39:16,648 INFO AMZN held by another strategy — deferring.
+2026-07-30 15:39:16,795 INFO GOOGL held by another strategy — deferring.
+2026-07-30 15:40:17,512 INFO AMD held by another strategy — deferring.
+2026-07-30 15:40:18,066 INFO AVGO $383.06 below SMA50 $395.65 — no entry.
+2026-07-30 15:40:18,238 INFO META held by another strategy — deferring.
+2026-07-30 15:40:18,462 INFO AMZN held by another strategy — deferring.
+2026-07-30 15:40:18,613 INFO GOOGL held by another strategy — deferring.
+2026-07-30 15:41:18,991 INFO AMD held by another strategy — deferring.
+2026-07-30 15:41:19,156 INFO AVGO $383.01 below SMA50 $395.65 — no entry.
+2026-07-30 15:41:19,358 INFO META held by another strategy — deferring.
+2026-07-30 15:41:19,595 INFO AMZN held by another strategy — deferring.
+2026-07-30 15:41:19,767 INFO GOOGL held by another strategy — deferring.
+2026-07-30 15:42:20,167 INFO AMD held by another strategy — deferring.
+2026-07-30 15:42:20,316 INFO AVGO $382.56 below SMA50 $395.64 — no entry.
+2026-07-30 15:42:20,551 INFO META held by another strategy — deferring.
+2026-07-30 15:42:20,876 INFO AMZN held by another strategy — deferring.
+2026-07-30 15:42:21,021 INFO GOOGL held by another strategy — deferring.
+2026-07-30 15:43:21,422 INFO AMD held by another strategy — deferring.
+2026-07-30 15:43:21,576 INFO AVGO $382.57 below SMA50 $395.64 — no entry.
+2026-07-30 15:43:21,730 INFO META held by another strategy — deferring.
+2026-07-30 15:43:21,982 INFO AMZN held by another strategy — deferring.
+2026-07-30 15:43:22,150 INFO GOOGL held by another strategy — deferring.
+2026-07-30 15:44:22,554 INFO AMD held by another strategy — deferring.
+2026-07-30 15:44:22,725 INFO AVGO $383.14 below SMA50 $395.64 — no entry.
+2026-07-30 15:44:22,879 INFO META held by another strategy — deferring.
+2026-07-30 15:44:23,077 INFO AMZN held by another strategy — deferring.
+2026-07-30 15:44:23,249 INFO GOOGL held by another strategy — deferring.
+2026-07-30 15:45:23,714 INFO AMD held by another strategy — deferring.
+2026-07-30 15:45:23,858 INFO AVGO $383.29 below SMA50 $395.64 — no entry.
+2026-07-30 15:45:24,047 INFO META held by another strategy — deferring.
+2026-07-30 15:45:24,480 INFO AMZN held by another strategy — deferring.
+2026-07-30 15:45:24,668 INFO GOOGL held by another strategy — deferring.
+2026-07-30 15:46:25,473 INFO AMD held by another strategy — deferring.
+2026-07-30 15:46:25,972 INFO AVGO $383.15 below SMA50 $395.65 — no entry.
+2026-07-30 15:46:26,161 INFO META held by another strategy — deferring.
+2026-07-30 15:46:27,015 INFO AMZN held by another strategy — deferring.
+2026-07-30 15:46:27,575 INFO GOOGL held by another strategy — deferring.
+2026-07-30 15:47:28,186 INFO AMD held by another strategy — deferring.
+2026-07-30 15:47:28,599 INFO AVGO $383.27 below SMA50 $395.65 — no entry.
+2026-07-30 15:47:28,766 INFO META held by another strategy — deferring.
+2026-07-30 15:47:29,083 INFO AMZN held by another strategy — deferring.
+2026-07-30 15:47:29,240 INFO GOOGL held by another strategy — deferring.
+2026-07-30 15:48:30,267 INFO AMD held by another strategy — deferring.
+2026-07-30 15:48:30,423 INFO AVGO $382.72 below SMA50 $395.64 — no entry.
+2026-07-30 15:48:30,600 INFO META held by another strategy — deferring.
+2026-07-30 15:48:30,954 INFO AMZN held by another strategy — deferring.
+2026-07-30 15:48:31,107 INFO GOOGL held by another strategy — deferring.
+2026-07-30 15:49:31,801 INFO AMD held by another strategy — deferring.
+2026-07-30 15:49:31,968 INFO AVGO $382.81 below SMA50 $395.64 — no entry.
+2026-07-30 15:49:32,121 INFO META held by another strategy — deferring.
+2026-07-30 15:49:32,309 INFO AMZN held by another strategy — deferring.
+2026-07-30 15:49:32,468 INFO GOOGL held by another strategy — deferring.
+2026-07-30 15:50:33,065 INFO AMD held by another strategy — deferring.
+2026-07-30 15:50:33,239 INFO AVGO $382.89 below SMA50 $395.65 — no entry.
+2026-07-30 15:50:33,422 INFO META held by another strategy — deferring.
+2026-07-30 15:50:33,991 INFO AMZN held by another strategy — deferring.
+2026-07-30 15:50:34,138 INFO GOOGL held by another strategy — deferring.
+2026-07-30 15:51:34,565 INFO AMD held by another strategy — deferring.
+2026-07-30 15:51:34,725 INFO AVGO $382.76 below SMA50 $395.64 — no entry.
+2026-07-30 15:51:34,902 INFO META held by another strategy — deferring.
+2026-07-30 15:51:35,145 INFO AMZN held by another strategy — deferring.
+2026-07-30 15:51:35,304 INFO GOOGL held by another strategy — deferring.
+2026-07-30 15:52:35,661 INFO AMD held by another strategy — deferring.
+2026-07-30 15:52:35,814 INFO AVGO $382.25 below SMA50 $395.65 — no entry.
+2026-07-30 15:52:35,967 INFO META held by another strategy — deferring.
+2026-07-30 15:52:36,123 INFO AMZN held by another strategy — deferring.
+2026-07-30 15:52:36,308 INFO GOOGL held by another strategy — deferring.
+2026-07-30 15:53:36,678 INFO AMD held by another strategy — deferring.
+2026-07-30 15:53:36,828 INFO AVGO $382.42 below SMA50 $395.63 — no entry.
+2026-07-30 15:53:37,282 INFO META held by another strategy — deferring.
+2026-07-30 15:53:37,516 INFO AMZN held by another strategy — deferring.
+2026-07-30 15:53:37,685 INFO GOOGL held by another strategy — deferring.
+2026-07-30 15:54:38,346 INFO AMD held by another strategy — deferring.
+2026-07-30 15:54:38,518 INFO AVGO $382.78 below SMA50 $395.64 — no entry.
+2026-07-30 15:54:38,734 INFO META held by another strategy — deferring.
+2026-07-30 15:54:38,952 INFO AMZN held by another strategy — deferring.
+2026-07-30 15:54:39,118 INFO GOOGL held by another strategy — deferring.
+2026-07-30 15:55:39,939 INFO AMD held by another strategy — deferring.
+2026-07-30 15:55:40,113 INFO AVGO $383.82 below SMA50 $395.65 — no entry.
+2026-07-30 15:55:40,277 INFO META held by another strategy — deferring.
+2026-07-30 15:55:40,557 INFO AMZN held by another strategy — deferring.
+2026-07-30 15:55:40,731 INFO GOOGL held by another strategy — deferring.
+2026-07-30 15:56:41,155 INFO AMD held by another strategy — deferring.
+2026-07-30 15:56:41,369 INFO AVGO $384.31 below SMA50 $395.66 — no entry.
+2026-07-30 15:56:41,520 INFO META held by another strategy — deferring.
+2026-07-30 15:56:41,830 INFO AMZN held by another strategy — deferring.
+2026-07-30 15:56:42,033 INFO GOOGL held by another strategy — deferring.
+2026-07-30 15:57:42,418 INFO AMD held by another strategy — deferring.
+2026-07-30 15:57:42,572 INFO AVGO $383.90 below SMA50 $395.67 — no entry.
+2026-07-30 15:57:42,754 INFO META held by another strategy — deferring.
+2026-07-30 15:57:43,111 INFO AMZN held by another strategy — deferring.
+2026-07-30 15:57:43,283 INFO GOOGL held by another strategy — deferring.
+2026-07-30 15:58:43,727 INFO AMD held by another strategy — deferring.
+2026-07-30 15:58:43,878 INFO AVGO $383.32 below SMA50 $395.66 — no entry.
+2026-07-30 15:58:44,046 INFO META held by another strategy — deferring.
+2026-07-30 15:58:44,378 INFO AMZN held by another strategy — deferring.
+2026-07-30 15:58:44,542 INFO GOOGL held by another strategy — deferring.
+2026-07-30 15:59:45,179 INFO AMD held by another strategy — deferring.
+2026-07-30 15:59:45,360 INFO AVGO $383.55 below SMA50 $395.66 — no entry.
+2026-07-30 15:59:45,803 INFO META held by another strategy — deferring.
+2026-07-30 15:59:46,081 INFO AMZN held by another strategy — deferring.
+2026-07-30 15:59:46,239 INFO GOOGL held by another strategy — deferring.
+2026-07-30 16:00:47,129 INFO AMD held by another strategy — deferring.
+2026-07-30 16:00:47,306 INFO AVGO $383.36 below SMA50 $395.66 — no entry.
+2026-07-30 16:00:47,504 INFO META held by another strategy — deferring.
+2026-07-30 16:00:48,155 INFO AMZN held by another strategy — deferring.
+2026-07-30 16:00:48,343 INFO GOOGL held by another strategy — deferring.
+2026-07-30 16:01:48,738 INFO AMD held by another strategy — deferring.
+2026-07-30 16:01:48,888 INFO AVGO $383.25 below SMA50 $395.66 — no entry.
+2026-07-30 16:01:49,035 INFO META held by another strategy — deferring.
+2026-07-30 16:01:49,647 INFO AMZN held by another strategy — deferring.
+2026-07-30 16:01:49,788 INFO GOOGL held by another strategy — deferring.
+2026-07-30 16:02:50,199 INFO AMD held by another strategy — deferring.
+2026-07-30 16:02:50,801 INFO AVGO $383.81 below SMA50 $395.66 — no entry.
+2026-07-30 16:02:51,535 INFO META held by another strategy — deferring.
+2026-07-30 16:02:52,244 INFO AMZN held by another strategy — deferring.
+2026-07-30 16:02:52,408 INFO GOOGL held by another strategy — deferring.
+2026-07-30 16:03:52,773 INFO AMD held by another strategy — deferring.
+2026-07-30 16:03:52,962 INFO AVGO $384.81 below SMA50 $395.68 — no entry.
+2026-07-30 16:03:53,210 INFO META held by another strategy — deferring.
+2026-07-30 16:03:53,644 INFO AMZN held by another strategy — deferring.
+2026-07-30 16:03:53,800 INFO GOOGL held by another strategy — deferring.
+2026-07-30 16:04:54,176 INFO AMD held by another strategy — deferring.
+2026-07-30 16:04:54,386 INFO AVGO $385.83 below SMA50 $395.69 — no entry.
+2026-07-30 16:04:54,566 INFO META held by another strategy — deferring.
+2026-07-30 16:04:54,886 INFO AMZN held by another strategy — deferring.
+2026-07-30 16:04:55,034 INFO GOOGL held by another strategy — deferring.
+2026-07-30 16:05:55,685 INFO AMD held by another strategy — deferring.
+2026-07-30 16:05:55,856 INFO AVGO $386.27 below SMA50 $395.71 — no entry.
+2026-07-30 16:05:56,002 INFO META held by another strategy — deferring.
+2026-07-30 16:05:56,424 INFO AMZN held by another strategy — deferring.
+2026-07-30 16:05:56,579 INFO GOOGL held by another strategy — deferring.
+2026-07-30 16:06:57,633 INFO AMD held by another strategy — deferring.
+2026-07-30 16:06:57,796 INFO AVGO $386.49 below SMA50 $395.71 — no entry.
+2026-07-30 16:06:57,972 INFO META held by another strategy — deferring.
+2026-07-30 16:06:58,384 INFO AMZN held by another strategy — deferring.
+2026-07-30 16:06:58,558 INFO GOOGL held by another strategy — deferring.
+2026-07-30 16:07:58,954 INFO AMD held by another strategy — deferring.
+2026-07-30 16:07:59,129 INFO AVGO $386.81 below SMA50 $395.71 — no entry.
+2026-07-30 16:07:59,276 INFO META held by another strategy — deferring.
+2026-07-30 16:07:59,561 INFO AMZN held by another strategy — deferring.
+2026-07-30 16:07:59,719 INFO GOOGL held by another strategy — deferring.
+2026-07-30 16:09:00,246 INFO AMD held by another strategy — deferring.
+2026-07-30 16:09:00,402 INFO AVGO $386.87 below SMA50 $395.72 — no entry.
+2026-07-30 16:09:00,544 INFO META held by another strategy — deferring.
+2026-07-30 16:09:00,824 INFO AMZN held by another strategy — deferring.
+2026-07-30 16:09:00,990 INFO GOOGL held by another strategy — deferring.
+2026-07-30 16:10:01,472 INFO AMD held by another strategy — deferring.
+2026-07-30 16:10:02,145 INFO AVGO $386.86 below SMA50 $395.72 — no entry.
+2026-07-30 16:10:02,303 INFO META held by another strategy — deferring.
+2026-07-30 16:10:02,564 INFO AMZN held by another strategy — deferring.
+2026-07-30 16:10:02,728 INFO GOOGL held by another strategy — deferring.
+2026-07-30 16:11:03,144 INFO AMD held by another strategy — deferring.
+2026-07-30 16:11:03,366 INFO AVGO $387.25 below SMA50 $395.73 — no entry.
+2026-07-30 16:11:03,538 INFO META held by another strategy — deferring.
+2026-07-30 16:11:03,814 INFO AMZN held by another strategy — deferring.
+2026-07-30 16:11:03,989 INFO GOOGL held by another strategy — deferring.
+2026-07-30 16:12:04,412 INFO AMD held by another strategy — deferring.
+2026-07-30 16:12:04,594 INFO AVGO $387.51 below SMA50 $395.74 — no entry.
+2026-07-30 16:12:04,766 INFO META held by another strategy — deferring.
+2026-07-30 16:12:04,990 INFO AMZN held by another strategy — deferring.
+2026-07-30 16:12:05,143 INFO GOOGL held by another strategy — deferring.
+2026-07-30 16:13:05,619 INFO AMD held by another strategy — deferring.
+2026-07-30 16:13:05,866 INFO AVGO $387.81 below SMA50 $395.74 — no entry.
+2026-07-30 16:13:06,050 INFO META held by another strategy — deferring.
+2026-07-30 16:13:06,263 INFO AMZN held by another strategy — deferring.
+2026-07-30 16:13:06,500 INFO GOOGL held by another strategy — deferring.
+2026-07-30 16:14:07,320 INFO AMD held by another strategy — deferring.
+2026-07-30 16:14:07,532 INFO AVGO $387.51 below SMA50 $395.74 — no entry.
+2026-07-30 16:14:07,676 INFO META held by another strategy — deferring.
+2026-07-30 16:14:07,844 INFO AMZN held by another strategy — deferring.
+2026-07-30 16:14:08,035 INFO GOOGL held by another strategy — deferring.
+2026-07-30 16:15:08,494 INFO AMD held by another strategy — deferring.
+2026-07-30 16:15:08,990 INFO AVGO $387.39 below SMA50 $395.74 — no entry.
+2026-07-30 16:15:09,134 INFO META held by another strategy — deferring.
+2026-07-30 16:15:09,420 INFO AMZN held by another strategy — deferring.
+2026-07-30 16:15:09,740 INFO GOOGL held by another strategy — deferring.
+2026-07-30 16:16:10,110 INFO AMD held by another strategy — deferring.
+2026-07-30 16:16:10,304 INFO AVGO $387.21 below SMA50 $395.72 — no entry.
+2026-07-30 16:16:10,534 INFO META held by another strategy — deferring.
+2026-07-30 16:16:10,867 INFO AMZN held by another strategy — deferring.
+2026-07-30 16:16:11,082 INFO GOOGL held by another strategy — deferring.
+2026-07-30 16:17:11,507 INFO AMD held by another strategy — deferring.
+2026-07-30 16:17:11,658 INFO AVGO $387.08 below SMA50 $395.73 — no entry.
+2026-07-30 16:17:11,847 INFO META held by another strategy — deferring.
+2026-07-30 16:17:12,180 INFO AMZN held by another strategy — deferring.
+2026-07-30 16:17:12,347 INFO GOOGL held by another strategy — deferring.
+2026-07-30 16:18:12,799 INFO AMD held by another strategy — deferring.
+2026-07-30 16:18:12,952 INFO AVGO $387.04 below SMA50 $395.73 — no entry.
+2026-07-30 16:18:13,434 INFO META held by another strategy — deferring.
+2026-07-30 16:18:13,657 INFO AMZN held by another strategy — deferring.
+2026-07-30 16:18:13,837 INFO GOOGL held by another strategy — deferring.
+2026-07-30 16:19:14,924 INFO AMD held by another strategy — deferring.
+2026-07-30 16:19:15,478 INFO AVGO $387.22 below SMA50 $395.73 — no entry.
+2026-07-30 16:19:15,675 INFO META held by another strategy — deferring.
+2026-07-30 16:19:15,936 INFO AMZN held by another strategy — deferring.
+2026-07-30 16:19:16,113 INFO GOOGL held by another strategy — deferring.
+2026-07-30 16:20:16,687 INFO AMD held by another strategy — deferring.
+2026-07-30 16:20:16,855 INFO AVGO $387.10 below SMA50 $395.73 — no entry.
+2026-07-30 16:20:17,049 INFO META held by another strategy — deferring.
+2026-07-30 16:20:17,342 INFO AMZN held by another strategy — deferring.
+2026-07-30 16:20:17,507 INFO GOOGL held by another strategy — deferring.
+2026-07-30 16:21:18,320 INFO AMD held by another strategy — deferring.
+2026-07-30 16:21:18,494 INFO AVGO $387.68 below SMA50 $395.74 — no entry.
+2026-07-30 16:21:18,671 INFO META held by another strategy — deferring.
+2026-07-30 16:21:19,009 INFO AMZN held by another strategy — deferring.
+2026-07-30 16:21:19,242 INFO GOOGL held by another strategy — deferring.
+2026-07-30 16:22:19,676 INFO AMD held by another strategy — deferring.
+2026-07-30 16:22:19,825 INFO AVGO $387.35 below SMA50 $395.73 — no entry.
+2026-07-30 16:22:19,993 INFO META held by another strategy — deferring.
+2026-07-30 16:22:20,207 INFO AMZN held by another strategy — deferring.
+2026-07-30 16:22:20,360 INFO GOOGL held by another strategy — deferring.
+2026-07-30 16:23:21,139 INFO AMD held by another strategy — deferring.
+2026-07-30 16:23:21,335 INFO AVGO $386.93 below SMA50 $395.73 — no entry.
+2026-07-30 16:23:21,537 INFO META held by another strategy — deferring.
+2026-07-30 16:23:21,954 INFO AMZN held by another strategy — deferring.
+2026-07-30 16:23:22,121 INFO GOOGL held by another strategy — deferring.
+2026-07-30 16:24:22,547 INFO AMD held by another strategy — deferring.
+2026-07-30 16:24:22,983 INFO AVGO $387.02 below SMA50 $395.73 — no entry.
+2026-07-30 16:24:23,155 INFO META held by another strategy — deferring.
+2026-07-30 16:24:23,368 INFO AMZN held by another strategy — deferring.
+2026-07-30 16:24:23,519 INFO GOOGL held by another strategy — deferring.
+2026-07-30 16:25:24,029 INFO AMD held by another strategy — deferring.
+2026-07-30 16:25:24,206 INFO AVGO $386.91 below SMA50 $395.72 — no entry.
+2026-07-30 16:25:24,380 INFO META held by another strategy — deferring.
+2026-07-30 16:25:24,650 INFO AMZN held by another strategy — deferring.
+2026-07-30 16:25:24,803 INFO GOOGL held by another strategy — deferring.
+2026-07-30 16:26:25,200 INFO AMD held by another strategy — deferring.
+2026-07-30 16:26:25,371 INFO AVGO $386.95 below SMA50 $395.73 — no entry.
+2026-07-30 16:26:25,565 INFO META held by another strategy — deferring.
+2026-07-30 16:26:25,748 INFO AMZN held by another strategy — deferring.
+2026-07-30 16:26:25,897 INFO GOOGL held by another strategy — deferring.
+2026-07-30 16:27:26,325 INFO AMD held by another strategy — deferring.
+2026-07-30 16:27:26,496 INFO AVGO $387.18 below SMA50 $395.73 — no entry.
+2026-07-30 16:27:26,657 INFO META held by another strategy — deferring.
+2026-07-30 16:27:26,849 INFO AMZN held by another strategy — deferring.
+2026-07-30 16:27:26,997 INFO GOOGL held by another strategy — deferring.
+2026-07-30 16:28:27,513 INFO AMD held by another strategy — deferring.
+2026-07-30 16:28:27,678 INFO AVGO $387.07 below SMA50 $395.73 — no entry.
+2026-07-30 16:28:28,102 INFO META held by another strategy — deferring.
+2026-07-30 16:28:28,310 INFO AMZN held by another strategy — deferring.
+2026-07-30 16:28:28,517 INFO GOOGL held by another strategy — deferring.
+2026-07-30 16:29:29,425 INFO AMD held by another strategy — deferring.
+2026-07-30 16:29:29,589 INFO AVGO $387.05 below SMA50 $395.73 — no entry.
+2026-07-30 16:29:29,736 INFO META held by another strategy — deferring.
+2026-07-30 16:29:29,971 INFO AMZN held by another strategy — deferring.
+2026-07-30 16:29:30,130 INFO GOOGL held by another strategy — deferring.
+2026-07-30 16:30:30,715 INFO AMD held by another strategy — deferring.
+2026-07-30 16:30:31,094 INFO AVGO $387.12 below SMA50 $395.73 — no entry.
+2026-07-30 16:30:31,259 INFO META held by another strategy — deferring.
+2026-07-30 16:30:31,681 INFO AMZN held by another strategy — deferring.
+2026-07-30 16:30:31,850 INFO GOOGL held by another strategy — deferring.
+2026-07-30 16:31:32,438 INFO AMD held by another strategy — deferring.
+2026-07-30 16:31:32,607 INFO AVGO $386.39 below SMA50 $395.72 — no entry.
+2026-07-30 16:31:32,829 INFO META held by another strategy — deferring.
+2026-07-30 16:31:33,188 INFO AMZN held by another strategy — deferring.
+2026-07-30 16:31:33,369 INFO GOOGL held by another strategy — deferring.
+2026-07-30 16:32:33,834 INFO AMD held by another strategy — deferring.
+2026-07-30 16:32:33,993 INFO AVGO $386.39 below SMA50 $395.71 — no entry.
+2026-07-30 16:32:34,222 INFO META held by another strategy — deferring.
+2026-07-30 16:32:34,552 INFO AMZN held by another strategy — deferring.
+2026-07-30 16:32:34,716 INFO GOOGL held by another strategy — deferring.
+2026-07-30 16:33:35,186 INFO AMD held by another strategy — deferring.
+2026-07-30 16:33:35,377 INFO AVGO $386.20 below SMA50 $395.71 — no entry.
+2026-07-30 16:33:35,520 INFO META held by another strategy — deferring.
+2026-07-30 16:33:35,752 INFO AMZN held by another strategy — deferring.
+2026-07-30 16:33:35,948 INFO GOOGL held by another strategy — deferring.
+2026-07-30 16:34:36,355 INFO AMD held by another strategy — deferring.
+2026-07-30 16:34:36,510 INFO AVGO $385.99 below SMA50 $395.71 — no entry.
+2026-07-30 16:34:36,677 INFO META held by another strategy — deferring.
+2026-07-30 16:34:36,897 INFO AMZN held by another strategy — deferring.
+2026-07-30 16:34:37,093 INFO GOOGL held by another strategy — deferring.
+2026-07-30 16:35:37,488 INFO AMD held by another strategy — deferring.
+2026-07-30 16:35:37,650 INFO AVGO $385.66 below SMA50 $395.70 — no entry.
+2026-07-30 16:35:38,158 INFO META held by another strategy — deferring.
+2026-07-30 16:35:38,442 INFO AMZN held by another strategy — deferring.
+2026-07-30 16:35:38,632 INFO GOOGL held by another strategy — deferring.
+2026-07-30 16:36:39,254 INFO AMD held by another strategy — deferring.
+2026-07-30 16:36:39,419 INFO AVGO $385.38 below SMA50 $395.69 — no entry.
+2026-07-30 16:36:39,570 INFO META held by another strategy — deferring.
+2026-07-30 16:36:39,893 INFO AMZN held by another strategy — deferring.
+2026-07-30 16:36:40,074 INFO GOOGL held by another strategy — deferring.
+2026-07-30 16:37:40,434 INFO AMD held by another strategy — deferring.
+2026-07-30 16:37:40,975 INFO AVGO $385.54 below SMA50 $395.69 — no entry.
+2026-07-30 16:37:41,140 INFO META held by another strategy — deferring.
+2026-07-30 16:37:41,471 INFO AMZN held by another strategy — deferring.
+2026-07-30 16:37:41,634 INFO GOOGL held by another strategy — deferring.
+2026-07-30 16:38:42,032 INFO AMD held by another strategy — deferring.
+2026-07-30 16:38:42,183 INFO AVGO $385.34 below SMA50 $395.69 — no entry.
+2026-07-30 16:38:42,490 INFO META held by another strategy — deferring.
+2026-07-30 16:38:42,772 INFO AMZN held by another strategy — deferring.
+2026-07-30 16:38:42,965 INFO GOOGL held by another strategy — deferring.
+2026-07-30 16:39:43,369 INFO AMD held by another strategy — deferring.
+2026-07-30 16:39:43,820 INFO AVGO $385.53 below SMA50 $395.69 — no entry.
+2026-07-30 16:39:43,997 INFO META held by another strategy — deferring.
+2026-07-30 16:39:44,637 INFO AMZN held by another strategy — deferring.
+2026-07-30 16:39:44,798 INFO GOOGL held by another strategy — deferring.
+2026-07-30 16:40:45,187 INFO AMD held by another strategy — deferring.
+2026-07-30 16:40:45,355 INFO AVGO $384.83 below SMA50 $395.69 — no entry.
+2026-07-30 16:40:45,519 INFO META held by another strategy — deferring.
+2026-07-30 16:40:45,795 INFO AMZN held by another strategy — deferring.
+2026-07-30 16:40:45,964 INFO GOOGL held by another strategy — deferring.
+2026-07-30 16:41:46,414 INFO AMD held by another strategy — deferring.
+2026-07-30 16:41:46,584 INFO AVGO $384.51 below SMA50 $395.68 — no entry.
+2026-07-30 16:41:46,760 INFO META held by another strategy — deferring.
+2026-07-30 16:41:47,006 INFO AMZN held by another strategy — deferring.
+2026-07-30 16:41:47,177 INFO GOOGL held by another strategy — deferring.
+2026-07-30 16:42:47,629 INFO AMD held by another strategy — deferring.
+2026-07-30 16:42:47,801 INFO AVGO $384.31 below SMA50 $395.67 — no entry.
+2026-07-30 16:42:47,947 INFO META held by another strategy — deferring.
+2026-07-30 16:42:48,148 INFO AMZN held by another strategy — deferring.
+2026-07-30 16:42:48,299 INFO GOOGL held by another strategy — deferring.
+2026-07-30 16:43:48,697 INFO AMD held by another strategy — deferring.
+2026-07-30 16:43:48,858 INFO AVGO $383.94 below SMA50 $395.67 — no entry.
+2026-07-30 16:43:49,075 INFO META held by another strategy — deferring.
+2026-07-30 16:43:49,256 INFO AMZN held by another strategy — deferring.
+2026-07-30 16:43:49,818 INFO GOOGL held by another strategy — deferring.
+2026-07-30 16:44:50,433 INFO AMD held by another strategy — deferring.
+2026-07-30 16:44:50,602 INFO AVGO $383.91 below SMA50 $395.66 — no entry.
+2026-07-30 16:44:51,142 INFO META held by another strategy — deferring.
+2026-07-30 16:44:51,426 INFO AMZN held by another strategy — deferring.
+2026-07-30 16:44:51,709 INFO GOOGL held by another strategy — deferring.
+2026-07-30 16:45:52,162 INFO AMD held by another strategy — deferring.
+2026-07-30 16:45:52,311 INFO AVGO $384.23 below SMA50 $395.67 — no entry.
+2026-07-30 16:45:52,535 INFO META held by another strategy — deferring.
+2026-07-30 16:45:53,121 INFO AMZN held by another strategy — deferring.
+2026-07-30 16:45:53,274 INFO GOOGL held by another strategy — deferring.
+2026-07-30 16:46:53,653 INFO AMD held by another strategy — deferring.
+2026-07-30 16:46:53,927 INFO AVGO $384.51 below SMA50 $395.67 — no entry.
+2026-07-30 16:46:54,214 INFO META held by another strategy — deferring.
+2026-07-30 16:46:54,857 INFO AMZN held by another strategy — deferring.
+2026-07-30 16:46:55,006 INFO GOOGL held by another strategy — deferring.
+2026-07-30 16:47:55,714 INFO AMD held by another strategy — deferring.
+2026-07-30 16:47:55,877 INFO AVGO $384.48 below SMA50 $395.68 — no entry.
+2026-07-30 16:47:56,246 INFO META held by another strategy — deferring.
+2026-07-30 16:47:56,894 INFO AMZN held by another strategy — deferring.
+2026-07-30 16:47:57,091 INFO GOOGL held by another strategy — deferring.
+2026-07-30 16:48:57,668 INFO AMD held by another strategy — deferring.
+2026-07-30 16:48:57,840 INFO AVGO $384.14 below SMA50 $395.68 — no entry.
+2026-07-30 16:48:57,985 INFO META held by another strategy — deferring.
+2026-07-30 16:48:58,461 INFO AMZN held by another strategy — deferring.
+2026-07-30 16:48:58,859 INFO GOOGL held by another strategy — deferring.
+2026-07-30 16:49:59,450 INFO AMD held by another strategy — deferring.
+2026-07-30 16:49:59,600 INFO AVGO $384.30 below SMA50 $395.67 — no entry.
+2026-07-30 16:49:59,754 INFO META held by another strategy — deferring.
+2026-07-30 16:50:00,485 INFO AMZN held by another strategy — deferring.
+2026-07-30 16:50:00,653 INFO GOOGL held by another strategy — deferring.
+2026-07-30 16:51:01,120 INFO AMD held by another strategy — deferring.
+2026-07-30 16:51:01,351 INFO AVGO $383.78 below SMA50 $395.67 — no entry.
+2026-07-30 16:51:01,555 INFO META held by another strategy — deferring.
+2026-07-30 16:51:02,189 INFO AMZN held by another strategy — deferring.
+2026-07-30 16:51:02,395 INFO GOOGL held by another strategy — deferring.
+2026-07-30 16:52:03,002 INFO AMD held by another strategy — deferring.
+2026-07-30 16:52:03,177 INFO AVGO $384.42 below SMA50 $395.66 — no entry.
+2026-07-30 16:52:03,671 INFO META held by another strategy — deferring.
+2026-07-30 16:52:04,253 INFO AMZN held by another strategy — deferring.
+2026-07-30 16:52:04,500 INFO GOOGL held by another strategy — deferring.
+2026-07-30 16:53:05,566 INFO AMD held by another strategy — deferring.
+2026-07-30 16:53:05,757 INFO AVGO $384.45 below SMA50 $395.68 — no entry.
+2026-07-30 16:53:05,948 INFO META held by another strategy — deferring.
+2026-07-30 16:53:06,344 INFO AMZN held by another strategy — deferring.
+2026-07-30 16:53:06,530 INFO GOOGL held by another strategy — deferring.
+2026-07-30 16:54:06,958 INFO AMD held by another strategy — deferring.
+2026-07-30 16:54:07,145 INFO AVGO $384.27 below SMA50 $395.67 — no entry.
+2026-07-30 16:54:07,368 INFO META held by another strategy — deferring.
+2026-07-30 16:54:07,830 INFO AMZN held by another strategy — deferring.
+2026-07-30 16:54:07,977 INFO GOOGL held by another strategy — deferring.
+2026-07-30 16:55:08,826 INFO AMD held by another strategy — deferring.
+2026-07-30 16:55:09,012 INFO AVGO $384.12 below SMA50 $395.67 — no entry.
+2026-07-30 16:55:09,212 INFO META held by another strategy — deferring.
+2026-07-30 16:55:09,751 INFO AMZN held by another strategy — deferring.
+2026-07-30 16:55:09,933 INFO GOOGL held by another strategy — deferring.
+2026-07-30 16:56:10,787 INFO AMD held by another strategy — deferring.
+2026-07-30 16:56:10,977 INFO AVGO $384.41 below SMA50 $395.67 — no entry.
+2026-07-30 16:56:11,264 INFO META held by another strategy — deferring.
+2026-07-30 16:56:11,929 INFO AMZN held by another strategy — deferring.
+2026-07-30 16:56:12,114 INFO GOOGL held by another strategy — deferring.
+2026-07-30 16:57:12,514 INFO AMD held by another strategy — deferring.
+2026-07-30 16:57:12,718 INFO AVGO $384.63 below SMA50 $395.68 — no entry.
+2026-07-30 16:57:12,887 INFO META held by another strategy — deferring.
+2026-07-30 16:57:13,360 INFO AMZN held by another strategy — deferring.
+2026-07-30 16:57:13,535 INFO GOOGL held by another strategy — deferring.
+2026-07-30 16:58:13,946 INFO AMD held by another strategy — deferring.
+2026-07-30 16:58:14,095 INFO AVGO $384.58 below SMA50 $395.68 — no entry.
+2026-07-30 16:58:14,265 INFO META held by another strategy — deferring.
+2026-07-30 16:58:14,721 INFO AMZN held by another strategy — deferring.
+2026-07-30 16:58:14,895 INFO GOOGL held by another strategy — deferring.
+2026-07-30 16:59:15,251 INFO AMD held by another strategy — deferring.
+2026-07-30 16:59:15,395 INFO AVGO $384.52 below SMA50 $395.68 — no entry.
+2026-07-30 16:59:15,553 INFO META held by another strategy — deferring.
+2026-07-30 16:59:16,071 INFO AMZN held by another strategy — deferring.
+2026-07-30 16:59:16,599 INFO GOOGL held by another strategy — deferring.
+2026-07-30 17:00:17,578 INFO AMD held by another strategy — deferring.
+2026-07-30 17:00:18,202 INFO AVGO $385.13 below SMA50 $395.68 — no entry.
+2026-07-30 17:00:18,360 INFO META held by another strategy — deferring.
+2026-07-30 17:00:19,151 INFO AMZN held by another strategy — deferring.
+2026-07-30 17:00:19,332 INFO GOOGL held by another strategy — deferring.
+2026-07-30 17:01:19,807 INFO AMD held by another strategy — deferring.
+2026-07-30 17:01:19,994 INFO AVGO $385.02 below SMA50 $395.69 — no entry.
+2026-07-30 17:01:20,548 INFO META held by another strategy — deferring.
+2026-07-30 17:01:21,544 INFO AMZN held by another strategy — deferring.
+2026-07-30 17:01:21,940 INFO GOOGL held by another strategy — deferring.
+2026-07-30 17:02:22,386 INFO AMD held by another strategy — deferring.
+2026-07-30 17:02:22,528 INFO AVGO $385.27 below SMA50 $395.69 — no entry.
+2026-07-30 17:02:22,710 INFO META held by another strategy — deferring.
+2026-07-30 17:02:23,095 INFO AMZN held by another strategy — deferring.
+2026-07-30 17:02:23,286 INFO GOOGL held by another strategy — deferring.
+2026-07-30 17:03:23,697 INFO AMD held by another strategy — deferring.
+2026-07-30 17:03:23,865 INFO AVGO $384.84 below SMA50 $395.68 — no entry.
+2026-07-30 17:03:24,021 INFO META held by another strategy — deferring.
+2026-07-30 17:03:24,186 INFO AMZN held by another strategy — deferring.
+2026-07-30 17:03:24,374 INFO GOOGL held by another strategy — deferring.
+2026-07-30 17:04:24,872 INFO AMD held by another strategy — deferring.
+2026-07-30 17:04:25,366 INFO AVGO $384.90 below SMA50 $395.68 — no entry.
+2026-07-30 17:04:25,912 INFO META held by another strategy — deferring.
+2026-07-30 17:04:26,071 INFO AMZN held by another strategy — deferring.
+2026-07-30 17:04:26,230 INFO GOOGL held by another strategy — deferring.
+2026-07-30 17:05:26,757 INFO AMD held by another strategy — deferring.
+2026-07-30 17:05:26,923 INFO AVGO $384.92 below SMA50 $395.69 — no entry.
+2026-07-30 17:05:27,176 INFO META held by another strategy — deferring.
+2026-07-30 17:05:27,393 INFO AMZN held by another strategy — deferring.
+2026-07-30 17:05:27,539 INFO GOOGL held by another strategy — deferring.
+2026-07-30 17:06:28,190 INFO AMD held by another strategy — deferring.
+2026-07-30 17:06:28,376 INFO AVGO $385.04 below SMA50 $395.69 — no entry.
+2026-07-30 17:06:28,593 INFO META held by another strategy — deferring.
+2026-07-30 17:06:28,757 INFO AMZN held by another strategy — deferring.
+2026-07-30 17:06:28,906 INFO GOOGL held by another strategy — deferring.
+2026-07-30 17:07:29,361 INFO AMD held by another strategy — deferring.
+2026-07-30 17:07:29,523 INFO AVGO $385.52 below SMA50 $395.70 — no entry.
+2026-07-30 17:07:29,688 INFO META held by another strategy — deferring.
+2026-07-30 17:07:29,845 INFO AMZN held by another strategy — deferring.
+2026-07-30 17:07:30,002 INFO GOOGL held by another strategy — deferring.
+2026-07-30 17:08:30,424 INFO AMD held by another strategy — deferring.
+2026-07-30 17:08:30,614 INFO AVGO $385.38 below SMA50 $395.69 — no entry.
+2026-07-30 17:08:30,792 INFO META held by another strategy — deferring.
+2026-07-30 17:08:31,026 INFO AMZN held by another strategy — deferring.
+2026-07-30 17:08:31,221 INFO GOOGL held by another strategy — deferring.
+2026-07-30 17:09:31,658 INFO AMD held by another strategy — deferring.
+2026-07-30 17:09:31,992 INFO AVGO $385.05 below SMA50 $395.70 — no entry.
+2026-07-30 17:09:32,172 INFO META held by another strategy — deferring.
+2026-07-30 17:09:32,442 INFO AMZN held by another strategy — deferring.
+2026-07-30 17:09:32,597 INFO GOOGL held by another strategy — deferring.
+2026-07-30 17:10:33,032 INFO AMD held by another strategy — deferring.
+2026-07-30 17:10:33,185 INFO AVGO $385.06 below SMA50 $395.69 — no entry.
+2026-07-30 17:10:33,419 INFO META held by another strategy — deferring.
+2026-07-30 17:10:33,581 INFO AMZN held by another strategy — deferring.
+2026-07-30 17:10:33,753 INFO GOOGL held by another strategy — deferring.
+2026-07-30 17:11:34,135 INFO AMD held by another strategy — deferring.
+2026-07-30 17:11:34,283 INFO AVGO $384.94 below SMA50 $395.69 — no entry.
+2026-07-30 17:11:34,469 INFO META held by another strategy — deferring.
+2026-07-30 17:11:34,638 INFO AMZN held by another strategy — deferring.
+2026-07-30 17:11:34,785 INFO GOOGL held by another strategy — deferring.
+2026-07-30 17:12:35,151 INFO AMD held by another strategy — deferring.
+2026-07-30 17:12:35,340 INFO AVGO $385.19 below SMA50 $395.69 — no entry.
+2026-07-30 17:12:35,504 INFO META held by another strategy — deferring.
+2026-07-30 17:12:35,680 INFO AMZN held by another strategy — deferring.
+2026-07-30 17:12:35,901 INFO GOOGL held by another strategy — deferring.
+2026-07-30 17:13:36,433 INFO AMD held by another strategy — deferring.
+2026-07-30 17:13:36,588 INFO AVGO $385.03 below SMA50 $395.69 — no entry.
+2026-07-30 17:13:36,736 INFO META held by another strategy — deferring.
+2026-07-30 17:13:36,908 INFO AMZN held by another strategy — deferring.
+2026-07-30 17:13:37,107 INFO GOOGL held by another strategy — deferring.
+2026-07-30 17:14:37,554 INFO AMD held by another strategy — deferring.
+2026-07-30 17:14:37,711 INFO AVGO $385.06 below SMA50 $395.69 — no entry.
+2026-07-30 17:14:37,870 INFO META held by another strategy — deferring.
+2026-07-30 17:14:38,056 INFO AMZN held by another strategy — deferring.
+2026-07-30 17:14:38,253 INFO GOOGL held by another strategy — deferring.
+2026-07-30 17:15:38,771 INFO AMD held by another strategy — deferring.
+2026-07-30 17:15:38,955 INFO AVGO $385.43 below SMA50 $395.69 — no entry.
+2026-07-30 17:15:39,125 INFO META held by another strategy — deferring.
+2026-07-30 17:15:39,272 INFO AMZN held by another strategy — deferring.
+2026-07-30 17:15:39,459 INFO GOOGL held by another strategy — deferring.
+2026-07-30 17:16:40,204 INFO AMD held by another strategy — deferring.
+2026-07-30 17:16:40,400 INFO AVGO $385.49 below SMA50 $395.70 — no entry.
+2026-07-30 17:16:40,573 INFO META held by another strategy — deferring.
+2026-07-30 17:16:40,748 INFO AMZN held by another strategy — deferring.
+2026-07-30 17:16:40,960 INFO GOOGL held by another strategy — deferring.
+2026-07-30 17:17:41,433 INFO AMD held by another strategy — deferring.
+2026-07-30 17:17:41,593 INFO AVGO $385.85 below SMA50 $395.70 — no entry.
+2026-07-30 17:17:41,761 INFO META held by another strategy — deferring.
+2026-07-30 17:17:41,923 INFO AMZN held by another strategy — deferring.
+2026-07-30 17:17:42,077 INFO GOOGL held by another strategy — deferring.
+2026-07-30 17:18:42,563 INFO AMD held by another strategy — deferring.
+2026-07-30 17:18:42,709 INFO AVGO $385.91 below SMA50 $395.71 — no entry.
+2026-07-30 17:18:42,852 INFO META held by another strategy — deferring.
+2026-07-30 17:18:42,995 INFO AMZN held by another strategy — deferring.
+2026-07-30 17:18:43,164 INFO GOOGL held by another strategy — deferring.
+2026-07-30 17:19:43,565 INFO AMD held by another strategy — deferring.
+2026-07-30 17:19:43,752 INFO AVGO $386.14 below SMA50 $395.71 — no entry.
+2026-07-30 17:19:43,927 INFO META held by another strategy — deferring.
+2026-07-30 17:19:44,158 INFO AMZN held by another strategy — deferring.
+2026-07-30 17:19:44,331 INFO GOOGL held by another strategy — deferring.
+2026-07-30 17:20:45,377 INFO AMD held by another strategy — deferring.
+2026-07-30 17:20:45,811 INFO AVGO $386.50 below SMA50 $395.72 — no entry.
+2026-07-30 17:20:45,993 INFO META held by another strategy — deferring.
+2026-07-30 17:20:46,161 INFO AMZN held by another strategy — deferring.
+2026-07-30 17:20:46,381 INFO GOOGL held by another strategy — deferring.
+2026-07-30 17:21:46,910 INFO AMD held by another strategy — deferring.
+2026-07-30 17:21:47,127 INFO AVGO $386.57 below SMA50 $395.72 — no entry.
+2026-07-30 17:21:47,338 INFO META held by another strategy — deferring.
+2026-07-30 17:21:47,532 INFO AMZN held by another strategy — deferring.
+2026-07-30 17:21:47,702 INFO GOOGL held by another strategy — deferring.
+2026-07-30 17:22:48,447 INFO AMD held by another strategy — deferring.
+2026-07-30 17:22:48,617 INFO AVGO $386.21 below SMA50 $395.72 — no entry.
+2026-07-30 17:22:48,839 INFO META held by another strategy — deferring.
+2026-07-30 17:22:49,022 INFO AMZN held by another strategy — deferring.
+2026-07-30 17:22:49,166 INFO GOOGL held by another strategy — deferring.
+2026-07-30 17:23:49,613 INFO AMD held by another strategy — deferring.
+2026-07-30 17:23:49,759 INFO AVGO $386.25 below SMA50 $395.71 — no entry.
+2026-07-30 17:23:49,930 INFO META held by another strategy — deferring.
+2026-07-30 17:23:50,108 INFO AMZN held by another strategy — deferring.
+2026-07-30 17:23:50,254 INFO GOOGL held by another strategy — deferring.
+2026-07-30 17:24:50,909 INFO AMD held by another strategy — deferring.
+2026-07-30 17:24:51,072 INFO AVGO $386.60 below SMA50 $395.72 — no entry.
+2026-07-30 17:24:51,229 INFO META held by another strategy — deferring.
+2026-07-30 17:24:51,391 INFO AMZN held by another strategy — deferring.
+2026-07-30 17:24:51,562 INFO GOOGL held by another strategy — deferring.
+2026-07-30 17:25:52,097 INFO AMD held by another strategy — deferring.
+2026-07-30 17:25:52,248 INFO AVGO $386.42 below SMA50 $395.72 — no entry.
+2026-07-30 17:25:52,423 INFO META held by another strategy — deferring.
+2026-07-30 17:25:52,630 INFO AMZN held by another strategy — deferring.
+2026-07-30 17:25:52,775 INFO GOOGL held by another strategy — deferring.
+2026-07-30 17:26:53,209 INFO AMD held by another strategy — deferring.
+2026-07-30 17:26:53,368 INFO AVGO $386.46 below SMA50 $395.72 — no entry.
+2026-07-30 17:26:53,529 INFO META held by another strategy — deferring.
+2026-07-30 17:26:53,681 INFO AMZN held by another strategy — deferring.
+2026-07-30 17:26:53,837 INFO GOOGL held by another strategy — deferring.
+2026-07-30 17:27:54,493 INFO AMD held by another strategy — deferring.
+2026-07-30 17:27:54,638 INFO AVGO $386.37 below SMA50 $395.71 — no entry.
+2026-07-30 17:27:54,801 INFO META held by another strategy — deferring.
+2026-07-30 17:27:54,993 INFO AMZN held by another strategy — deferring.
+2026-07-30 17:27:55,172 INFO GOOGL held by another strategy — deferring.
+2026-07-30 17:28:55,657 INFO AMD held by another strategy — deferring.
+2026-07-30 17:28:55,835 INFO AVGO $385.97 below SMA50 $395.71 — no entry.
+2026-07-30 17:28:56,029 INFO META held by another strategy — deferring.
+2026-07-30 17:28:56,198 INFO AMZN held by another strategy — deferring.
+2026-07-30 17:28:56,601 INFO GOOGL held by another strategy — deferring.
+2026-07-30 17:29:57,102 INFO AMD held by another strategy — deferring.
+2026-07-30 17:29:57,246 INFO AVGO $385.95 below SMA50 $395.70 — no entry.
+2026-07-30 17:29:57,411 INFO META held by another strategy — deferring.
+2026-07-30 17:29:57,578 INFO AMZN held by another strategy — deferring.
+2026-07-30 17:29:57,751 INFO GOOGL held by another strategy — deferring.
+2026-07-30 17:30:58,456 INFO AMD held by another strategy — deferring.
+2026-07-30 17:30:58,605 INFO AVGO $386.12 below SMA50 $395.70 — no entry.
+2026-07-30 17:30:58,845 INFO META held by another strategy — deferring.
+2026-07-30 17:30:59,081 INFO AMZN held by another strategy — deferring.
+2026-07-30 17:30:59,254 INFO GOOGL held by another strategy — deferring.
+2026-07-30 17:32:00,062 INFO AMD held by another strategy — deferring.
+2026-07-30 17:32:00,274 INFO AVGO $385.61 below SMA50 $395.71 — no entry.
+2026-07-30 17:32:00,525 INFO META held by another strategy — deferring.
+2026-07-30 17:32:00,727 INFO AMZN held by another strategy — deferring.
+2026-07-30 17:32:00,992 INFO GOOGL held by another strategy — deferring.
+2026-07-30 17:33:01,742 INFO AMD held by another strategy — deferring.
+2026-07-30 17:33:01,943 INFO AVGO $385.35 below SMA50 $395.69 — no entry.
+2026-07-30 17:33:02,465 INFO META held by another strategy — deferring.
+2026-07-30 17:33:02,639 INFO AMZN held by another strategy — deferring.
+2026-07-30 17:33:02,847 INFO GOOGL held by another strategy — deferring.
+2026-07-30 17:34:03,520 INFO AMD held by another strategy — deferring.
+2026-07-30 17:34:03,815 INFO AVGO $385.06 below SMA50 $395.69 — no entry.
+2026-07-30 17:34:03,971 INFO META held by another strategy — deferring.
+2026-07-30 17:34:04,359 INFO AMZN held by another strategy — deferring.
+2026-07-30 17:34:04,581 INFO GOOGL held by another strategy — deferring.
+2026-07-30 17:35:05,254 INFO AMD held by another strategy — deferring.
+2026-07-30 17:35:05,435 INFO AVGO $385.38 below SMA50 $395.68 — no entry.
+2026-07-30 17:35:05,658 INFO META held by another strategy — deferring.
+2026-07-30 17:35:06,033 INFO AMZN held by another strategy — deferring.
+2026-07-30 17:35:06,182 INFO GOOGL held by another strategy — deferring.
+2026-07-30 17:36:06,809 INFO AMD held by another strategy — deferring.
+2026-07-30 17:36:06,974 INFO AVGO $385.59 below SMA50 $395.70 — no entry.
+2026-07-30 17:36:07,244 INFO META held by another strategy — deferring.
+2026-07-30 17:36:07,628 INFO AMZN held by another strategy — deferring.
+2026-07-30 17:36:07,788 INFO GOOGL held by another strategy — deferring.
+2026-07-30 17:37:08,499 INFO AMD held by another strategy — deferring.
+2026-07-30 17:37:08,680 INFO AVGO $385.49 below SMA50 $395.70 — no entry.
+2026-07-30 17:37:09,093 INFO META held by another strategy — deferring.
+2026-07-30 17:37:09,247 INFO AMZN held by another strategy — deferring.
+2026-07-30 17:37:09,419 INFO GOOGL held by another strategy — deferring.
+2026-07-30 17:38:10,037 INFO AMD held by another strategy — deferring.
+2026-07-30 17:38:10,222 INFO AVGO $385.00 below SMA50 $395.69 — no entry.
+2026-07-30 17:38:10,418 INFO META held by another strategy — deferring.
+2026-07-30 17:38:10,664 INFO AMZN held by another strategy — deferring.
+2026-07-30 17:38:10,931 INFO GOOGL held by another strategy — deferring.
+2026-07-30 17:39:11,682 INFO AMD held by another strategy — deferring.
+2026-07-30 17:39:11,855 INFO AVGO $384.93 below SMA50 $395.69 — no entry.
+2026-07-30 17:39:12,023 INFO META held by another strategy — deferring.
+2026-07-30 17:39:12,611 INFO AMZN held by another strategy — deferring.
+2026-07-30 17:39:12,800 INFO GOOGL held by another strategy — deferring.
+2026-07-30 17:40:13,472 INFO AMD held by another strategy — deferring.
+2026-07-30 17:40:13,658 INFO AVGO $385.17 below SMA50 $395.68 — no entry.
+2026-07-30 17:40:13,857 INFO META held by another strategy — deferring.
+2026-07-30 17:40:14,016 INFO AMZN held by another strategy — deferring.
+2026-07-30 17:40:14,176 INFO GOOGL held by another strategy — deferring.
+2026-07-30 17:41:15,254 INFO AMD held by another strategy — deferring.
+2026-07-30 17:41:15,455 INFO AVGO $385.34 below SMA50 $395.69 — no entry.
+2026-07-30 17:41:15,615 INFO META held by another strategy — deferring.
+2026-07-30 17:41:15,788 INFO AMZN held by another strategy — deferring.
+2026-07-30 17:41:16,214 INFO GOOGL held by another strategy — deferring.
+2026-07-30 17:42:16,664 INFO AMD held by another strategy — deferring.
+2026-07-30 17:42:17,136 INFO AVGO $385.19 below SMA50 $395.69 — no entry.
+2026-07-30 17:42:17,346 INFO META held by another strategy — deferring.
+2026-07-30 17:42:17,502 INFO AMZN held by another strategy — deferring.
+2026-07-30 17:42:17,657 INFO GOOGL held by another strategy — deferring.
+2026-07-30 17:43:18,097 INFO AMD held by another strategy — deferring.
+2026-07-30 17:43:18,262 INFO AVGO $385.82 below SMA50 $395.70 — no entry.
+2026-07-30 17:43:18,434 INFO META held by another strategy — deferring.
+2026-07-30 17:43:18,583 INFO AMZN held by another strategy — deferring.
+2026-07-30 17:43:18,754 INFO GOOGL held by another strategy — deferring.
+2026-07-30 17:44:19,167 INFO AMD held by another strategy — deferring.
+2026-07-30 17:44:19,361 INFO AVGO $385.88 below SMA50 $395.71 — no entry.
+2026-07-30 17:44:19,501 INFO META held by another strategy — deferring.
+2026-07-30 17:44:19,650 INFO AMZN held by another strategy — deferring.
+2026-07-30 17:44:19,832 INFO GOOGL held by another strategy — deferring.
+2026-07-30 17:45:20,395 INFO AMD held by another strategy — deferring.
+2026-07-30 17:45:20,622 INFO AVGO $385.95 below SMA50 $395.70 — no entry.
+2026-07-30 17:45:20,893 INFO META held by another strategy — deferring.
+2026-07-30 17:45:21,214 INFO AMZN held by another strategy — deferring.
+2026-07-30 17:45:21,715 INFO GOOGL held by another strategy — deferring.
+2026-07-30 17:46:22,133 INFO AMD held by another strategy — deferring.
+2026-07-30 17:46:22,666 INFO AVGO $386.10 below SMA50 $395.71 — no entry.
+2026-07-30 17:46:22,989 INFO META held by another strategy — deferring.
+2026-07-30 17:46:23,240 INFO AMZN held by another strategy — deferring.
+2026-07-30 17:46:23,434 INFO GOOGL held by another strategy — deferring.
+2026-07-30 17:47:23,847 INFO AMD held by another strategy — deferring.
+2026-07-30 17:47:24,124 INFO AVGO $385.91 below SMA50 $395.71 — no entry.
+2026-07-30 17:47:24,342 INFO META held by another strategy — deferring.
+2026-07-30 17:47:24,522 INFO AMZN held by another strategy — deferring.
+2026-07-30 17:47:24,736 INFO GOOGL held by another strategy — deferring.
+2026-07-30 17:48:25,090 INFO AMD held by another strategy — deferring.
+2026-07-30 17:48:25,288 INFO AVGO $386.03 below SMA50 $395.70 — no entry.
+2026-07-30 17:48:25,448 INFO META held by another strategy — deferring.
+2026-07-30 17:48:25,654 INFO AMZN held by another strategy — deferring.
+2026-07-30 17:48:25,913 INFO GOOGL held by another strategy — deferring.
+2026-07-30 17:49:26,355 INFO AMD held by another strategy — deferring.
+2026-07-30 17:49:26,636 INFO AVGO $385.54 below SMA50 $395.70 — no entry.
+2026-07-30 17:49:26,919 INFO META held by another strategy — deferring.
+2026-07-30 17:49:27,121 INFO AMZN held by another strategy — deferring.
+2026-07-30 17:49:27,890 INFO GOOGL held by another strategy — deferring.
+2026-07-30 17:50:28,275 INFO AMD held by another strategy — deferring.
+2026-07-30 17:50:28,544 INFO AVGO $385.48 below SMA50 $395.70 — no entry.
+2026-07-30 17:50:28,905 INFO META held by another strategy — deferring.
+2026-07-30 17:50:29,096 INFO AMZN held by another strategy — deferring.
+2026-07-30 17:50:29,311 INFO GOOGL held by another strategy — deferring.
+2026-07-30 17:51:29,694 INFO AMD held by another strategy — deferring.
+2026-07-30 17:51:29,914 INFO AVGO $385.77 below SMA50 $395.70 — no entry.
+2026-07-30 17:51:30,120 INFO META held by another strategy — deferring.
+2026-07-30 17:51:30,718 INFO AMZN held by another strategy — deferring.
+2026-07-30 17:51:30,936 INFO GOOGL held by another strategy — deferring.
+2026-07-30 17:52:31,372 INFO AMD held by another strategy — deferring.
+2026-07-30 17:52:31,568 INFO AVGO $385.55 below SMA50 $395.70 — no entry.
+2026-07-30 17:52:31,755 INFO META held by another strategy — deferring.
+2026-07-30 17:52:32,202 INFO AMZN held by another strategy — deferring.
+2026-07-30 17:52:32,374 INFO GOOGL held by another strategy — deferring.
+2026-07-30 17:53:33,393 INFO AMD held by another strategy — deferring.
+2026-07-30 17:53:33,588 INFO AVGO $385.43 below SMA50 $395.70 — no entry.
+2026-07-30 17:53:33,762 INFO META held by another strategy — deferring.
+2026-07-30 17:53:33,941 INFO AMZN held by another strategy — deferring.
+2026-07-30 17:53:34,109 INFO GOOGL held by another strategy — deferring.
+2026-07-30 17:54:34,619 INFO AMD held by another strategy — deferring.
+2026-07-30 17:54:34,772 INFO AVGO $385.42 below SMA50 $395.69 — no entry.
+2026-07-30 17:54:34,977 INFO META held by another strategy — deferring.
+2026-07-30 17:54:35,144 INFO AMZN held by another strategy — deferring.
+2026-07-30 17:54:35,609 INFO GOOGL held by another strategy — deferring.
+2026-07-30 17:55:36,029 INFO AMD held by another strategy — deferring.
+2026-07-30 17:55:36,479 INFO AVGO $385.24 below SMA50 $395.70 — no entry.
+2026-07-30 17:55:36,650 INFO META held by another strategy — deferring.
+2026-07-30 17:55:36,807 INFO AMZN held by another strategy — deferring.
+2026-07-30 17:55:37,010 INFO GOOGL held by another strategy — deferring.
+2026-07-30 17:56:37,400 INFO AMD held by another strategy — deferring.
+2026-07-30 17:56:37,655 INFO AVGO $385.44 below SMA50 $395.70 — no entry.
+2026-07-30 17:56:37,843 INFO META held by another strategy — deferring.
+2026-07-30 17:56:38,004 INFO AMZN held by another strategy — deferring.
+2026-07-30 17:56:38,221 INFO GOOGL held by another strategy — deferring.
+2026-07-30 17:57:39,648 INFO AMD held by another strategy — deferring.
+2026-07-30 17:57:39,838 INFO AVGO $385.35 below SMA50 $395.69 — no entry.
+2026-07-30 17:57:40,028 INFO META held by another strategy — deferring.
+2026-07-30 17:57:40,603 INFO AMZN held by another strategy — deferring.
+2026-07-30 17:57:40,780 INFO GOOGL held by another strategy — deferring.
+2026-07-30 17:58:41,187 INFO AMD held by another strategy — deferring.
+2026-07-30 17:58:41,356 INFO AVGO $385.58 below SMA50 $395.69 — no entry.
+2026-07-30 17:58:42,425 INFO META held by another strategy — deferring.
+2026-07-30 17:58:42,582 INFO AMZN held by another strategy — deferring.
+2026-07-30 17:58:43,052 INFO GOOGL held by another strategy — deferring.
+2026-07-30 17:59:44,255 INFO AMD held by another strategy — deferring.
+2026-07-30 17:59:44,483 INFO AVGO $385.44 below SMA50 $395.70 — no entry.
+2026-07-30 17:59:44,666 INFO META held by another strategy — deferring.
+2026-07-30 17:59:45,003 INFO AMZN held by another strategy — deferring.
+2026-07-30 17:59:45,209 INFO GOOGL held by another strategy — deferring.
+2026-07-30 18:00:45,966 INFO AMD held by another strategy — deferring.
+2026-07-30 18:00:46,566 INFO AVGO $385.79 below SMA50 $395.70 — no entry.
+2026-07-30 18:00:46,769 INFO META held by another strategy — deferring.
+2026-07-30 18:00:47,013 INFO AMZN held by another strategy — deferring.
+2026-07-30 18:00:47,223 INFO GOOGL held by another strategy — deferring.
+2026-07-30 18:01:48,235 INFO AMD held by another strategy — deferring.
+2026-07-30 18:01:48,443 INFO AVGO $385.75 below SMA50 $395.70 — no entry.
+2026-07-30 18:01:48,667 INFO META held by another strategy — deferring.
+2026-07-30 18:01:48,853 INFO AMZN held by another strategy — deferring.
+2026-07-30 18:01:49,037 INFO GOOGL held by another strategy — deferring.
+2026-07-30 18:02:49,551 INFO AMD held by another strategy — deferring.
+2026-07-30 18:02:49,903 INFO AVGO $385.64 below SMA50 $395.70 — no entry.
+2026-07-30 18:02:50,102 INFO META held by another strategy — deferring.
+2026-07-30 18:02:50,290 INFO AMZN held by another strategy — deferring.
+2026-07-30 18:02:50,450 INFO GOOGL held by another strategy — deferring.
+2026-07-30 18:03:51,096 INFO AMD held by another strategy — deferring.
+2026-07-30 18:03:51,274 INFO AVGO $385.45 below SMA50 $395.70 — no entry.
+2026-07-30 18:03:51,466 INFO META held by another strategy — deferring.
+2026-07-30 18:03:51,642 INFO AMZN held by another strategy — deferring.
+2026-07-30 18:03:51,841 INFO GOOGL held by another strategy — deferring.
+2026-07-30 18:04:52,241 INFO AMD held by another strategy — deferring.
+2026-07-30 18:04:52,443 INFO AVGO $385.36 below SMA50 $395.69 — no entry.
+2026-07-30 18:04:52,602 INFO META held by another strategy — deferring.
+2026-07-30 18:04:52,777 INFO AMZN held by another strategy — deferring.
+2026-07-30 18:04:52,951 INFO GOOGL held by another strategy — deferring.
+2026-07-30 18:05:53,593 INFO AMD held by another strategy — deferring.
+2026-07-30 18:05:53,777 INFO AVGO $385.42 below SMA50 $395.69 — no entry.
+2026-07-30 18:05:54,104 INFO META held by another strategy — deferring.
+2026-07-30 18:05:54,262 INFO AMZN held by another strategy — deferring.
+2026-07-30 18:05:54,467 INFO GOOGL held by another strategy — deferring.
+2026-07-30 18:06:55,074 INFO AMD held by another strategy — deferring.
+2026-07-30 18:06:55,281 INFO AVGO $385.69 below SMA50 $395.69 — no entry.
+2026-07-30 18:06:55,531 INFO META held by another strategy — deferring.
+2026-07-30 18:06:55,709 INFO AMZN held by another strategy — deferring.
+2026-07-30 18:06:55,875 INFO GOOGL held by another strategy — deferring.
+2026-07-30 18:07:56,399 INFO AMD held by another strategy — deferring.
+2026-07-30 18:07:56,593 INFO AVGO $386.27 below SMA50 $395.70 — no entry.
+2026-07-30 18:07:56,757 INFO META held by another strategy — deferring.
+2026-07-30 18:07:56,918 INFO AMZN held by another strategy — deferring.
+2026-07-30 18:07:57,078 INFO GOOGL held by another strategy — deferring.
+2026-07-30 18:08:57,429 INFO AMD held by another strategy — deferring.
+2026-07-30 18:08:57,603 INFO AVGO $386.71 below SMA50 $395.71 — no entry.
+2026-07-30 18:08:57,760 INFO META held by another strategy — deferring.
+2026-07-30 18:08:57,921 INFO AMZN held by another strategy — deferring.
+2026-07-30 18:08:58,061 INFO GOOGL held by another strategy — deferring.
+2026-07-30 18:09:59,235 INFO AMD held by another strategy — deferring.
+2026-07-30 18:09:59,404 INFO AVGO $386.88 below SMA50 $395.72 — no entry.
+2026-07-30 18:09:59,782 INFO META held by another strategy — deferring.
+2026-07-30 18:10:00,254 INFO AMZN held by another strategy — deferring.
+2026-07-30 18:10:00,447 INFO GOOGL held by another strategy — deferring.
+2026-07-30 18:11:00,892 INFO AMD held by another strategy — deferring.
+2026-07-30 18:11:01,092 INFO AVGO $386.66 below SMA50 $395.73 — no entry.
+2026-07-30 18:11:01,313 INFO META held by another strategy — deferring.
+2026-07-30 18:11:01,574 INFO AMZN held by another strategy — deferring.
+2026-07-30 18:11:01,816 INFO GOOGL held by another strategy — deferring.
+2026-07-30 18:12:02,293 INFO AMD held by another strategy — deferring.
+2026-07-30 18:12:02,539 INFO AVGO $386.66 below SMA50 $395.73 — no entry.
+2026-07-30 18:12:02,713 INFO META held by another strategy — deferring.
+2026-07-30 18:12:02,867 INFO AMZN held by another strategy — deferring.
+2026-07-30 18:12:03,057 INFO GOOGL held by another strategy — deferring.
+2026-07-30 18:13:03,498 INFO AMD held by another strategy — deferring.
+2026-07-30 18:13:03,682 INFO AVGO $386.38 below SMA50 $395.71 — no entry.
+2026-07-30 18:13:03,846 INFO META held by another strategy — deferring.
+2026-07-30 18:13:04,018 INFO AMZN held by another strategy — deferring.
+2026-07-30 18:13:04,204 INFO GOOGL held by another strategy — deferring.
+2026-07-30 18:14:05,402 INFO AMD held by another strategy — deferring.
+2026-07-30 18:14:05,939 INFO AVGO $386.26 below SMA50 $395.71 — no entry.
+2026-07-30 18:14:06,138 INFO META held by another strategy — deferring.
+2026-07-30 18:14:06,358 INFO AMZN held by another strategy — deferring.
+2026-07-30 18:14:06,922 INFO GOOGL held by another strategy — deferring.
+2026-07-30 18:15:07,577 INFO AMD held by another strategy — deferring.
+2026-07-30 18:15:07,763 INFO AVGO $386.26 below SMA50 $395.71 — no entry.
+2026-07-30 18:15:07,981 INFO META held by another strategy — deferring.
+2026-07-30 18:15:08,273 INFO AMZN held by another strategy — deferring.
+2026-07-30 18:15:08,452 INFO GOOGL held by another strategy — deferring.
+2026-07-30 18:16:09,342 INFO AMD held by another strategy — deferring.
+2026-07-30 18:16:09,548 INFO AVGO $386.02 below SMA50 $395.71 — no entry.
+2026-07-30 18:16:09,794 INFO META held by another strategy — deferring.
+2026-07-30 18:16:10,368 INFO AMZN held by another strategy — deferring.
+2026-07-30 18:16:10,619 INFO GOOGL held by another strategy — deferring.
+2026-07-30 18:17:11,260 INFO AMD held by another strategy — deferring.
+2026-07-30 18:17:11,448 INFO AVGO $385.80 below SMA50 $395.70 — no entry.
+2026-07-30 18:17:11,626 INFO META held by another strategy — deferring.
+2026-07-30 18:17:11,863 INFO AMZN held by another strategy — deferring.
+2026-07-30 18:17:12,045 INFO GOOGL held by another strategy — deferring.
+2026-07-30 18:18:12,555 INFO AMD held by another strategy — deferring.
+2026-07-30 18:18:12,740 INFO AVGO $386.01 below SMA50 $395.71 — no entry.
+2026-07-30 18:18:13,066 INFO META held by another strategy — deferring.
+2026-07-30 18:18:13,288 INFO AMZN held by another strategy — deferring.
+2026-07-30 18:18:13,467 INFO GOOGL held by another strategy — deferring.
+2026-07-30 18:19:14,012 INFO AMD held by another strategy — deferring.
+2026-07-30 18:19:14,192 INFO AVGO $386.06 below SMA50 $395.71 — no entry.
+2026-07-30 18:19:14,684 INFO META held by another strategy — deferring.
+2026-07-30 18:19:14,884 INFO AMZN held by another strategy — deferring.
+2026-07-30 18:19:15,073 INFO GOOGL held by another strategy — deferring.
+2026-07-30 18:20:15,685 INFO AMD held by another strategy — deferring.
+2026-07-30 18:20:15,896 INFO AVGO $386.11 below SMA50 $395.71 — no entry.
+2026-07-30 18:20:16,056 INFO META held by another strategy — deferring.
+2026-07-30 18:20:16,215 INFO AMZN held by another strategy — deferring.
+2026-07-30 18:20:16,409 INFO GOOGL held by another strategy — deferring.
+2026-07-30 18:21:16,946 INFO AMD held by another strategy — deferring.
+2026-07-30 18:21:17,369 INFO AVGO $386.09 below SMA50 $395.71 — no entry.
+2026-07-30 18:21:17,904 INFO META held by another strategy — deferring.
+2026-07-30 18:21:18,087 INFO AMZN held by another strategy — deferring.
+2026-07-30 18:21:18,506 INFO GOOGL held by another strategy — deferring.
+2026-07-30 18:22:18,957 INFO AMD held by another strategy — deferring.
+2026-07-30 18:22:19,313 INFO AVGO $386.29 below SMA50 $395.71 — no entry.
+2026-07-30 18:22:19,476 INFO META held by another strategy — deferring.
+2026-07-30 18:22:19,647 INFO AMZN held by another strategy — deferring.
+2026-07-30 18:22:19,827 INFO GOOGL held by another strategy — deferring.
+2026-07-30 18:23:20,264 INFO AMD held by another strategy — deferring.
+2026-07-30 18:23:20,460 INFO AVGO $386.34 below SMA50 $395.71 — no entry.
+2026-07-30 18:23:20,701 INFO META held by another strategy — deferring.
+2026-07-30 18:23:20,870 INFO AMZN held by another strategy — deferring.
+2026-07-30 18:23:23,319 INFO GOOGL held by another strategy — deferring.
+2026-07-30 18:24:24,106 INFO AMD held by another strategy — deferring.
+2026-07-30 18:24:24,282 INFO AVGO $386.50 below SMA50 $395.71 — no entry.
+2026-07-30 18:24:24,480 INFO META held by another strategy — deferring.
+2026-07-30 18:24:24,629 INFO AMZN held by another strategy — deferring.
+2026-07-30 18:24:24,796 INFO GOOGL held by another strategy — deferring.
+2026-07-30 18:25:25,361 INFO AMD held by another strategy — deferring.
+2026-07-30 18:25:25,529 INFO AVGO $386.50 below SMA50 $395.72 — no entry.
+2026-07-30 18:25:25,806 INFO META held by another strategy — deferring.
+2026-07-30 18:25:25,971 INFO AMZN held by another strategy — deferring.
+2026-07-30 18:25:26,125 INFO GOOGL held by another strategy — deferring.
+2026-07-30 18:26:26,993 INFO AMD held by another strategy — deferring.
+2026-07-30 18:26:27,260 INFO AVGO $385.90 below SMA50 $395.71 — no entry.
+2026-07-30 18:26:27,442 INFO META held by another strategy — deferring.
+2026-07-30 18:26:27,620 INFO AMZN held by another strategy — deferring.
+2026-07-30 18:26:27,856 INFO GOOGL held by another strategy — deferring.
+2026-07-30 18:27:28,314 INFO AMD held by another strategy — deferring.
+2026-07-30 18:27:28,535 INFO AVGO $386.08 below SMA50 $395.71 — no entry.
+2026-07-30 18:27:28,717 INFO META held by another strategy — deferring.
+2026-07-30 18:27:28,879 INFO AMZN held by another strategy — deferring.
+2026-07-30 18:27:29,110 INFO GOOGL held by another strategy — deferring.
+2026-07-30 18:28:29,551 INFO AMD held by another strategy — deferring.
+2026-07-30 18:28:29,715 INFO AVGO $386.18 below SMA50 $395.71 — no entry.
+2026-07-30 18:28:29,934 INFO META held by another strategy — deferring.
+2026-07-30 18:28:30,097 INFO AMZN held by another strategy — deferring.
+2026-07-30 18:28:30,269 INFO GOOGL held by another strategy — deferring.
+2026-07-30 18:29:30,682 INFO AMD held by another strategy — deferring.
+2026-07-30 18:29:30,880 INFO AVGO $386.25 below SMA50 $395.71 — no entry.
+2026-07-30 18:29:31,038 INFO META held by another strategy — deferring.
+2026-07-30 18:29:31,210 INFO AMZN held by another strategy — deferring.
+2026-07-30 18:29:31,408 INFO GOOGL held by another strategy — deferring.
+2026-07-30 18:30:31,972 INFO AMD held by another strategy — deferring.
+2026-07-30 18:30:32,214 INFO AVGO $386.33 below SMA50 $395.72 — no entry.
+2026-07-30 18:30:32,385 INFO META held by another strategy — deferring.
+2026-07-30 18:30:32,602 INFO AMZN held by another strategy — deferring.
+2026-07-30 18:30:32,852 INFO GOOGL held by another strategy — deferring.
+2026-07-30 18:31:33,303 INFO AMD held by another strategy — deferring.
+2026-07-30 18:31:33,511 INFO AVGO $386.30 below SMA50 $395.72 — no entry.
+2026-07-30 18:31:34,104 INFO META held by another strategy — deferring.
+2026-07-30 18:31:34,286 INFO AMZN held by another strategy — deferring.
+2026-07-30 18:31:34,509 INFO GOOGL held by another strategy — deferring.
+2026-07-30 18:32:34,882 INFO AMD held by another strategy — deferring.
+2026-07-30 18:32:35,086 INFO AVGO $386.05 below SMA50 $395.71 — no entry.
+2026-07-30 18:32:35,250 INFO META held by another strategy — deferring.
+2026-07-30 18:32:35,443 INFO AMZN held by another strategy — deferring.
+2026-07-30 18:32:35,643 INFO GOOGL held by another strategy — deferring.
+2026-07-30 18:33:36,249 INFO AMD held by another strategy — deferring.
+2026-07-30 18:33:36,439 INFO AVGO $386.28 below SMA50 $395.71 — no entry.
+2026-07-30 18:33:36,595 INFO META held by another strategy — deferring.
+2026-07-30 18:33:36,757 INFO AMZN held by another strategy — deferring.
+2026-07-30 18:33:36,912 INFO GOOGL held by another strategy — deferring.
+2026-07-30 18:34:37,503 INFO AMD held by another strategy — deferring.
+2026-07-30 18:34:37,721 INFO AVGO $385.88 below SMA50 $395.71 — no entry.
+2026-07-30 18:34:37,873 INFO META held by another strategy — deferring.
+2026-07-30 18:34:38,154 INFO AMZN held by another strategy — deferring.
+2026-07-30 18:34:38,459 INFO GOOGL held by another strategy — deferring.
+2026-07-30 18:35:39,004 INFO AMD held by another strategy — deferring.
+2026-07-30 18:35:39,431 INFO AVGO $385.82 below SMA50 $395.71 — no entry.
+2026-07-30 18:35:39,643 INFO META held by another strategy — deferring.
+2026-07-30 18:35:39,794 INFO AMZN held by another strategy — deferring.
+2026-07-30 18:35:40,168 INFO GOOGL held by another strategy — deferring.
+2026-07-30 18:36:40,588 INFO AMD held by another strategy — deferring.
+2026-07-30 18:36:40,938 INFO AVGO $385.80 below SMA50 $395.70 — no entry.
+2026-07-30 18:36:41,109 INFO META held by another strategy — deferring.
+2026-07-30 18:36:41,511 INFO AMZN held by another strategy — deferring.
+2026-07-30 18:36:41,873 INFO GOOGL held by another strategy — deferring.
+2026-07-30 18:37:42,291 INFO AMD held by another strategy — deferring.
+2026-07-30 18:37:42,568 INFO AVGO $385.70 below SMA50 $395.70 — no entry.
+2026-07-30 18:37:42,824 INFO META held by another strategy — deferring.
+2026-07-30 18:37:42,990 INFO AMZN held by another strategy — deferring.
+2026-07-30 18:37:43,244 INFO GOOGL held by another strategy — deferring.
+2026-07-30 18:38:44,094 INFO AMD held by another strategy — deferring.
+2026-07-30 18:38:44,306 INFO AVGO $385.93 below SMA50 $395.70 — no entry.
+2026-07-30 18:38:44,903 INFO META held by another strategy — deferring.
+2026-07-30 18:38:45,065 INFO AMZN held by another strategy — deferring.
+2026-07-30 18:38:45,265 INFO GOOGL held by another strategy — deferring.
+2026-07-30 18:39:45,984 INFO AMD held by another strategy — deferring.
+2026-07-30 18:39:46,242 INFO AVGO $385.69 below SMA50 $395.70 — no entry.
+2026-07-30 18:39:46,402 INFO META held by another strategy — deferring.
+2026-07-30 18:39:46,553 INFO AMZN held by another strategy — deferring.
+2026-07-30 18:39:46,748 INFO GOOGL held by another strategy — deferring.
+2026-07-30 18:40:47,812 INFO AMD held by another strategy — deferring.
+2026-07-30 18:40:48,051 INFO AVGO $385.68 below SMA50 $395.70 — no entry.
+2026-07-30 18:40:48,305 INFO META held by another strategy — deferring.
+2026-07-30 18:40:48,444 INFO AMZN held by another strategy — deferring.
+2026-07-30 18:40:48,794 INFO GOOGL held by another strategy — deferring.
+2026-07-30 18:41:49,435 INFO AMD held by another strategy — deferring.
+2026-07-30 18:41:49,615 INFO AVGO $385.81 below SMA50 $395.70 — no entry.
+2026-07-30 18:41:49,780 INFO META held by another strategy — deferring.
+2026-07-30 18:41:49,965 INFO AMZN held by another strategy — deferring.
+2026-07-30 18:41:50,148 INFO GOOGL held by another strategy — deferring.
+2026-07-30 18:42:50,997 INFO AMD held by another strategy — deferring.
+2026-07-30 18:42:51,382 INFO AVGO $385.80 below SMA50 $395.70 — no entry.
+2026-07-30 18:42:51,566 INFO META held by another strategy — deferring.
+2026-07-30 18:42:51,731 INFO AMZN held by another strategy — deferring.
+2026-07-30 18:42:52,203 INFO GOOGL held by another strategy — deferring.
+2026-07-30 18:43:52,785 INFO AMD held by another strategy — deferring.
+2026-07-30 18:43:52,999 INFO AVGO $385.96 below SMA50 $395.70 — no entry.
+2026-07-30 18:43:53,186 INFO META held by another strategy — deferring.
+2026-07-30 18:43:53,369 INFO AMZN held by another strategy — deferring.
+2026-07-30 18:43:53,560 INFO GOOGL held by another strategy — deferring.
+2026-07-30 18:44:53,973 INFO AMD held by another strategy — deferring.
+2026-07-30 18:44:54,128 INFO AVGO $386.14 below SMA50 $395.71 — no entry.
+2026-07-30 18:44:54,279 INFO META held by another strategy — deferring.
+2026-07-30 18:44:54,441 INFO AMZN held by another strategy — deferring.
+2026-07-30 18:44:54,929 INFO GOOGL held by another strategy — deferring.
+2026-07-30 18:45:55,332 INFO AMD held by another strategy — deferring.
+2026-07-30 18:45:55,541 INFO AVGO $386.08 below SMA50 $395.71 — no entry.
+2026-07-30 18:45:55,758 INFO META held by another strategy — deferring.
+2026-07-30 18:45:55,916 INFO AMZN held by another strategy — deferring.
+2026-07-30 18:45:56,133 INFO GOOGL held by another strategy — deferring.
+2026-07-30 18:46:56,821 INFO AMD held by another strategy — deferring.
+2026-07-30 18:46:57,524 INFO AVGO $386.31 below SMA50 $395.71 — no entry.
+2026-07-30 18:46:57,715 INFO META held by another strategy — deferring.
+2026-07-30 18:46:57,902 INFO AMZN held by another strategy — deferring.
+2026-07-30 18:46:58,321 INFO GOOGL held by another strategy — deferring.
+2026-07-30 18:47:58,848 INFO AMD held by another strategy — deferring.
+2026-07-30 18:47:59,013 INFO AVGO $386.35 below SMA50 $395.71 — no entry.
+2026-07-30 18:47:59,169 INFO META held by another strategy — deferring.
+2026-07-30 18:47:59,312 INFO AMZN held by another strategy — deferring.
+2026-07-30 18:47:59,470 INFO GOOGL held by another strategy — deferring.
+2026-07-30 18:48:59,848 INFO AMD held by another strategy — deferring.
+2026-07-30 18:49:00,024 INFO AVGO $386.03 below SMA50 $395.71 — no entry.
+2026-07-30 18:49:00,364 INFO META held by another strategy — deferring.
+2026-07-30 18:49:00,534 INFO AMZN held by another strategy — deferring.
+2026-07-30 18:49:00,751 INFO GOOGL held by another strategy — deferring.
+2026-07-30 18:50:01,244 INFO AMD held by another strategy — deferring.
+2026-07-30 18:50:01,415 INFO AVGO $386.10 below SMA50 $395.71 — no entry.
+2026-07-30 18:50:01,605 INFO META held by another strategy — deferring.
+2026-07-30 18:50:01,821 INFO AMZN held by another strategy — deferring.
+2026-07-30 18:50:02,089 INFO GOOGL held by another strategy — deferring.
+2026-07-30 18:51:02,870 INFO AMD held by another strategy — deferring.
+2026-07-30 18:51:03,285 INFO AVGO $385.99 below SMA50 $395.71 — no entry.
+2026-07-30 18:51:03,579 INFO META held by another strategy — deferring.
+2026-07-30 18:51:03,868 INFO AMZN held by another strategy — deferring.
+2026-07-30 18:51:04,317 INFO GOOGL held by another strategy — deferring.
+2026-07-30 18:52:04,758 INFO AMD held by another strategy — deferring.
+2026-07-30 18:52:05,125 INFO AVGO $385.81 below SMA50 $395.70 — no entry.
+2026-07-30 18:52:05,298 INFO META held by another strategy — deferring.
+2026-07-30 18:52:05,457 INFO AMZN held by another strategy — deferring.
+2026-07-30 18:52:05,634 INFO GOOGL held by another strategy — deferring.
+2026-07-30 18:53:06,110 INFO AMD held by another strategy — deferring.
+2026-07-30 18:53:06,343 INFO AVGO $385.96 below SMA50 $395.71 — no entry.
+2026-07-30 18:53:06,565 INFO META held by another strategy — deferring.
+2026-07-30 18:53:06,732 INFO AMZN held by another strategy — deferring.
+2026-07-30 18:53:06,914 INFO GOOGL held by another strategy — deferring.
+2026-07-30 18:54:07,368 INFO AMD held by another strategy — deferring.
+2026-07-30 18:54:07,849 INFO AVGO $386.06 below SMA50 $395.71 — no entry.
+2026-07-30 18:54:08,014 INFO META held by another strategy — deferring.
+2026-07-30 18:54:08,185 INFO AMZN held by another strategy — deferring.
+2026-07-30 18:54:08,321 INFO GOOGL held by another strategy — deferring.
+2026-07-30 18:55:09,660 INFO AMD held by another strategy — deferring.
+2026-07-30 18:55:09,838 INFO AVGO $385.90 below SMA50 $395.70 — no entry.
+2026-07-30 18:55:10,162 INFO META held by another strategy — deferring.
+2026-07-30 18:55:10,318 INFO AMZN held by another strategy — deferring.
+2026-07-30 18:55:10,520 INFO GOOGL held by another strategy — deferring.
+2026-07-30 18:56:11,005 INFO AMD held by another strategy — deferring.
+2026-07-30 18:56:11,217 INFO AVGO $385.86 below SMA50 $395.71 — no entry.
+2026-07-30 18:56:11,668 INFO META held by another strategy — deferring.
+2026-07-30 18:56:11,859 INFO AMZN held by another strategy — deferring.
+2026-07-30 18:56:12,037 INFO GOOGL held by another strategy — deferring.
+2026-07-30 18:57:12,626 INFO AMD held by another strategy — deferring.
+2026-07-30 18:57:12,804 INFO AVGO $385.71 below SMA50 $395.70 — no entry.
+2026-07-30 18:57:12,947 INFO META held by another strategy — deferring.
+2026-07-30 18:57:13,126 INFO AMZN held by another strategy — deferring.
+2026-07-30 18:57:13,489 INFO GOOGL held by another strategy — deferring.
+2026-07-30 18:58:13,860 INFO AMD held by another strategy — deferring.
+2026-07-30 18:58:14,037 INFO AVGO $385.59 below SMA50 $395.70 — no entry.
+2026-07-30 18:58:14,183 INFO META held by another strategy — deferring.
+2026-07-30 18:58:14,327 INFO AMZN held by another strategy — deferring.
+2026-07-30 18:58:14,476 INFO GOOGL held by another strategy — deferring.
+2026-07-30 18:59:14,990 INFO AMD held by another strategy — deferring.
+2026-07-30 18:59:15,696 INFO AVGO $385.63 below SMA50 $395.70 — no entry.
+2026-07-30 18:59:15,944 INFO META held by another strategy — deferring.
+2026-07-30 18:59:16,120 INFO AMZN held by another strategy — deferring.
+2026-07-30 18:59:16,384 INFO GOOGL held by another strategy — deferring.
+2026-07-30 19:00:17,234 INFO AMD held by another strategy — deferring.
+2026-07-30 19:00:17,387 INFO AVGO $386.03 below SMA50 $395.71 — no entry.
+2026-07-30 19:00:17,759 INFO META held by another strategy — deferring.
+2026-07-30 19:00:17,941 INFO AMZN held by another strategy — deferring.
+2026-07-30 19:00:18,138 INFO GOOGL held by another strategy — deferring.
+2026-07-30 19:01:18,604 INFO AMD held by another strategy — deferring.
+2026-07-30 19:01:18,771 INFO AVGO $386.34 below SMA50 $395.71 — no entry.
+2026-07-30 19:01:19,621 INFO META held by another strategy — deferring.
+2026-07-30 19:01:20,010 INFO AMZN held by another strategy — deferring.
+2026-07-30 19:01:20,181 INFO GOOGL held by another strategy — deferring.
+2026-07-30 19:02:20,569 INFO AMD held by another strategy — deferring.
+2026-07-30 19:02:20,795 INFO AVGO $386.10 below SMA50 $395.71 — no entry.
+2026-07-30 19:02:21,169 INFO META held by another strategy — deferring.
+2026-07-30 19:02:21,333 INFO AMZN held by another strategy — deferring.
+2026-07-30 19:02:21,509 INFO GOOGL held by another strategy — deferring.
+2026-07-30 19:03:21,992 INFO AMD held by another strategy — deferring.
+2026-07-30 19:03:22,208 INFO AVGO $386.22 below SMA50 $395.71 — no entry.
+2026-07-30 19:03:22,443 INFO META held by another strategy — deferring.
+2026-07-30 19:03:22,652 INFO AMZN held by another strategy — deferring.
+2026-07-30 19:03:22,858 INFO GOOGL held by another strategy — deferring.
+2026-07-30 19:04:23,332 INFO AMD held by another strategy — deferring.
+2026-07-30 19:04:23,685 INFO AVGO $385.94 below SMA50 $395.71 — no entry.
+2026-07-30 19:04:23,846 INFO META held by another strategy — deferring.
+2026-07-30 19:04:24,020 INFO AMZN held by another strategy — deferring.
+2026-07-30 19:04:24,197 INFO GOOGL held by another strategy — deferring.
+2026-07-30 19:05:24,712 INFO AMD held by another strategy — deferring.
+2026-07-30 19:05:24,897 INFO AVGO $386.32 below SMA50 $395.71 — no entry.
+2026-07-30 19:05:25,047 INFO META held by another strategy — deferring.
+2026-07-30 19:05:25,244 INFO AMZN held by another strategy — deferring.
+2026-07-30 19:05:25,397 INFO GOOGL held by another strategy — deferring.
+2026-07-30 19:06:25,894 INFO AMD held by another strategy — deferring.
+2026-07-30 19:06:26,052 INFO AVGO $386.31 below SMA50 $395.71 — no entry.
+2026-07-30 19:06:26,224 INFO META held by another strategy — deferring.
+2026-07-30 19:06:26,399 INFO AMZN held by another strategy — deferring.
+2026-07-30 19:06:26,557 INFO GOOGL held by another strategy — deferring.
+2026-07-30 19:07:27,024 INFO AMD held by another strategy — deferring.
+2026-07-30 19:07:27,211 INFO AVGO $386.83 below SMA50 $395.72 — no entry.
+2026-07-30 19:07:27,363 INFO META held by another strategy — deferring.
+2026-07-30 19:07:27,529 INFO AMZN held by another strategy — deferring.
+2026-07-30 19:07:27,744 INFO GOOGL held by another strategy — deferring.
+2026-07-30 19:08:28,586 INFO AMD held by another strategy — deferring.
+2026-07-30 19:08:28,729 INFO AVGO $386.94 below SMA50 $395.72 — no entry.
+2026-07-30 19:08:28,889 INFO META held by another strategy — deferring.
+2026-07-30 19:08:29,058 INFO AMZN held by another strategy — deferring.
+2026-07-30 19:08:29,269 INFO GOOGL held by another strategy — deferring.
+2026-07-30 19:09:29,667 INFO AMD held by another strategy — deferring.
+2026-07-30 19:09:29,843 INFO AVGO $387.60 below SMA50 $395.73 — no entry.
+2026-07-30 19:09:30,110 INFO META held by another strategy — deferring.
+2026-07-30 19:09:30,260 INFO AMZN held by another strategy — deferring.
+2026-07-30 19:09:30,434 INFO GOOGL held by another strategy — deferring.
+2026-07-30 19:10:31,063 INFO AMD held by another strategy — deferring.
+2026-07-30 19:10:31,241 INFO AVGO $387.87 below SMA50 $395.74 — no entry.
+2026-07-30 19:10:31,483 INFO META held by another strategy — deferring.
+2026-07-30 19:10:31,649 INFO AMZN held by another strategy — deferring.
+2026-07-30 19:10:31,853 INFO GOOGL held by another strategy — deferring.
+2026-07-30 19:11:32,284 INFO AMD held by another strategy — deferring.
+2026-07-30 19:11:32,448 INFO AVGO $387.98 below SMA50 $395.75 — no entry.
+2026-07-30 19:11:32,637 INFO META held by another strategy — deferring.
+2026-07-30 19:11:32,805 INFO AMZN held by another strategy — deferring.
+2026-07-30 19:11:32,974 INFO GOOGL held by another strategy — deferring.
+2026-07-30 19:12:33,406 INFO AMD held by another strategy — deferring.
+2026-07-30 19:12:33,570 INFO AVGO $388.12 below SMA50 $395.75 — no entry.
+2026-07-30 19:12:33,791 INFO META held by another strategy — deferring.
+2026-07-30 19:12:33,978 INFO AMZN held by another strategy — deferring.
+2026-07-30 19:12:34,130 INFO GOOGL held by another strategy — deferring.
+2026-07-30 19:13:34,514 INFO AMD held by another strategy — deferring.
+2026-07-30 19:13:34,906 INFO AVGO $388.36 below SMA50 $395.75 — no entry.
+2026-07-30 19:13:35,181 INFO META held by another strategy — deferring.
+2026-07-30 19:13:35,324 INFO AMZN held by another strategy — deferring.
+2026-07-30 19:13:37,836 INFO GOOGL held by another strategy — deferring.
+2026-07-30 19:14:38,559 INFO AMD held by another strategy — deferring.
+2026-07-30 19:14:39,000 INFO AVGO $387.70 below SMA50 $395.73 — no entry.
+2026-07-30 19:14:39,157 INFO META held by another strategy — deferring.
+2026-07-30 19:14:39,349 INFO AMZN held by another strategy — deferring.
+2026-07-30 19:14:39,530 INFO GOOGL held by another strategy — deferring.
+2026-07-30 19:15:39,968 INFO AMD held by another strategy — deferring.
+2026-07-30 19:15:40,125 INFO AVGO $387.33 below SMA50 $395.74 — no entry.
+2026-07-30 19:15:40,336 INFO META held by another strategy — deferring.
+2026-07-30 19:15:40,967 INFO AMZN held by another strategy — deferring.
+2026-07-30 19:15:41,130 INFO GOOGL held by another strategy — deferring.
+2026-07-30 19:16:41,805 INFO AMD held by another strategy — deferring.
+2026-07-30 19:16:42,026 INFO AVGO $387.74 below SMA50 $395.74 — no entry.
+2026-07-30 19:16:42,216 INFO META held by another strategy — deferring.
+2026-07-30 19:16:42,675 INFO AMZN held by another strategy — deferring.
+2026-07-30 19:16:45,159 INFO GOOGL held by another strategy — deferring.
+2026-07-30 19:17:46,167 INFO AMD held by another strategy — deferring.
+2026-07-30 19:17:46,323 INFO AVGO $387.86 below SMA50 $395.74 — no entry.
+2026-07-30 19:17:46,489 INFO META held by another strategy — deferring.
+2026-07-30 19:17:46,693 INFO AMZN held by another strategy — deferring.
+2026-07-30 19:17:46,846 INFO GOOGL held by another strategy — deferring.
+2026-07-30 19:18:47,759 INFO AMD held by another strategy — deferring.
+2026-07-30 19:18:47,959 INFO AVGO $387.79 below SMA50 $395.74 — no entry.
+2026-07-30 19:18:48,129 INFO META held by another strategy — deferring.
+2026-07-30 19:18:48,315 INFO AMZN held by another strategy — deferring.
+2026-07-30 19:18:48,505 INFO GOOGL held by another strategy — deferring.
+2026-07-30 19:19:48,924 INFO AMD held by another strategy — deferring.
+2026-07-30 19:19:49,131 INFO AVGO $387.51 below SMA50 $395.74 — no entry.
+2026-07-30 19:19:49,308 INFO META held by another strategy — deferring.
+2026-07-30 19:19:49,503 INFO AMZN held by another strategy — deferring.
+2026-07-30 19:19:49,696 INFO GOOGL held by another strategy — deferring.
+2026-07-30 19:20:50,162 INFO AMD held by another strategy — deferring.
+2026-07-30 19:20:50,610 INFO AVGO $387.59 below SMA50 $395.74 — no entry.
+2026-07-30 19:20:50,811 INFO META held by another strategy — deferring.
+2026-07-30 19:20:50,970 INFO AMZN held by another strategy — deferring.
+2026-07-30 19:20:51,176 INFO GOOGL held by another strategy — deferring.
+2026-07-30 19:21:51,781 INFO AMD held by another strategy — deferring.
+2026-07-30 19:21:51,929 INFO AVGO $386.86 below SMA50 $395.73 — no entry.
+2026-07-30 19:21:52,102 INFO META held by another strategy — deferring.
+2026-07-30 19:21:52,251 INFO AMZN held by another strategy — deferring.
+2026-07-30 19:21:52,399 INFO GOOGL held by another strategy — deferring.
+2026-07-30 19:22:52,772 INFO AMD held by another strategy — deferring.
+2026-07-30 19:22:52,949 INFO AVGO $386.90 below SMA50 $395.72 — no entry.
+2026-07-30 19:22:53,094 INFO META held by another strategy — deferring.
+2026-07-30 19:22:53,252 INFO AMZN held by another strategy — deferring.
+2026-07-30 19:22:53,425 INFO GOOGL held by another strategy — deferring.
+2026-07-30 19:23:54,296 INFO AMD held by another strategy — deferring.
+2026-07-30 19:23:54,701 INFO AVGO $387.06 below SMA50 $395.73 — no entry.
+2026-07-30 19:23:55,000 INFO META held by another strategy — deferring.
+2026-07-30 19:23:55,165 INFO AMZN held by another strategy — deferring.
+2026-07-30 19:23:55,567 INFO GOOGL held by another strategy — deferring.
+2026-07-30 19:24:56,289 INFO AMD held by another strategy — deferring.
+2026-07-30 19:24:56,477 INFO AVGO $387.50 below SMA50 $395.73 — no entry.
+2026-07-30 19:24:56,960 INFO META held by another strategy — deferring.
+2026-07-30 19:24:57,142 INFO AMZN held by another strategy — deferring.
+2026-07-30 19:24:57,298 INFO GOOGL held by another strategy — deferring.
+2026-07-30 19:25:57,764 INFO AMD held by another strategy — deferring.
+2026-07-30 19:25:57,945 INFO AVGO $387.25 below SMA50 $395.74 — no entry.
+2026-07-30 19:25:58,190 INFO META held by another strategy — deferring.
+2026-07-30 19:25:58,342 INFO AMZN held by another strategy — deferring.
+2026-07-30 19:25:58,524 INFO GOOGL held by another strategy — deferring.
+2026-07-30 19:26:58,997 INFO AMD held by another strategy — deferring.
+2026-07-30 19:26:59,494 INFO AVGO $387.73 below SMA50 $395.73 — no entry.
+2026-07-30 19:26:59,678 INFO META held by another strategy — deferring.
+2026-07-30 19:26:59,837 INFO AMZN held by another strategy — deferring.
+2026-07-30 19:27:00,022 INFO GOOGL held by another strategy — deferring.
+2026-07-30 19:28:01,000 INFO AMD held by another strategy — deferring.
+2026-07-30 19:28:01,197 INFO AVGO $387.31 below SMA50 $395.74 — no entry.
+2026-07-30 19:28:01,725 INFO META held by another strategy — deferring.
+2026-07-30 19:28:01,896 INFO AMZN held by another strategy — deferring.
+2026-07-30 19:28:02,144 INFO GOOGL held by another strategy — deferring.
+2026-07-30 19:29:03,147 INFO AMD held by another strategy — deferring.
+2026-07-30 19:29:03,311 INFO AVGO $387.46 below SMA50 $395.74 — no entry.
+2026-07-30 19:29:03,461 INFO META held by another strategy — deferring.
+2026-07-30 19:29:03,623 INFO AMZN held by another strategy — deferring.
+2026-07-30 19:29:03,783 INFO GOOGL held by another strategy — deferring.
+2026-07-30 19:30:04,554 INFO AMD held by another strategy — deferring.
+2026-07-30 19:30:04,747 INFO AVGO $387.23 below SMA50 $395.73 — no entry.
+2026-07-30 19:30:04,958 INFO META held by another strategy — deferring.
+2026-07-30 19:30:05,119 INFO AMZN held by another strategy — deferring.
+2026-07-30 19:30:05,276 INFO GOOGL held by another strategy — deferring.
+2026-07-30 19:31:05,787 INFO AMD held by another strategy — deferring.
+2026-07-30 19:31:06,011 INFO AVGO $387.38 below SMA50 $395.74 — no entry.
+2026-07-30 19:31:06,437 INFO META held by another strategy — deferring.
+2026-07-30 19:31:06,596 INFO AMZN held by another strategy — deferring.
+2026-07-30 19:31:06,880 INFO GOOGL held by another strategy — deferring.
+2026-07-30 19:32:07,819 INFO AMD held by another strategy — deferring.
+2026-07-30 19:32:08,324 INFO AVGO $387.23 below SMA50 $395.73 — no entry.
+2026-07-30 19:32:08,956 INFO META held by another strategy — deferring.
+2026-07-30 19:32:09,416 INFO AMZN held by another strategy — deferring.
+2026-07-30 19:32:09,812 INFO GOOGL held by another strategy — deferring.
+2026-07-30 19:33:10,695 INFO AMD held by another strategy — deferring.
+2026-07-30 19:33:10,884 INFO AVGO $387.06 below SMA50 $395.73 — no entry.
+2026-07-30 19:33:11,046 INFO META held by another strategy — deferring.
+2026-07-30 19:33:11,260 INFO AMZN held by another strategy — deferring.
+2026-07-30 19:33:11,426 INFO GOOGL held by another strategy — deferring.
+2026-07-30 19:34:12,123 INFO AMD held by another strategy — deferring.
+2026-07-30 19:34:12,286 INFO AVGO $386.98 below SMA50 $395.72 — no entry.
+2026-07-30 19:34:12,461 INFO META held by another strategy — deferring.
+2026-07-30 19:34:12,612 INFO AMZN held by another strategy — deferring.
+2026-07-30 19:34:12,799 INFO GOOGL held by another strategy — deferring.
+2026-07-30 19:35:13,460 INFO AMD held by another strategy — deferring.
+2026-07-30 19:35:13,631 INFO AVGO $386.89 below SMA50 $395.72 — no entry.
+2026-07-30 19:35:13,910 INFO META held by another strategy — deferring.
+2026-07-30 19:35:14,101 INFO AMZN held by another strategy — deferring.
+2026-07-30 19:35:14,290 INFO GOOGL held by another strategy — deferring.
