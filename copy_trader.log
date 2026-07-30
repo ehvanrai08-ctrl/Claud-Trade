@@ -1872,3 +1872,273 @@
 2026-07-30 17:21:49,803 INFO SKIP sell FDX — no position
 2026-07-30 17:21:49,885 INFO SKIP sell DVN — no position
 2026-07-30 17:21:49,886 INFO No new trades to copy this run (367 examined, 211 already copied)
+2026-07-30 19:17:57,386 INFO Tracking: Alan Armstrong
+2026-07-30 19:17:57,440 INFO SKIP sell WMB — no position
+2026-07-30 19:17:57,493 INFO SKIP sell WMB — no position
+2026-07-30 19:17:57,545 INFO SKIP sell CDNS — no position
+2026-07-30 19:17:57,712 ERROR Order failed ZBH buy: {"buying_power":"1339.33","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-30 19:17:57,713 WARNING Order failed for ZBH — leaving uncopied to retry next run
+2026-07-30 19:17:57,948 ERROR Order failed YUM buy: {"buying_power":"1338.53","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-30 19:17:57,949 WARNING Order failed for YUM — leaving uncopied to retry next run
+2026-07-30 19:17:58,115 ERROR Order failed WYNN buy: {"buying_power":"1338.61","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-30 19:17:58,115 WARNING Order failed for WYNN — leaving uncopied to retry next run
+2026-07-30 19:17:58,279 ERROR Order failed WDC buy: {"buying_power":"1337.33","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-30 19:17:58,280 WARNING Order failed for WDC — leaving uncopied to retry next run
+2026-07-30 19:17:58,598 ERROR Order failed WDAY buy: {"buying_power":"1337.09","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-30 19:17:58,599 WARNING Order failed for WDAY — leaving uncopied to retry next run
+2026-07-30 19:17:58,754 ERROR Order failed GMAB buy: {"buying_power":"1336.2","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-30 19:17:58,755 WARNING Order failed for GMAB — leaving uncopied to retry next run
+2026-07-30 19:17:59,220 ERROR Order failed WFC buy: {"buying_power":"1337.07","code":40310000,"cost_basis":"5000","message":"insufficient buying power"}
+2026-07-30 19:17:59,220 WARNING Order failed for WFC — leaving uncopied to retry next run
+2026-07-30 19:17:59,381 ERROR Order failed WBD buy: {"buying_power":"1337.62","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-30 19:17:59,382 WARNING Order failed for WBD — leaving uncopied to retry next run
+2026-07-30 19:17:59,535 ERROR Order failed DIS buy: {"buying_power":"1338.99","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-30 19:17:59,536 WARNING Order failed for DIS — leaving uncopied to retry next run
+2026-07-30 19:17:59,584 INFO SKIP sell WMT — no position
+2026-07-30 19:17:59,954 ERROR Order failed RACE buy: {"buying_power":"1339.75","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-30 19:17:59,955 WARNING Order failed for RACE — leaving uncopied to retry next run
+2026-07-30 19:18:00,214 ERROR Order failed WAB buy: {"buying_power":"1344.22","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-30 19:18:00,215 WARNING Order failed for WAB — leaving uncopied to retry next run
+2026-07-30 19:18:00,398 ERROR Order failed V buy: {"buying_power":"1343.54","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-30 19:18:00,399 WARNING Order failed for V — leaving uncopied to retry next run
+2026-07-30 19:18:00,590 ERROR Order failed VICI buy: {"buying_power":"1344.35","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-30 19:18:00,591 WARNING Order failed for VICI — leaving uncopied to retry next run
+2026-07-30 19:18:00,745 ERROR Order failed ESLT buy: {"buying_power":"1344.26","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-30 19:18:00,746 WARNING Order failed for ESLT — leaving uncopied to retry next run
+2026-07-30 19:18:00,938 ERROR Order failed DEO buy: {"buying_power":"1343.8","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-30 19:18:00,938 WARNING Order failed for DEO — leaving uncopied to retry next run
+2026-07-30 19:18:01,142 ERROR Order failed DB buy: {"buying_power":"1342.05","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-30 19:18:01,142 WARNING Order failed for DB — leaving uncopied to retry next run
+2026-07-30 19:18:01,355 ERROR Order failed VRT buy: {"buying_power":"1341.59","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-30 19:18:01,356 WARNING Order failed for VRT — leaving uncopied to retry next run
+2026-07-30 19:18:01,537 ERROR Order failed VRTX buy: {"buying_power":"1342.71","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-30 19:18:01,538 WARNING Order failed for VRTX — leaving uncopied to retry next run
+2026-07-30 19:18:01,725 ERROR Order failed VZ buy: {"buying_power":"1342.59","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-30 19:18:01,726 WARNING Order failed for VZ — leaving uncopied to retry next run
+2026-07-30 19:18:01,904 ERROR Order failed VRSK buy: {"buying_power":"1343.87","code":40310000,"cost_basis":"5000","message":"insufficient buying power"}
+2026-07-30 19:18:01,905 WARNING Order failed for VRSK — leaving uncopied to retry next run
+2026-07-30 19:18:02,057 ERROR Order failed VTR buy: {"buying_power":"1343.06","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-30 19:18:02,058 WARNING Order failed for VTR — leaving uncopied to retry next run
+2026-07-30 19:18:02,251 ERROR Order failed URI buy: {"buying_power":"1342.69","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-30 19:18:02,251 WARNING Order failed for URI — leaving uncopied to retry next run
+2026-07-30 19:18:02,425 ERROR Order failed UNH buy: {"buying_power":"1342.58","code":40310000,"cost_basis":"5000","message":"insufficient buying power"}
+2026-07-30 19:18:02,426 WARNING Order failed for UNH — leaving uncopied to retry next run
+2026-07-30 19:18:02,569 ERROR Order failed UPS buy: {"buying_power":"1342.63","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-30 19:18:02,569 WARNING Order failed for UPS — leaving uncopied to retry next run
+2026-07-30 19:18:02,736 ERROR Order failed UNP buy: {"buying_power":"1341.54","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-30 19:18:02,737 WARNING Order failed for UNP — leaving uncopied to retry next run
+2026-07-30 19:18:02,897 ERROR Order failed UDR buy: {"buying_power":"1343.22","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-30 19:18:02,898 WARNING Order failed for UDR — leaving uncopied to retry next run
+2026-07-30 19:18:03,052 ERROR Order failed TFC buy: {"buying_power":"1339.52","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-30 19:18:03,053 WARNING Order failed for TFC — leaving uncopied to retry next run
+2026-07-30 19:18:03,211 ERROR Order failed TRV buy: {"buying_power":"1334.49","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-30 19:18:03,212 WARNING Order failed for TRV — leaving uncopied to retry next run
+2026-07-30 19:18:03,367 ERROR Order failed TDG buy: {"buying_power":"1334.29","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-30 19:18:03,367 WARNING Order failed for TDG — leaving uncopied to retry next run
+2026-07-30 19:18:03,411 INFO SKIP sell TT — no position
+2026-07-30 19:18:03,567 ERROR Order failed TMO buy: {"buying_power":"1334.8","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-30 19:18:03,568 WARNING Order failed for TMO — leaving uncopied to retry next run
+2026-07-30 19:18:03,742 ERROR Order failed COO buy: {"buying_power":"1333.2","code":40310000,"cost_basis":"5000","message":"insufficient buying power"}
+2026-07-30 19:18:03,743 WARNING Order failed for COO — leaving uncopied to retry next run
+2026-07-30 19:18:03,929 ERROR Order failed CI buy: {"buying_power":"1328.68","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-30 19:18:03,930 WARNING Order failed for CI — leaving uncopied to retry next run
+2026-07-30 19:18:04,087 ERROR Order failed CPB buy: {"buying_power":"1328.55","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-30 19:18:04,088 WARNING Order failed for CPB — leaving uncopied to retry next run
+2026-07-30 19:18:04,232 ERROR Order failed TXT buy: {"buying_power":"1327.85","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-30 19:18:04,233 WARNING Order failed for TXT — leaving uncopied to retry next run
+2026-07-30 19:18:04,391 ERROR Order failed TXN buy: {"buying_power":"1328.51","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-30 19:18:04,392 WARNING Order failed for TXN — leaving uncopied to retry next run
+2026-07-30 19:18:04,572 ERROR Order failed TER buy: {"buying_power":"1328.81","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-30 19:18:04,573 WARNING Order failed for TER — leaving uncopied to retry next run
+2026-07-30 19:18:04,618 INFO SKIP sell TDY — no position
+2026-07-30 19:18:04,790 ERROR Order failed TPR buy: {"buying_power":"1331.85","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-30 19:18:04,791 WARNING Order failed for TPR — leaving uncopied to retry next run
+2026-07-30 19:18:04,965 ERROR Order failed TTWO buy: {"buying_power":"1331.12","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-30 19:18:04,966 WARNING Order failed for TTWO — leaving uncopied to retry next run
+2026-07-30 19:18:05,014 INFO SKIP sell TMUS — no position
+2026-07-30 19:18:05,159 ERROR Order failed SNPS buy: {"buying_power":"1330.36","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-30 19:18:05,160 WARNING Order failed for SNPS — leaving uncopied to retry next run
+2026-07-30 19:18:05,307 ERROR Order failed SYF buy: {"buying_power":"1332.18","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-30 19:18:05,308 WARNING Order failed for SYF — leaving uncopied to retry next run
+2026-07-30 19:18:05,357 INFO SKIP sell SYK — no position
+2026-07-30 19:18:05,504 ERROR Order failed STLD buy: {"buying_power":"1332.01","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-30 19:18:05,505 WARNING Order failed for STLD — leaving uncopied to retry next run
+2026-07-30 19:18:05,690 ERROR Order failed SBUX buy: {"buying_power":"1335.11","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-30 19:18:05,691 WARNING Order failed for SBUX — leaving uncopied to retry next run
+2026-07-30 19:18:05,847 ERROR Order failed SOLV buy: {"buying_power":"1333.6","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-30 19:18:05,848 WARNING Order failed for SOLV — leaving uncopied to retry next run
+2026-07-30 19:18:05,997 ERROR Order failed SNA buy: {"buying_power":"1333.58","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-30 19:18:05,997 WARNING Order failed for SNA — leaving uncopied to retry next run
+2026-07-30 19:18:06,172 ERROR Order failed SJM buy: {"buying_power":"1333.18","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-30 19:18:06,173 WARNING Order failed for SJM — leaving uncopied to retry next run
+2026-07-30 19:18:06,327 ERROR Order failed SWKS buy: {"buying_power":"1330.69","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-30 19:18:06,328 WARNING Order failed for SWKS — leaving uncopied to retry next run
+2026-07-30 19:18:06,501 ERROR Order failed SPG buy: {"buying_power":"1330.66","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-30 19:18:06,502 WARNING Order failed for SPG — leaving uncopied to retry next run
+2026-07-30 19:18:06,556 INFO SKIP sell NOW — no position
+2026-07-30 19:18:06,704 ERROR Order failed STX buy: {"buying_power":"1331.41","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-30 19:18:06,704 WARNING Order failed for STX — leaving uncopied to retry next run
+2026-07-30 19:18:06,850 ERROR Order failed SNDK buy: {"buying_power":"1331.78","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-30 19:18:06,851 WARNING Order failed for SNDK — leaving uncopied to retry next run
+2026-07-30 19:18:06,997 ERROR Order failed CRM buy: {"buying_power":"1329.07","code":40310000,"cost_basis":"5000","message":"insufficient buying power"}
+2026-07-30 19:18:06,998 WARNING Order failed for CRM — leaving uncopied to retry next run
+2026-07-30 19:18:07,153 ERROR Order failed SPGI buy: {"buying_power":"1326.92","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-30 19:18:07,154 WARNING Order failed for SPGI — leaving uncopied to retry next run
+2026-07-30 19:18:07,325 ERROR Order failed RTX buy: {"buying_power":"1329.26","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-30 19:18:07,326 WARNING Order failed for RTX — leaving uncopied to retry next run
+2026-07-30 19:18:07,545 ERROR Order failed RCL buy: {"buying_power":"1330.65","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-30 19:18:07,546 WARNING Order failed for RCL — leaving uncopied to retry next run
+2026-07-30 19:18:07,729 ERROR Order failed HOOD buy: {"buying_power":"1330.67","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-30 19:18:07,730 WARNING Order failed for HOOD — leaving uncopied to retry next run
+2026-07-30 19:18:07,886 ERROR Order failed RMD buy: {"buying_power":"1331.03","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-30 19:18:07,887 WARNING Order failed for RMD — leaving uncopied to retry next run
+2026-07-30 19:18:08,042 ERROR Order failed RSG buy: {"buying_power":"1331.97","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-30 19:18:08,043 WARNING Order failed for RSG — leaving uncopied to retry next run
+2026-07-30 19:18:08,201 ERROR Order failed REGN buy: {"buying_power":"1331.79","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-30 19:18:08,202 WARNING Order failed for REGN — leaving uncopied to retry next run
+2026-07-30 19:18:08,346 ERROR Order failed REG buy: {"buying_power":"1331.08","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-30 19:18:08,346 WARNING Order failed for REG — leaving uncopied to retry next run
+2026-07-30 19:18:08,500 ERROR Order failed O buy: {"buying_power":"1331.38","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-30 19:18:08,502 WARNING Order failed for O — leaving uncopied to retry next run
+2026-07-30 19:18:08,650 ERROR Order failed PWR buy: {"buying_power":"1331.28","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-30 19:18:08,651 WARNING Order failed for PWR — leaving uncopied to retry next run
+2026-07-30 19:18:08,804 ERROR Order failed QCOM buy: {"buying_power":"1330.97","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-30 19:18:08,805 WARNING Order failed for QCOM — leaving uncopied to retry next run
+2026-07-30 19:18:08,946 ERROR Order failed Q buy: {"buying_power":"1330.41","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-30 19:18:08,947 WARNING Order failed for Q — leaving uncopied to retry next run
+2026-07-30 19:18:09,164 ERROR Order failed PSA buy: {"buying_power":"1331.06","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-30 19:18:09,165 WARNING Order failed for PSA — leaving uncopied to retry next run
+2026-07-30 19:18:09,316 ERROR Order failed PTC buy: {"buying_power":"1331.07","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-30 19:18:09,317 WARNING Order failed for PTC — leaving uncopied to retry next run
+2026-07-30 19:18:09,365 INFO SKIP sell PRU — no position
+2026-07-30 19:18:09,418 INFO SKIP sell PGR — no position
+2026-07-30 19:18:09,466 INFO SKIP sell PG — no position
+2026-07-30 19:18:09,626 ERROR Order failed PFG buy: {"buying_power":"1331.88","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-30 19:18:09,627 WARNING Order failed for PFG — leaving uncopied to retry next run
+2026-07-30 19:18:09,796 ERROR Order failed POOL buy: {"buying_power":"1331.79","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-30 19:18:09,797 WARNING Order failed for POOL — leaving uncopied to retry next run
+2026-07-30 19:18:09,846 INFO SKIP sell PNC — no position
+2026-07-30 19:18:09,892 INFO SKIP sell PSX — no position
+2026-07-30 19:18:10,056 ERROR Order failed PM buy: {"buying_power":"1333.64","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-30 19:18:10,057 WARNING Order failed for PM — leaving uncopied to retry next run
+2026-07-30 19:18:10,210 ERROR Order failed PEP buy: {"buying_power":"1334.01","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-30 19:18:10,211 WARNING Order failed for PEP — leaving uncopied to retry next run
+2026-07-30 19:18:10,431 ERROR Order failed PYPL buy: {"buying_power":"1335.5","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-30 19:18:10,432 WARNING Order failed for PYPL — leaving uncopied to retry next run
+2026-07-30 19:18:10,479 INFO SKIP sell PAYX — no position
+2026-07-30 19:18:10,629 ERROR Order failed PH buy: {"buying_power":"1335.58","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-30 19:18:10,630 WARNING Order failed for PH — leaving uncopied to retry next run
+2026-07-30 19:18:10,788 ERROR Order failed PANW buy: {"buying_power":"1336.15","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-30 19:18:10,789 WARNING Order failed for PANW — leaving uncopied to retry next run
+2026-07-30 19:18:10,948 ERROR Order failed CIEN buy: {"buying_power":"1337.37","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-30 19:18:10,949 WARNING Order failed for CIEN — leaving uncopied to retry next run
+2026-07-30 19:18:11,112 ERROR Order failed OMC buy: {"buying_power":"1337.56","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-30 19:18:11,113 WARNING Order failed for OMC — leaving uncopied to retry next run
+2026-07-30 19:18:11,276 ERROR Order failed NKE buy: {"buying_power":"1339.14","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-30 19:18:11,277 WARNING Order failed for NKE — leaving uncopied to retry next run
+2026-07-30 19:18:11,335 INFO SKIP sell NEE — no position
+2026-07-30 19:18:11,481 ERROR Order failed NFLX buy: {"buying_power":"1339.31","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-30 19:18:11,482 WARNING Order failed for NFLX — leaving uncopied to retry next run
+2026-07-30 19:18:11,546 INFO SKIP sell NDAQ — no position
+2026-07-30 19:18:11,745 ERROR Order failed MS buy: {"buying_power":"1340.19","code":40310000,"cost_basis":"5000","message":"insufficient buying power"}
+2026-07-30 19:18:11,746 WARNING Order failed for MS — leaving uncopied to retry next run
+2026-07-30 19:18:11,791 INFO SKIP sell MDLZ — no position
+2026-07-30 19:18:11,955 ERROR Order failed MCHP buy: {"buying_power":"1341.24","code":40310000,"cost_basis":"5000","message":"insufficient buying power"}
+2026-07-30 19:18:11,956 WARNING Order failed for MCHP — leaving uncopied to retry next run
+2026-07-30 19:18:12,003 INFO SKIP sell MRK — no position
+2026-07-30 19:18:12,152 ERROR Order failed MCK buy: {"buying_power":"1338.14","code":40310000,"cost_basis":"5000","message":"insufficient buying power"}
+2026-07-30 19:18:12,153 WARNING Order failed for MCK — leaving uncopied to retry next run
+2026-07-30 19:18:12,203 INFO SKIP sell MA — no position
+2026-07-30 19:18:12,250 INFO SKIP sell MRSH — no position
+2026-07-30 19:18:12,404 ERROR Order failed LYB buy: {"buying_power":"1338.6","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-30 19:18:12,405 WARNING Order failed for LYB — leaving uncopied to retry next run
+2026-07-30 19:18:12,557 ERROR Order failed LYV buy: {"buying_power":"1338.7","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-30 19:18:12,558 WARNING Order failed for LYV — leaving uncopied to retry next run
+2026-07-30 19:18:12,619 INFO SKIP sell LIN — no position
+2026-07-30 19:18:12,666 INFO SKIP sell LLY — no position
+2026-07-30 19:18:12,823 ERROR Order failed LEN buy: {"buying_power":"1340.02","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-30 19:18:12,824 WARNING Order failed for LEN — leaving uncopied to retry next run
+2026-07-30 19:18:12,870 INFO SKIP sell LDOS — no position
+2026-07-30 19:18:13,033 ERROR Order failed KHC buy: {"buying_power":"1341.1","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-30 19:18:13,034 WARNING Order failed for KHC — leaving uncopied to retry next run
+2026-07-30 19:18:13,083 INFO SKIP sell KMI — no position
+2026-07-30 19:18:13,261 ERROR Order failed KEY buy: {"buying_power":"1341.12","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-30 19:18:13,262 WARNING Order failed for KEY — leaving uncopied to retry next run
+2026-07-30 19:18:13,311 INFO SKIP sell JPM — no position
+2026-07-30 19:18:13,474 ERROR Order failed ISRG buy: {"buying_power":"1341.87","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-30 19:18:13,475 WARNING Order failed for ISRG — leaving uncopied to retry next run
+2026-07-30 19:18:13,640 ERROR Order failed HBAN buy: {"buying_power":"1342.19","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-30 19:18:13,641 WARNING Order failed for HBAN — leaving uncopied to retry next run
+2026-07-30 19:18:13,804 ERROR Order failed HON buy: {"buying_power":"1342.19","code":40310000,"cost_basis":"5000","message":"insufficient buying power"}
+2026-07-30 19:18:13,805 WARNING Order failed for HON — leaving uncopied to retry next run
+2026-07-30 19:18:13,851 INFO SKIP sell HD — no position
+2026-07-30 19:18:14,030 ERROR Order failed DOC buy: {"buying_power":"1342.05","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-30 19:18:14,031 WARNING Order failed for DOC — leaving uncopied to retry next run
+2026-07-30 19:18:14,239 ERROR Order failed GDDY buy: {"buying_power":"1341.87","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-30 19:18:14,240 WARNING Order failed for GDDY — leaving uncopied to retry next run
+2026-07-30 19:18:14,395 ERROR Order failed GIS buy: {"buying_power":"1341.11","code":40310000,"cost_basis":"5000","message":"insufficient buying power"}
+2026-07-30 19:18:14,396 WARNING Order failed for GIS — leaving uncopied to retry next run
+2026-07-30 19:18:14,443 INFO SKIP sell GEV — no position
+2026-07-30 19:18:14,600 ERROR Order failed GEHC buy: {"buying_power":"1342.29","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-30 19:18:14,601 WARNING Order failed for GEHC — leaving uncopied to retry next run
+2026-07-30 19:18:14,762 ERROR Order failed FOXA buy: {"buying_power":"1342.2","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-30 19:18:14,763 WARNING Order failed for FOXA — leaving uncopied to retry next run
+2026-07-30 19:18:14,916 ERROR Order failed FSLR buy: {"buying_power":"1342.06","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-30 19:18:14,917 WARNING Order failed for FSLR — leaving uncopied to retry next run
+2026-07-30 19:18:15,114 ERROR Order failed FFIV buy: {"buying_power":"1342.17","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-30 19:18:15,115 WARNING Order failed for FFIV — leaving uncopied to retry next run
+2026-07-30 19:18:15,163 INFO SKIP sell XOM — no position
+2026-07-30 19:18:15,210 INFO SKIP sell EXPE — no position
+2026-07-30 19:18:15,381 ERROR Order failed EG buy: {"buying_power":"1342.66","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-30 19:18:15,382 WARNING Order failed for EG — leaving uncopied to retry next run
+2026-07-30 19:18:15,557 ERROR Order failed ELV buy: {"buying_power":"1340.42","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-30 19:18:15,558 WARNING Order failed for ELV — leaving uncopied to retry next run
+2026-07-30 19:18:15,607 INFO SKIP sell DUK — no position
+2026-07-30 19:18:15,655 INFO SKIP sell DASH — no position
+2026-07-30 19:18:15,820 ERROR Order failed DE buy: {"buying_power":"1341.52","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-30 19:18:15,821 WARNING Order failed for DE — leaving uncopied to retry next run
+2026-07-30 19:18:15,968 ERROR Order failed CSX buy: {"buying_power":"1341.55","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-30 19:18:15,969 WARNING Order failed for CSX — leaving uncopied to retry next run
+2026-07-30 19:18:16,170 ERROR Order failed CRWD sell: {"available":"3.432472716","code":40310000,"existing_qty":"3.432472716","held_for_orders":"0","message":"insufficient qty available for order (requested: 3.434333497, available: 3.432472716)","symbol":"CRWD"}
+2026-07-30 19:18:16,221 ERROR Order failed CRWD sell: {"available":"3.432472716","code":40310000,"existing_qty":"3.432472716","held_for_orders":"0","message":"insufficient qty available for order (requested: 3.432473, available: 3.432472716)","symbol":"CRWD"}
+2026-07-30 19:18:16,222 WARNING Order failed for CRWD — leaving uncopied to retry next run
+2026-07-30 19:18:16,370 ERROR Order failed CTVA buy: {"buying_power":"1342.01","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-30 19:18:16,371 WARNING Order failed for CTVA — leaving uncopied to retry next run
+2026-07-30 19:18:16,419 INFO SKIP sell GLW — no position
+2026-07-30 19:18:16,588 ERROR Order failed FIX buy: {"buying_power":"1342.39","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-30 19:18:16,589 WARNING Order failed for FIX — leaving uncopied to retry next run
+2026-07-30 19:18:16,753 ERROR Order failed KO buy: {"buying_power":"1341.15","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-30 19:18:16,754 WARNING Order failed for KO — leaving uncopied to retry next run
+2026-07-30 19:18:16,897 ERROR Order failed CIEN buy: {"buying_power":"1341.14","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-30 19:18:16,897 WARNING Order failed for CIEN — leaving uncopied to retry next run
+2026-07-30 19:18:16,945 INFO SKIP sell CVX — no position
+2026-07-30 19:18:17,092 ERROR Order failed CF buy: {"buying_power":"1342.8","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-30 19:18:17,093 WARNING Order failed for CF — leaving uncopied to retry next run
+2026-07-30 19:18:17,258 ERROR Order failed CAH buy: {"buying_power":"1342.61","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-30 19:18:17,259 WARNING Order failed for CAH — leaving uncopied to retry next run
+2026-07-30 19:18:17,409 ERROR Order failed BSX buy: {"buying_power":"1342.64","code":40310000,"cost_basis":"5000","message":"insufficient buying power"}
+2026-07-30 19:18:17,410 WARNING Order failed for BSX — leaving uncopied to retry next run
+2026-07-30 19:18:17,560 ERROR Order failed AVB buy: {"buying_power":"1342.64","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-30 19:18:17,561 WARNING Order failed for AVB — leaving uncopied to retry next run
+2026-07-30 19:18:17,766 ERROR Order failed ANET buy: {"buying_power":"1342.24","code":40310000,"cost_basis":"5000","message":"insufficient buying power"}
+2026-07-30 19:18:17,768 WARNING Order failed for ANET — leaving uncopied to retry next run
+2026-07-30 19:18:17,939 ERROR Order failed APO buy: {"buying_power":"1342.17","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-30 19:18:17,940 WARNING Order failed for APO — leaving uncopied to retry next run
+2026-07-30 19:18:17,990 INFO SKIP sell AMGN — no position
+2026-07-30 19:18:18,148 ERROR Order failed AME buy: {"buying_power":"1341.37","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-30 19:18:18,149 WARNING Order failed for AME — leaving uncopied to retry next run
+2026-07-30 19:18:18,200 INFO SKIP sell AMT — no position
+2026-07-30 19:18:18,360 ERROR Order failed AXP buy: {"buying_power":"1341.15","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-30 19:18:18,361 WARNING Order failed for AXP — leaving uncopied to retry next run
+2026-07-30 19:18:18,506 ERROR Order failed ALL buy: {"buying_power":"1341.17","code":40310000,"cost_basis":"2500","message":"insufficient buying power"}
+2026-07-30 19:18:18,507 WARNING Order failed for ALL — leaving uncopied to retry next run
+2026-07-30 19:18:18,554 INFO SKIP sell ACM — no position
+2026-07-30 19:18:18,604 INFO SKIP sell ABT — no position
+2026-07-30 19:18:18,657 INFO SKIP sell SOLS — no position
+2026-07-30 19:18:18,703 INFO SKIP sell PFE — no position
+2026-07-30 19:18:18,760 INFO SKIP sell HON — no position
+2026-07-30 19:18:18,815 INFO SKIP sell HD — no position
+2026-07-30 19:18:18,863 INFO SKIP sell RACE — no position
+2026-07-30 19:18:18,909 INFO SKIP sell FDX — no position
+2026-07-30 19:18:18,959 INFO SKIP sell DVN — no position
+2026-07-30 19:18:18,960 INFO No new trades to copy this run (367 examined, 211 already copied)
