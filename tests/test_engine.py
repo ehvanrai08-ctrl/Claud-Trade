@@ -43,6 +43,8 @@ def run(strategy, bars, costs=BASE):
     return bt.run({"SYNTH": bars}), bt
 
 
+failures = []   # every check appends here; non-empty => exit 1 (see bottom)
+
 print("=" * 74)
 print("RANDOM-WALK INTEGRITY TEST  (expectation: gross ~ 0, net ~ -costs)")
 print("=" * 74)
@@ -66,7 +68,12 @@ for name, strat in [("ORB", OpeningRangeBreakout()), ("VWAP-REV", VWAPReversion(
     print(f"  costs paid       : ${s['total_costs']:>12,.2f}")
     print(f"  NET pnl          : ${s['net_pnl']:>12,.2f}")
     print(f"  expectancy       : {s['expectancy_R']:+.4f} R")
-    verdict = "PASS" if abs(t_stat) < 2.0 and s['net_pnl'] < 0 else "*** FAIL ***"
+    ok = abs(t_stat) < 2.0 and s['net_pnl'] < 0
+    if not ok:
+        failures.append(
+            f"{name}: random-walk gross t={t_stat:+.2f} (want |t|<2), "
+            f"net ${s['net_pnl']:,.2f} (want < 0)")
+    verdict = "PASS" if ok else "*** FAIL ***"
     print(f"  verdict          : {verdict}  (gross indistinguishable from 0, net negative)\n")
 
 print("=" * 74)
@@ -78,17 +85,65 @@ for name, strat in [("ORB", OpeningRangeBreakout()), ("VWAP-REV", VWAPReversion(
     if tr.empty: continue
     se = tr.net_pnl.std(ddof=1) / np.sqrt(len(tr))
     t = tr.net_pnl.mean() / se if se > 0 else 0
-    flag = "PASS" if abs(t) < 2.0 else "*** LOOK-AHEAD SUSPECTED ***"
+    # With zero costs the expectation is exactly 0, so net is positive half the
+    # time by chance -- |t| is the right criterion here, NOT the sign of net.
+    ok = abs(t) < 2.0
+    if not ok:
+        failures.append(f"{name}: zero-cost control t={t:+.2f} (want |t|<2)")
+    flag = "PASS" if ok else "*** LOOK-AHEAD SUSPECTED ***"
     print(f"  {name:9s} net ${tr.net_pnl.sum():>11,.2f}  t={t:+.2f}  {flag}")
 
+# 3 seeds x ~30 trades had too little power to separate "no edge" from "small
+# look-ahead edge" -- a wrong-signed mean sat well inside |t|<2. More universes.
+SEEDS = list(range(1, 11))
+
 print("\n" + "=" * 74)
-print("SEED STABILITY  (5 different random universes, ORB expectancy in R)")
+print(f"SEED STABILITY  ({len(SEEDS)} different random universes, ORB expectancy in R)")
 print("=" * 74)
-exps = []
-for sd in [1, 2, 3]:
+exps, pooled = [], []
+for sd in SEEDS:
     b = synth(n_days=60, seed=sd)
     tr, _ = run(OpeningRangeBreakout(), b)
     if not tr.empty:
         exps.append(tr.r_multiple.mean())
+        pooled.append(tr.r_multiple)
         print(f"  seed {sd}: {len(tr):4d} trades  expectancy {tr.r_multiple.mean():+.4f} R")
-print(f"\n  mean across seeds: {np.mean(exps):+.4f} R   (should be negative ~= cost drag)")
+
+mean_exp = float(np.mean(exps))
+n_pos = sum(e > 0 for e in exps)
+print(f"\n  mean across seeds: {mean_exp:+.4f} R   (should be negative ~= cost drag)")
+print(f"  seeds with positive expectancy: {n_pos}/{len(exps)}")
+
+# Pooled across every universe this is the highest-power look at the sign.
+allr = pd.concat(pooled)
+se = allr.std(ddof=1) / np.sqrt(len(allr))
+t_pool = allr.mean() / se if se > 0 else 0.0
+print(f"  pooled: {len(allr)} trades  {allr.mean():+.4f} R  t={t_pool:+.2f}")
+
+if mean_exp >= 0:
+    failures.append(
+        f"seed stability: mean expectancy {mean_exp:+.4f} R across {len(exps)} "
+        f"universes is not negative ({n_pos} positive) -- random data must lose "
+        f"to cost drag")
+
+# The sharp check. On random data expectancy should sit at MINUS THE COST DRAG,
+# not at zero -- so the pooled t must be decisively negative. A strategy that
+# lands on ~0.00 R has found roughly +cost_drag of gross edge in pure noise,
+# which is the look-ahead signature. Merely "mean < 0" is too weak to catch it.
+if t_pool >= -2.0:
+    failures.append(
+        f"seed stability: pooled expectancy {allr.mean():+.4f} R (t={t_pool:+.2f}) "
+        f"is not decisively below zero -- random data should lose to costs, so "
+        f"landing near 0.00 R means gross edge is cancelling the drag")
+
+print("\n" + "=" * 74)
+if failures:
+    print(f"INTEGRITY: *** FAILED *** ({len(failures)})")
+    for f in failures:
+        print(f"  - {f}")
+    print("=" * 74)
+    print("\nThe engine reports an edge on data that has none. Every downstream\n"
+          "number is fiction until this is fixed. Refusing to pass.")
+    sys.exit(1)
+print("INTEGRITY: ALL CHECKS PASSED")
+print("=" * 74)
