@@ -1,0 +1,41 @@
+fetching ['SPY', 'QQQ', 'AAPL', 'MSFT', 'NVDA'] 2024-01-01..2025-06-01 (feed=iex)
+  SPY: 132,453 bars 2024-01-02 -> 2025-05-30
+  QQQ: 121,219 bars 2024-01-02 -> 2025-05-30
+  AAPL: 135,118 bars 2024-01-02 -> 2025-05-30
+  MSFT: 123,226 bars 2024-01-02 -> 2025-05-30
+  NVDA: 133,380 bars 2024-01-02 -> 2025-05-30
+
+====================================================================
+IN-SAMPLE  (orb)
+====================================================================
+  trades 84 over 71d (1.18/day)
+  win rate 41.7% | avg win +1.33R | avg loss -1.06R
+  expectancy -0.0668R  95% CI [-0.3452, +0.2115]  t=-0.47
+  EDGE SIGNIFICANT: False
+  gross $3,599 - costs $4,222 = NET $-624
+  net per day $-8.78 | return -0.62% | maxDD -4.02%
+  monte carlo: median maxDD -3.9% | 5th-pct -5.7% | P(lose) 100.0%
+
+====================================================================
+OUT-OF-SAMPLE  (orb)  <-- this is the one that counts
+====================================================================
+  trades 38 over 28d (1.36/day)
+  win rate 36.8% | avg win +1.11R | avg loss -0.91R
+  expectancy -0.1641R  95% CI [-0.5161, +0.1879]  t=-0.91
+  EDGE SIGNIFICANT: False
+  gross $-40 - costs $1,637 = NET $-1,677
+  net per day $-59.89 | return -1.68% | maxDD -3.97%
+  monte carlo: median maxDD -3.3% | 5th-pct -4.7% | P(lose) 100.0%
+
+====================================================================
+COST SENSITIVITY (full period)
+====================================================================
+               trades  expectancy_R  net_pnl  pnl_per_day  round_turn_bps
+cost_scenario                                                            
+optimistic        122        0.0468  2013.17        20.34             1.6
+base              122       -0.0971 -2282.26       -23.05             6.0
+pessimistic       122       -0.3588 -9693.27       -97.91            14.0
+
+saved results/orb_oos_trades.csv
+
+If out-of-sample expectancy CI straddles zero, you do NOT have an edge yet.
