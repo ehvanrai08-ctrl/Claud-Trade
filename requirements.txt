@@ -1,6 +1,4 @@
-requests
-python-dotenv
-anthropic
-pyflakes
-tzdata
-pypdf
+alpaca-py>=0.42
+pandas>=2.0
+numpy>=1.26
+pyarrow>=15.0

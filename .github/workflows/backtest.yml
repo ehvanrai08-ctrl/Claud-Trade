@@ -1,0 +1,64 @@
+name: backtest
+on:
+  workflow_dispatch:
+    inputs:
+      strategy:
+        description: "strategy name"
+        default: "orb"
+        type: choice
+        options: [orb, vwap_reversion]
+      symbols:
+        description: "comma-separated"
+        default: "SPY,QQQ,AAPL,MSFT,NVDA"
+      start:
+        default: "2024-01-01"
+      end:
+        default: "2025-06-01"
+  schedule:
+    - cron: "0 7 * * 6"   # Saturday re-validation
+
+permissions:
+  contents: write   # required for the results commit; default token is read-only
+
+jobs:
+  backtest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - run: pip install -r requirements.txt
+
+      # Engine integrity gate. If the engine can "profit" on random data it has
+      # look-ahead bias, and every downstream number is fiction. Fail loudly.
+      - name: Engine integrity check
+        run: python tests/test_engine.py
+
+      - name: Run backtest
+        env:
+          ALPACA_API_KEY: ${{ secrets.ALPACA_API_KEY }}
+          ALPACA_SECRET_KEY: ${{ secrets.ALPACA_SECRET_KEY }}
+        run: |
+          mkdir -p results data
+          python scripts/run_backtest.py \
+            --strategy "${{ inputs.strategy || 'orb' }}" \
+            --symbols "${{ inputs.symbols || 'SPY,QQQ,AAPL,MSFT,NVDA' }}" \
+            --start "${{ inputs.start || '2024-01-01' }}" \
+            --end "${{ inputs.end || '2025-06-01' }}" \
+            2>&1 | tee results/backtest_report.txt
+
+      - name: Commit results
+        run: |
+          git config user.name  "claud-trade-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add -f results/ || true
+          git diff --staged --quiet || git commit -m "backtest: ${{ inputs.strategy || 'orb' }} $(date -u +%Y-%m-%d)"
+          git push || true
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: backtest-results
+          path: results/

@@ -1,0 +1,30 @@
+name: paper-trade
+on:
+  schedule:
+    - cron: "35 13 * * 1-5"   # 09:35 ET during EDT (13:35 UTC). Shifts to 14:35 UTC in EST.
+  workflow_dispatch:
+
+jobs:
+  trade:
+    runs-on: ubuntu-latest
+    timeout-minutes: 400
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - name: Run paper session
+        env:
+          ALPACA_API_KEY: ${{ secrets.ALPACA_API_KEY }}
+          ALPACA_SECRET_KEY: ${{ secrets.ALPACA_SECRET_KEY }}
+          ALPACA_PAPER: "true"
+        run: |
+          mkdir -p results
+          python scripts/run_paper.py --strategy orb --symbols SPY,QQQ,AAPL,MSFT,NVDA
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: journal
+          path: results/
