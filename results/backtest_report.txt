@@ -10,10 +10,10 @@ IN-SAMPLE  (orb)
 ====================================================================
   trades 84 over 71d (1.18/day)
   win rate 41.7% | avg win +1.33R | avg loss -1.06R
-  expectancy -0.0668R  95% CI [-0.3452, +0.2115]  t=-0.47
+  expectancy -0.0670R  95% CI [-0.3453, +0.2113]  t=-0.47
   EDGE SIGNIFICANT: False
-  gross $3,599 - costs $4,222 = NET $-624
-  net per day $-8.78 | return -0.62% | maxDD -4.02%
+  gross $3,594 - costs $4,222 = NET $-628
+  net per day $-8.85 | return -0.63% | maxDD -4.02%
   monte carlo: median maxDD -3.9% | 5th-pct -5.7% | P(lose) 100.0%
 
 ====================================================================
@@ -32,9 +32,9 @@ COST SENSITIVITY (full period)
 ====================================================================
                trades  expectancy_R  net_pnl  pnl_per_day  round_turn_bps
 cost_scenario                                                            
-optimistic        122        0.0468  2013.17        20.34             1.6
-base              122       -0.0971 -2282.26       -23.05             6.0
-pessimistic       122       -0.3588 -9693.27       -97.91            14.0
+optimistic        122        0.0467  2005.57        20.26             1.6
+base              122       -0.0972 -2285.66       -23.09             6.0
+pessimistic       122       -0.3589 -9697.23       -97.95            14.0
 
 saved results/orb_oos_trades.csv
 
