@@ -9,22 +9,22 @@ fetching ['SPY', 'QQQ', 'AAPL', 'MSFT', 'NVDA'] 2024-01-01..2025-06-01 (feed=iex
 IN-SAMPLE  (orb)
 ====================================================================
   trades 84 over 71d (1.18/day)
-  win rate 41.7% | avg win +1.33R | avg loss -1.06R
-  expectancy -0.0670R  95% CI [-0.3453, +0.2113]  t=-0.47
+  win rate 42.9% | avg win +1.29R | avg loss -1.08R
+  expectancy -0.0660R  95% CI [-0.3443, +0.2123]  t=-0.46
   EDGE SIGNIFICANT: False
-  gross $3,594 - costs $4,222 = NET $-628
-  net per day $-8.84 | return -0.63% | maxDD -4.02%
-  monte carlo: median maxDD -3.9% | 5th-pct -5.7% | P(lose) 100.0%
+  gross $3,637 - costs $4,223 = NET $-587
+  net per day $-8.26 | return -0.59% | maxDD -4.02%
+  monte carlo: median maxDD -3.8% | 5th-pct -5.7% | P(lose) 100.0%
 
 ====================================================================
 OUT-OF-SAMPLE  (orb)  <-- this is the one that counts
 ====================================================================
   trades 38 over 28d (1.36/day)
   win rate 36.8% | avg win +1.11R | avg loss -0.91R
-  expectancy -0.1641R  95% CI [-0.5161, +0.1879]  t=-0.91
+  expectancy -0.1636R  95% CI [-0.5157, +0.1885]  t=-0.91
   EDGE SIGNIFICANT: False
-  gross $-38 - costs $1,637 = NET $-1,676
-  net per day $-59.84 | return -1.68% | maxDD -3.97%
+  gross $-27 - costs $1,637 = NET $-1,664
+  net per day $-59.43 | return -1.66% | maxDD -3.97%
   monte carlo: median maxDD -3.3% | 5th-pct -4.7% | P(lose) 100.0%
 
 ====================================================================
@@ -32,9 +32,9 @@ COST SENSITIVITY (full period)
 ====================================================================
                trades  expectancy_R  net_pnl  pnl_per_day  round_turn_bps
 cost_scenario                                                            
-optimistic        122        0.0466  2004.27        20.25             1.6
-base              122       -0.0973 -2284.43       -23.08             6.0
-pessimistic       122       -0.3589 -9698.96       -97.97            14.0
+optimistic        122        0.0475  2064.95        20.86             1.6
+base              122       -0.0964 -2239.39       -22.62             6.0
+pessimistic       122       -0.3581 -9647.77       -97.45            14.0
 
 saved results/orb_oos_trades.csv
 
